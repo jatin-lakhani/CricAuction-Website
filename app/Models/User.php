@@ -6,11 +6,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+use Storage;
 
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
@@ -20,7 +22,15 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'email_verified_at',
         'password',
+        'profile',
+        'city',
+        'firebase_token',
+        'oauth_type',
+        'oauth_token',
+        'status',
+        'role',
     ];
 
     /**
@@ -44,5 +54,17 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    const STATUS = [
+        'ACTIVE' => 'Active',
+        'INACTIVE' => 'Inactive',
+        'DELETED' => 'Deleted',
+    ];
+
+    public function getProfileImageUrlAttribute()
+    {
+        return $this->profile ? Storage::disk('public')->url($this->profile) : null;
+        // return $this->profile_image ? Storage::disk('public')->url($this->profile) : Storage::disk('public')->url('upload/profile_image/default_profile.png');
     }
 }

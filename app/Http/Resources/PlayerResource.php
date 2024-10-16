@@ -1,0 +1,43 @@
+<?php
+
+namespace App\Http\Resources;
+
+use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
+
+class PlayerResource extends JsonResource
+{
+    /**
+     * Transform the resource into an array.
+     *
+     * @return array<string, mixed>
+     */
+    public function toArray(Request $request): array
+    {
+        return [
+            'id' => $this->id,
+            'auction_id' => $this->auction_id,
+            'team_id' => $this->team_id,
+            'player_firstname' => $this->player_firstname,
+            'player_mobile_no' => $this->player_mobile_no,
+            'player_specification_one' => $this->player_specification_one,
+            'player_specification_two' => $this->player_specification_two,
+            'player_specification_three' => $this->player_specification_three,
+            'player_image' => $this->player_image_url,
+            'player_teamName' => $this->player_teamName,
+            'base_value' => $this->base_value,
+            'sold_value' => $this->sold_value,
+            'is_team_owner' => $this->is_team_owner,
+            'is_non_playing_owner' => $this->is_non_playing_owner,
+            'jersey_name' => $this->jersey_name,
+            'jersey_number' => $this->jersey_number,
+            'jersey_size' => $this->jersey_size,
+            'category' => $this->category,
+            'extra_detail' => $this->extra_detail,
+            'trouser_size' => $this->trouser_size,
+            'created_at' => $this->created_at->toDateTimeString(),
+            'updated_at' => $this->updated_at->toDateTimeString(),
+            // 'team' => new TeamResource($this->whenLoaded('team')),
+        ];
+    }
+}
