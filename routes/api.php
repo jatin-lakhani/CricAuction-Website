@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AuctionController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\PlayerController;
+use App\Http\Controllers\Api\PricingController;
 use App\Http\Controllers\Api\TeamController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
@@ -28,5 +29,6 @@ Route::middleware('log.api.requests')->group(function () {
     Route::resource('auction', AuctionController::class);
     Route::resource('team', TeamController::class);
     Route::resource('player', PlayerController::class);
+    Route::resource('pricing', PricingController::class);
 });
 
