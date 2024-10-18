@@ -19,8 +19,17 @@ class Auction extends Model
         'points_par_team',
         'venue',
         'auction_image',
+        'auction_code',
         'created_at',
         'creator_id'
+    ];
+
+    protected $casts = [
+        'points_par_team' => 'double',
+        'min_bid' => 'integer',
+        'bid_increase_by' => 'double',
+        'player_per_team' => 'double',
+        'player_registration' => 'boolean',
     ];
 
     protected $appends = ['auction_image_url'];
@@ -33,6 +42,10 @@ class Auction extends Model
     public function players()
     {
         return $this->hasMany(Player::class);
+    }
+    public function pricings()
+    {
+        return $this->hasMany(Pricing::class);
     }
 
     public function getAuctionImageUrlAttribute()

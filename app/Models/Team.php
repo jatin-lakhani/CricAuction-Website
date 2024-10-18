@@ -16,8 +16,17 @@ class Team extends Model
         'number_of_player',
         'auction_id',
         'shortcut_key',
+        'teamUsedPoint',
+        'maxBid',
+        'numberOfPlayer',
     ];
 
+    protected $casts = [
+        'price' => 'integer',
+        'number_of_teams' => 'integer',
+        'paymentStatus' => 'integer',
+    ];
+    
     public function auction()
     {
         return $this->belongsTo(Auction::class);

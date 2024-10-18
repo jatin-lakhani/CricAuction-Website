@@ -32,7 +32,7 @@ class TeamController extends Controller
             if ($request->has('id') && !empty($request->input('id'))) {
                 $team = Team::find($request->id);
                 if (!$team) {
-                    return apiFalseResponse('Auction not found.');
+                    return apiFalseResponse('Team not found.');
                 }
             }
             $data = $request->all();

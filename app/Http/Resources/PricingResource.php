@@ -16,12 +16,17 @@ class PricingResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'title' => $this->title,
+            'auction_id' => $this->auction_id,
+            'name' => $this->title,
             'ipaName' => $this->ipaName,
-            'number_of_teams' => $this->number_of_teams,
+            'team' => $this->number_of_teams,
             'description' => $this->description,
-            'price' => $this->price,
+            'pricing' => $this->price,
             'is_default' => $this->is_default,
+            'phoneNo' => $this->phoneNo,
+            'paymentStatus' => $this->paymentStatus,
+            'paymentDate' => $this->paymentDate,
+            'paymentScreenshot' => $this->payment_screenshot_url,
         ];
     }
 }

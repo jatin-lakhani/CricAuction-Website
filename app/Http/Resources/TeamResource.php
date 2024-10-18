@@ -22,11 +22,14 @@ class TeamResource extends JsonResource
             'team_short_name' => $this->team_short_name,
             'team_max_point' => $this->team_max_point,
             'team_point' => $this->team_point,
-            'shortcut_key' => $this->shortcut_key,
+            'teamShortKey' => $this->shortcut_key,
             'team_image' => $this->team_image_url,
+            'teamUsedPoint' => $this->teamUsedPoint,
+            'maxBid' => $this->maxBid,
+            'numberOfPlayer' => $this->numberOfPlayer,
             'created_at' => $this->created_at->toDateTimeString(),
 
-            'players' => PlayerResource::collection($this->whenLoaded('players')),
+            'playerList' => PlayerResource::collection($this->whenLoaded('players')),
         ];
     }
 }

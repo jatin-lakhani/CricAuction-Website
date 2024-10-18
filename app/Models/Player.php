@@ -28,6 +28,19 @@ class Player extends Model
         'trouser_size',
         'category',
         'extra_detail',
+        'playerFormNo',
+        'player_fathername',
+        'playerTeamName',
+        'playerStatus',
+        'playerSelectedIcon',
+    ];
+
+    protected $casts = [
+        'base_value' => 'double',
+        'sold_value' => 'double',
+        'is_team_owner' => 'boolean',
+        'is_non_playing_owner' => 'boolean',
+        'playerStatus' => 'integer',
     ];
 
     public function team()

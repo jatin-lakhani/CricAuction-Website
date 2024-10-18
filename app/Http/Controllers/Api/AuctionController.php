@@ -14,7 +14,7 @@ class AuctionController extends Controller
 {
     public function index()
     {
-        $auctions = Auction::with('teams')->get();
+        $auctions = Auction::with('teams', 'players', 'pricings')->get();
         return apiResponse('Auctions get successfully', AuctionResource::collection($auctions));
     }
 

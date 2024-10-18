@@ -29,9 +29,17 @@ class AuctionResource extends JsonResource
             'player_registration' => $this->player_registration,
             'creator_id' => $this->creator_id,
             'auction_image' => $this->auction_image_url,
+            'auction_code' => $this->auction_code,
             'created_at' => $this->created_at->toDateTimeString(),
-            'teams' => TeamResource::collection($this->whenLoaded('teams')),
-            'players' => PlayerResource::collection($this->whenLoaded('players')),
+            'teamList' => TeamResource::collection($this->whenLoaded('teams')),
+            'playerList' => PlayerResource::collection($this->whenLoaded('players')),
+            'viewAuction' => [
+                'teamList' => TeamResource::collection($this->whenLoaded('teams')),
+                'playerList' => PlayerResource::collection($this->whenLoaded('players')),
+                'currentShowPoint' => 0,
+            ],
+            'pricing' => PricingResource::collection($this->whenLoaded('pricings')),
+            'oldPricing' => PricingResource::collection($this->whenLoaded('pricings')),
         ];
     }
 }

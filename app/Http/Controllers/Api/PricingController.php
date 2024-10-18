@@ -14,16 +14,24 @@ class PricingController extends Controller
 {
     public function index(Request $request)
     {
-        $Pricings = Pricing::all();
+        $Pricings = Pricing::query();
+        if ($request->has('auction_id') && !empty($request->auction_id)) {
+            $Pricings->where('auction_id', $request->auction_id);
+        }
+        if ($request->has('id') && !empty($request->id)) {
+            $Pricings->where('id', $request->id);
+        }
+        $Pricings = $Pricings->latest()->get();
         return apiResponse('Pricings retrieved successfully', PricingResource::collection($Pricings));
     }
 
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'auction_id' => 'required|exists:auctions,id',
             'title' => 'required|string|max:255',
             'price' => 'numeric',
-            'is_default' => 'boolean',
+            // 'is_default' => 'boolean',
         ]);
         if ($validator->fails()) {
             return apiValidationError($validator->messages(), 422);
@@ -36,6 +44,12 @@ class PricingController extends Controller
                 }
             }
             $data = $request->all();
+            if ($request->hasfile('paymentScreenshot')) {
+                $file = $request->file('paymentScreenshot');
+                $filePath = FileUploadHelper::uploadFile($file, 'upload/paymentScreenshot');
+                $data['paymentScreenshot'] = $filePath;
+            }
+
             if (isset($Pricing) && $Pricing) {
                 $Pricing->update($data);
                 $message = 'Pricing details updated successfully';
