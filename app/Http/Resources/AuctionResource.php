@@ -39,7 +39,7 @@ class AuctionResource extends JsonResource
                 'currentShowPoint' => 0,
             ],
             'pricing' => new PricingResource($this->whenLoaded('pricing')),
-            'oldPricing' => new PricingResource($this->whenLoaded('pricing')),
+            'oldPricing' => new PricingResource($this->whenLoaded('oldPricing')),
         ];
     }
 }

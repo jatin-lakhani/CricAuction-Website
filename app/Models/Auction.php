@@ -45,7 +45,14 @@ class Auction extends Model
     }
     public function pricing()
     {
-        return $this->hasOne(Pricing::class);
+        return $this->hasOne(Pricing::class)->latestOfMany();
+    }
+    public function oldPricing()
+    {
+        return $this->hasOne(Pricing::class)
+            ->orderBy('created_at', 'desc')
+            ->skip(1)
+            ->take(1);
     }
 
     public function getAuctionImageUrlAttribute()

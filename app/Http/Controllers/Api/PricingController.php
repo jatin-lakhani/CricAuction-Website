@@ -54,9 +54,9 @@ class PricingController extends Controller
                 return apiFalseResponse('Auction with specified code is not found');
             }
             $checkPricingForAuctionExists = Pricing::where('auction_id', $auction->id)->whereNot('id', $request->id)->first();
-            if ($checkPricingForAuctionExists) {
-                return apiFalseResponse('Pricing with this auction already exists.');
-            }
+            // if ($checkPricingForAuctionExists) {
+            //     return apiFalseResponse('Pricing with this auction already exists.');
+            // }
             $data['auction_id'] = $auction->id;
             if ($request->hasfile('paymentScreenshot')) {
                 $file = $request->file('paymentScreenshot');
