@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Helper\FileUploadHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PlayerResource;
+use App\Models\Auction;
 use App\Models\Player;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -23,8 +24,9 @@ class PlayerController extends Controller
             $sortField = $request->get('sort_field');
         }
         $players = Player::query();
-        if ($request->has('auction_id') && !empty($request->auction_id)) {
-            $players->where('auction_id', $request->auction_id);
+        if ($request->has('auction_code') && !empty($request->auction_code)) {
+            $auction = Auction::where('auction_code', $request->auction_code)->first();
+            $players->where('auction_id', $auction->id);
         }
         if ($request->has('id') && !empty($request->id)) {
             $players->where('id', $request->id);
@@ -43,7 +45,7 @@ class PlayerController extends Controller
         if ($request->has('id') && !empty($request->input('id'))) {
         } else {
             $validator = Validator::make($request->all(), [
-                'auction_id' => 'required|exists:auctions,id',
+                'auction_code' => 'required',
                 'team_id' => 'nullable|exists:teams,id',
                 'player_id' => 'required',
                 'player_firstname' => 'required|string|max:255',
@@ -64,6 +66,13 @@ class PlayerController extends Controller
             }
 
             $data = $request->all();
+            if ($request->has('auction_code') && !empty($request->input('auction_code'))) {
+                $auction = Auction::where('auction_code', $request->auction_code)->first();
+                if (!$auction) {
+                    return apiFalseResponse('Auction with specified code is not found');
+                }   
+                $data['auction_id'] = $auction->id;
+            }
             if ($request->hasfile('player_image')) {
                 $file = $request->file('player_image');
                 $filePath = FileUploadHelper::uploadFile($file, 'upload/player_image');

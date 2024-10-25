@@ -43,9 +43,9 @@ class Auction extends Model
     {
         return $this->hasMany(Player::class);
     }
-    public function pricings()
+    public function pricing()
     {
-        return $this->hasMany(Pricing::class);
+        return $this->hasOne(Pricing::class);
     }
 
     public function getAuctionImageUrlAttribute()

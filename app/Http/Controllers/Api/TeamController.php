@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Helper\FileUploadHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\TeamResource;
+use App\Models\Auction;
 use App\Models\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -14,7 +15,11 @@ class TeamController extends Controller
 {
     public function index(Request $request)
     {
-        $teams = Team::with('players')->where('auction_id', $request->auction_id)->get();
+        $auction = Auction::where('auction_code', $request->auction_code)->first();
+        $teams = [];
+        if ($auction) {
+            $teams = Team::with('players')->where('auction_id', $auction->id)->get();
+        }
         return apiResponse('Teams retrieved successfully', TeamResource::collection($teams));
     }
 
@@ -23,7 +28,7 @@ class TeamController extends Controller
         $validator = Validator::make($request->all(), [
             'team_name' => 'required|string|max:255',
             'team_short_name' => 'required',
-            'auction_id' => 'required|exists:auctions,id',
+            'auction_code' => 'required',
         ]);
         if ($validator->fails()) {
             return apiValidationError($validator->messages(), 422);
@@ -36,6 +41,13 @@ class TeamController extends Controller
                 }
             }
             $data = $request->all();
+            if ($request->has('auction_code') && !empty($request->input('auction_code'))) {
+                $auction = Auction::where('auction_code', $request->auction_code)->first();
+                if (!$auction) {
+                    return apiFalseResponse('Auction with specified code is not found');
+                }   
+                $data['auction_id'] = $auction->id;
+            }
             if ($request->hasfile('team_image')) {
                 $file = $request->file('team_image');
                 $filePath = FileUploadHelper::uploadFile($file, 'upload/team_image');

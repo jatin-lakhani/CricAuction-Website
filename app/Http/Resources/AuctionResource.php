@@ -38,8 +38,8 @@ class AuctionResource extends JsonResource
                 'playerList' => PlayerResource::collection($this->whenLoaded('players')),
                 'currentShowPoint' => 0,
             ],
-            'pricing' => PricingResource::collection($this->whenLoaded('pricings')),
-            'oldPricing' => PricingResource::collection($this->whenLoaded('pricings')),
+            'pricing' => new PricingResource($this->whenLoaded('pricing')),
+            'oldPricing' => new PricingResource($this->whenLoaded('pricing')),
         ];
     }
 }

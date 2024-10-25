@@ -14,17 +14,26 @@ class AuctionController extends Controller
 {
     public function index()
     {
-        $auctions = Auction::with('teams', 'players', 'pricings')->get();
+        $auctions = Auction::with('teams', 'players', 'pricing')->get();
         return apiResponse('Auctions get successfully', AuctionResource::collection($auctions));
     }
 
     public function store(Request $request)
     {
-        if ($request->has('auction_id') && !empty($request->input('auction_id'))) {
-            $auction = Auction::find($request->auction_id);
-            if (!$auction) {
-                return apiFalseResponse('Auction not found.');
+        $auction_id = 0;
+        if ($request->has('auction_code') && !empty($request->input('auction_code'))) {
+            $auction = Auction::where('auction_code', $request->auction_code)->first();
+            // if (!$auction) {
+            //     return apiFalseResponse('Auction not found.');
+            // }
+            if ($auction) {
+                $auction_id = $auction->id;
             }
+        }
+        // Check if auction code exists 
+        $checkAuctionCode = Auction::where('auction_code', $request->auction_code)->whereNot('id', $auction_id)->first();
+        if ($checkAuctionCode) {
+            return apiFalseResponse('Auction code already exists.');
         }
         if ($request->has('auction_date') && !empty($request->input('auction_date'))) {
             $request->merge([
@@ -68,7 +77,7 @@ class AuctionController extends Controller
 
     public function destroy($id)
     {
-        Auction::destroy($id);
+        Auction::where('auction_code', $id)->delete();
         return apiResponse('Auction deleted successfully');
     }
 }
