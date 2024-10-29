@@ -19,6 +19,7 @@ class Team extends Model
         'teamUsedPoint',
         'maxBid',
         'numberOfPlayer',
+        'team_id',
     ];
 
     protected $casts = [
