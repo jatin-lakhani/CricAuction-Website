@@ -20,6 +20,8 @@ class Auction extends Model
         'venue',
         'auction_image',
         'auction_code',
+        'current_auction_team_id',
+        'current_auction_player_id',
         'created_at',
         'creator_id'
     ];

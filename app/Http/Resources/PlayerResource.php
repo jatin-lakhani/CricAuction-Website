@@ -39,6 +39,7 @@ class PlayerResource extends JsonResource
             'playerFormNo' => $this->playerFormNo,
             'player_fathername' => $this->player_fathername,
             'playerStatus' => $this->playerStatus,
+            'playerSelectedIcon' => $this->playerSelectedIcon,
             'created_at' => $this->created_at->toDateTimeString(),
             'updated_at' => $this->updated_at->toDateTimeString(),
             // 'team' => new TeamResource($this->whenLoaded('team')),
