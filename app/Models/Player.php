@@ -41,6 +41,7 @@ class Player extends Model
         'is_team_owner' => 'boolean',
         'is_non_playing_owner' => 'boolean',
         'playerStatus' => 'integer',
+        'playerSelectedIcon' => 'array',
     ];
 
     public function team()

@@ -26,6 +26,9 @@ class PlayerController extends Controller
         $players = Player::query();
         if ($request->has('auction_code') && !empty($request->auction_code)) {
             $auction = Auction::where('auction_code', $request->auction_code)->first();
+            if (!$auction) {
+                return apiFalseResponse('Auction with specified code is not found');
+            }  
             $players->where('auction_id', $auction->id);
         }
         if ($request->has('id') && !empty($request->id)) {
