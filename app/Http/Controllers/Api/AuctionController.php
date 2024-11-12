@@ -12,14 +12,25 @@ use Illuminate\Support\Facades\Validator;
 
 class AuctionController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $auctions = Auction::with('teams', 'players', 'pricing','oldPricing')->get();
+        $creator_id = $request->creator_id;
+        $auctions = Auction::with('teams', 'players', 'pricing', 'oldPricing')
+            ->when($creator_id, function ($query) use ($creator_id) {
+                $query->where('creator_id', $creator_id);
+            })->get();
         return apiResponse('Auctions get successfully', AuctionResource::collection($auctions));
     }
 
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+			'auction_code' => 'required',
+		]);
+
+		if ($validator->fails()) {
+			return apiValidationError($validator->messages());
+		}
         $auction_id = 0;
         if ($request->has('auction_code') && !empty($request->input('auction_code'))) {
             $auction = Auction::where('auction_code', $request->auction_code)->first();

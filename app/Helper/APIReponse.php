@@ -4,7 +4,7 @@ if (!function_exists('apiResponse')) {
     /**
      * Return a JSON response for API.
      *
-     * @param array $data
+     * @param mixed $data
      * @param int $statusCode
      * @param string|null $message
      * @return \Illuminate\Http\JsonResponse
