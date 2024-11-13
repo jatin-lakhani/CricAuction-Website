@@ -28,11 +28,14 @@ class PlayerController extends Controller
             $auction = Auction::where('auction_code', $request->auction_code)->first();
             if (!$auction) {
                 return apiFalseResponse('Auction with specified code is not found');
-            }  
+            }
             $players->where('auction_id', $auction->id);
         }
         if ($request->has('id') && !empty($request->id)) {
             $players->where('id', $request->id);
+        }
+        if ($request->has('player_id') && !empty($request->player_id)) {
+            $players->where('player_id', $request->player_id);
         }
         if ($request->has('team_id') && !empty($request->team_id)) {
             $players->where('team_id', $request->team_id);
@@ -61,11 +64,20 @@ class PlayerController extends Controller
         }
 
         try {
-            if ($request->has('id') && !empty($request->input('id'))) {
-                $player = Player::find($request->id);
-                if (!$player) {
-                    return apiFalseResponse('Player not found.');
+            $player_id = 0;
+            if ($request->has('player_id') && !empty($request->input('player_id'))) {
+                $player = Player::where('player_id', $request->player_id)->first();
+                // if (!$auction) {
+                //     return apiFalseResponse('Auction not found.');
+                // }
+                if ($player) {
+                    $player_id = $player->id;
                 }
+            }
+            // Check if auction code exists 
+            $checkPlayerId = Player::where('player_id', $request->player_id)->whereNot('id', $player_id)->first();
+            if ($checkPlayerId) {
+                return apiFalseResponse('Player id is already exists.');
             }
 
             $data = $request->all();
@@ -73,13 +85,15 @@ class PlayerController extends Controller
                 $auction = Auction::where('auction_code', $request->auction_code)->first();
                 if (!$auction) {
                     return apiFalseResponse('Auction with specified code is not found');
-                }   
+                }
                 $data['auction_id'] = $auction->id;
             }
             if ($request->hasfile('player_image')) {
                 $file = $request->file('player_image');
                 $filePath = FileUploadHelper::uploadFile($file, 'upload/player_image');
                 $data['player_image'] = $filePath;
+            } else {
+                $data['player_image'] = null;
             }
 
             if (isset($player) && $player) {
@@ -100,7 +114,7 @@ class PlayerController extends Controller
     // Retrieve player details
     public function show($id)
     {
-        $player = Player::with('team')->findOrFail($id);
+        $player = Player::with('team')->where('player_id', $id)->first;
         if (!$player) {
             return apiFalseResponse('Player details not found');
         }
@@ -110,7 +124,7 @@ class PlayerController extends Controller
     // Delete a player
     public function destroy($id)
     {
-        Player::destroy($id);
+        Player::where('player_id', $id)->delete();
         return apiResponse('Player deleted successfully');
     }
 

@@ -26,6 +26,7 @@ class TeamController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'team_id' => 'required',
             'team_name' => 'required|string|max:255',
             'team_short_name' => 'required',
             'auction_code' => 'required',
