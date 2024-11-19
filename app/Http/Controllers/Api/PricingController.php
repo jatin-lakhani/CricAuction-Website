@@ -58,11 +58,11 @@ class PricingController extends Controller
             //     return apiFalseResponse('Pricing with this auction already exists.');
             // }
             $data['auction_id'] = $auction->id;
-            if ($request->hasfile('paymentScreenshot')) {
-                $file = $request->file('paymentScreenshot');
-                $filePath = FileUploadHelper::uploadFile($file, 'upload/paymentScreenshot');
-                $data['paymentScreenshot'] = $filePath;
-            }
+            // if ($request->hasfile('paymentScreenshot')) {
+            //     $file = $request->file('paymentScreenshot');
+            //     $filePath = FileUploadHelper::uploadFile($file, 'upload/paymentScreenshot');
+            //     $data['paymentScreenshot'] = $filePath;
+            // }
 
             if (isset($Pricing) && $Pricing) {
                 $Pricing->update($data);

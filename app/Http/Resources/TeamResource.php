@@ -23,7 +23,7 @@ class TeamResource extends JsonResource
             'team_max_point' => $this->team_max_point,
             'team_point' => $this->team_point,
             'teamShortKey' => $this->shortcut_key,
-            'team_image' => $this->team_image_url,
+            'team_image' => $this->team_image,
             'teamUsedPoint' => $this->teamUsedPoint,
             'maxBid' => $this->maxBid,
             'numberOfPlayer' => $this->numberOfPlayer,

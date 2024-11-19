@@ -52,11 +52,11 @@ class UserController extends Controller
                     return apiErrorResponse('User with this email already exists.', 409);
                 }
             }
-            if ($request->hasfile('profile')) {
-                $file = $request->file('profile');
-                $filePath = FileUploadHelper::uploadFile($file, 'upload/profile_image');
-                $user->profile = $filePath;
-            }
+            // if ($request->hasfile('profile')) {
+            //     $file = $request->file('profile');
+            //     $filePath = FileUploadHelper::uploadFile($file, 'upload/profile_image');
+            //     $user->profile = $filePath;
+            // }
             $user->name = $request->name;
             $user->email = $request->email;
             if ($request->has('password') && !empty($request->input('password'))) {

@@ -34,11 +34,11 @@ class AuthController extends Controller
 		try {
 			$phoneNumber = str_replace(' ', '', $request->phoneNumber);
 			$user = new User();
-			if ($request->hasfile('profile')) {
-				$file = $request->file('profile');
-				$filePath = FileUploadHelper::uploadFile($file, 'upload/profile_image');
-				$user->profile = $filePath;
-			}
+			// if ($request->hasfile('profile')) {
+			// 	$file = $request->file('profile');
+			// 	$filePath = FileUploadHelper::uploadFile($file, 'upload/profile_image');
+			// 	$user->profile = $filePath;
+			// }
 			$user->name = $request->name;
 			$user->email = $request->email;
 			$user->password = $request->password;

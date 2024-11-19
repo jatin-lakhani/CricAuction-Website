@@ -62,11 +62,11 @@ class AuctionController extends Controller
             ]);
         }
         $data = $request->all();
-        if ($request->hasfile('auction_image')) {
-            $file = $request->file('auction_image');
-            $filePath = FileUploadHelper::uploadFile($file, 'upload/auction_image');
-            $data['auction_image'] = $filePath;
-        }
+        // if ($request->hasfile('auction_image')) {
+        //     $file = $request->file('auction_image');
+        //     $filePath = FileUploadHelper::uploadFile($file, 'upload/auction_image');
+        //     $data['auction_image'] = $filePath;
+        // }
         if (isset($auction) && $auction) {
             $auction->update($data);
             $message = 'Auction updated successfully';

@@ -64,11 +64,11 @@ class TeamController extends Controller
                 }
                 $data['auction_id'] = $auction->id;
             }
-            if ($request->hasfile('team_image')) {
-                $file = $request->file('team_image');
-                $filePath = FileUploadHelper::uploadFile($file, 'upload/team_image');
-                $data['team_image'] = $filePath;
-            }
+            // if ($request->hasfile('team_image')) {
+            //     $file = $request->file('team_image');
+            //     $filePath = FileUploadHelper::uploadFile($file, 'upload/team_image');
+            //     $data['team_image'] = $filePath;
+            // }
             if (isset($team) && $team) {
                 $team->update($data);
                 $message = 'Team details updated successfully';

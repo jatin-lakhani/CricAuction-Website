@@ -88,13 +88,13 @@ class PlayerController extends Controller
                 }
                 $data['auction_id'] = $auction->id;
             }
-            if ($request->hasfile('player_image')) {
-                $file = $request->file('player_image');
-                $filePath = FileUploadHelper::uploadFile($file, 'upload/player_image');
-                $data['player_image'] = $filePath;
-            } else {
-                $data['player_image'] = null;
-            }
+            // if ($request->hasfile('player_image')) {
+            //     $file = $request->file('player_image');
+            //     $filePath = FileUploadHelper::uploadFile($file, 'upload/player_image');
+            //     $data['player_image'] = $filePath;
+            // } else {
+            //     $data['player_image'] = null;
+            // }
 
             if (isset($player) && $player) {
                 $player->update($data);
