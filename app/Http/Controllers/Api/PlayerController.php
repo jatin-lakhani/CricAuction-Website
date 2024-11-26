@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\PlayerResource;
 use App\Models\Auction;
 use App\Models\Player;
+use App\Models\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -51,11 +52,11 @@ class PlayerController extends Controller
         if ($request->has('id') && !empty($request->input('id'))) {
         } else {
             $validator = Validator::make($request->all(), [
-                'auction_code' => 'required',
-                'team_id' => 'nullable|exists:teams,id',
+                'auction_code' => 'nullable',
+                'team_id' => 'nullable',
                 'player_id' => 'required',
-                'player_firstname' => 'required|string|max:255',
-                'player_mobile_no' => 'required|string|max:15',
+                'player_firstname' => 'nullable|string|max:255',
+                'player_mobile_no' => 'nullable|string|max:15',
             ]);
         }
 
@@ -74,7 +75,7 @@ class PlayerController extends Controller
                     $player_id = $player->id;
                 }
             }
-            // Check if auction code exists 
+            // Check if auction code exists
             $checkPlayerId = Player::where('player_id', $request->player_id)->whereNot('id', $player_id)->first();
             if ($checkPlayerId) {
                 return apiFalseResponse('Player id is already exists.');
@@ -88,13 +89,13 @@ class PlayerController extends Controller
                 }
                 $data['auction_id'] = $auction->id;
             }
-            // if ($request->hasfile('player_image')) {
-            //     $file = $request->file('player_image');
-            //     $filePath = FileUploadHelper::uploadFile($file, 'upload/player_image');
-            //     $data['player_image'] = $filePath;
-            // } else {
-            //     $data['player_image'] = null;
-            // }
+            if ($request->has('team_id') && !empty($request->input('team_id'))) {
+                $team = Team::where('team_id', $request->team_id)->first();
+                if (!$team) {
+                    return apiFalseResponse('Team with specified id is not found');
+                }
+                $data['team_id'] = $team->id;
+            }
 
             if (isset($player) && $player) {
                 $player->update($data);
