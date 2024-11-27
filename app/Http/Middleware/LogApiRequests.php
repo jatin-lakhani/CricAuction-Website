@@ -22,7 +22,7 @@ class LogApiRequests
             'REQUEST_BODY' => $request->all(),
         ];
         
-        Log::channel('daily')->info('API Request: ' . json_encode($log, JSON_PRETTY_PRINT));
+        // Log::channel('daily')->info('API Request: ' . json_encode($log, JSON_PRETTY_PRINT));
 
         return $next($request);
     }
