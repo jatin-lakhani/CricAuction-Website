@@ -21,6 +21,7 @@ class PlayerResource extends JsonResource
             'player_id' => $this->player_id,
             'player_firstname' => $this->player_firstname,
             'player_mobile_no' => $this->player_mobile_no,
+            'player_age' => $this->player_age,
             'player_specification_one' => $this->player_specification_one,
             'player_specification_two' => $this->player_specification_two,
             'player_specification_three' => $this->player_specification_three,
@@ -38,11 +39,11 @@ class PlayerResource extends JsonResource
             'trouser_size' => $this->trouser_size,
             'playerTeamName' => $this->playerTeamName,
             'playerFormNo' => $this->playerFormNo,
-            'player_fathername' => $this->player_fathername,
+            // 'player_fathername' => $this->player_fathername,
             'playerStatus' => $this->playerStatus,
             'playerSelectedIcon' => $this->playerSelectedIcon,
-            'created_at' => $this->created_at->toDateTimeString(),
-            'updated_at' => $this->updated_at->toDateTimeString(),
+            // 'created_at' => $this->created_at->toDateTimeString(),
+            // 'updated_at' => $this->updated_at->toDateTimeString(),
             // 'team' => new TeamResource($this->whenLoaded('team')),
         ];
     }

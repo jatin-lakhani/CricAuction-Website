@@ -25,7 +25,7 @@ class TeamResource extends JsonResource
             // 'teamShortKey' => $this->shortcut_key,
             'team_image' => $this->team_image,
             'teamUsedPoint' => $this->teamUsedPoint,
-            'maxBid' => $this->maxBid,
+            // 'maxBid' => $this->maxBid,
             'numberOfPlayer' => $this->numberOfPlayer,
             'created_at' => $this->created_at->toDateTimeString(),
 
