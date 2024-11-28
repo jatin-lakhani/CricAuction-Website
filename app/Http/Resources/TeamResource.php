@@ -28,8 +28,9 @@ class TeamResource extends JsonResource
             // 'maxBid' => $this->maxBid,
             'numberOfPlayer' => $this->numberOfPlayer,
             'created_at' => $this->created_at->toDateTimeString(),
-
-            'playerList' => PlayerResource::collection($this->whenLoaded('players')),
+            'playerList' => $this->whenLoaded('players', function () {
+                return $this->players->pluck('player_id')->implode(',');
+            }),
         ];
     }
 }
