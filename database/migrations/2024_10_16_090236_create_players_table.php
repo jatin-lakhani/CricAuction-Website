@@ -22,6 +22,7 @@ return new class extends Migration {
             $table->string('player_specification_two')->nullable();
             $table->string('player_specification_three')->nullable();
             $table->string('player_image')->nullable();
+            $table->string('crichero_profile_url')->nullable();
             $table->integer('base_value')->default(0);
             $table->integer('sold_value')->nullable();
             $table->boolean('is_team_owner')->default(false);
