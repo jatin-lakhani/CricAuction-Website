@@ -15,7 +15,7 @@ class AuctionController extends Controller
     public function index(Request $request)
     {
         $creator_id = $request->creator_id;
-        $auctions = Auction::with('teams', 'players', 'pricing', 'oldPricing')
+        $auctions = Auction::with('teams.players', 'players', 'pricing', 'oldPricing')
             ->when($creator_id, function ($query) use ($creator_id) {
                 $query->where('creator_id', $creator_id);
             })->get();
