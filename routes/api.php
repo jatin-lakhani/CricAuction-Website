@@ -29,6 +29,7 @@ Route::middleware('log.api.requests')->group(function () {
     Route::resource('auction', AuctionController::class);
     Route::resource('team', TeamController::class);
     Route::resource('player', PlayerController::class);
+    Route::post('playerBulkStore', [PlayerController::class, 'playerBulkStore']);
     Route::resource('pricing', PricingController::class);
 });
 

@@ -129,6 +129,59 @@ class PlayerController extends Controller
         return apiResponse('Player deleted successfully');
     }
 
+    public function playerBulkStore(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'players' => 'required|array',
+            'players.*.player_id' => 'required',
+            'players.*.player_firstname' => 'nullable|string|max:255',
+            'players.*.player_mobile_no' => 'nullable|string|max:15',
+            'players.*.auction_code' => 'nullable|string',
+            'players.*.team_id' => 'nullable',
+        ]);
+
+        if ($validator->fails()) {
+            return apiValidationError($validator->messages());
+        }
+        $results = [];
+        try {
+            foreach ($request->players as $playerData) {
+                $data = $playerData;
+                if (isset($playerData['auction_code']) && !empty($playerData['auction_code'])) {
+                    $auction = Auction::where('auction_code', $playerData['auction_code'])->first();
+                    if ($auction) {
+                        $data['auction_id'] = $auction->id;
+                    } else {
+                        $results[] = "Auction with code {$playerData['auction_code']} not found for player ID: {$playerData['player_id']}.";
+                        continue;
+                    }
+                }
+                if (isset($playerData['team_id']) && !empty($playerData['team_id'])) {
+                    $team = Team::where('team_id', $playerData['team_id'])->first();
+                    if ($team) {
+                        $data['team_id'] = $team->id;
+                    } else {
+                        $results[] = "Team with ID {$playerData['team_id']} not found for player ID: {$playerData['player_id']}.";
+                        continue;
+                    }
+                }
+
+                $existingPlayer = Player::where('player_id', $playerData['player_id'])->first();
+                if ($existingPlayer) {
+                    $existingPlayer->update($data);
+                    $results[] = "Player with ID {$playerData['player_id']} updated successfully.";
+                } else {
+                    Player::create($data);
+                    $results[] = "Player with ID {$playerData['player_id']} created successfully.";
+                }
+            }
+            return apiResponse('Bulk player operations completed successfully', $results);
+        } catch (\Exception $e) {
+            logError($e);
+            return apiErrorResponse($e->getMessage());
+        }
+    }
+
     // Store a masked player with only name and masked mobile number
     public function storeMaskedPlayer(Request $request)
     {
