@@ -29,7 +29,7 @@ class TeamResource extends JsonResource
             'numberOfPlayer' => $this->numberOfPlayer,
             'created_at' => $this->created_at->toDateTimeString(),
             'playerList' => $this->whenLoaded('players', function () {
-                return $this->players->pluck('player_id')->toArray();
+                return $this->players->pluck('id')->toArray();
             }),
         ];
     }

@@ -36,7 +36,7 @@ class PlayerController extends Controller
             $players->where('id', $request->id);
         }
         if ($request->has('player_id') && !empty($request->player_id)) {
-            $players->where('player_id', $request->player_id);
+            $players->where('id', $request->player_id);
         }
         if ($request->has('team_id') && !empty($request->team_id)) {
             $players->where('team_id', $request->team_id);
@@ -54,7 +54,7 @@ class PlayerController extends Controller
             $validator = Validator::make($request->all(), [
                 'auction_code' => 'nullable',
                 'team_id' => 'nullable',
-                'player_id' => 'required',
+                // 'player_id' => 'required',
                 'player_firstname' => 'nullable|string|max:255',
                 'player_mobile_no' => 'nullable|string|max:15',
             ]);
@@ -67,18 +67,13 @@ class PlayerController extends Controller
         try {
             $player_id = 0;
             if ($request->has('player_id') && !empty($request->input('player_id'))) {
-                $player = Player::where('player_id', $request->player_id)->first();
+                $player = Player::where('id', $request->player_id)->first();
                 // if (!$auction) {
                 //     return apiFalseResponse('Auction not found.');
                 // }
                 if ($player) {
                     $player_id = $player->id;
                 }
-            }
-            // Check if auction code exists
-            $checkPlayerId = Player::where('player_id', $request->player_id)->whereNot('id', $player_id)->first();
-            if ($checkPlayerId) {
-                return apiFalseResponse('Player id is already exists.');
             }
 
             $data = $request->all();
@@ -115,7 +110,7 @@ class PlayerController extends Controller
     // Retrieve player details
     public function show($id)
     {
-        $player = Player::with('team')->where('player_id', $id)->first;
+        $player = Player::with('team')->where('id', $id)->first;
         if (!$player) {
             return apiFalseResponse('Player details not found');
         }
@@ -125,7 +120,7 @@ class PlayerController extends Controller
     // Delete a player
     public function destroy($id)
     {
-        Player::where('player_id', $id)->delete();
+        Player::where('id', $id)->delete();
         return apiResponse('Player deleted successfully');
     }
 
@@ -133,7 +128,7 @@ class PlayerController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'players' => 'required|array',
-            'players.*.player_id' => 'required',
+            'players.*.player_id' => 'nullable',
             'players.*.player_firstname' => 'nullable|string|max:255',
             'players.*.player_mobile_no' => 'nullable|string|max:15',
             'players.*.auction_code' => 'nullable|string',
@@ -152,7 +147,7 @@ class PlayerController extends Controller
                     if ($auction) {
                         $data['auction_id'] = $auction->id;
                     } else {
-                        $results[] = "Auction with code {$playerData['auction_code']} not found for player ID: {$playerData['player_id']}.";
+                        $results[] = "Auction with code {$playerData['auction_code']} not found for player.";
                         continue;
                     }
                 }
@@ -161,18 +156,20 @@ class PlayerController extends Controller
                     if ($team) {
                         $data['team_id'] = $team->id;
                     } else {
-                        $results[] = "Team with ID {$playerData['team_id']} not found for player ID: {$playerData['player_id']}.";
+                        $results[] = "Team with ID {$playerData['team_id']} not found for player}.";
                         continue;
                     }
                 }
-
-                $existingPlayer = Player::where('player_id', $playerData['player_id'])->first();
+                $existingPlayer = null;
+                if (isset($playerData['player_id']) && !empty($playerData['player_id'])) {
+                    $existingPlayer = Player::where('id', $playerData['player_id'])->first();
+                }
                 if ($existingPlayer) {
                     $existingPlayer->update($data);
                     $results[] = "Player with ID {$playerData['player_id']} updated successfully.";
                 } else {
-                    Player::create($data);
-                    $results[] = "Player with ID {$playerData['player_id']} created successfully.";
+                    $player = Player::create($data);
+                    $results[] = "Player with ID {$player->id} created successfully.";
                 }
             }
             return apiResponse('Bulk player operations completed successfully', $results);
