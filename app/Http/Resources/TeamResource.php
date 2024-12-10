@@ -15,7 +15,7 @@ class TeamResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'team_id' => (string)$this->id,
+            'team_id' => (string) $this->id,
             'auction_id' => $this->auction_id,
             'team_name' => $this->team_name,
             'team_short_name' => $this->team_short_name,
@@ -28,7 +28,7 @@ class TeamResource extends JsonResource
             'numberOfPlayer' => $this->numberOfPlayer,
             'created_at' => $this->created_at->toDateTimeString(),
             'playerList' => $this->whenLoaded('players', function () {
-                return $this->players->pluck('id')->toArray();
+                return $this->players->pluck('id')->map(fn($id) => (string) $id)->toArray();
             }),
         ];
     }
