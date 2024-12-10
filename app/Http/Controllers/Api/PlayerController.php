@@ -85,7 +85,7 @@ class PlayerController extends Controller
                 $data['auction_id'] = $auction->id;
             }
             if ($request->has('team_id') && !empty($request->input('team_id'))) {
-                $team = Team::where('team_id', $request->team_id)->first();
+                $team = Team::where('id', $request->team_id)->first();
                 if (!$team) {
                     return apiFalseResponse('Team with specified id is not found');
                 }
@@ -152,7 +152,7 @@ class PlayerController extends Controller
                     }
                 }
                 if (isset($playerData['team_id']) && !empty($playerData['team_id'])) {
-                    $team = Team::where('team_id', $playerData['team_id'])->first();
+                    $team = Team::where('id', $playerData['team_id'])->first();
                     if ($team) {
                         $data['team_id'] = $team->id;
                     } else {

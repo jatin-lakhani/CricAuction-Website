@@ -17,7 +17,7 @@ class PlayerResource extends JsonResource
         return [
             'player_id' => $this->id,
             'auction_id' => $this->auction_id,
-            'team_id' => $this->team->team_id ?? null,
+            'team_id' => $this->team->id ?? null,
             'player_firstname' => $this->player_firstname,
             'player_mobile_no' => $this->player_mobile_no,
             'player_age' => $this->player_age,

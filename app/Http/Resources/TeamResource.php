@@ -15,9 +15,8 @@ class TeamResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id' => $this->id,
+            'team_id' => $this->id,
             'auction_id' => $this->auction_id,
-            'team_id' => $this->team_id,
             'team_name' => $this->team_name,
             'team_short_name' => $this->team_short_name,
             'team_max_point' => $this->team_max_point,

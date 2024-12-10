@@ -26,7 +26,7 @@ class TeamController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'team_id' => 'required',
+            // 'team_id' => 'required',
             'team_name' => 'required|string|max:255',
             'team_short_name' => 'required',
             'auction_code' => 'required',
@@ -37,7 +37,7 @@ class TeamController extends Controller
         try {
             $team_id = 0;
             if ($request->has('team_id') && !empty($request->input('team_id'))) {
-                $team = Team::where('team_id', $request->team_id)->first();
+                $team = Team::where('id', $request->team_id)->first();
                 // if (!$auction) {
                 //     return apiFalseResponse('Auction not found.');
                 // }
@@ -46,10 +46,10 @@ class TeamController extends Controller
                 }
             }
             // Check if auction code exists 
-            $checkTeamId = Team::where('team_id', $request->team_id)->whereNot('id', $team_id)->first();
-            if ($checkTeamId) {
-                return apiFalseResponse(message: 'Team id already exists.');
-            }
+            // $checkTeamId = Team::where('team_id', $request->team_id)->whereNot('id', $team_id)->first();
+            // if ($checkTeamId) {
+            //     return apiFalseResponse(message: 'Team id already exists.');
+            // }
             // if ($request->has('id') && !empty($request->input('id'))) {
             //     $team = Team::find($request->id);
             //     if (!$team) {
@@ -85,7 +85,7 @@ class TeamController extends Controller
 
     public function show($id)
     {
-        $team = Team::with('players')->where('team_id', $id)->first();
+        $team = Team::with('players')->where('id', $id)->first();
         if (!$team) {
             return apiFalseResponse('Team details not found');
         }
@@ -94,7 +94,7 @@ class TeamController extends Controller
 
     public function destroy($id)
     {
-        Team::where('team_id', $id)->delete();
+        Team::where('id', $id)->delete();
         return apiResponse('Team deleted successfully');
     }
 }
