@@ -15,7 +15,7 @@ class PlayerResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'player_id' => $this->id,
+            'player_id' => (string)$this->id,
             'auction_id' => $this->auction_id,
             'team_id' => $this->team->id ?? null,
             'player_firstname' => $this->player_firstname,
