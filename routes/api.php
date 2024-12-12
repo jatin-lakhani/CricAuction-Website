@@ -26,6 +26,7 @@ Route::middleware('log.api.requests')->group(function () {
     });
 
     // Auction APIs 
+    Route::GET('getAuctions', [AuctionController::class, 'getAuctions']);
     Route::resource('auction', AuctionController::class);
     Route::resource('team', TeamController::class);
     Route::resource('player', PlayerController::class);
