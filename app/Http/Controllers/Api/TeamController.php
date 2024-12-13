@@ -34,9 +34,9 @@ class TeamController extends Controller
                 'team_short_name' => 'required',
                 'auction_code' => 'nullable',
             ]);
-        }
-        if ($validator->fails()) {
-            return apiValidationError($validator->messages(), 422);
+            if ($validator->fails()) {
+                return apiValidationError($validator->messages(), 422);
+            }
         }
         try {
             $team_id = 0;
