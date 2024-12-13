@@ -25,12 +25,16 @@ class TeamController extends Controller
 
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            // 'team_id' => 'required',
-            'team_name' => 'required|string|max:255',
-            'team_short_name' => 'required',
-            'auction_code' => 'required',
-        ]);
+        if ($request->has('team_id') && !empty($request->input('team_id'))) {
+
+        } else {
+            $validator = Validator::make($request->all(), [
+                // 'team_id' => 'required',
+                'team_name' => 'required|string|max:255',
+                'team_short_name' => 'required',
+                'auction_code' => 'nullable',
+            ]);
+        }
         if ($validator->fails()) {
             return apiValidationError($validator->messages(), 422);
         }
@@ -73,6 +77,9 @@ class TeamController extends Controller
                 $team->update($data);
                 $message = 'Team details updated successfully';
             } else {
+                if (!isset($data['auction_id']) || empty($data['auction_id'])) {
+                    return apiFalseResponse('Auction code is required');
+                }
                 $team = Team::create($data);
                 $message = 'Team created successfully';
             }
