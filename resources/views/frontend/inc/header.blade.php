@@ -47,7 +47,7 @@
 <body class="index-page">
 
     <header id="header" class="header align-items-center fixed-top">
-        <div class="position-relative  align-items-center heading-top">
+        <div class="position-relative  align-items-center heading-top" style="display: none;">
             <ul>
                 <span>"Welcome to Cricauction—start bidding on exclusive cricket memorabilia now!"</span>
                 <li><a href="tel:+917698767767"><i class="bi bi-telephone"></i>+91 76 98 767 767</a></li>
@@ -72,7 +72,7 @@
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
 
-            <div class="dropdown open">
+            <div class="dropdown open" style="display: none;">
                 <button class="btn btn-primary dropdown-toggle drp-btn" type="button" id="triggerId"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img src="{{ asset('assets/images/user.png') }}" alt="User">

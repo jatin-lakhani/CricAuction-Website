@@ -280,7 +280,6 @@ i.bi.bi-telephone {
 .footer .footer-links .social {
     display: flex;
     flex-direction: column;
-    text-decoration: underline;
     color: #ffffff;
 }
 
@@ -297,6 +296,11 @@ i.bi.bi-telephone {
 .footer .footer-contact img {
     width: 55%;
     max-width: 100%;
+    transition: transform 0.4s ease;
+}
+
+.footer .footer-contact img:hover{
+    transform: scale(0.9);
 }
 
 .footer .copyright,
@@ -436,6 +440,12 @@ section,
     width: 100%;
     max-width: 85%;
     height: 100%;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+}
+
+.hero .hero-btns img:hover{
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
 .section-title {
@@ -811,7 +821,8 @@ section,
 
 .clients .clients-details .client-img:hover {
     border-radius: 10px;
-    transform: scale(1.2);
+    /* transform: scale(1.2); */
+    transform: scale(1);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 

@@ -1,7 +1,7 @@
 @extends('frontend.inc.master')
 
 @section('main-container')
-    <main class="main pt-5">
+    <main class="main">
         <!-- Hero Section -->
         <section id="hero" class="hero section">
             <div class="hero-bg">
@@ -18,9 +18,9 @@
                                 <h2>Live Player Bidding & Cricket Tournaments!</h2>
                             </div>
                             <div class="hero-btns" data-aos="fade-up" data-aos-delay="300">
-                                <a href=""><img src="{{ asset('assets/images/hero/hero-as.png') }}"
+                                <a href="https://apps.apple.com/us/app/cricauction-cricket-auction/id6504701315"><img src="{{ asset('assets/images/hero/hero-as.png') }}"
                                         alt="AppStore"></a>
-                                <a href=""><img src="{{ asset('assets/images/hero/hero-gp.png') }}"
+                                <a href="https://play.google.com/store/apps/details?id=com.cricauction.cricket.playerauction&hl=en_IN"><img src="{{ asset('assets/images/hero/hero-gp.png') }}"
                                         alt="GooglePlay"></a>
                             </div>
                         </div>
@@ -236,7 +236,7 @@
                             </div>
                             <div class="help-content pb-5">
                                 <div class="row d-flex align-items-center gap-3">
-                                    <div class="col-lg-12"  data-aos="fade-up" data-aos-delay="200">
+                                    <div class="col-lg-12" data-aos="fade-up" data-aos-delay="200">
                                         <div class="card help-card-det">
                                             <img src="{{ asset('assets/images/help/h1.png') }}"
                                                 class="card-img-left img-fluid" alt="Help 1">
@@ -251,7 +251,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-12"  data-aos="fade-up" data-aos-delay="300">
+                                    <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
                                         <div class="card help-card-det">
                                             <img src="{{ asset('assets/images/help/h2.png') }}"
                                                 class="card-img-left img-fluid" alt="Help 1">
@@ -264,7 +264,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-12"  data-aos="fade-up" data-aos-delay="400">
+                                    <div class="col-lg-12" data-aos="fade-up" data-aos-delay="400">
                                         <div class="card help-card-det">
                                             <img src="{{ asset('assets/images/help/h3.png') }}"
                                                 class="card-img-left img-fluid" alt="Help 1">
@@ -277,7 +277,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-12"  data-aos="fade-up" data-aos-delay="500">
+                                    <div class="col-lg-12" data-aos="fade-up" data-aos-delay="500">
                                         <div class="card help-card-det">
                                             <img src="{{ asset('assets/images/help/h4.png') }}"
                                                 class="card-img-left img-fluid" alt="Help 1">
@@ -295,8 +295,7 @@
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- /Help Section -->
+        </section><!-- /Help Section -->
 
         <!-- Client Section -->
         <section id="clients" class="section clients">
@@ -404,16 +403,16 @@
                             </div>
                             <!-- Contact Form -->
                             <div class="col-lg-6 col-md-12">
-                                <form action="" data-aos="fade-up" data-aos-delay="200">
+                                <form action="" method="POST" data-aos="fade-up" data-aos-delay="200">
                                     <!-- Name Fields -->
                                     <div class="row">
                                         <div class="col-md-6 mb-4">
-                                            <label for="fname" class="form-label">First Name</label>
+                                            <label for="fname" class="form-label">First Name*</label>
                                             <input type="text" class="form-control" id="fname"
                                                 placeholder="Your Name">
                                         </div>
                                         <div class="col-md-6 mb-4">
-                                            <label for="lname" class="form-label">Last Name</label>
+                                            <label for="lname" class="form-label">Last Name*</label>
                                             <input type="text" class="form-control" id="lname"
                                                 placeholder="Your Surname">
                                         </div>
@@ -423,12 +422,12 @@
                                         <div class="col-md-6 mb-4">
                                             <label for="email" class="form-label">Email id*</label>
                                             <input type="email" class="form-control" id="email"
-                                                placeholder="Your Email Id">
+                                                placeholder="Your Email Id" required>
                                         </div>
                                         <div class="col-md-6 mb-4">
                                             <label for="mno" class="form-label">Mobile Number</label>
                                             <input type="tel" class="form-control" id="mno" name="mobile"
-                                                placeholder="Your Mobile No" required pattern="[0-9]{10}">
+                                                placeholder="Your Mobile No" pattern="[0-9]{10}">
                                         </div>
                                     </div>
                                     <!-- Message Field -->
@@ -438,7 +437,7 @@
                                     </div>
                                     <!-- Submit Button -->
                                     <div class="d-flex justify-content-center">
-                                        <button type="submit" class="btn btn-primary px-5">Submit</button>
+                                        <a type="submit" class="btn btn-primary px-5">Submit</a>
                                     </div>
                                 </form>
                             </div>

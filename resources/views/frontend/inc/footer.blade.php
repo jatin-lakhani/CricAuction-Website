@@ -8,9 +8,9 @@
                     <h1><span>Cric</span>Auction</h1>
                 </a>
                 <div class="footer-contact">
-                    <a href=""><img src="{{ asset('assets/images/footer/google-play.png') }}" class="pb-3"
+                    <a href="https://play.google.com/store/apps/details?id=com.cricauction.cricket.playerauction&hl=en_IN"><img src="{{ asset('assets/images/footer/google-play.png') }}" class="pb-3"
                             alt=""></a>
-                    <a href=""><img src="{{ asset('assets/images/footer/app-store.png') }}" alt=""></a>
+                    <a href="https://apps.apple.com/us/app/cricauction-cricket-auction/id6504701315"><img src="{{ asset('assets/images/footer/app-store.png') }}" alt=""></a>
                 </div>
             </div>
 
@@ -29,14 +29,14 @@
             <div class="col-lg-2 col-md-3 footer-links" data-aos="fade-up" data-aos-delay="300">
                 <h4>Follow Us</h4>
                 <ul class="social">
-                    <li><a href="#"><img src="{{ asset('assets/images/footer/facebook.png') }}"
+                    <li><a href="https://www.facebook.com/profile.php?id=61571234099766" target="_blank"><img src="{{ asset('assets/images/footer/facebook.png') }}"
                                 alt="Facebook">Facebook</a></li>
-                    <li><a href="#"><img src="{{ asset('assets/images/footer/instagram.png') }}"
+                    <li><a href="https://www.instagram.com/cric_auction_01/" target="_blank"><img src="{{ asset('assets/images/footer/instagram.png') }}"
                                 alt="Instagaram">Instagaram</a></li>
-                    <li><a href="#"><img src="{{ asset('assets/images/footer/Youtube.png') }}"
+                    <li><a href="https://www.youtube.com/@CricAuction-o9q" target="_blank"><img src="{{ asset('assets/images/footer/Youtube.png') }}"
                                 alt="YouTube">YouTube</a>
                     </li>
-                    <li><a href="#"><img src="{{ asset('assets/images/footer/linkedin.png') }}"
+                    <li><a href="https://x.com/Cricauctio52918" target="_blank"><img src="{{ asset('assets/images/footer/linkedin.png') }}"
                                 alt="LinkedIn">LinkedIn</a></li>
                 </ul>
             </div>
