@@ -24,7 +24,7 @@ Route::middleware('log.api.requests')->group(function () {
         Route::GET('profile', [UserController::class, 'get_profile']);
         Route::POST('profile', [UserController::class, 'update_profile']);
     });
-
+    
     // Auction APIs 
     Route::GET('getAuctions', [AuctionController::class, 'getAuctions']);
     Route::resource('auction', AuctionController::class);
@@ -32,5 +32,7 @@ Route::middleware('log.api.requests')->group(function () {
     Route::resource('player', PlayerController::class);
     Route::post('playerBulkStore', [PlayerController::class, 'playerBulkStore']);
     Route::resource('pricing', PricingController::class);
+
+    Route::get('migrateUserDate', [UserController::class, 'migrateUserDate']);
 });
 

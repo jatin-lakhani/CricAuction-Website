@@ -20,6 +20,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        // 'uid',
         'name',
         'email',
         'email_verified_at',
@@ -28,6 +29,7 @@ class User extends Authenticatable
         'city',
         'firebase_token',
         'oauth_type',
+        // 'signInType',
         'oauth_token',
         'status',
         'role',
@@ -53,6 +55,7 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'signInType' => 'json',
         ];
     }
 

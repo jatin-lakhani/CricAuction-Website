@@ -6,6 +6,9 @@ use App\Helper\FileUploadHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\AuctionResource;
 use App\Models\Auction;
+use App\Models\Player;
+use App\Models\Pricing;
+use App\Models\Team;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -26,20 +29,20 @@ class AuctionController extends Controller
     {
         $creator_id = $request->creator_id;
         $auctions = Auction::when($creator_id, function ($query) use ($creator_id) {
-                $query->where('creator_id', $creator_id);
-            })->get();
+            $query->where('creator_id', $creator_id);
+        })->get();
         return apiResponse('Auctions get successfully', AuctionResource::collection($auctions));
     }
 
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-			'auction_code' => 'required',
-		]);
+            'auction_code' => 'required',
+        ]);
 
-		if ($validator->fails()) {
-			return apiValidationError($validator->messages());
-		}
+        if ($validator->fails()) {
+            return apiValidationError($validator->messages());
+        }
         $auction_id = 0;
         if ($request->has('auction_code') && !empty($request->input('auction_code'))) {
             $auction = Auction::where('auction_code', $request->auction_code)->first();
@@ -99,5 +102,99 @@ class AuctionController extends Controller
     {
         Auction::where('auction_code', $id)->delete();
         return apiResponse('Auction deleted successfully');
+    }
+
+
+    public function migrateFirebaseData()
+    {
+        // Read Firebase data from the JSON file
+        $jsonContent = file_get_contents(storage_path('CricAuction-UserData.json'));
+        $json = json_decode($jsonContent, true);
+
+        foreach ($json['auction'] as $auctionData) {
+            $auction = Auction::create([
+                'auction_name' => $auctionData['auctionName'],
+                'auction_date' => $auctionData['auctionDate'],
+                'auction_time' => $auctionData['auctionTime'],
+                'bid_increase_by' => $auctionData['bidIncreaseBy'],
+                'min_bid' => $auctionData['minBid'],
+                'play_type' => $auctionData['playType'],
+                'player_per_team' => $auctionData['playerPerTeam'],
+                'points_par_team' => $auctionData['pointsParTeam'],
+                'venue' => $auctionData['venue'],
+                'auction_image' => $auctionData['auctionImage'],
+                'auction_code' => $auctionData['auctionCode'],
+                'creator_id' => $auctionData['creatorId'],
+            ]);
+
+            if (isset($auctionData['pricing'])) {
+                Pricing::create([
+                    'auction_id' => $auction->id,
+                    'title' => $auctionData['pricing']['title'],
+                    'ipaName' => $auctionData['pricing']['ipaName'],
+                    'number_of_teams' => $auctionData['pricing']['numberOfTeams'],
+                    'description' => $auctionData['pricing']['description'],
+                    'price' => $auctionData['pricing']['price'],
+                    'is_default' => $auctionData['pricing']['isDefault'],
+                    'phoneNo' => $auctionData['pricing']['phoneNo'],
+                    'paymentStatus' => $auctionData['pricing']['paymentStatus'],
+                    'paymentDate' => $auctionData['pricing']['paymentDate'],
+                    'paymentScreenshot' => $auctionData['pricing']['paymentScreenshot'],
+                ]);
+            }
+            if (isset($auctionData['playerList'])) {
+                foreach ($auctionData['playerList'] as $playerData) {
+                    $player = Player::create([
+                        'auction_id' => $auction->id,
+                        'player_firstname' => $playerData['playerFirstname'],
+                        'player_mobile_no' => $playerData['playerMobileNo'],
+                        'player_age' => $playerData['playerAge'],
+                        'player_specification_one' => $playerData['playerSpecificationOne'],
+                        'player_specification_two' => $playerData['playerSpecificationTwo'],
+                        'player_specification_three' => $playerData['playerSpecificationThree'],
+                        'player_image' => $playerData['playerImage'],
+                        'base_value' => $playerData['baseValue'],
+                        'sold_value' => $playerData['soldValue'],
+                        'is_team_owner' => $playerData['isTeamOwner'],
+                        'is_non_playing_owner' => $playerData['isNonPlayingOwner'],
+                        'jersey_name' => $playerData['jerseyName'],
+                        'jersey_number' => $playerData['jerseyNumber'],
+                        'jersey_size' => $playerData['jerseySize'],
+                        'trouser_size' => $playerData['trouserSize'],
+                        'player_status' => $playerData['playerStatus'],
+                        'player_selected_icon' => json_encode($playerData['playerSelectedIcon']),
+                    ]);
+
+                    if (isset($playerData['playerTeamName'])) {
+                        $team = Team::firstOrCreate([
+                            'team_name' => $playerData['playerTeamName'],
+                        ]);
+
+                        $player->team()->associate($team);
+                        $player->save();
+                    }
+                }
+            }
+
+            // Insert Team data
+            if (isset($auctionData['team'])) {
+                foreach ($auctionData['team'] as $teamData) {
+                    $team = Team::create([
+                        'auction_id' => $auction->id,
+                        'team_name' => $teamData['teamName'],
+                        'team_image' => $teamData['teamImage'], // Handle image upload separately
+                        'team_max_point' => $teamData['teamMaxPoint'],
+                        'team_used_point' => $teamData['teamUsedPoint'],
+                        'team_point' => $teamData['teamPoint'],
+                        'max_bid' => $teamData['maxBid'],
+                        'number_of_player' => $teamData['numberOfPlayer'],
+                        'team_short_key' => $teamData['teamShortKey'],
+                        'team_short_name' => $teamData['teamShortName'],
+                    ]);
+                }
+            }
+        }
+
+        return 'Data migration completed successfully!';
     }
 }

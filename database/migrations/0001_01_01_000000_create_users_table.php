@@ -21,6 +21,7 @@ return new class extends Migration {
             $table->string('city')->nullable();
             $table->string('firebase_token')->nullable();
             $table->enum('oauth_type', ['google'])->nullable();
+            // $table->enum('signInType', ['google'])->nullable();
             $table->string('oauth_token')->nullable();
             $table->enum('status', ['Active', 'Inactive', 'Deleted'])->default('Active');
             $table->enum('role', ['Admin', 'User'])->default('User');
