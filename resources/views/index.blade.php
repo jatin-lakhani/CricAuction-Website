@@ -18,9 +18,11 @@
                                 <h2>Live Player Bidding & Cricket Tournaments!</h2>
                             </div>
                             <div class="hero-btns" data-aos="fade-up" data-aos-delay="300">
-                                <a href="https://apps.apple.com/us/app/cricauction-cricket-auction/id6504701315"><img src="{{ asset('assets/images/hero/hero-as.png') }}"
+                                <a href="https://apps.apple.com/us/app/cricauction-cricket-auction/id6504701315"
+                                    target="_blank"><img src="{{ asset('assets/images/hero/hero-as.png') }}"
                                         alt="AppStore"></a>
-                                <a href="https://play.google.com/store/apps/details?id=com.cricauction.cricket.playerauction&hl=en_IN"><img src="{{ asset('assets/images/hero/hero-gp.png') }}"
+                                <a href="https://play.google.com/store/apps/details?id=com.cricauction.cricket.playerauction&hl=en_IN"
+                                    target="_blank"><img src="{{ asset('assets/images/hero/hero-gp.png') }}"
                                         alt="GooglePlay"></a>
                             </div>
                         </div>
@@ -35,7 +37,7 @@
         </section><!-- /Hero Section -->
 
         <!-- Auctions Section -->
-        <section id="auctions" class="section auctions">
+        <section id="auctions" class="section auctions" style="scroll-margin-top: 100px;">
             <div class="container">
                 <div class="section-title" data-aos="fade-up" data-aos-delay="100">
                     <img src="{{ asset('assets/images/logo.png') }}" alt="Logo">
@@ -97,7 +99,7 @@
         </section><!-- /Auctions Section -->
 
         <!-- Features Section -->
-        <section id="features" class="section features">
+        <section id="features" class="section features" style="scroll-margin-top: 100px;">
             <div class="container">
                 <div class="section-title" data-aos="fade-up" data-aos-delay="100">
                     <img src="{{ asset('assets/images/logo.png') }}" alt="Logo">
@@ -153,7 +155,7 @@
         </section><!-- /Features Section -->
 
         <!-- About Section -->
-        <section id="about" class="section about">
+        <section id="about" class="section about" style="scroll-margin-top: 100px;">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 d-flex align-items-center">
@@ -170,7 +172,7 @@
                                     sports.</p>
                             </div>
                             <div class="about-btn">
-                                <a href="" class="btn btn-primary">Register Now <i
+                                <a href="" target="_blank" class="btn btn-primary">Register Now <i
                                         class="bi bi-arrow-right-circle-fill"></i></a>
                             </div>
                         </div>
@@ -185,7 +187,7 @@
         </section><!-- /About Section -->
 
         <!-- Mobile App Section -->
-        <section id="mobile-app" class="section mobile-app">
+        <section id="mobile-app" class="section mobile-app" style="scroll-margin-top: 100px;">
             <div class="container">
                 <div class="row py-5">
                     <div class="col-lg-6">
@@ -214,7 +216,7 @@
                                     broadcast on the internet...</p>
                             </div>
                             <div class="mobile-app-btn">
-                                <a href="" class="btn btn-primary">Register Now <i
+                                <a href="" class="btn btn-primary" target="_blank">Register Now <i
                                         class="bi bi-arrow-right-circle-fill"></i></a>
                             </div>
                         </div>
@@ -224,7 +226,7 @@
         </section><!-- /Mobile App Section -->
 
         <!-- Help Section -->
-        <section id="help" class="section help">
+        <section id="help" class="section help" style="scroll-margin-top: 100px;">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6"></div>
@@ -254,7 +256,7 @@
                                     <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
                                         <div class="card help-card-det">
                                             <img src="{{ asset('assets/images/help/h2.png') }}"
-                                                class="card-img-left img-fluid" alt="Help 1">
+                                                class="card-img-left img-fluid" alt="Help 2">
                                             <div class="card-body">
                                                 <h5 class="card-title">Add Auction Team</h5>
                                                 <p class="card-text">Adding teams allows you to establish your pesence in
@@ -267,7 +269,7 @@
                                     <div class="col-lg-12" data-aos="fade-up" data-aos-delay="400">
                                         <div class="card help-card-det">
                                             <img src="{{ asset('assets/images/help/h3.png') }}"
-                                                class="card-img-left img-fluid" alt="Help 1">
+                                                class="card-img-left img-fluid" alt="Help 3">
                                             <div class="card-body">
                                                 <h5 class="card-title">Add Auction Player</h5>
                                                 <p class="card-text">Get to know the players before you bid. Check out
@@ -280,7 +282,7 @@
                                     <div class="col-lg-12" data-aos="fade-up" data-aos-delay="500">
                                         <div class="card help-card-det">
                                             <img src="{{ asset('assets/images/help/h4.png') }}"
-                                                class="card-img-left img-fluid" alt="Help 1">
+                                                class="card-img-left img-fluid" alt="Help 4">
                                             <div class="card-body">
                                                 <h5 class="card-title">Start Auction Bid</h5>
                                                 <p class="card-text">Enter your bid amount and click the bid button to
@@ -298,7 +300,7 @@
         </section><!-- /Help Section -->
 
         <!-- Client Section -->
-        <section id="clients" class="section clients">
+        <section id="clients" class="section clients" style="scroll-margin-top: 100px;">
             <div class="container">
                 <div class="section-title" data-aos="fade-up" data-aos-delay="100">
                     <img src="{{ asset('assets/images/logo.png') }}" alt="Logo">
@@ -338,7 +340,7 @@
         </section><!-- /Client Section -->
 
         <!-- Pricing Section -->
-        <section id="pricing" class="section pricing">
+        <section id="pricing" class="section pricing" style="scroll-margin-top: 100px;">
             <div class="container">
                 <div class="section-title" data-aos="fade-up" data-aos-delay="100">
                     <img src="{{ asset('assets/images/logo2.png') }}" alt="Logo">
@@ -385,7 +387,7 @@
         </section><!-- /Pricing Section -->
 
         <!-- Contact Us Section -->
-        <section id="contactus" class="section contactus">
+        <section id="contactus" class="section contactus" style="scroll-margin-top: 100px;">
             <div class="container py-5">
                 <div class="section-title" data-aos="fade-up" data-aos-delay="100">
                     <img src="{{ asset('assets/images/logo.png') }}" alt="Logo">
@@ -395,52 +397,62 @@
                     <div class="container">
                         <div class="row">
                             <!-- Contact Image -->
-                            <div class="col-lg-6 col-md-12 mb-4">
+                            <div class="col-lg-5 col-md-12 mb-4">
                                 <div class="contact-img text-center" data-aos="zoom-in" data-aos-delay="100">
                                     <img src="{{ asset('assets/images/contact/contact.png') }}" alt="About Image"
                                         class="img-fluid">
                                 </div>
                             </div>
                             <!-- Contact Form -->
-                            <div class="col-lg-6 col-md-12">
-                                <form action="" method="POST" data-aos="fade-up" data-aos-delay="200">
+                            <div class="col-lg-7 col-md-12">
+
+                                @if (session('success'))
+                                    <div class="alert alert-success">
+                                        {{ session('success') }}
+                                    </div>
+                                @endif
+
+                                <form action="{{ route('contact.submit') }}" method="POST" data-aos="fade-up"
+                                    data-aos-delay="200">
+                                    @csrf
                                     <!-- Name Fields -->
                                     <div class="row">
-                                        <div class="col-md-6 mb-4">
+                                        <div class="col-md-6 mb-3">
                                             <label for="fname" class="form-label">First Name*</label>
-                                            <input type="text" class="form-control" id="fname"
-                                                placeholder="Your Name">
+                                            <input type="text" class="form-control" id="fname" name="fname"
+                                                placeholder="Your Name" required>
                                         </div>
-                                        <div class="col-md-6 mb-4">
+                                        <div class="col-md-6 mb-3">
                                             <label for="lname" class="form-label">Last Name*</label>
-                                            <input type="text" class="form-control" id="lname"
-                                                placeholder="Your Surname">
+                                            <input type="text" class="form-control" id="lname" name="lname"
+                                                placeholder="Your Surname" required>
                                         </div>
                                     </div>
                                     <!-- Email and Mobile Fields -->
                                     <div class="row">
-                                        <div class="col-md-6 mb-4">
+                                        <div class="col-md-6 mb-3">
                                             <label for="email" class="form-label">Email id*</label>
-                                            <input type="email" class="form-control" id="email"
+                                            <input type="email" class="form-control" id="email" name="email"
                                                 placeholder="Your Email Id" required>
                                         </div>
-                                        <div class="col-md-6 mb-4">
+                                        <div class="col-md-6 mb-3">
                                             <label for="mno" class="form-label">Mobile Number</label>
                                             <input type="tel" class="form-control" id="mno" name="mobile"
                                                 placeholder="Your Mobile No" pattern="[0-9]{10}">
                                         </div>
                                     </div>
                                     <!-- Message Field -->
-                                    <div class="mb-4">
+                                    <div class="mb-3">
                                         <label for="message" class="form-label">Message</label>
                                         <textarea name="message" id="message" class="form-control" rows="5" placeholder="Your Message"></textarea>
                                     </div>
                                     <!-- Submit Button -->
-                                    <div class="d-flex justify-content-center">
-                                        <a type="submit" class="btn btn-primary px-5">Submit</a>
+                                    <div class="d-flex justify-content-center pt-3">
+                                        <button type="submit" class="btn btn-primary px-5">Submit</button>
                                     </div>
                                 </form>
                             </div>
+
                         </div>
                     </div>
                 </div>

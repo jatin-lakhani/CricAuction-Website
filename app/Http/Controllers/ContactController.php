@@ -7,14 +7,19 @@ use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
+
     public function submit(Request $request)
     {
+        // Validate form inputs
         $request->validate([
-            'fname' => 'required|string',
-            'lname' => 'required|string',
+            'fname' => 'required|string|max:255',
+            'lname' => 'required|string|max:255',
             'email' => 'required|email',
+            'message' => 'nullable|string',
+            'mobile' => 'nullable|digits:10',
         ]);
 
+        // Prepare data for the email
         $data = [
             'firstName' => $request->input('fname'),
             'lastName' => $request->input('lname'),
@@ -23,11 +28,14 @@ class ContactController extends Controller
             'message' => $request->input('message'),
         ];
 
+        dd($data);
+        // Send email
         Mail::send('emails.contact', $data, function ($message) use ($data) {
-            $message->to('h12676773@gmail.com')
+            $message->to('h12676773@gmail.com') // Replace with your admin email
                 ->subject('New Contact Us Message');
         });
 
-        redirect()->back()->with('success', 'Your message has been sent successfully!');
+        // Redirect back with a success message
+        return redirect()->back()->with('success', 'Your message has been sent successfully!');
     }
 }

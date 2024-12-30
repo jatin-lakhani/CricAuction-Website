@@ -17,12 +17,12 @@
             <div class="col-lg-2 col-md-3 footer-links" data-aos="fade-up" data-aos-delay="200">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Auctions </a></li>
-                    <li><a href="">Features</a></li>
-                    <li><a href="">Help</a></li>
-                    <li><a href="">Pricing</a></li>
-                    <li><a href="">Contact Us</a></li>
+                    <li><a href="{{ route('welcome') }}">Home</a></li>
+                    <li><a href="#auctions">Auctions</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#help">Help</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contactus">Contact Us</a></li>
                 </ul>
             </div>
 
