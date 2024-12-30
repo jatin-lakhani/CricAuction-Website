@@ -50,10 +50,14 @@ class Player extends Model
         return $this->belongsTo(Team::class);
     }
 
+    public function auction()
+    {
+        return $this->belongsTo(Auction::class);
+    }
+
     public function getPlayerImageUrlAttribute()
     {
         return $this->player_image ? Storage::disk('public')->url($this->player_image) : null;
         // return $this->profile_image ? Storage::disk('public')->url($this->profile) : Storage::disk('public')->url('upload/profile_image/default_profile.png');
     }
-
 }

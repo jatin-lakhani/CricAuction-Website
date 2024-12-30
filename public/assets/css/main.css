@@ -503,11 +503,16 @@ section,
 }
 
 .auctions .auctions-details .card {
-    border-radius: 40px;
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 20px;
 }
 
 .auctions .auctions-details .card img {
     position: relative;
+    border-radius: 20px;
+    height: inherit;
 }
 
 .auctions .auctions-details .card-body {
@@ -530,9 +535,16 @@ section,
     text-transform: uppercase;
 }
 
-.auctions .auctions-details .card-body img {
+.auctions .auctions-details .card-auc img {
     width: 30px;
     height: 30px;
+    border: 1px solid #AD2112;
+    border-radius: 100%;
+    margin-left: -12px;
+}
+
+.auctions .auctions-details .card-auc img:first-child {
+    margin: 0;
 }
 
 /*--------------------------------------------------------------

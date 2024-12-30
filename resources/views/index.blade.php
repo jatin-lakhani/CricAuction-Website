@@ -45,54 +45,40 @@
                 </div>
                 <div class="auctions-details">
                     <div class="row">
-                        <div class="col-lg-4 col-md-4">
-                            <div class="card" data-aos="fade-up" data-aos-delay="100">
-                                <img src="{{ asset('assets/images/auction/auc-1.png') }}" class="card-img-top"
-                                    alt="Auction 1">
-                                <div class="card-body">
-                                    <h5 class="card-title">Gladiator Premier League</h5>
-                                    <div class="card-auc">
-                                        <img src="{{ asset('assets/images/auction/a1.png') }}" alt="Auction user">
-                                        <img src="{{ asset('assets/images/auction/a2.png') }}" style="margin-left: -12px;"
-                                            alt="Auction user">
-                                        <img src="{{ asset('assets/images/auction/a3.png') }}" style="margin-left: -10px;"
-                                            alt="Auction user">
+                        @foreach ($auctions as $auction)
+                            <div class="col-lg-4 col-md-4 mb-4">
+                                <div class="card" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
+                                    {{-- <img src="{{ $auction->auction_image ? $auction->auction_image : asset('storage/Auction.png') }}"
+                                        class="card-img-top auction_image" id="auction_image"
+                                        alt="{{ $auction->auction_name }}"> --}}
+                                    {{-- <img src="{{ $auction->auction_image ? (str_contains($auction->auction_image, 'drive.google.com') ? str_replace('https://drive.google.com/file/d/', 'https://drive.google.com/uc?export=view&id=', $auction->auction_image) : $auction->auction_image) : asset('storage/Auction.png') }}"
+                                        class="card-img-top auction_image" id="auction_image"
+                                        alt="{{ $auction->auction_name }}"> --}}
+
+                                    <img src="{{ $auction->auction_image
+                                        ? (str_contains($auction->auction_image, 'drive.google.com')
+                                            ? preg_replace('/file\/d\/([^\/]+)\/view.*/', 'uc?export=view&id=$1', $auction->auction_image)
+                                            : (filter_var($auction->auction_image, FILTER_VALIDATE_URL)
+                                                ? $auction->auction_image
+                                                : asset('storage/' . $auction->auction_image)))
+                                        : asset('storage/Auction.png') }}"
+                                        class="card-img-top auction_image" id="auction_image"
+                                        alt="{{ $auction->auction_name }}">
+
+
+                                    <div class="card-body">
+                                        <h5 class="card-title auction_name" id="auction_name">{{ $auction->auction_name }}
+                                        </h5>
+                                        <div class="card-auc player_id">
+                                            @foreach ($auction->players->take(3) as $player)
+                                                <img src="{{ $player->player_image ? $player->player_image : asset('storage/user.jpg') }}"
+                                                    alt="AP">
+                                            @endforeach
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4" data-aos="fade-up" data-aos-delay="200">
-                            <div class="card">
-                                <img src="{{ asset('assets/images/auction/auc-2.png') }}" class="card-img-top"
-                                    alt="Auction 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Gladiator Premier League</h5>
-                                    <div class="card-auc">
-                                        <img src="{{ asset('assets/images/auction/a1.png') }}" alt="Auction user">
-                                        <img src="{{ asset('assets/images/auction/a2.png') }}" style="margin-left: -12px;"
-                                            alt="Auction user">
-                                        <img src="{{ asset('assets/images/auction/a3.png') }}" style="margin-left: -10px;"
-                                            alt="Auction user">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4">
-                            <div class="card" data-aos="fade-up" data-aos-delay="300">
-                                <img src="{{ asset('assets/images/auction/auc-3.png') }}" class="card-img-top"
-                                    alt="Auction 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Gladiator Premier League</h5>
-                                    <div class="card-auc">
-                                        <img src="{{ asset('assets/images/auction/a1.png') }}" alt="Auction user">
-                                        <img src="{{ asset('assets/images/auction/a2.png') }}" style="margin-left: -12px;"
-                                            alt="Auction user">
-                                        <img src="{{ asset('assets/images/auction/a3.png') }}" style="margin-left: -10px;"
-                                            alt="Auction user">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -437,8 +423,8 @@
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="mno" class="form-label">Mobile Number</label>
-                                            <input type="tel" class="form-control" id="mno" name="mobile"
-                                                placeholder="Your Mobile No" pattern="[0-9]{10}">
+                                            <input type="text" class="form-control" id="mno" name="mobile"
+                                                placeholder="Your Mobile No">
                                         </div>
                                     </div>
                                     <!-- Message Field -->

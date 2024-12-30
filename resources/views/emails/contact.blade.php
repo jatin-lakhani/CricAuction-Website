@@ -2,17 +2,16 @@
 <html>
 
 <head>
-    <title>New Contact Us Message</title>
+    <title>New Contact Us Enquiry</title>
 </head>
 
 <body>
-    <h2>New Contact Us Message</h2>
-    <p><strong>First Name:</strong> {{ $firstName }}</p>
-    <p><strong>Last Name:</strong> {{ $lastName }}</p>
-    <p><strong>Email:</strong> {{ $email }}</p>
-    <p><strong>Mobile:</strong> {{ $mobile }}</p>
-    <p><strong>Message:</strong></p>
-    <p>{{ $message }}</p>
+    <h1>New Contact Us Enquiry</h1>
+    <p><strong>First Name:</strong> {{ $data['fname'] }}</p>
+    <p><strong>Last Name:</strong> {{ $data['lname'] }}</p>
+    <p><strong>Email:</strong> {{ $data['email'] }}</p>
+    <p><strong>Mobile:</strong> {{ $data['mno'] }}</p>
+    <p><strong>Message:</strong> {{ $data['message'] }}</p>
 </body>
 
 </html>
