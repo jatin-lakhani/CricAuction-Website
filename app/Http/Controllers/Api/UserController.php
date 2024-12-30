@@ -71,4 +71,63 @@ class UserController extends Controller
             return apiErrorResponse($e->getMessage());
         }
     }
+
+    public function migrateUserDate(Request $request)
+    {
+        set_time_limit(600);
+        echo ini_get('max_execution_time');
+        $jsonContent = file_get_contents(storage_path('CricAuction-UserData.json'));
+        $json = json_decode($jsonContent, true);
+        $usersData = $json['user'];
+        if (empty($usersData)) {
+            return 'No data found in table';
+        }
+
+        $batchSize = 100;
+        $chunks = array_chunk($usersData, $batchSize, true);
+        foreach ($chunks as $index => $batch) {
+            $insertData = [];
+            foreach ($batch as $uid => $user) {
+                $insertData[] = [
+                    'uid' => $uid ?? '',
+                    'name' => $user['name'] ?? '',
+                    'email' => $user['email'] ?? '',
+                    'phoneNumber' => $user['phoneNumber'] ?? '',
+                    'city' => $user['city'] ?? '',
+                    'password' => isset($user['password']) ? bcrypt($user['password']) : '',
+                    'signInType' => json_encode($user['signInType'] ?? []),
+                    'firebase_token' => $user['notificationId'] ?? '',
+                    'profile' => $user['image'] ?? null,
+                    'email_verified_at' => now(),
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ];
+            }
+            User::upsert($insertData, ['uid'], ['name', 'email', 'phoneNumber', 'city', 'password', 'signInType', 'firebase_token', 'profile', 'email_verified_at']);
+            // Optional: Log progress for each batch
+            \Log::info("Processed batch {$index} with " . count($batch) . " users.");
+        }
+        return "Data imported successfully";
+
+
+        // $insertData = [];
+        // foreach ($usersData as $uid => $user) {
+        //     $insertData[] = [
+        //         'uid' => $uid ?? '',
+        //         'name' => $user['name'] ?? '',
+        //         'email' => $user['email'] ?? '',
+        //         'phone_number' => $user['phoneNumber'] ?? '',
+        //         'city' => $user['city'] ?? '',
+        //         'password' => isset($user['password']) ? bcrypt($user['password']) : '',
+        //         'signInType' => json_encode($user['signInType'] ?? []),
+        //         'firebase_token' => $user['notificationId'] ?? '',
+        //         'profile' => $user['image'] ?? null,
+        //         'email_verified_at' => now(),
+        //         'created_at' => now(),
+        //         'updated_at' => now(),
+        //     ];
+        // }
+
+        // User::upsert($insertData, ['uid'], ['name', 'email', 'phone_number', 'city', 'password', 'signInType', 'firebase_token', 'profile', 'email_verified_at']);
+    }
 }
