@@ -299,7 +299,7 @@ i.bi.bi-telephone {
     transition: transform 0.4s ease;
 }
 
-.footer .footer-contact img:hover{
+.footer .footer-contact img:hover {
     transform: scale(0.9);
 }
 
@@ -443,7 +443,7 @@ section,
     transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
 }
 
-.hero .hero-btns img:hover{
+.hero .hero-btns img:hover {
     transform: scale(1.1);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
@@ -649,12 +649,19 @@ section,
 .mobile-app-btn a i {
     box-shadow: 0px 0px 4px 0px #0000002B;
     color: var(--accent-color);
+    margin-left: 6px;
+}
+
+.about .about-details .about-btn a:hover,
+.mobile-app-btn a:hover {
+    color: #000000;
 }
 
 /*--------------------------------------------------------------
   # Mobile App Section
   --------------------------------------------------------------*/
-.mobile-app {
+.mobile-app,
+.clients {
     background-image: url('../images/mobile-app/mobile-app-bg.png');
     background-position: center;
     background-repeat: no-repeat;
@@ -809,13 +816,12 @@ section,
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .clients .clients-details .client-img img {
-    border-radius: 10px;
     padding: 20px;
     max-width: 100%;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: 110px;
 }
 
@@ -824,6 +830,7 @@ section,
     /* transform: scale(1.2); */
     transform: scale(1);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    background: #ffffff;
 }
 
 /*--------------------------------------------------------------
@@ -880,8 +887,7 @@ section,
     margin-bottom: 20px;
 }
 
-.contactus form input,
-textarea {
+.contactus form input {
     border: 1px solid #9D9D9DCC !important;
     background: #D9D9D933 !important;
     height: 50px;
@@ -889,7 +895,9 @@ textarea {
 }
 
 .contactus form textarea {
-    height: 150px !important;
+    border: 1px solid #9D9D9DCC !important;
+    background: #D9D9D933 !important;
+    border-radius: 10px !important;
 }
 
 .contactus form label {
@@ -900,7 +908,7 @@ textarea {
     line-height: 30px;
 }
 
-.contactus form ::placeholder {
+.contactus form::placeholder {
     font-family: var(--nav-font);
     font-size: 14px;
     font-weight: 500;
@@ -908,7 +916,8 @@ textarea {
     color: #B0ACAC;
 }
 
-.contactus .contactus-details a {
+.contactus .contactus-details a,
+.contactus .contactus-details button {
     font-family: var(--heading-font) !important;
     font-size: 20px !important;
     font-weight: 600 !important;

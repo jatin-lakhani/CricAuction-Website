@@ -9,4 +9,8 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [Homecontroller::class, 'index'])->name('welcome');
+
+Route::get('/contact', function () {
+    return view('contact');
+});
 Route::post('/contact-submit', [ContactController::class, 'submit'])->name('contact.submit');

@@ -63,11 +63,11 @@
             <nav id="navmenu" class="navmenu">
                 <ul>
                     <li><a href="{{ route('welcome') }}#hero" class="active">Home</a></li>
-                    <li><a href="{{ route('welcome') }}#auctions">Auctions</a></li>
-                    <li><a href="{{ route('welcome') }}#features">Features</a></li>
-                    <li><a href="{{ route('welcome') }}#help">Help</a></li>
-                    <li><a href="{{ route('welcome') }}#pricing">Pricing</a></li>
-                    <li><a href="{{ route('welcome') }}#contactus">Contact Us</a></li>
+                    <li><a href="#auctions">Auctions</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#help">Help</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contactus">Contact Us</a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>

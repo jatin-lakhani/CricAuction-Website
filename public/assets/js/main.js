@@ -95,8 +95,10 @@
     /**
      * Initiate glightbox
      */
-    const glightbox = GLightbox({
-        selector: '.glightbox'
+    document.addEventListener("DOMContentLoaded", () => {
+        const lightbox = GLightbox({
+            selector: '.glightbox'
+        });
     });
 
     /**
@@ -192,9 +194,9 @@ document.querySelectorAll('.read-more').forEach(function (button) {
 /**
  * Initiate glightbox
  */
-const glightbox = GLightbox({
-    selector: '.glightbox'
-});
+// const glightbox = GLightbox({
+//     selector: '.glightbox'
+// });
 
 /**
  * Init isotope layout and filters
@@ -250,17 +252,58 @@ window.addEventListener("load", initSwiper);
 /**
  * Correct scrolling position upon page load for URLs containing hash links.
  */
-window.addEventListener('load', function (e) {
+// window.addEventListener('load', function (e) {
+//     if (window.location.hash) {
+//         if (document.querySelector(window.location.hash)) {
+//             setTimeout(() => {
+//                 let section = document.querySelector(window.location.hash);
+//                 let scrollMarginTop = getComputedStyle(section).scrollMarginTop;
+//                 window.scrollTo({
+//                     top: section.offsetTop - parseInt(scrollMarginTop),
+//                     behavior: 'smooth'
+//                 });
+//             }, 100);
+//         }
+//     }
+// });
+
+// Adjust scroll position on page load if URL contains a hash
+window.addEventListener('load', function () {
     if (window.location.hash) {
-        if (document.querySelector(window.location.hash)) {
-            setTimeout(() => {
-                let section = document.querySelector(window.location.hash);
-                let scrollMarginTop = getComputedStyle(section).scrollMarginTop;
-                window.scrollTo({
-                    top: section.offsetTop - parseInt(scrollMarginTop),
-                    behavior: 'smooth'
-                });
-            }, 100);
-        }
+        const hash = window.location.hash;
+        smoothScrollToSection(hash);
     }
 });
+
+// Adjust scroll position when clicking on navigation links
+document.querySelectorAll('.navmenu a').forEach(link => {
+    link.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href && href.startsWith('#')) {
+            const targetHash = href; // The hash part of the href
+            const section = document.querySelector(targetHash);
+            if (section) {
+                e.preventDefault(); // Prevent default anchor behavior
+                history.replaceState(null, null, targetHash); // Update the URL hash
+                smoothScrollToSection(targetHash);
+            }
+        }
+    });
+});
+
+// Smooth scroll to a section
+function smoothScrollToSection(hash) {
+    const section = document.querySelector(hash);
+    if (section) {
+        const scrollMarginTop = parseInt(getComputedStyle(section).scrollMarginTop) || 0;
+        const targetPosition = section.offsetTop - scrollMarginTop;
+
+        // Smooth scroll
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth',
+        });
+    } else {
+        console.warn(`Section for hash "${hash}" not found.`);
+    }
+}
