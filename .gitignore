@@ -21,3 +21,6 @@ yarn-error.log
 /.vscode
 /.zed
 /phpmyadmin
+cricauction/
+cricauctionadmin/
+index.nginx-debian.html
