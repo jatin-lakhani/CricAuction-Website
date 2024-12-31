@@ -37,7 +37,7 @@
         </section><!-- /Hero Section -->
 
         <!-- Auctions Section -->
-        <section id="auctions" class="section auctions" style="scroll-margin-top: 100px;">
+        <section id="auctions" class="section auctions">
             <div class="container">
                 <div class="section-title" data-aos="fade-up" data-aos-delay="100">
                     <img src="{{ asset('assets/images/logo.png') }}" alt="Logo">
@@ -48,30 +48,21 @@
                         @foreach ($auctions as $auction)
                             <div class="col-lg-4 col-md-4 mb-4">
                                 <div class="card" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
-                                    {{-- <img src="{{ $auction->auction_image ? $auction->auction_image : asset('storage/Auction.png') }}"
-                                        class="card-img-top auction_image" id="auction_image"
-                                        alt="{{ $auction->auction_name }}"> --}}
-                                    {{-- <img src="{{ $auction->auction_image ? (str_contains($auction->auction_image, 'drive.google.com') ? str_replace('https://drive.google.com/file/d/', 'https://drive.google.com/uc?export=view&id=', $auction->auction_image) : $auction->auction_image) : asset('storage/Auction.png') }}"
-                                        class="card-img-top auction_image" id="auction_image"
-                                        alt="{{ $auction->auction_name }}"> --}}
 
                                     <img src="{{ $auction->auction_image
                                         ? (str_contains($auction->auction_image, 'drive.google.com')
-                                            ? preg_replace('/file\/d\/([^\/]+)\/view.*/', 'uc?export=view&id=$1', $auction->auction_image)
-                                            : (filter_var($auction->auction_image, FILTER_VALIDATE_URL)
-                                                ? $auction->auction_image
-                                                : asset('storage/' . $auction->auction_image)))
-                                        : asset('storage/Auction.png') }}"
+                                            ? str_replace('/uc?', '/thumbnail?', $auction->auction_image)
+                                            : $auction->auction_image)
+                                        : asset('assets/images/Auction.png') }}"
                                         class="card-img-top auction_image" id="auction_image"
                                         alt="{{ $auction->auction_name }}">
-
 
                                     <div class="card-body">
                                         <h5 class="card-title auction_name" id="auction_name">{{ $auction->auction_name }}
                                         </h5>
                                         <div class="card-auc player_id">
                                             @foreach ($auction->players->take(3) as $player)
-                                                <img src="{{ $player->player_image ? $player->player_image : asset('storage/user.jpg') }}"
+                                                <img src="{{ $player->player_image ? (str_contains($player->player_image, 'drive.google.com') ? str_replace('/uc?', '/thumbnail?', $player->player_image) : $player->player_image) : asset('assets/images/default-user.jpg') }}"
                                                     alt="AP">
                                             @endforeach
                                         </div>
@@ -85,7 +76,7 @@
         </section><!-- /Auctions Section -->
 
         <!-- Features Section -->
-        <section id="features" class="section features" style="scroll-margin-top: 100px;">
+        <section id="features" class="section features">
             <div class="container">
                 <div class="section-title" data-aos="fade-up" data-aos-delay="100">
                     <img src="{{ asset('assets/images/logo.png') }}" alt="Logo">
@@ -141,7 +132,7 @@
         </section><!-- /Features Section -->
 
         <!-- About Section -->
-        <section id="about" class="section about" style="scroll-margin-top: 100px;">
+        <section id="about" class="section about">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 d-flex align-items-center">
@@ -173,7 +164,7 @@
         </section><!-- /About Section -->
 
         <!-- Mobile App Section -->
-        <section id="mobile-app" class="section mobile-app" style="scroll-margin-top: 100px;">
+        <section id="mobile-app" class="section mobile-app">
             <div class="container">
                 <div class="row py-5">
                     <div class="col-lg-6">
@@ -212,7 +203,7 @@
         </section><!-- /Mobile App Section -->
 
         <!-- Help Section -->
-        <section id="help" class="section help" style="scroll-margin-top: 100px;">
+        <section id="help" class="section help">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6"></div>
@@ -286,7 +277,7 @@
         </section><!-- /Help Section -->
 
         <!-- Client Section -->
-        <section id="clients" class="section clients" style="scroll-margin-top: 100px;">
+        <section id="clients" class="section clients">
             <div class="container">
                 <div class="section-title" data-aos="fade-up" data-aos-delay="100">
                     <img src="{{ asset('assets/images/logo.png') }}" alt="Logo">
@@ -326,7 +317,7 @@
         </section><!-- /Client Section -->
 
         <!-- Pricing Section -->
-        <section id="pricing" class="section pricing" style="scroll-margin-top: 100px;">
+        <section id="pricing" class="section pricing">
             <div class="container">
                 <div class="section-title" data-aos="fade-up" data-aos-delay="100">
                     <img src="{{ asset('assets/images/logo2.png') }}" alt="Logo">
@@ -373,7 +364,7 @@
         </section><!-- /Pricing Section -->
 
         <!-- Contact Us Section -->
-        <section id="contactus" class="section contactus" style="scroll-margin-top: 100px;">
+        <section id="contactus" class="section contactus">
             <div class="container py-5">
                 <div class="section-title" data-aos="fade-up" data-aos-delay="100">
                     <img src="{{ asset('assets/images/logo.png') }}" alt="Logo">
@@ -423,7 +414,7 @@
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="mno" class="form-label">Mobile Number</label>
-                                            <input type="text" class="form-control" id="mno" name="mobile"
+                                            <input type="text" class="form-control" id="mno" name="mno"
                                                 placeholder="Your Mobile No">
                                         </div>
                                     </div>

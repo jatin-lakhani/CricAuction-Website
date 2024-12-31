@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Crick Auction</title>
+    <title>CricAuction</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -55,22 +55,22 @@
         </div>
         <div class="position-relative d-flex align-items-center heading-bottom justify-content-between">
 
-            <a href="{{ url('/') }}" class="logo d-flex align-items-center text-decoration-none">
+            <a href="{{ route('welcome') }}" class="logo d-flex align-items-center text-decoration-none">
                 <img src="{{ asset('assets/images/logo.png') }}" alt="Logo">
                 <h1><span>Cric</span>Auction</h1>
             </a>
 
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li><a href="{{ route('welcome') }}#hero" class="active">Home</a></li>
-                    <li><a href="#auctions">Auctions</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#help">Help</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#contactus">Contact Us</a></li>
+                    <li><a href="{{ route('welcome') }}" data-target="hero" class="active">Home</a></li>
+                    <li><a data-target="auctions">Auctions</a></li>
+                    <li><a data-target="features">Features</a></li>
+                    <li><a data-target="help">Help</a></li>
+                    <li><a data-target="pricing">Pricing</a></li>
+                    <li><a data-target="contactus">Contact Us</a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-            </nav>
+            </nav>            
 
             <div class="dropdown open" style="display: none;">
                 <button class="btn btn-primary dropdown-toggle drp-btn" type="button" id="triggerId"

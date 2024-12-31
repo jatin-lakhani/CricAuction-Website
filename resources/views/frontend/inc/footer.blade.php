@@ -8,9 +8,9 @@
                     <h1><span>Cric</span>Auction</h1>
                 </a>
                 <div class="footer-contact">
-                    <a href="https://play.google.com/store/apps/details?id=com.cricauction.cricket.playerauction&hl=en_IN"><img src="{{ asset('assets/images/footer/google-play.png') }}" class="pb-3"
+                    <a href="https://play.google.com/store/apps/details?id=com.cricauction.cricket.playerauction&hl=en_IN" target="_blank"><img src="{{ asset('assets/images/footer/google-play.png') }}" class="pb-3"
                             alt=""></a>
-                    <a href="https://apps.apple.com/us/app/cricauction-cricket-auction/id6504701315"><img src="{{ asset('assets/images/footer/app-store.png') }}" alt=""></a>
+                    <a href="https://apps.apple.com/us/app/cricauction-cricket-auction/id6504701315" target="_blank"><img src="{{ asset('assets/images/footer/app-store.png') }}" alt=""></a>
                 </div>
             </div>
 

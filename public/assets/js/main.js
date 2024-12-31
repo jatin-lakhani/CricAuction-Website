@@ -252,58 +252,62 @@ window.addEventListener("load", initSwiper);
 /**
  * Correct scrolling position upon page load for URLs containing hash links.
  */
-// window.addEventListener('load', function (e) {
-//     if (window.location.hash) {
-//         if (document.querySelector(window.location.hash)) {
-//             setTimeout(() => {
-//                 let section = document.querySelector(window.location.hash);
-//                 let scrollMarginTop = getComputedStyle(section).scrollMarginTop;
-//                 window.scrollTo({
-//                     top: section.offsetTop - parseInt(scrollMarginTop),
-//                     behavior: 'smooth'
-//                 });
-//             }, 100);
-//         }
-//     }
-// });
-
-// Adjust scroll position on page load if URL contains a hash
-window.addEventListener('load', function () {
+window.addEventListener('load', function (e) {
     if (window.location.hash) {
-        const hash = window.location.hash;
-        smoothScrollToSection(hash);
-    }
-});
-
-// Adjust scroll position when clicking on navigation links
-document.querySelectorAll('.navmenu a').forEach(link => {
-    link.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        if (href && href.startsWith('#')) {
-            const targetHash = href; // The hash part of the href
-            const section = document.querySelector(targetHash);
-            if (section) {
-                e.preventDefault(); // Prevent default anchor behavior
-                history.replaceState(null, null, targetHash); // Update the URL hash
-                smoothScrollToSection(targetHash);
-            }
+        if (document.querySelector(window.location.hash)) {
+            setTimeout(() => {
+                let section = document.querySelector(window.location.hash);
+                let scrollMarginTop = getComputedStyle(section).scrollMarginTop;
+                window.scrollTo({
+                    top: section.offsetTop - parseInt(scrollMarginTop),
+                    behavior: 'smooth'
+                });
+            }, 100);
         }
-    });
+    }
 });
 
-// Smooth scroll to a section
-function smoothScrollToSection(hash) {
-    const section = document.querySelector(hash);
-    if (section) {
-        const scrollMarginTop = parseInt(getComputedStyle(section).scrollMarginTop) || 0;
-        const targetPosition = section.offsetTop - scrollMarginTop;
+document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('nav a[data-target]');
+    const sections = document.querySelectorAll('section');
 
-        // Smooth scroll
-        window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth',
+    // Smooth scrolling
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('data-target');
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 50, 
+                    behavior: 'smooth'
+                });
+            }
         });
-    } else {
-        console.warn(`Section for hash "${hash}" not found.`);
-    }
-}
+    });
+
+    // Update active menu item on scroll
+    const updateActiveMenu = () => {
+        let currentSection = null;
+
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                currentSection = section.id;
+            }
+        });
+
+        if (currentSection) {
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-target') === currentSection) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    };
+
+    // Listen to scroll events
+    window.addEventListener('scroll', updateActiveMenu);
+});

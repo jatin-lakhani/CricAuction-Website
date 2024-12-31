@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ContactFormMail;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -24,6 +25,9 @@ class ContactController extends Controller
             'mno' =>$request->mno,
             'message' =>$request->message,
         ];
+
+        // Store data in the database
+        Contact::create($data);
 
         // Send Mail to Admin
         Mail::to('h12676773@gmail.com')->send(new ContactFormMail($data));
