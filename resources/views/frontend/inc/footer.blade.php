@@ -3,41 +3,46 @@
     <div class="container footer-top">
         <div class="row gy-4">
             <div class="col-lg-4 col-md-6 footer-about" data-aos="fade-up" data-aos-delay="100">
-                <a href="{{ url('/') }}" class="logo d-flex align-items-center text-decoration-none">
+                <a href="{{ route('welcome') }}" class="logo d-flex align-items-center text-decoration-none">
                     <img src="{{ asset('assets/images/logo2.png') }}" alt="Logo">
                     <h1><span>Cric</span>Auction</h1>
                 </a>
                 <div class="footer-contact">
-                    <a href="https://play.google.com/store/apps/details?id=com.cricauction.cricket.playerauction&hl=en_IN" target="_blank"><img src="{{ asset('assets/images/footer/google-play.png') }}" class="pb-3"
+                    <a href="https://play.google.com/store/apps/details?id=com.cricauction.cricket.playerauction&hl=en_IN"
+                        target="_blank"><img src="{{ asset('assets/images/footer/google-play.png') }}" class="pb-3"
                             alt=""></a>
-                    <a href="https://apps.apple.com/us/app/cricauction-cricket-auction/id6504701315" target="_blank"><img src="{{ asset('assets/images/footer/app-store.png') }}" alt=""></a>
+                    <a href="https://apps.apple.com/us/app/cricauction-cricket-auction/id6504701315"
+                        target="_blank"><img src="{{ asset('assets/images/footer/app-store.png') }}" alt=""></a>
                 </div>
             </div>
 
             <div class="col-lg-2 col-md-3 footer-links" data-aos="fade-up" data-aos-delay="200">
                 <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="{{ route('welcome') }}">Home</a></li>
-                    <li><a href="#auctions">Auctions</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#help">Help</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#contactus">Contact Us</a></li>
-                </ul>
+                <nav style="cursor: pointer;">
+                    <ul>
+                        <li><a data-target="hero">Home</a></li>
+                        <li><a data-target="auctions">Auctions</a></li>
+                        <li><a data-target="features">Features</a></li>
+                        <li><a data-target="help">Help</a></li>
+                        <li><a data-target="pricing">Pricing</a></li>
+                        <li><a data-target="contactus">Contact Us</a></li>
+                    </ul>
+                </nav>
             </div>
 
             <div class="col-lg-2 col-md-3 footer-links" data-aos="fade-up" data-aos-delay="300">
                 <h4>Follow Us</h4>
                 <ul class="social">
-                    <li><a href="https://www.facebook.com/profile.php?id=61571234099766" target="_blank"><img src="{{ asset('assets/images/footer/facebook.png') }}"
-                                alt="Facebook">Facebook</a></li>
-                    <li><a href="https://www.instagram.com/cric_auction_01/" target="_blank"><img src="{{ asset('assets/images/footer/instagram.png') }}"
-                                alt="Instagaram">Instagaram</a></li>
-                    <li><a href="https://www.youtube.com/@CricAuction-o9q" target="_blank"><img src="{{ asset('assets/images/footer/Youtube.png') }}"
-                                alt="YouTube">YouTube</a>
+                    <li><a href="https://www.facebook.com/profile.php?id=61571234099766" target="_blank"><img
+                                src="{{ asset('assets/images/footer/facebook.png') }}" alt="Facebook">Facebook</a></li>
+                    <li><a href="https://www.instagram.com/cricauction.official" target="_blank"><img
+                                src="{{ asset('assets/images/footer/instagram.png') }}" alt="Instagaram">Instagaram</a>
                     </li>
-                    <li><a href="https://x.com/Cricauctio52918" target="_blank"><img src="{{ asset('assets/images/footer/linkedin.png') }}"
-                                alt="LinkedIn">LinkedIn</a></li>
+                    <li><a href="https://www.youtube.com/@CricAuction-o9q" target="_blank"><img
+                                src="{{ asset('assets/images/footer/Youtube.png') }}" alt="YouTube">YouTube</a>
+                    </li>
+                    <li><a href="https://x.com/Cricauctio52918" target="_blank"><img
+                                src="{{ asset('assets/images/footer/linkedin.png') }}" alt="LinkedIn">LinkedIn</a></li>
                 </ul>
             </div>
 

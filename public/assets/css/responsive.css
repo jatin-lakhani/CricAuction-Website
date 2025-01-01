@@ -211,7 +211,7 @@
 
     .navmenu a,
     .navmenu a:focus {
-        color: var(--heading-color);
+        color: var(--heading-color) !important;
         padding: 10px 20px;
         font-family: var(--nav-font);
         font-size: 18px;
@@ -248,13 +248,13 @@
     .navmenu a:hover,
     .navmenu .active,
     .navmenu .active:focus {
-        color: #fff;
+        color: #fff !important;
     }
 
     .navmenu .active i,
     .navmenu .active:focus i {
         background-color: var(--accent-color);
-        color: var(--contrast-color);
+        color: #fff;
         transform: rotate(180deg);
     }
 

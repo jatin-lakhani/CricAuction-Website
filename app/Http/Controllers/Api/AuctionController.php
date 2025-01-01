@@ -25,13 +25,43 @@ class AuctionController extends Controller
         return apiResponse('Auctions get successfully', AuctionResource::collection($auctions));
     }
 
+    // public function getAuctions(Request $request)
+    // {
+    //     $creator_id = $request->creator_id;
+    //     $auctions = Auction::when($creator_id, function ($query) use ($creator_id) {
+    //         $query->where('creator_id', $creator_id);
+    //     })->get();
+    //     return apiResponse('Auctions get successfully', AuctionResource::collection($auctions));
+    // }
+
     public function getAuctions(Request $request)
     {
-        $creator_id = $request->creator_id;
-        $auctions = Auction::when($creator_id, function ($query) use ($creator_id) {
-            $query->where('creator_id', $creator_id);
-        })->get();
-        return apiResponse('Auctions get successfully', AuctionResource::collection($auctions));
+        $creator_id = $request->creator_id; // Optional: Creator ID filter
+        $search = $request->auction_name;  // Auction name to search for (required for search functionality)
+
+        // Ensure a search term is provided, and apply filters strictly
+        $auctions = Auction::query()
+            ->when($creator_id, function ($query) use ($creator_id) {
+                $query->where('creator_id', $creator_id); // Filter by creator ID
+            })
+            ->when($search, function ($query) use ($search) {
+                // Perform case-insensitive search
+                $query->whereRaw('LOWER(auction_name) LIKE ?', ["%" . strtolower($search) . "%"]);
+            })
+            ->get();
+
+        // Check if search term was provided and no data was found
+        if ($search && $auctions->isEmpty()) {
+            return apiResponse("No auctions found for '$search'.", []);
+        }
+
+        // Check if no auctions match the filter
+        if ($auctions->isEmpty()) {
+            return apiResponse('No auctions found.', []);
+        }
+
+        // Return auctions if data is found
+        return apiResponse('Auctions retrieved successfully', AuctionResource::collection($auctions));
     }
 
     public function store(Request $request)
