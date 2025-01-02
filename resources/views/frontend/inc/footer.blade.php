@@ -1,11 +1,11 @@
 <footer id="footer" class="footer position-relative">
 
-    <div class="container footer-top">
+    <div class="container py-5">
         <div class="row gy-4">
             <div class="col-lg-4 col-md-6 footer-about" data-aos="fade-up" data-aos-delay="100">
                 <a href="{{ route('welcome') }}" class="logo d-flex align-items-center text-decoration-none">
                     <img src="{{ asset('assets/images/logo2.png') }}" alt="Logo">
-                    <h1><span>Cric</span>Auction</h1>
+                    <h1>Cric<span>Auction</span><sup>TM</sup></h1>
                 </a>
                 <div class="footer-contact">
                     <a href="https://play.google.com/store/apps/details?id=com.cricauction.cricket.playerauction&hl=en_IN"
@@ -30,7 +30,7 @@
                 </nav>
             </div>
 
-            <div class="col-lg-2 col-md-3 footer-links" data-aos="fade-up" data-aos-delay="300">
+            <div class="col-lg-3 col-md-3 footer-links" data-aos="fade-up" data-aos-delay="300">
                 <h4>Follow Us</h4>
                 <ul class="social">
                     <li><a href="https://www.facebook.com/profile.php?id=61571234099766" target="_blank"><img
@@ -43,10 +43,12 @@
                     </li>
                     <li><a href="https://x.com/Cricauctio52918" target="_blank"><img
                                 src="{{ asset('assets/images/footer/linkedin.png') }}" alt="LinkedIn">LinkedIn</a></li>
+                    <li><a href="" target="_blank"><img src="{{ asset('assets/images/footer/twitter.png') }}"
+                                alt="Twitter">Twitter</a></li>
                 </ul>
             </div>
 
-            <div class="col-lg-4 col-md-12 footer-links" data-aos="fade-up" data-aos-delay="400">
+            <div class="col-lg-3 col-md-12 footer-links" data-aos="fade-up" data-aos-delay="400">
                 <h4>Contact Us</h4>
                 <ul class="con">
                     <li><a href="mailto:info@argonitservices.com"><i class="bi bi-envelope"
