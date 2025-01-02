@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Battambang:wght@100;300;400;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 /* Fonts */
 :root {
     --default-font: "Battambang", serif;
     --heading-font: "Poppins", serif;
     --nav-font: "Urbanist", serif;
+    --Inter-font: "Inter", serif;
 }
 
 /* Global Colors */
@@ -33,6 +35,11 @@
 /* Smooth scroll */
 :root {
     scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
 }
 
 /*--------------------------------------------------------------
@@ -101,10 +108,6 @@ i.bi.bi-telephone {
     z-index: 997;
 }
 
-.header .logo {
-    line-height: 1;
-}
-
 .header .logo img {
     max-height: 50px;
     margin-right: 8px;
@@ -121,6 +124,14 @@ i.bi.bi-telephone {
 .header .logo h1 span {
     font-weight: 400;
     color: var(--accent-color);
+}
+
+.header .logo h1 sup {
+    font-family: var(--Inter-font);
+    font-size: 12px;
+    font-weight: 700;
+    margin-left: -4px;
+    top: -1.5em !important;
 }
 
 .btn-primary {
@@ -179,10 +190,6 @@ i.bi.bi-telephone {
     position: relative;
 }
 
-.footer .footer-top {
-    padding-top: 50px;
-}
-
 .footer .footer-about .logo {
     line-height: 1;
     margin-bottom: 25px;
@@ -193,18 +200,25 @@ i.bi.bi-telephone {
     margin-right: 6px;
 }
 
-.footer .footer-about .logo h1 span {
+.footer .footer-about .logo h1 {
+    font-family: var(--default-font);
     font-size: 40px;
     font-weight: 400;
-    letter-spacing: 1px;
-    font-family: var(--default-font);
     color: var(--surface-color);
 }
 
-.footer .footer-about .logo h1 {
-    font-size: 40px;
+.footer .footer-about .logo h1 span {
     font-weight: 700;
     color: var(--heading-color);
+}
+
+.footer .footer-about .logo h1 sup {
+    font-family: var(--Inter-font);
+    font-size: 12px;
+    font-weight: 700;
+    color: #FFFFFF;
+    top: -1.5em;
+    margin-left: -3px;
 }
 
 .footer .social-links a {
@@ -234,10 +248,6 @@ i.bi.bi-telephone {
     color: var(--heading-color);
     text-transform: uppercase;
     padding-bottom: 12px;
-}
-
-.footer .footer-links {
-    margin-bottom: 30px;
 }
 
 .footer .footer-links ul {
@@ -382,7 +392,7 @@ section,
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 1;
+    z-index: -1;
     margin-top: 80px;
 }
 
@@ -395,26 +405,36 @@ section,
     display: flex;
     flex-direction: column;
     gap: 20px;
-    margin-left: 50px;
+    margin-left: 120px;
 }
 
 .hero .hero-title h1 {
     margin: 0;
-    font-size: 75px;
     font-weight: 700;
-    line-height: 56px;
     font-family: var(--default-font);
     color: var(--surface-color);
+    font-size: 100px;
+    line-height: 100px;
 }
 
 .hero .hero-title h1 span {
     font-weight: 300;
 }
 
+.hero .hero-title h1 sup {
+    font-family: var(--Inter-font);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24.2px;
+    margin-left: -8px;
+    top: -2.5em;
+}
+
 .hero .hero-des h2 {
     color: var(--heading-color);
-    font-size: 50px;
     font-weight: 700;
+    font-size: 61px;
+    line-height: 64px;
 }
 
 .hero .hero-img {
@@ -424,7 +444,7 @@ section,
 }
 
 .hero .hero-img img {
-    width: 100%;
+    width: 95%;
     height: 100%;
 }
 
@@ -489,8 +509,7 @@ section,
 /*--------------------------------------------------------------
   # Auctions Section
   --------------------------------------------------------------*/
-.auctions,
-.features {
+.auctions {
     background-image: url('../images/auction/bg.png');
     background-position: center;
     background-repeat: no-repeat;
@@ -551,44 +570,14 @@ section,
 /*--------------------------------------------------------------
   # Features Section
   --------------------------------------------------------------*/
-.features-details .card {
-    margin-bottom: 20px;
-    height: 100%;
-    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.2);
-}
-
-.features-details .card img {
-    padding: 10px 10px 0px 10px;
-}
-
-.features-details .card .card-body {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 15px 20px 20px 20px;
-}
-
-.features-details .card .card-body a {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2px;
-    color: #000000;
-    background-color: var(--heading-color) !important;
-    border: none;
-    font-family: var(--nav-font) !important;
-    font-size: 18px !important;
-    font-weight: 600 !important;
-}
-
-.features-details .card .card-body .card-text {
-    font-family: var(--nav-font);
-    font-weight: 600;
-    font-size: 18px;
-    text-align: center;
-    line-height: 28px;
-    padding-top: 10px;
+.features,
+.help,
+.video,
+.pricing {
+    background-image: url('../images/features/features-bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /*--------------------------------------------------------------
@@ -601,6 +590,11 @@ section,
     background-size: cover;
     width: 100%;
     height: 100%;
+}
+
+.about .container,
+.about .container .row {
+    padding-top: 3rem;
 }
 
 .about .about-img img {
@@ -637,6 +631,14 @@ section,
     font-family: var(--default-font);
 }
 
+.about .about-details .about-heading h2 sup {
+    font-family: var(--Inter-font);
+    font-size: 12px;
+    font-weight: 700;
+    top: -2.5em;
+    margin-left: -5px;
+}
+
 .about .about-details .about-content p {
     font-family: var(--nav-font);
     text-align: center;
@@ -646,28 +648,26 @@ section,
     color: var(--surface-color);
 }
 
-.about .about-details .about-btn a,
-.mobile-app-btn a {
+.register-btn a {
     background: var(--Color-2, #F4B81C) !important;
-    border-right: 3px solid #000000 !important;
     color: #000000;
     padding: 12px 24px;
-    border-color: #000000 !important;
+    border-color: #F4B81C !important;
     font-size: 18px !important;
     font-family: var(--nav-font) !important;
     font-weight: 600 !important;
 }
 
-.about .about-details .about-btn a i,
-.mobile-app-btn a i {
+.register-btn a i {
     box-shadow: 0px 0px 4px 0px #0000002B;
     color: var(--accent-color);
     margin-left: 6px;
 }
 
-.about .about-details .about-btn a:hover,
-.mobile-app-btn a:hover {
+.register-btn a:hover {
     color: #000000;
+    border-color: #000000 !important;
+    border-right: 3px solid #000000 !important;
 }
 
 /*--------------------------------------------------------------
@@ -681,12 +681,12 @@ section,
     background-size: cover;
     width: 100%;
     height: 100%;
+    background-attachment: fixed;
 }
 
 .mobile-app .mobile-app-img img {
     width: 100%;
     height: 100%;
-    margin-bottom: 20px;
 }
 
 .mobile-app .mobile-app-heading img {
@@ -706,6 +706,14 @@ section,
     font-weight: 700;
     color: var(--accent-color);
     font-family: var(--default-font);
+}
+
+.mobile-app .mobile-app-heading h1 span sup {
+    font-family: var(--Inter-font);
+    font-size: 12px;
+    font-weight: 700;
+    top: -2.0em;
+    margin-left: -4px;
 }
 
 .mobile-app .mobile-app-heading h1 span span {
@@ -733,90 +741,6 @@ section,
 }
 
 /*--------------------------------------------------------------
-  # Help Section
-  --------------------------------------------------------------*/
-.help {
-    position: relative;
-    background-image: url('../images/help/help-bg.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-}
-
-.help::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 50%;
-    height: 100%;
-    background-color: var(--light-bg);
-    z-index: -1;
-}
-
-.help .help-details {
-    padding-left: 45px;
-}
-
-.help .help-details .help-heading {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding-bottom: 20px;
-}
-
-.help .help-details .help-heading img {
-    width: 40px;
-    height: 40px;
-}
-
-.help .help-details .help-heading h1 {
-    font-family: var(--nav-font);
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 57.6px;
-    color: #FFFFFF;
-}
-
-.help .help-details .help-content .help-card-det {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    border-radius: 15px;
-    background: linear-gradient(90deg, #FFFFFF 0%, #FCFCFC 21.05%, #F1F1F1 40.09%, #DFDFE0 58.13%, #DFE0E1 75.17%);
-}
-
-.help .help-details .help-content .help-card-det img {
-    width: 100%;
-    height: 100%;
-    max-width: 180px;
-    padding: 10px;
-}
-
-.help .help-details .help-content .help-card-det h5 {
-    font-family: var(--nav-font);
-    font-size: 28px;
-    font-weight: 600;
-    line-height: 33.6px;
-    color: #000000;
-}
-
-.help .help-details .help-content .help-card-det p {
-    font-family: var(--nav-font);
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 24px;
-    color: #302F2F;
-}
-
-.help .help-details .help-content .help-card-det p span {
-    font-weight: 700;
-}
-
-/*--------------------------------------------------------------
   # Client Section
   --------------------------------------------------------------*/
 .clients-details {
@@ -825,6 +749,7 @@ section,
 
 .clients .clients-details .client-img {
     border: 1px solid #CFCDCD;
+    margin: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -833,7 +758,7 @@ section,
 }
 
 .clients .clients-details .client-img img {
-    padding: 20px;
+    padding: 5px 20px;
     max-width: 100%;
     height: 110px;
 }
@@ -847,40 +772,46 @@ section,
 }
 
 /*--------------------------------------------------------------
+  # Help Section
+  --------------------------------------------------------------*/
+.help-details .card {
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px 0px #0000001A;
+    background: #FFFFFF;
+    height: 100%;
+}
+
+.help-details .card img {
+    border-radius: 8px;
+    padding: 10px 10px 0px 10px;
+}
+
+.help-details .card .card-body .card-title {
+    font-family: var(--nav-font);
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 31.2px;
+    text-align: center;
+    color: var(--nav-color);
+}
+
+.help-details .card .card-body .card-text {
+    font-family: var(--nav-font);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: center;
+    color: #666666;
+}
+
+.help-details .card .card-body .card-text span {
+    font-weight: 700;
+    color: #000000;
+}
+
+/*--------------------------------------------------------------
   # Pricing Section
   --------------------------------------------------------------*/
-.pricing {
-    background-image:
-        url('../images/pricing/pricing-color.png'),
-        url('../images/pricing/pricing-bg.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-}
-
-.pricing .pricing-details {
-    padding: 30px 0;
-}
-
-.pricing .pricing-details .price-images img {
-    width: 100%;
-    height: 100%;
-}
-
-.pricing .pricing-details .price-images .p-step {
-    margin-top: 50px;
-}
-
-.pricing .pricing-details .p-img {
-    margin-top: -15px;
-}
-
-.pricing .pricing-img img {
-    width: 100%;
-    height: 100%;
-}
 
 /*--------------------------------------------------------------
   # Contact Us Section
