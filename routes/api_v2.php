@@ -9,7 +9,7 @@ use App\Http\Controllers\Api\V2\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('v2')->group(function () {
+Route::prefix('v2')->name('v2.')->group(function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     })->middleware('auth:sanctum');
