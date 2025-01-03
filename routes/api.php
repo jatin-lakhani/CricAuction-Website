@@ -36,3 +36,4 @@ Route::middleware('log.api.requests')->group(function () {
     Route::get('migrateUserDate', [UserController::class, 'migrateUserDate']);
 });
 
+require base_path('routes/api_v2.php');

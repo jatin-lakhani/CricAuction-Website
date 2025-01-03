@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\V2;
 
 use App\Helper\FileUploadHelper;
 use App\Http\Controllers\Controller;
@@ -49,7 +49,7 @@ class PlayerController extends Controller
     // Store or update a player
     public function store(Request $request)
     {
-        if ($request->has('id') && !empty($request->input('id'))) {
+        if ($request->has('player_id') && !empty($request->input('player_id'))) {
         } else {
             $validator = Validator::make($request->all(), [
                 'auction_code' => 'nullable',
@@ -68,11 +68,14 @@ class PlayerController extends Controller
             $player_id = 0;
             if ($request->has('player_id') && !empty($request->input('player_id'))) {
                 $player = Player::where('id', $request->player_id)->first();
-                // if (!$auction) {
-                //     return apiFalseResponse('Auction not found.');
-                // }
                 if ($player) {
                     $player_id = $player->id;
+                }
+            }
+            if ($request->has('player_mobile_no') && !empty($request->input('player_mobile_no'))) {
+                $existingPlayer = Player::where('player_mobile_no', $request->player_mobile_no)->whereNot('id', $player_id)->first();
+                if ($existingPlayer) {
+                    return apiFalseResponse('A player with this mobile number already exists.');
                 }
             }
 
@@ -231,12 +234,24 @@ class PlayerController extends Controller
                     }
                 }
                 $existingPlayer = null;
+                $player_id = 0;
                 if (isset($playerData['player_id']) && !empty($playerData['player_id'])) {
                     $existingPlayer = Player::where('id', $playerData['player_id'])->first();
+                    if ($existingPlayer) {
+                        $player_id = $existingPlayer->id;
+                    }
+                }
+                if (isset($playerData['player_mobile_no']) && !empty($playerData['player_mobile_no'])) {
+                    $mobileExists = Player::where('player_mobile_no', $playerData['player_mobile_no'])->whereNot('id', $player_id)->first();
+                    if ($mobileExists) {
+                        $results[] = "Skipping Player with mobile {$playerData['player_mobile_no']} as mobile already exist with another player.";
+                        continue;
+                        // return apiFalseResponse('A player with this mobile number already exists.');
+                    }
                 }
                 if ($existingPlayer) {
                     $existingPlayer->update($data);
-                    $results[] = "Player with ID {$playerData['player_id']} updated successfully.";
+                    $results[] = "Player with ID {$playerData['id']} updated successfully.";
                 } else {
                     $player = Player::create($data);
                     $results[] = "Player with ID {$player->id} created successfully.";
