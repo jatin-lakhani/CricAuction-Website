@@ -421,6 +421,10 @@
     .clients .clients-details .client-img {
         margin: 0px;
     }
+
+    .pricing .pricing-details .card .circle {
+        padding-top: 90px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -484,6 +488,16 @@
     .about .container .row {
         padding-top: 1rem;
     }
+
+    .pricing .pricing-details .card .circle {
+        padding-top: 65px;
+    }
+
+    .pricing .pricing-details .btn-secondary {
+        font-size: 16px;
+        padding: 6px 0;
+        margin-top: 15px;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -525,6 +539,15 @@
     .pricing .pricing-details .price-images .p-step {
         margin-top: 20px;
     }
+
+    .video img,
+    .video video {
+        border-radius: 20px;
+    }
+
+    .pricing .pricing-details .card .circle {
+        padding-top: 140px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -557,6 +580,10 @@
     .about .about-details .about-heading h2 sup,
     .mobile-app .mobile-app-heading h1 span sup {
         font-size: 9px;
+    }
+
+    .pricing .pricing-details .card .circle {
+        padding-top: 115px;
     }
 }
 
@@ -644,6 +671,15 @@
         font-size: 40px;
     }
 
+    .hero .hero-title h1 {
+        font-size: 46px;
+    }
+
+    .hero .hero-des h2 {
+        font-size: 28px;
+        line-height: 30px;
+    }
+
     .auctions .auctions-details .card-body {
         bottom: 15px;
         left: 15px;
@@ -675,5 +711,9 @@
 
     .help .help-details .help-content .help-card-det img {
         max-width: 100%;
+    }
+
+    .pricing .pricing-details .card .circle {
+        padding-top: 90px;
     }
 }

@@ -29,7 +29,7 @@
                     </div>
                     <div class="col-lg-6 col-md-12">
                         <div class="hero-img" data-aos="zoom-out" data-aos-delay="200">
-                            <img src="{{ asset('assets/images/hero.png') }}" alt="Hero Image">
+                            <img src="{{ asset('assets/images/hero/hero.png') }}" alt="Hero Image">
                         </div>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                 <div class="auctions-details">
                     <div class="row">
                         @foreach ($auctions as $auction)
-                            <div class="col-lg-4 col-md-4 mb-4">
+                            <div class="col-lg-4 col-md-4 mb-5 mb-4">
                                 <div class="card" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
 
                                     <img src="{{ $auction->auction_image
@@ -82,9 +82,33 @@
                     <img src="{{ asset('assets/images/logo.png') }}" alt="Logo">
                     <h1><span>Our</span> Features</h1>
                 </div>
+            </div>
+            <div class="container-fluid">
                 <div class="features-details">
                     <div class="row">
-                        
+                        <div class="col-lg-4">
+                            <div class="card">
+                                <img src="..." class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the
+                                        bulk of the card's content.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <img src="{{ asset('assets/images/features/sample.png') }}" alt="Sample">
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="card">
+                                <img src="..." class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the
+                                        bulk of the card's content.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -232,7 +256,8 @@
                                     alt="Help 2">
                                 <div class="card-body">
                                     <h5 class="card-title">Add Auction Team</h5>
-                                    <p class="card-text"><span>Adding teams</span> allows you to establish your presence in the auction
+                                    <p class="card-text"><span>Adding teams</span> allows you to establish your presence in
+                                        the auction
                                         and showcase your unique identity. Your team's logo, name, and shortcut key. Get
                                         ready to build your dream team.</p>
                                 </div>
@@ -244,7 +269,9 @@
                                     alt="Help 3">
                                 <div class="card-body">
                                     <h5 class="card-title">Add Auction Player</h5>
-                                    <p class="card-text">Get to know the <span>Players</span> before you bid.  Check out their strengths, stats, and playing  style to make informed decisions during the auction.</p>
+                                    <p class="card-text">Get to know the <span>Players</span> before you bid. Check out
+                                        their strengths, stats, and playing style to make informed decisions during the
+                                        auction.</p>
                                 </div>
                             </div>
                         </div>
@@ -254,7 +281,9 @@
                                     alt="Help 4">
                                 <div class="card-body">
                                     <h5 class="card-title">Start Auction Bid</h5>
-                                    <p class="card-text">To participate in the ongoing auction, enter your desired bid amount in the provided field and then click the <span>Bid Button</span> to submit your bid for the player currently up for bidding.</p>
+                                    <p class="card-text">To participate in the ongoing auction, enter your desired bid
+                                        amount in the provided field and then click the <span>Bid Button</span> to submit
+                                        your bid for the player currently up for bidding.</p>
                                 </div>
                             </div>
                         </div>
@@ -264,24 +293,95 @@
         </section><!-- /Help Section -->
 
         <!-- Video Section -->
-        {{-- <section id="video" class="section video">
+        <section id="video" class="section video pt-0">
             <div class="container">
-                
+                <!-- Video Container -->
+                <div style="position: relative; margin: auto;">
+                    <!-- Placeholder Image -->
+                    <img src="{{ asset('assets/images/video-sec.png') }}" alt="Video Thumbnail"
+                        style="width: 100%; cursor: pointer;" onclick="playVideo()" id="videoThumbnail">
+                    <!-- Video Element (Initially Hidden) -->
+                    <video id="myVideo" width="100%" controls style="display: none;">
+                        <source src="{{ asset('assets/video/sample-video.mp4') }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
             </div>
-        </section> --}}
-        <!-- /Video Section -->
+        </section><!-- /Video Section -->
 
         <!-- Pricing Section -->
-        {{-- <section id="pricing" class="section pricing">
+        <section id="pricing" class="section pricing">
             <div class="container">
                 <div class="section-title" data-aos="fade-up" data-aos-delay="100">
                     <img src="{{ asset('assets/images/logo.png') }}" alt="Logo">
                     <h1><span>Our</span> Pricing</h1>
                 </div>
-
+                <div class="pricing-details py-4">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 mb-5">
+                            <div class="card">
+                                <img src="{{ asset('assets/images/pricing/pricing-1.png') }}"
+                                    class="card-img-top pricing-img" alt="Pricing 1">
+                                <div class="circle">
+                                    <img src="{{ asset('assets/images/pricing/p1.png') }}" alt="price 1">
+                                </div>
+                                <a href="" class="btn btn-secondary">Get Started</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 mb-5">
+                            <div class="card">
+                                <img src="{{ asset('assets/images/pricing/pricing-2.png') }}"
+                                    class="card-img-top pricing-img" alt="Pricing 2">
+                                <div class="circle">
+                                    <img src="{{ asset('assets/images/pricing/p2.png') }}" alt="price 2">
+                                </div>
+                                <a href="" class="btn btn-secondary">Get Started</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 mb-5">
+                            <div class="card">
+                                <img src="{{ asset('assets/images/pricing/pricing-3.png') }}"
+                                    class="card-img-top pricing-img" alt="Pricing 3">
+                                <div class="circle">
+                                    <img src="{{ asset('assets/images/pricing/p3.png') }}" alt="price 3">
+                                </div>
+                                <a href="" class="btn btn-secondary">Get Started</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 mb-5">
+                            <div class="card">
+                                <img src="{{ asset('assets/images/pricing/pricing-4.png') }}"
+                                    class="card-img-top pricing-img" alt="Pricing 4">
+                                <div class="circle">
+                                    <img src="{{ asset('assets/images/pricing/p4.png') }}" alt="price 4">
+                                </div>
+                                <a href="" class="btn btn-secondary">Get Started</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 mb-5">
+                            <div class="card">
+                                <img src="{{ asset('assets/images/pricing/pricing-5.png') }}"
+                                    class="card-img-top pricing-img" alt="Pricing 5">
+                                <div class="circle">
+                                    <img src="{{ asset('assets/images/pricing/p5.png') }}" alt="price 5">
+                                </div>
+                                <a href="" class="btn btn-secondary">Get Started</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 mb-5">
+                            <div class="card">
+                                <img src="{{ asset('assets/images/pricing/pricing-6.png') }}"
+                                    class="card-img-top pricing-img" alt="Pricing 6">
+                                <div class="circle">
+                                    <img src="{{ asset('assets/images/pricing/p6.png') }}" alt="price 6">
+                                </div>
+                                <a href="" class="btn btn-secondary">Get Started</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section> --}}
-        <!-- /Pricing Section -->
+        </section><!-- /Pricing Section -->
 
         <!-- Contact Us Section -->
         <section id="contactus" class="section contactus">

@@ -94,6 +94,34 @@
     AOS.init();
 </script>
 
+<script>
+    // Function to play the video and hide the thumbnail
+    function playVideo() {
+        const video = document.getElementById("myVideo");
+        const thumbnail = document.getElementById("videoThumbnail");
+
+        // Hide the thumbnail and show the video
+        thumbnail.style.display = "none";
+        video.style.display = "block";
+
+        // Start playing the video
+        video.play();
+
+        // Add an event listener for when the video ends
+        video.addEventListener("ended", showThumbnail);
+    }
+
+    // Function to show the thumbnail when the video finishes
+    function showThumbnail() {
+        const video = document.getElementById("myVideo");
+        const thumbnail = document.getElementById("videoThumbnail");
+
+        // Hide the video and show the thumbnail
+        video.style.display = "none";
+        thumbnail.style.display = "block";
+    }
+</script>
+
 <!-- Bootstrap JavaScript Libraries -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
