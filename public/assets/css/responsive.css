@@ -12,6 +12,27 @@
     .hero .hero-title h1 sup {
         top: -2.0em;
     }
+
+    .features .f-num h1 {
+        font-size: 75px;
+    }
+
+    .features .fc-main h5 {
+        font-size: 22px;
+    }
+
+    .features .fc-main h5 img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .features .fc-main p {
+        font-size: 14px;
+    }
+
+    .features .features-details {
+        padding: 0;
+    }
 }
 
 @media (max-width:1280px) {
@@ -21,6 +42,14 @@
 
     .hero .hero-left {
         margin-left: 70px;
+    }
+
+    .pricing .pricing-details .card .circle h2 {
+        font-size: 38px;
+    }
+
+    .pricing .pricing-details .card .circle h2 span {
+        font-size: 32px;
     }
 }
 
@@ -359,6 +388,12 @@
     .auctions .auctions-details .card-body {
         bottom: 15px;
         left: 15px;
+        padding: 7px;
+    }
+
+    .auctions .auctions-details .card-auc img {
+        width: 26px;
+        height: 26px;
     }
 
     .about .about-details .about-heading h2 {
@@ -408,10 +443,6 @@
         max-width: 160px;
     }
 
-    .auctions .auctions-details .card {
-        height: 280px;
-    }
-
     .about .about-details .about-heading h2 sup,
     .mobile-app .mobile-app-heading h1 span sup {
         top: -1.5em;
@@ -421,6 +452,61 @@
     .clients .clients-details .client-img {
         margin: 0px;
     }
+<<<<<<< Updated upstream
+=======
+
+    .pricing .pricing-details .card .circle {
+        padding-top: 90px;
+    }
+
+    .features .fc-main {
+        padding: 3px;
+    }
+
+    .features .fc-main h5 {
+        font-size: 18px;
+    }
+
+    .features .fc-main h5 img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .features .fc-main p {
+        font-size: 11px;
+    }
+
+    .features .f-num h1 {
+        font-size: 60px;
+    }
+
+    .features .card {
+        margin-bottom: 15px;
+    }
+
+    .pricing .pricing-details .card .circle h2 {
+        font-size: 30px;
+        border-radius: 15px;
+    }
+
+    .pricing .pricing-details .card .circle h2 span {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 912px) {
+    .pricing .pricing-details .card .circle h2 {
+        font-size: 23px;
+    }
+
+    .pricing .pricing-details .card .circle h2 span {
+        font-size: 20px;
+    }
+    
+    .features .features-slider {
+        margin-bottom: 30px;
+    }
+>>>>>>> Stashed changes
 }
 
 @media (max-width: 768px) {
@@ -438,7 +524,7 @@
     }
 
     .auctions .auctions-details .card-body .card-title {
-        font-size: 11px;
+        font-size: 12px;
     }
 
     .auctions .auctions-details .card-body {
@@ -446,9 +532,14 @@
         left: 11px;
     }
 
-    .auctions .auctions-details .card-body img {
-        width: 25px;
-        height: 25px;
+    .auctions .auctions-details .card-body .auction-img img {
+        width: 100%;
+        height: 55px;
+        max-height: fit-content;
+    }
+
+    .features .feature-btn {
+        display: block;
     }
 
     .price-left {
@@ -472,10 +563,6 @@
         font-size: 14px;
     }
 
-    .auctions .auctions-details .card {
-        height: 250px;
-    }
-
     .mobile-app-details {
         padding-bottom: 2.5rem;
     }
@@ -484,6 +571,57 @@
     .about .container .row {
         padding-top: 1rem;
     }
+<<<<<<< Updated upstream
+=======
+
+    .pricing .pricing-details .card {
+        border-radius: 10px;
+    }
+
+    .pricing .pricing-details .card .pricing-img {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .pricing .pricing-details .card .circle {
+        padding-top: 65px;
+    }
+
+    .pricing .pricing-details .card .circle h2 {
+        font-size: 19px;
+    }
+
+    .pricing .pricing-details .btn-secondary {
+        font-size: 16px;
+        padding: 6px 0;
+        margin-top: 15px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    .pricing .pricing-details .card .circle h2 {
+        font-size: 22px;
+    }
+
+    .pricing .pricing-details .card .circle h2 span {
+        font-size: 18px;
+    }
+
+    .features .features-left,
+    .features .features-right {
+        display: none;
+    }
+
+    .features .mobile-features {
+        display: block;
+    }
+
+    .features .features-mobile {
+        display: flex;
+        align-items: center;
+        justify-items: flex-start;
+    }
+>>>>>>> Stashed changes
 }
 
 @media screen and (max-width: 768px) {
@@ -525,6 +663,26 @@
     .pricing .pricing-details .price-images .p-step {
         margin-top: 20px;
     }
+<<<<<<< Updated upstream
+=======
+
+    .video img,
+    .video video {
+        border-radius: 20px;
+    }
+
+    .pricing .pricing-details .card .circle {
+        padding-top: 140px;
+    }
+
+    .pricing .pricing-details .card .circle h2 {
+        font-size: 54px;
+    }
+
+    .pricing .pricing-details .card .circle h2 span {
+        font-size: 38px;
+    }
+>>>>>>> Stashed changes
 }
 
 @media (max-width: 480px) {
@@ -534,10 +692,6 @@
 
     .header .logo h1 {
         font-size: 35px;
-    }
-
-    .auctions .auctions-details .card {
-        height: 320px;
     }
 
     .hero .hero-left {
@@ -558,6 +712,18 @@
     .mobile-app .mobile-app-heading h1 span sup {
         font-size: 9px;
     }
+<<<<<<< Updated upstream
+=======
+
+    .pricing .pricing-details .card .circle {
+        padding-top: 115px;
+    }
+
+    .pricing .pricing-details .card .circle h2 {
+        font-size: 40px;
+        border-radius: 40px;
+    }
+>>>>>>> Stashed changes
 }
 
 @media (max-width: 450px) {
@@ -630,6 +796,36 @@
     .about .container .row {
         padding-top: 0.5rem;
     }
+
+    .pricing .pricing-details .card .circle h2 {
+        font-size: 40px;
+        border-radius: 28px;
+    }
+
+    .pricing .pricing-details .card .circle h2 span {
+        font-size: 30px;
+    }
+
+    .features .features-details {
+        margin: -37px;
+    }
+
+    .features .fm-num h1 {
+        font-size: 75px;
+    }
+
+    .features .fm-main h5 {
+        font-size: 20px;
+    }
+
+    .features .fm-main h5 img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .features .fm-main p {
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 320px) {
@@ -676,4 +872,40 @@
     .help .help-details .help-content .help-card-det img {
         max-width: 100%;
     }
+<<<<<<< Updated upstream
+=======
+
+    .pricing .pricing-details .card .circle {
+        padding-top: 90px;
+    }
+
+    .pricing .pricing-details .card .circle h2 {
+        font-size: 31px;
+    }
+
+    .pricing .pricing-details .card .circle h2 span {
+        font-size: 24px;
+    }
+
+    .features .fm-num h1 {
+        padding-left: 5px;
+    }
+
+    .features .fm-main h5 {
+        font-size: 18px;
+    }
+
+    .features .fm-num h1 {
+        font-size: 65px;
+    }
+
+    .features .fm-main p {
+        font-size: 13px;
+    }
+
+    .features .fm-main h5 img {
+        width: 26px;
+        height: 26px;
+    }
+>>>>>>> Stashed changes
 }

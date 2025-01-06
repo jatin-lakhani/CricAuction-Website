@@ -41,10 +41,10 @@
                     <li><a href="https://www.youtube.com/@CricAuction-o9q" target="_blank"><img
                                 src="{{ asset('assets/images/footer/Youtube.png') }}" alt="YouTube">YouTube</a>
                     </li>
+                    <li><a href="" target="_blank"><img src="{{ asset('assets/images/footer/linkedin.png') }}"
+                                alt="LinkedIn">LinkedIn</a></li>
                     <li><a href="https://x.com/Cricauctio52918" target="_blank"><img
-                                src="{{ asset('assets/images/footer/linkedin.png') }}" alt="LinkedIn">LinkedIn</a></li>
-                    <li><a href="" target="_blank"><img src="{{ asset('assets/images/footer/twitter.png') }}"
-                                alt="Twitter">Twitter</a></li>
+                                src="{{ asset('assets/images/footer/twitter.png') }}" alt="Twitter">Twitter</a></li>
                 </ul>
             </div>
 
@@ -94,6 +94,146 @@
     AOS.init();
 </script>
 
+<<<<<<< Updated upstream
+=======
+<script>
+    // Function to play the video and hide the thumbnail
+    function playVideo() {
+        const video = document.getElementById("myVideo");
+        const thumbnail = document.getElementById("videoThumbnail");
+
+        // Hide the thumbnail and show the video
+        thumbnail.style.display = "none";
+        video.style.display = "block";
+
+        // Start playing the video
+        video.play();
+
+        // Add an event listener for when the video ends
+        video.addEventListener("ended", showThumbnail);
+    }
+
+    // Function to show the thumbnail when the video finishes
+    function showThumbnail() {
+        const video = document.getElementById("myVideo");
+        const thumbnail = document.getElementById("videoThumbnail");
+
+        // Hide the video and show the thumbnail
+        video.style.display = "none";
+        thumbnail.style.display = "block";
+    }
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const cards = document.querySelectorAll('.features-left .card, .features-right .card');
+        const carousel = document.querySelector('#carouselExample');
+
+        cards.forEach((card) => {
+            card.addEventListener('mouseenter', function() {
+                // Remove the active class from all cards
+                cards.forEach((c) => c.classList.remove('active'));
+
+                // Add the active class to the hovered card
+                this.classList.add('active');
+
+                // Get the target index for the carousel
+                const targetIndex = parseInt(this.getAttribute('data-target'), 10);
+                const carouselInstance = bootstrap.Carousel.getOrCreateInstance(carousel);
+                carouselInstance.to(targetIndex);
+            });
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const cards = document.querySelectorAll('.mobile-features .card');
+        const carousel = document.querySelector('#carouselExample');
+        const carouselInner = document.querySelector('.carousel-inner');
+        const activeCardContainer = document.querySelector('#active-card-container');
+
+        // Function to activate the card and update the active card container
+        function activateCard(index) {
+            cards.forEach((card) => card.classList.remove('active'));
+            const targetCard = Array.from(cards).find((card) => parseInt(card.getAttribute('data-target'),
+                10) === index);
+
+            if (targetCard) {
+                targetCard.classList.add('active');
+                updateActiveCardContent(targetCard);
+            }
+        }
+
+        // Function to update the active card content in the container
+        function updateActiveCardContent(card) {
+            const title = card.querySelector('.card-title').innerHTML;
+            const text = card.querySelector('.card-text').innerHTML;
+            const image = card.querySelector('img').outerHTML;
+
+            activeCardContainer.innerHTML = `
+            <div class="card active">
+                <div class="features-mobile">
+                    <div class="fm-num">${card.querySelector('.fm-num').innerHTML}</div>
+                    <div class="card-body fm-main">
+                        <h5 class="card-title text-left">${title}</h5>
+                        <p class="card-text">${text}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+        }
+
+        // Handle card hover to change carousel slide and active card
+        cards.forEach((card) => {
+            card.addEventListener('mouseenter', function() {
+                // Remove the active class from all cards
+                cards.forEach((c) => c.classList.remove('active'));
+
+                // Add the active class to the hovered card
+                this.classList.add('active');
+
+                // Get the target index for the carousel
+                const targetIndex = parseInt(this.getAttribute('data-target'), 10);
+                const carouselInstance = bootstrap.Carousel.getOrCreateInstance(carousel);
+                carouselInstance.to(targetIndex);
+            });
+        });
+
+        // Update active card when the carousel slide changes
+        carousel.addEventListener('slide.bs.carousel', function(event) {
+            activateCard(event.to);
+        });
+
+        // Handle "Previous" and "Next" buttons to sync active card with slide
+        const prevBtn = document.querySelector('.carousel-control-prev');
+        const nextBtn = document.querySelector('.carousel-control-next');
+
+        if (prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', function() {
+                const activeIndex = [...carouselInner.children].findIndex((item) =>
+                    item.classList.contains('active')
+                );
+                const newIndex = (activeIndex - 1 + carouselInner.children.length) % carouselInner
+                    .children.length;
+                activateCard(newIndex);
+            });
+
+            nextBtn.addEventListener('click', function() {
+                const activeIndex = [...carouselInner.children].findIndex((item) =>
+                    item.classList.contains('active')
+                );
+                const newIndex = (activeIndex + 1) % carouselInner.children.length;
+                activateCard(newIndex);
+            });
+        }
+
+        // Initialize the active card content on load
+        activateCard(0);
+    });
+</script>
+
+>>>>>>> Stashed changes
 <!-- Bootstrap JavaScript Libraries -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
