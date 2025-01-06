@@ -452,8 +452,6 @@
     .clients .clients-details .client-img {
         margin: 0px;
     }
-<<<<<<< Updated upstream
-=======
 
     .pricing .pricing-details .card .circle {
         padding-top: 90px;
@@ -506,7 +504,6 @@
     .features .features-slider {
         margin-bottom: 30px;
     }
->>>>>>> Stashed changes
 }
 
 @media (max-width: 768px) {
@@ -571,8 +568,6 @@
     .about .container .row {
         padding-top: 1rem;
     }
-<<<<<<< Updated upstream
-=======
 
     .pricing .pricing-details .card {
         border-radius: 10px;
@@ -621,7 +616,6 @@
         align-items: center;
         justify-items: flex-start;
     }
->>>>>>> Stashed changes
 }
 
 @media screen and (max-width: 768px) {
@@ -663,8 +657,6 @@
     .pricing .pricing-details .price-images .p-step {
         margin-top: 20px;
     }
-<<<<<<< Updated upstream
-=======
 
     .video img,
     .video video {
@@ -682,7 +674,6 @@
     .pricing .pricing-details .card .circle h2 span {
         font-size: 38px;
     }
->>>>>>> Stashed changes
 }
 
 @media (max-width: 480px) {
@@ -712,8 +703,6 @@
     .mobile-app .mobile-app-heading h1 span sup {
         font-size: 9px;
     }
-<<<<<<< Updated upstream
-=======
 
     .pricing .pricing-details .card .circle {
         padding-top: 115px;
@@ -723,7 +712,6 @@
         font-size: 40px;
         border-radius: 40px;
     }
->>>>>>> Stashed changes
 }
 
 @media (max-width: 450px) {
@@ -872,8 +860,6 @@
     .help .help-details .help-content .help-card-det img {
         max-width: 100%;
     }
-<<<<<<< Updated upstream
-=======
 
     .pricing .pricing-details .card .circle {
         padding-top: 90px;
@@ -907,5 +893,4 @@
         width: 26px;
         height: 26px;
     }
->>>>>>> Stashed changes
 }
