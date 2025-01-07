@@ -625,6 +625,10 @@
         align-items: center;
         justify-items: flex-start;
     }
+
+    .features .carousel-item {
+        padding: 0 10rem;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -682,6 +686,14 @@
 
     .pricing .pricing-details .card .circle h2 span {
         font-size: 38px;
+    }
+
+    .features .carousel-item {
+        padding: 0 5rem;
+    }
+
+    .features .features-slider img {
+        border-radius: 20px;
     }
 }
 
@@ -906,5 +918,9 @@
     .features .fm-main h5 img {
         width: 26px;
         height: 26px;
+    }
+
+    .features .carousel-item {
+        padding: 0 2.5rem;
     }
 }
