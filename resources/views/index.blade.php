@@ -654,22 +654,115 @@
         </section><!-- /Help Section -->
 
         <!-- Video Section -->
+        {{-- <section id="video" class="section video pt-0">
+            <div class="container" data-aos="zoom-out" data-aos-delay="300">
+                <!-- Video Container -->
+                <div style="position: relative;">
+                    <!-- Placeholder Image -->
+                    <img src="{{ asset('assets/images/video-sec.png') }}" alt="Video Thumbnail"
+                        style="width: 100%; cursor: pointer;" onclick="playYouTubeVideo()" id="videoThumbnail">
+
+                    <!-- YouTube Video (Initially Hidden) -->
+                    <div id="youtubeVideoContainer"
+                        style="display: none; position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
+                        <iframe id="youtubeVideo" src="https://www.youtube.com/embed/Y2hbvdTRRI4?autoplay=1"
+                            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            function playYouTubeVideo() {
+                const videoThumbnail = document.getElementById("videoThumbnail");
+                const youtubeVideoContainer = document.getElementById("youtubeVideoContainer");
+
+                // Hide the thumbnail and show the YouTube video container
+                videoThumbnail.style.display = "none";
+                youtubeVideoContainer.style.display = "block";
+            }
+        </script> --}}
+
         <section id="video" class="section video pt-0">
             <div class="container" data-aos="zoom-out" data-aos-delay="300">
                 <!-- Video Container -->
                 <div style="position: relative;">
                     <!-- Placeholder Image -->
                     <img src="{{ asset('assets/images/video-sec.png') }}" alt="Video Thumbnail"
-                        style="width: 100%; cursor: pointer;" onclick="playVideo()" id="videoThumbnail">
-
-                    <!-- Video Element (Initially Hidden) -->
-                    <video id="myVideo" width="100%" controls style="display: none;">
-                        <source src="{{ asset('assets/images/sample-video.mp4') }}" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                        style="width: 100%; cursor: pointer;" onclick="playYouTubeVideo()" id="videoThumbnail">
+        
+                    <!-- YouTube Video (Initially Hidden) -->
+                    <div id="youtubeVideoContainer" style="display: none; position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
+                        <div id="youtubePlayer" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+                    </div>
                 </div>
             </div>
-        </section><!-- /Video Section -->
+        </section> 
+        <script>
+            let player; // Variable to hold the YouTube player instance
+        
+            // Load the IFrame Player API asynchronously
+            (function loadYouTubeAPI() {
+                const tag = document.createElement('script');
+                tag.src = "https://www.youtube.com/iframe_api";
+                const firstScriptTag = document.getElementsByTagName('script')[0];
+                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+            })();
+        
+            // This function is called by the YouTube API when it's ready
+            function onYouTubeIframeAPIReady() {
+                player = new YT.Player('youtubePlayer', {
+                    videoId: 'Y2hbvdTRRI4', // Replace with your video ID
+                    playerVars: {
+                        'autoplay': 0, // Video won't autoplay until triggered
+                        'controls': 1, // Show player controls
+                        'rel': 0,      // Don't show related videos at the end
+                    },
+                });
+            }
+        
+            function playYouTubeVideo() {
+                const videoThumbnail = document.getElementById("videoThumbnail");
+                const youtubeVideoContainer = document.getElementById("youtubeVideoContainer");
+        
+                // Hide the thumbnail and show the YouTube video container
+                videoThumbnail.style.display = "none";
+                youtubeVideoContainer.style.display = "block";
+        
+                // Play the video
+                if (player) {
+                    player.playVideo();
+                }
+            }
+        
+            function pauseYouTubeVideo() {
+                if (player) {
+                    player.pauseVideo();
+                }
+            }
+        
+            function setVideoVolume(volume) {
+                if (player) {
+                    player.setVolume(volume); // Set volume (0 to 100)
+                }
+            }
+        
+            function getVideoDuration() {
+                if (player) {
+                    return player.getDuration(); // Returns the duration in seconds
+                }
+                return 0;
+            }
+        
+            function getCurrentTime() {
+                if (player) {
+                    return player.getCurrentTime(); // Returns the current playback time in seconds
+                }
+                return 0;
+            }
+        </script><!-- /Video Section -->
 
         <!-- Pricing Section -->
         <section id="pricing" class="section pricing">

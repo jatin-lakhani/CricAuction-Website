@@ -365,6 +365,7 @@ section,
     display: flex;
     flex-direction: column;
     gap: 20px;
+    margin-top: 40px;
     margin-left: 120px;
 }
 
@@ -414,6 +415,10 @@ section,
 
 .hero .hero-btns a {
     width: 37%;
+}
+
+.hero .hero-btns a:last-child{
+    margin-left: -25px;
 }
 
 .hero .hero-btns img {
@@ -470,6 +475,7 @@ section,
     width: 100%;
     height: 100%;
     margin-bottom: 20px;
+    border: none;
 }
 
 .auctions .auctions-details .card .auc-img {
@@ -855,7 +861,8 @@ section,
 }
 
 .video img,
-.video video {
+.video video,
+.video iframe {
     width: 100%;
     height: 100%;
     box-shadow: 0px 5px 15px 0px #00000059;

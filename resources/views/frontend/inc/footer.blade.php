@@ -41,7 +41,7 @@
                     <li><a href="https://www.youtube.com/@CricAuction-o9q" target="_blank"><img
                                 src="{{ asset('assets/images/footer/Youtube.png') }}" alt="YouTube">YouTube</a>
                     </li>
-                    <li><a href="" target="_blank"><img src="{{ asset('assets/images/footer/linkedin.png') }}"
+                    <li><a href="https://www.linkedin.com/company/cricauction" target="_blank"><img src="{{ asset('assets/images/footer/linkedin.png') }}"
                                 alt="LinkedIn">LinkedIn</a></li>
                     <li><a href="https://x.com/Cricauctio52918" target="_blank"><img
                                 src="{{ asset('assets/images/footer/twitter.png') }}" alt="Twitter">Twitter</a></li>

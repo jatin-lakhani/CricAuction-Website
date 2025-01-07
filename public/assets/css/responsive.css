@@ -13,6 +13,10 @@
         top: -2.0em;
     }
 
+    .hero .hero-btns a:last-child {
+        margin-left: -20px;
+    }
+
     .features .f-num h1 {
         font-size: 75px;
     }
@@ -391,6 +395,10 @@
         margin-left: 50px;
     }
 
+    .hero .hero-btns a:last-child {
+        margin-left: -10px;
+    }
+
     .auctions .auctions-details .card-body .card-title,
     .hero .hero-title h1 sup,
     .footer .footer-links ul a {
@@ -532,6 +540,7 @@
     .help::before {
         width: 100%;
         height: 100%;
+        top: 0px;
     }
 
     .auctions .auctions-details .card-body .card-title {
