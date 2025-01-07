@@ -617,7 +617,8 @@
                                     alt="Help 2">
                                 <div class="card-body">
                                     <h5 class="card-title">Add Auction Team</h5>
-                                    <p class="card-text"><span>Adding teams</span> allows you to establish your presence in the auction
+                                    <p class="card-text"><span>Adding teams</span> allows you to establish your presence in
+                                        the auction
                                         and showcase your unique identity. Your team's logo, name, and shortcut key. Get
                                         ready to build your dream team.</p>
                                 </div>
@@ -629,7 +630,9 @@
                                     alt="Help 3">
                                 <div class="card-body">
                                     <h5 class="card-title">Add Auction Player</h5>
-                                    <p class="card-text">Get to know the <span>Players</span> before you bid.  Check out their strengths, stats, and playing  style to make informed decisions during the auction.</p>
+                                    <p class="card-text">Get to know the <span>Players</span> before you bid. Check out
+                                        their strengths, stats, and playing style to make informed decisions during the
+                                        auction.</p>
                                 </div>
                             </div>
                         </div>
@@ -639,7 +642,9 @@
                                     alt="Help 4">
                                 <div class="card-body">
                                     <h5 class="card-title">Start Auction Bid</h5>
-                                    <p class="card-text">To participate in the ongoing auction, enter your desired bid amount in the provided field and then click the <span>Bid Button</span> to submit your bid for the player currently up for bidding.</p>
+                                    <p class="card-text">To participate in the ongoing auction, enter your desired bid
+                                        amount in the provided field and then click the <span>Bid Button</span> to submit
+                                        your bid for the player currently up for bidding.</p>
                                 </div>
                             </div>
                         </div>
@@ -649,25 +654,17 @@
         </section><!-- /Help Section -->
 
         <!-- Video Section -->
-        <section id="video" class="section video pt-0" data-aos="zoom-out" data-aos-delay="300">
-            <div class="container">
+        <section id="video" class="section video pt-0">
+            <div class="container" data-aos="zoom-out" data-aos-delay="300">
                 <!-- Video Container -->
                 <div style="position: relative;">
                     <!-- Placeholder Image -->
-                    <img 
-                        src="{{asset('assets/images/video-sec.png')}}" 
-                        alt="Video Thumbnail" 
-                        style="width: 100%; cursor: pointer;" 
-                        onclick="playVideo()" 
-                        id="videoThumbnail">
-                    
+                    <img src="{{ asset('assets/images/video-sec.png') }}" alt="Video Thumbnail"
+                        style="width: 100%; cursor: pointer;" onclick="playVideo()" id="videoThumbnail">
+
                     <!-- Video Element (Initially Hidden) -->
-                    <video 
-                        id="myVideo" 
-                        width="100%" 
-                        controls 
-                        style="display: none;">
-                        <source src="{{asset('assets/images/sample-video.mp4')}}" type="video/mp4">
+                    <video id="myVideo" width="100%" controls style="display: none;">
+                        <source src="{{ asset('assets/images/sample-video.mp4') }}" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>

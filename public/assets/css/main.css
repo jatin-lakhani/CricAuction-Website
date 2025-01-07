@@ -13,19 +13,15 @@
     --features-font: "Mada", serif;
 }
 
-/* Global Colors */
+/* Global Colors & Nav Menu Colors */
 :root {
     --background-color: #AD2112;
     --light-bg: rgba(173, 33, 18, 0.7);
-    --default-color: #3d4348;
+    --default-color: #000000;
     --heading-color: #F4B81C;
     --accent-color: #AD2112;
     --surface-color: #ffffff;
     --shadow: #00000040;
-}
-
-/* Nav Menu Colors */
-:root {
     --nav-color: #000000;
     --nav-hover-color: #AD2112;
     --nav-mobile-background-color: rgba(173, 33, 18, 0.9);
@@ -48,16 +44,13 @@ a {
     cursor: pointer;
 }
 
-/*--------------------------------------------------------------
-  # General Styling & Shared Classes
-  --------------------------------------------------------------*/
+/*  # General Styling & Shared Classes  */
 body {
     color: var(--default-color);
     background-color: var(--background-color);
     font-family: var(--default-font);
 }
 
-/* heading top */
 .heading-top {
     padding: 0px 70px 0px 70px;
     background-color: var(--background-color);
@@ -93,20 +86,13 @@ body {
     text-decoration: none;
 }
 
-i.bi.bi-envelope {
-    margin: 0px 6px 0px 0px;
-}
-
 i.bi.bi-telephone {
     margin: 0px 1px 0px 0px;
     color: var(--heading-color);
     padding-right: 8px;
 }
 
-/* heading top end */
-/*--------------------------------------------------------------
-  # Global Header
-  --------------------------------------------------------------*/
+/*  # Global Header  */
 .header {
     color: var(--default-color);
     background-color: var(--background-color);
@@ -164,35 +150,28 @@ i.bi.bi-telephone {
     box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
 }
 
-/* Index Page Header
-  ------------------------------*/
+/* Index Page Header */
 .index-page .header {
     background-color: rgba(255, 255, 255, 0);
 }
 
-/* Index Page Header on Scroll
-  ------------------------------*/
+/* Index Page Header on Scroll */
 .index-page.scrolled .header {
     background-color: #ffffff;
 }
 
-/*--------------------------------------------------------------
-  # Navigation Menu
-  --------------------------------------------------------------*/
+/*  # Navigation Menu  */
 [x-cloak] {
     display: none !important;
 }
 
-/*--------------------------------------------------------------
-# Global Footer
---------------------------------------------------------------*/
+/*  # Global Footer  */
 .footer {
     color: var(--default-color);
     background-image: linear-gradient(rgba(173, 33, 18, 0.9), rgba(173, 33, 18, 0.9)),
         url('../images/footer/footer-bg.png');
     background-position: center;
     background-size: cover;
-    font-size: 14px;
     position: relative;
 }
 
@@ -225,25 +204,6 @@ i.bi.bi-telephone {
     color: #FFFFFF;
     top: -1.5em;
     margin-left: -3px;
-}
-
-.footer .social-links a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid color-mix(in srgb, var(--default-color), transparent 50%);
-    font-size: 16px;
-    color: color-mix(in srgb, var(--default-color), transparent 30%);
-    margin-right: 10px;
-    transition: 0.3s;
-}
-
-.footer .social-links a:hover {
-    color: var(--accent-color);
-    border-color: var(--accent-color);
 }
 
 .footer h4 {
@@ -321,8 +281,7 @@ i.bi.bi-telephone {
 
 .footer .copyright,
 .footer .copyright a {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px 0;
     background: var(--heading-color);
     color: #000000;
     font-family: var(--nav-font);
@@ -335,9 +294,7 @@ i.bi.bi-telephone {
     margin-bottom: 0;
 }
 
-/*--------------------------------------------------------------
-# Scroll Top Button
---------------------------------------------------------------*/
+/*  # Scroll Top Button  */
 .scroll-top {
     position: fixed;
     visibility: hidden;
@@ -370,7 +327,6 @@ i.bi.bi-telephone {
 }
 
 /* ----------- index-page -------------- */
-
 section,
 .section {
     padding: 45px 0 25px 0;
@@ -378,9 +334,7 @@ section,
     overflow: clip;
 }
 
-/*--------------------------------------------------------------
-  # Hero Section
-  --------------------------------------------------------------*/
+/*  # Hero Section  */
 .hero {
     width: 100%;
     min-height: 60vh;
@@ -494,27 +448,11 @@ section,
 }
 
 .section-title h1 span {
-    font-size: 48px;
     font-weight: 700;
     color: var(--accent-color);
 }
 
-.section-title h2 {
-    font-family: var(--nav-font);
-    font-size: 48px;
-    font-weight: 600;
-    color: var(--heading-color);
-}
-
-.section-title h2 span {
-    font-size: 48px;
-    font-weight: 700;
-    color: var(--surface-color);
-}
-
-/*--------------------------------------------------------------
-  # Auctions Section
-  --------------------------------------------------------------*/
+/*  # Auctions Section  */
 .auctions {
     background-image: url('../images/auction/bg.png');
     background-position: bottom;
@@ -590,9 +528,7 @@ section,
     margin: 0;
 }
 
-/*--------------------------------------------------------------
-  # Features Section
-  --------------------------------------------------------------*/
+/*  # Features Section  */
 .features,
 .help,
 .video,
@@ -656,12 +592,14 @@ section,
     text-align: left;
 }
 
-.features .fc-main h5 img, .features .fm-main h5 img {
+.features .fc-main h5 img,
+.features .fm-main h5 img {
     width: 36px;
     height: 36px;
 }
 
-.features .f-num h1 ,.features .fm-num h1{
+.features .f-num h1,
+.features .fm-num h1 {
     font-family: var(--features-font);
     font-size: 100px;
     font-weight: 300;
@@ -671,7 +609,7 @@ section,
     padding-right: 5px;
 }
 
-.features .fm-num h1{
+.features .fm-num h1 {
     padding-left: 10px;
 }
 
@@ -693,9 +631,7 @@ section,
     background-image: url('../images/features/arrow-left-circle-fill.svg') !important;
 }
 
-/*--------------------------------------------------------------
-  # About Section
-  --------------------------------------------------------------*/
+/*  # About Section  */
 .about {
     background-image: url('../images/about/about-bg.png');
     background-position: center;
@@ -741,13 +677,11 @@ section,
 
 .about .about-details .about-heading h2 span span {
     font-weight: 300;
-    font-family: var(--default-font);
 }
 
 .about .about-details .about-heading h2 sup {
     font-family: var(--Inter-font);
     font-size: 12px;
-    font-weight: 700;
     top: -2.5em;
     margin-left: -5px;
 }
@@ -783,9 +717,7 @@ section,
     border-right: 3px solid #000000 !important;
 }
 
-/*--------------------------------------------------------------
-  # Mobile App Section
-  --------------------------------------------------------------*/
+/*  # Mobile App Section  */
 .mobile-app,
 .clients {
     background-image: url('../images/mobile-app/mobile-app-bg.png');
@@ -853,9 +785,7 @@ section,
     padding-right: 20px;
 }
 
-/*--------------------------------------------------------------
-  # Client Section
-  --------------------------------------------------------------*/
+/*  # Client Section  */
 .clients-details {
     padding: 20px 0;
 }
@@ -883,9 +813,7 @@ section,
     background: #ffffff;
 }
 
-/*--------------------------------------------------------------
-  # Help Section
-  --------------------------------------------------------------*/
+/*  # Help Section  */
 .help-details .card {
     border-radius: 10px;
     box-shadow: 0px 2px 8px 0px #0000001A;
@@ -921,23 +849,20 @@ section,
     color: #000000;
 }
 
-/*--------------------------------------------------------------
-  # Video Section
-  --------------------------------------------------------------*/
+/*  # Video Section  */
 .video {
     padding: 20px 0;
 }
 
-.video img , .video video{
+.video img,
+.video video {
     width: 100%;
     height: 100%;
     box-shadow: 0px 5px 15px 0px #00000059;
     border-radius: 40px;
 }
 
-/*--------------------------------------------------------------
-  # Pricing Section
-  --------------------------------------------------------------*/
+/*  # Pricing Section  */
 .pricing .pricing-details .card {
     border-radius: 20px;
     box-shadow: 0px 0px 0px 1px #0000001A;
@@ -1001,9 +926,7 @@ section,
     border-radius: 10px;
 }
 
-/*--------------------------------------------------------------
-  # Contact Us Section
-  --------------------------------------------------------------*/
+/*  # Contact Us Section  */
 .contactus {
     background-image: url('../images/contact/contact-bg.png');
     background-position: center;
