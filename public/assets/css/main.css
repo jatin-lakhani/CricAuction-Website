@@ -656,14 +656,12 @@ section,
     text-align: left;
 }
 
-.features .fc-main h5 img,
-.features .fm-main h5 img {
+.features .fc-main h5 img, .features .fm-main h5 img {
     width: 36px;
     height: 36px;
 }
 
-.features .f-num h1,
-.features .fm-num h1 {
+.features .f-num h1 ,.features .fm-num h1{
     font-family: var(--features-font);
     font-size: 100px;
     font-weight: 300;
@@ -673,7 +671,7 @@ section,
     padding-right: 5px;
 }
 
-.features .fm-num h1 {
+.features .fm-num h1{
     padding-left: 10px;
 }
 
@@ -864,7 +862,7 @@ section,
 
 .clients .clients-details .client-img {
     border: 1px solid #CFCDCD;
-    margin: 10px;
+    margin: 8px;
     display: flex;
     border-radius: 10px;
     justify-content: center;
