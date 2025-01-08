@@ -477,7 +477,7 @@
         </section><!-- /Features Section -->
 
         <!-- About Section -->
-        <section id="about" class="section about">
+        <section id="about" class="section about pb-0">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
@@ -773,7 +773,7 @@
                 </div>
                 <div class="pricing-details py-4">
                     <div class="row">
-                        <div class="col-lg-4 col-md-4 mb-5" data-aos="fade-up" data-aos-delay="100">
+                        <div class="col-lg-4 col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
                             <div class="card">
                                 <img src="{{ asset('assets/images/pricing/pricing-1.png') }}"
                                     class="card-img-top pricing-img" alt="Pricing 1">
@@ -784,7 +784,7 @@
                                 <a href="" class="btn btn-secondary">Get Started</a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 mb-5" data-aos="fade-up" data-aos-delay="200">
+                        <div class="col-lg-4 col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
                             <div class="card">
                                 <img src="{{ asset('assets/images/pricing/pricing-2.png') }}"
                                     class="card-img-top pricing-img" alt="Pricing 2">
@@ -795,7 +795,7 @@
                                 <a href="" class="btn btn-secondary">Get Started</a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 mb-5" data-aos="fade-up" data-aos-delay="300">
+                        <div class="col-lg-4 col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
                             <div class="card">
                                 <img src="{{ asset('assets/images/pricing/pricing-3.png') }}"
                                     class="card-img-top pricing-img" alt="Pricing 3">
@@ -806,7 +806,7 @@
                                 <a href="" class="btn btn-secondary">Get Started</a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 mb-5" data-aos="fade-up" data-aos-delay="400">
+                        <div class="col-lg-4 col-md-4 mb-4" data-aos="fade-up" data-aos-delay="400">
                             <div class="card">
                                 <img src="{{ asset('assets/images/pricing/pricing-4.png') }}"
                                     class="card-img-top pricing-img" alt="Pricing 4">
@@ -817,7 +817,7 @@
                                 <a href="" class="btn btn-secondary">Get Started</a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 mb-5" data-aos="fade-up" data-aos-delay="500">
+                        <div class="col-lg-4 col-md-4 mb-4" data-aos="fade-up" data-aos-delay="500">
                             <div class="card">
                                 <img src="{{ asset('assets/images/pricing/pricing-5.png') }}"
                                     class="card-img-top pricing-img" alt="Pricing 5">
@@ -828,7 +828,7 @@
                                 <a href="" class="btn btn-secondary">Get Started</a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 mb-5" data-aos="fade-up" data-aos-delay="600">
+                        <div class="col-lg-4 col-md-4 mb-4" data-aos="fade-up" data-aos-delay="600">
                             <div class="card">
                                 <img src="{{ asset('assets/images/pricing/pricing-6.png') }}"
                                     class="card-img-top pricing-img" alt="Pricing 6">
@@ -846,7 +846,7 @@
 
         <!-- Contact Us Section -->
         <section id="contactus" class="section contactus">
-            <div class="container py-5">
+            <div class="container py-4">
                 <div class="section-title" data-aos="fade-up" data-aos-delay="100">
                     <img src="{{ asset('assets/images/logo.png') }}" alt="Logo">
                     <h1><span>Contact</span> Us</h1>
@@ -862,7 +862,7 @@
                                 </div>
                             </div>
                             <!-- Contact Form -->
-                            <div class="col-lg-7 col-md-12">
+                            <div class="col-lg-7 col-md-12 contact-form">
 
                                 @if (session('success'))
                                     <div class="alert alert-success">
@@ -876,14 +876,14 @@
                                     <!-- Name Fields -->
                                     <div class="row">
                                         <div class="col-md-6 mb-3">
-                                            <label for="fname" class="form-label">First Name*</label>
+                                            <label for="fname" class="form-label">First Name</label>
                                             <input type="text" class="form-control" id="fname" name="fname"
-                                                placeholder="Your Name" required>
+                                                placeholder="Your Name">
                                         </div>
                                         <div class="col-md-6 mb-3">
-                                            <label for="lname" class="form-label">Last Name*</label>
+                                            <label for="lname" class="form-label">Last Name</label>
                                             <input type="text" class="form-control" id="lname" name="lname"
-                                                placeholder="Your Surname" required>
+                                                placeholder="Your Surname">
                                         </div>
                                     </div>
                                     <!-- Email and Mobile Fields -->
@@ -902,7 +902,7 @@
                                     <!-- Message Field -->
                                     <div class="mb-3">
                                         <label for="message" class="form-label">Message</label>
-                                        <textarea name="message" id="message" class="form-control" rows="5" placeholder="Your Message"></textarea>
+                                        <textarea name="message" id="message" class="form-control" rows="7" placeholder="Your Message"></textarea>
                                     </div>
                                     <!-- Submit Button -->
                                     <div class="d-flex justify-content-center pt-3">
