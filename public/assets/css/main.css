@@ -407,9 +407,9 @@ section,
 .hero .hero-img img {
     /* width: 95%; */
     /* height: 100%; */
-    width: 800px;
+    width: 815px;
     height: 630px;
-    top: 80px;
+    top: 96px;
     left: 1065px;
     position: sticky;
 }
@@ -626,12 +626,16 @@ section,
 
 .features .features-slider img {
     width: 100%;
-    height: 100%;
+    height: 940px;
     border-radius: 30px;
 }
 
 .features .feature-btn {
     display: none;
+}
+
+.features .carousel-item {
+    padding: 0 20px;
 }
 
 .carousel-control-next-icon {
@@ -779,23 +783,25 @@ section,
 }
 
 .mobile-app .mobile-app-content p {
-    font-size: 22px;
+    font-size: 25px;
     font-family: var(--nav-font);
     line-height: 38px;
     font-weight: 500;
     color: #000000;
 }
 
-.mobile-app .mobile-app-list p {
-    font-family: var(--nav-font);
-    font-size: 23px;
-    font-weight: 500;
-    line-height: 31px;
+.mobile-app .mobile-app-list .list-item {
+    display: flex;
+    gap: 15px;
     color: var(--accent-color);
 }
 
-.mobile-app .mobile-app-list p i {
-    padding-right: 20px;
+.mobile-app .mobile-app-list .list-item p,
+.mobile-app .mobile-app-list .list-item i {
+    font-family: var(--nav-font);
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 31px;
 }
 
 /*  # Client Section  */
@@ -966,7 +972,7 @@ section,
 
 .contactus form textarea {
     border: 1px solid #9D9D9DCC !important;
-    background: #D9D9D933 !important;
+    background: rgba(217, 217, 217, 0.2) !important;
     border-radius: 10px !important;
 }
 
@@ -979,7 +985,7 @@ section,
 }
 
 .contactus form::placeholder {
-    font-family: var(--nav-font);
+    font-family: var(--nav-font) !important;
     font-size: 14px;
     font-weight: 500;
     line-height: 16.8px;
@@ -996,6 +1002,6 @@ section,
     padding: 8px 40px;
 }
 
-.contactus .contact-form{
+.contactus .contact-form {
     padding-left: 3rem;
 }

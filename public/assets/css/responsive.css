@@ -40,17 +40,30 @@
         margin-left: -20px;
     }
 
+    .features .features-slider img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .features .card {
+        margin-bottom: 28px;
+    }
+
     .features .f-num h1 {
         font-size: 75px;
     }
 
     .features .fc-main h5 {
-        font-size: 22px;
+        font-size: 21px;
+    }
+
+    .features .carousel-item {
+        padding: 0px;
     }
 
     .features .fc-main h5 img {
-        width: 28px;
-        height: 28px;
+        width: 26px;
+        height: 26px;
     }
 
     .features .fc-main p {
@@ -64,6 +77,15 @@
     .auctions .auctions-details .card-body {
         bottom: 25px;
         left: 25px;
+    }
+
+    .mobile-app .mobile-app-content p {
+        font-size: 22px;
+    }
+
+    .mobile-app .mobile-app-list .list-item p,
+    .mobile-app .mobile-app-list .list-item i {
+        font-size: 23px;
     }
 
     .about .about-details .about-content p {
@@ -101,6 +123,14 @@
 
     .about .about-details {
         width: 100%;
+    }
+
+    .features .fc-main h5 {
+        font-size: 20px;
+    }
+
+    .features .card-body {
+        padding: 6px;
     }
 
     .help-details .card .card-body .card-text {
@@ -163,6 +193,16 @@
 
     .auctions .auctions-details .card-auc img {
         margin-left: -10px;
+    }
+
+    .mobile-app .mobile-app-list .list-item p, .mobile-app .mobile-app-list .list-item i {
+        font-size: 20px;
+        line-height: 22px;
+    }
+
+    .mobile-app .mobile-app-content p {
+        font-size: 20px;
+        line-height: 30px;
     }
 }
 
@@ -533,9 +573,10 @@
     }
 
     .mobile-app .mobile-app-content p,
-    .mobile-app .mobile-app-list p {
+    .mobile-app .mobile-app-list .list-item p,
+    .mobile-app .mobile-app-list .list-item i {
         font-size: 16px;
-        line-height: 24px;
+        line-height: 22px;
     }
 
     .register-btn a {
@@ -575,12 +616,12 @@
     }
 
     .features .fc-main h5 {
-        font-size: 18px;
+        font-size: 15px;
     }
 
     .features .fc-main h5 img {
-        width: 24px;
-        height: 24px;
+        width: 20px;
+        height: 20px;
     }
 
     .features .fc-main p {
@@ -592,7 +633,7 @@
     }
 
     .features .card {
-        margin-bottom: 15px;
+        margin-bottom: 12px;
     }
 
     .pricing .pricing-details .card .circle h2 {
@@ -812,7 +853,7 @@
     }
 
     .features .carousel-item {
-        padding: 0 5rem;
+        padding: 0 3rem;
     }
 
     .features .features-slider img {
@@ -906,13 +947,20 @@
         height: 35px;
     }
 
+    .mobile-app .mobile-app-list .list-item {
+        display: flex;
+        gap: 8px;
+        color: var(--accent-color);
+    }
+
     .mobile-app .mobile-app-heading h1 {
         font-size: 26px;
         line-height: 44px;
     }
 
     .mobile-app .mobile-app-content p,
-    .mobile-app .mobile-app-list p {
+    .mobile-app .mobile-app-list .list-item p,
+    .mobile-app .mobile-app-list .list-item i {
         font-size: 16px;
         line-height: 20px;
     }
@@ -964,7 +1012,8 @@
         font-size: 14px;
     }
 
-    .contactus form input, .contactus form textarea {
+    .contactus form input,
+    .contactus form textarea {
         border-radius: 6px !important;
     }
 }

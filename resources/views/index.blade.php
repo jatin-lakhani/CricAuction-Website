@@ -529,13 +529,24 @@
                                     Cricket, Volleyball, Badminton or any other game.</p>
                             </div>
                             <div class="mobile-app-list">
-                                <p><i class="bi bi-caret-right-fill"></i>Live Player Data is visible with attractive
-                                    designs.</p>
-                                <p><i class="bi bi-caret-right-fill"></i>Live update on team points participating in sports
-                                    league.</p>
-                                <p><i class="bi bi-caret-right-fill"></i>Help is available throughout the program...</p>
-                                <p><i class="bi bi-caret-right-fill"></i>Live Streaming of your tournament auction can be
-                                    broadcast on the internet...</p>
+                                <div class="list-container">
+                                    <div class="list-item">
+                                        <i class="bi bi-caret-right-fill"></i>
+                                        <p>Live Player Data Is Visible With Attractive Designs.</p>
+                                    </div>
+                                    <div class="list-item">
+                                        <i class="bi bi-caret-right-fill"></i>
+                                        <p>Live Update On Team Points Participating In Sports League.</p>
+                                    </div>
+                                    <div class="list-item">
+                                        <i class="bi bi-caret-right-fill"></i>
+                                        <p>Help Is Available Throughout The Program.</p>
+                                    </div>
+                                    <div class="list-item">
+                                        <i class="bi bi-caret-right-fill"></i>
+                                        <p>Live Streaming Of Your Tournament Auction Can Be Broadcast On The Internet.</p>
+                                    </div>
+                                </div>
                             </div>
                             <div class="register-btn">
                                 <a href="" class="btn btn-primary" target="_blank">Register Now <i
@@ -654,7 +665,7 @@
         </section><!-- /Help Section -->
 
         <!-- Video Section -->
-        {{-- <section id="video" class="section video pt-0">
+        <section id="video" class="section video pt-0">
             <div class="container" data-aos="zoom-out" data-aos-delay="300">
                 <!-- Video Container -->
                 <div style="position: relative;">
@@ -665,44 +676,15 @@
                     <!-- YouTube Video (Initially Hidden) -->
                     <div id="youtubeVideoContainer"
                         style="display: none; position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
-                        <iframe id="youtubeVideo" src="https://www.youtube.com/embed/Y2hbvdTRRI4?autoplay=1"
-                            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen
-                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-                        </iframe>
+                        <div id="youtubePlayer" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <script>
-            function playYouTubeVideo() {
-                const videoThumbnail = document.getElementById("videoThumbnail");
-                const youtubeVideoContainer = document.getElementById("youtubeVideoContainer");
-
-                // Hide the thumbnail and show the YouTube video container
-                videoThumbnail.style.display = "none";
-                youtubeVideoContainer.style.display = "block";
-            }
-        </script> --}}
-
-        <section id="video" class="section video pt-0">
-            <div class="container" data-aos="zoom-out" data-aos-delay="300">
-                <!-- Video Container -->
-                <div style="position: relative;">
-                    <!-- Placeholder Image -->
-                    <img src="{{ asset('assets/images/video-sec.png') }}" alt="Video Thumbnail"
-                        style="width: 100%; cursor: pointer;" onclick="playYouTubeVideo()" id="videoThumbnail">
-        
-                    <!-- YouTube Video (Initially Hidden) -->
-                    <div id="youtubeVideoContainer" style="display: none; position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
-                        <div id="youtubePlayer" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
-                    </div>
-                </div>
-            </div>
-        </section> 
         <script>
             let player; // Variable to hold the YouTube player instance
-        
+
             // Load the IFrame Player API asynchronously
             (function loadYouTubeAPI() {
                 const tag = document.createElement('script');
@@ -710,7 +692,7 @@
                 const firstScriptTag = document.getElementsByTagName('script')[0];
                 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
             })();
-        
+
             // This function is called by the YouTube API when it's ready
             function onYouTubeIframeAPIReady() {
                 player = new YT.Player('youtubePlayer', {
@@ -718,44 +700,44 @@
                     playerVars: {
                         'autoplay': 0, // Video won't autoplay until triggered
                         'controls': 1, // Show player controls
-                        'rel': 0,      // Don't show related videos at the end
+                        'rel': 0, // Don't show related videos at the end
                     },
                 });
             }
-        
+
             function playYouTubeVideo() {
                 const videoThumbnail = document.getElementById("videoThumbnail");
                 const youtubeVideoContainer = document.getElementById("youtubeVideoContainer");
-        
+
                 // Hide the thumbnail and show the YouTube video container
                 videoThumbnail.style.display = "none";
                 youtubeVideoContainer.style.display = "block";
-        
+
                 // Play the video
                 if (player) {
                     player.playVideo();
                 }
             }
-        
+
             function pauseYouTubeVideo() {
                 if (player) {
                     player.pauseVideo();
                 }
             }
-        
+
             function setVideoVolume(volume) {
                 if (player) {
                     player.setVolume(volume); // Set volume (0 to 100)
                 }
             }
-        
+
             function getVideoDuration() {
                 if (player) {
                     return player.getDuration(); // Returns the duration in seconds
                 }
                 return 0;
             }
-        
+
             function getCurrentTime() {
                 if (player) {
                     return player.getCurrentTime(); // Returns the current playback time in seconds
