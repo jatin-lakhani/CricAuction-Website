@@ -945,13 +945,11 @@ section,
 
 .pricing .pricing-details .card .circle h2 {
     position: absolute;
-    background: #ffffff;
     font-family: var(--nav-font);
     font-size: 52px;
     font-weight: 800;
     text-align: center;
     color: #201F1F;
-    border-radius: 30px;
 }
 
 .pricing .pricing-details .card .circle h2 span {

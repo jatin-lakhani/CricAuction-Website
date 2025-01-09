@@ -760,7 +760,7 @@
                                 <img src="{{ asset('assets/images/pricing/pricing-1.png') }}"
                                     class="card-img-top pricing-img" alt="Pricing 1">
                                 <div class="circle">
-                                    <img src="{{ asset('assets/images/pricing/p1.png') }}" alt="price 1">
+                                    <img src="{{ asset('assets/images/pricing/p.png') }}" alt="price 1">
                                     <h2 style="color: #CD394D;">Free <i class="bi bi-stars"></i></h2>
                                 </div>
                                 <a href="" class="btn btn-secondary">Get Started</a>
@@ -771,7 +771,7 @@
                                 <img src="{{ asset('assets/images/pricing/pricing-2.png') }}"
                                     class="card-img-top pricing-img" alt="Pricing 2">
                                 <div class="circle">
-                                    <img src="{{ asset('assets/images/pricing/p2.png') }}" alt="price 2">
+                                    <img src="{{ asset('assets/images/pricing/p.png') }}" alt="price 2">
                                     <h2><span>Rs</span></br>1999/-</h2>
                                 </div>
                                 <a href="" class="btn btn-secondary">Get Started</a>
@@ -782,7 +782,7 @@
                                 <img src="{{ asset('assets/images/pricing/pricing-3.png') }}"
                                     class="card-img-top pricing-img" alt="Pricing 3">
                                 <div class="circle">
-                                    <img src="{{ asset('assets/images/pricing/p3.png') }}" alt="price 3">
+                                    <img src="{{ asset('assets/images/pricing/p.png') }}" alt="price 3">
                                     <h2><span>Rs</span></br>2999/-</h2>
                                 </div>
                                 <a href="" class="btn btn-secondary">Get Started</a>
@@ -793,7 +793,7 @@
                                 <img src="{{ asset('assets/images/pricing/pricing-4.png') }}"
                                     class="card-img-top pricing-img" alt="Pricing 4">
                                 <div class="circle">
-                                    <img src="{{ asset('assets/images/pricing/p4.png') }}" alt="price 4">
+                                    <img src="{{ asset('assets/images/pricing/p.png') }}" alt="price 4">
                                     <h2><span>Rs</span></br>3999/-</h2>
                                 </div>
                                 <a href="" class="btn btn-secondary">Get Started</a>
@@ -804,7 +804,7 @@
                                 <img src="{{ asset('assets/images/pricing/pricing-5.png') }}"
                                     class="card-img-top pricing-img" alt="Pricing 5">
                                 <div class="circle">
-                                    <img src="{{ asset('assets/images/pricing/p5.png') }}" alt="price 5">
+                                    <img src="{{ asset('assets/images/pricing/p.png') }}" alt="price 5">
                                     <h2><span>Rs</span></br>4999/-</h2>
                                 </div>
                                 <a href="" class="btn btn-secondary">Get Started</a>
@@ -815,7 +815,7 @@
                                 <img src="{{ asset('assets/images/pricing/pricing-6.png') }}"
                                     class="card-img-top pricing-img" alt="Pricing 6">
                                 <div class="circle">
-                                    <img src="{{ asset('assets/images/pricing/p6.png') }}" alt="price 6">
+                                    <img src="{{ asset('assets/images/pricing/p.png') }}" alt="price 6">
                                     <h2><span>Rs</span></br>5999/-</h2>
                                 </div>
                                 <a href="" class="btn btn-secondary">Get Started</a>
