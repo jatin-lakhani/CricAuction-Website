@@ -47,7 +47,7 @@ class AuctionController extends Controller
             ->when($search, function ($query) use ($search) {
                 // Perform case-insensitive search
                 $query->whereRaw('LOWER(auction_name) LIKE ?', ["%" . strtolower($search) . "%"]);
-            })->with('teams', 'pricing')->get();
+            })->with('teams', 'pricing', 'oldPricing')->get();
 
         // Check if search term was provided and no data was found
         if ($search && $auctions->isEmpty()) {
