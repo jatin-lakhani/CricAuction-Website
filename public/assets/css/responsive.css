@@ -110,6 +110,26 @@
         width: 32px;
         height: 32px;
     }
+
+    .auctions,
+    .features,
+    .about,
+    .mobile-app,
+    .clients,
+    .help,
+    .video,
+    .pricing,
+    .contactus {
+        padding: 15px 0;
+    }
+
+    .about .container, .about .container .row {
+        padding-top: 2rem;
+    }
+
+    .features .container-fluid {
+        padding: 1rem 3rem;
+    }
 }
 
 @media (max-width:1280px) {
@@ -195,7 +215,8 @@
         margin-left: -10px;
     }
 
-    .mobile-app .mobile-app-list .list-item p, .mobile-app .mobile-app-list .list-item i {
+    .mobile-app .mobile-app-list .list-item p,
+    .mobile-app .mobile-app-list .list-item i {
         font-size: 20px;
         line-height: 22px;
     }
@@ -666,6 +687,10 @@
     .hero {
         padding: 100px 0 40px 0;
     }
+
+    .auctions-details, .features-details {
+        padding-top: 0px;
+    }
 }
 
 @media (max-width: 912px) {
@@ -689,6 +714,10 @@
 
     .heading-bottom {
         padding: 10px 30px;
+    }
+
+    .footer .container {
+        padding: 1.5rem 0;
     }
 
     .hero .hero-img img,
@@ -719,10 +748,6 @@
 
     .price-left {
         padding-top: 30px !important;
-    }
-
-    .help .help-details {
-        padding-left: 0px;
     }
 
     .help .help-details .help-content .help-card-det h5 {
@@ -768,7 +793,7 @@
     }
 
     .pricing .pricing-details .card .circle h2 {
-        font-size: 22px;
+        font-size: 23px;
     }
 
     .pricing .pricing-details .card .circle h2 span {
@@ -792,6 +817,27 @@
 
     .features .carousel-item {
         padding: 0 10rem;
+    }
+
+    .features .container-fluid {
+        padding: 1.5rem;
+    }
+
+    .footer .copyright,
+    .footer .copyright a {
+        margin-top: 0rem;
+    }
+
+    .register-btn{
+        justify-content: center;
+    }
+
+    .pricing .pricing-details{
+        padding: 1rem 0;
+    }
+
+    .mobile-app .row , .help-details{
+        padding: 0.5rem 0;
     }
 }
 
@@ -902,6 +948,10 @@
         padding: 8px 16px;
         font-size: 14px !important;
     }
+
+    .footer .container {
+        padding: 1rem;
+    }
 }
 
 @media (max-width: 450px) {
@@ -933,18 +983,18 @@
     }
 
     .about .about-details .about-heading h2 {
-        font-size: 32px;
-        line-height: 42px;
+        font-size: 28px;
+        line-height: 38px;
     }
 
     .about .about-details .about-content p {
-        font-size: 14px;
-        line-height: 24px;
+        font-size: 13px;
+        line-height: 22px;
     }
 
     .mobile-app .mobile-app-heading img {
-        width: 35px;
-        height: 35px;
+        width: 30px;
+        height: 30px;
     }
 
     .mobile-app .mobile-app-list .list-item {
@@ -954,8 +1004,8 @@
     }
 
     .mobile-app .mobile-app-heading h1 {
-        font-size: 26px;
-        line-height: 44px;
+        font-size: 23px;
+        line-height: 32px;
     }
 
     .mobile-app .mobile-app-content p,
@@ -966,7 +1016,7 @@
     }
 
     .clients .clients-details .row {
-        padding: 20px;
+        padding: 0 20px;
     }
 
     .help .help-details .help-content .help-card-det h5 {
@@ -1012,9 +1062,41 @@
         font-size: 14px;
     }
 
+    .features .container-fluid {
+        padding: 3rem;
+    }
+
+    .auctions .auctions-details .auc{
+        margin-bottom: 0.6rem;
+    }
+
     .contactus form input,
     .contactus form textarea {
         border-radius: 6px !important;
+    }
+
+    .section-title h1 {
+        font-size: 44px;
+    }
+
+    .auctions,
+    .features,
+    .about,
+    .mobile-app,
+    .clients,
+    .help,
+    .video,
+    .pricing,
+    .contactus {
+        padding: 10px 0;
+    }
+
+    .pricing .pricing-details {
+        padding: 1rem 0 0 0;
+    }
+
+    .pricing .price{
+        margin-bottom: 0.9rem;
     }
 }
 

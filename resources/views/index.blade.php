@@ -46,7 +46,7 @@
                 <div class="auctions-details">
                     <div class="row">
                         @forelse ($auctions as $auction)
-                            <div class="col-lg-4 col-md-4 mb-4">
+                            <div class="col-lg-4 col-md-4 auc">
                                 <div class="card" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
                                     <img src="{{ asset('assets/images/auction/Auc-' . $loop->iteration . '.png') }}"
                                         class="auc-img" alt="Auction {{ $loop->iteration }}">
@@ -92,7 +92,7 @@
                     <h1><span>Our</span> Features</h1>
                 </div>
             </div>
-            <div class="container-fluid p-5">
+            <div class="container-fluid">
                 <div class="features-details">
                     <div class="row">
                         <div class="col-lg-4 col-md-6 features-left order-lg-1 order-2" data-aos="fade-up"
@@ -511,7 +511,7 @@
         <!-- Mobile App Section -->
         <section id="mobile-app" class="section mobile-app">
             <div class="container">
-                <div class="row py-4">
+                <div class="row">
                     <div class="col-lg-6 order-lg-1 order-2">
                         <div class="mobile-app-img" data-aos="zoom-in" data-aos-delay="100">
                             <img src="{{ asset('assets/images/mobile-app/mobile-app.png') }}" alt="Mobile App Image">
@@ -605,7 +605,7 @@
                     <img src="{{ asset('assets/images/logo.png') }}" alt="Logo">
                     <h1>Help</h1>
                 </div>
-                <div class="help-details py-4">
+                <div class="help-details">
                     <div class="row">
                         <div class="col-lg-3 col-md-6 mb-3" data-aos="fade-up" data-aos-delay="100">
                             <div class="card">
@@ -753,9 +753,9 @@
                     <img src="{{ asset('assets/images/logo.png') }}" alt="Logo">
                     <h1><span>Our</span> Pricing</h1>
                 </div>
-                <div class="pricing-details py-4">
+                <div class="pricing-details">
                     <div class="row">
-                        <div class="col-lg-4 col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="col-lg-4 col-md-4 price" data-aos="fade-up" data-aos-delay="100">
                             <div class="card">
                                 <img src="{{ asset('assets/images/pricing/pricing-1.png') }}"
                                     class="card-img-top pricing-img" alt="Pricing 1">
@@ -766,7 +766,7 @@
                                 <a href="" class="btn btn-secondary">Get Started</a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="col-lg-4 col-md-4 price" data-aos="fade-up" data-aos-delay="200">
                             <div class="card">
                                 <img src="{{ asset('assets/images/pricing/pricing-2.png') }}"
                                     class="card-img-top pricing-img" alt="Pricing 2">
@@ -777,7 +777,7 @@
                                 <a href="" class="btn btn-secondary">Get Started</a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="col-lg-4 col-md-4 price" data-aos="fade-up" data-aos-delay="300">
                             <div class="card">
                                 <img src="{{ asset('assets/images/pricing/pricing-3.png') }}"
                                     class="card-img-top pricing-img" alt="Pricing 3">
@@ -788,7 +788,7 @@
                                 <a href="" class="btn btn-secondary">Get Started</a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+                        <div class="col-lg-4 col-md-4 price" data-aos="fade-up" data-aos-delay="400">
                             <div class="card">
                                 <img src="{{ asset('assets/images/pricing/pricing-4.png') }}"
                                     class="card-img-top pricing-img" alt="Pricing 4">
@@ -799,7 +799,7 @@
                                 <a href="" class="btn btn-secondary">Get Started</a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 mb-4" data-aos="fade-up" data-aos-delay="500">
+                        <div class="col-lg-4 col-md-4 price" data-aos="fade-up" data-aos-delay="500">
                             <div class="card">
                                 <img src="{{ asset('assets/images/pricing/pricing-5.png') }}"
                                     class="card-img-top pricing-img" alt="Pricing 5">
@@ -810,7 +810,7 @@
                                 <a href="" class="btn btn-secondary">Get Started</a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 mb-4" data-aos="fade-up" data-aos-delay="600">
+                        <div class="col-lg-4 col-md-4 price" data-aos="fade-up" data-aos-delay="600">
                             <div class="card">
                                 <img src="{{ asset('assets/images/pricing/pricing-6.png') }}"
                                     class="card-img-top pricing-img" alt="Pricing 6">

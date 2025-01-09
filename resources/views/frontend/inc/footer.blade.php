@@ -1,6 +1,6 @@
 <footer id="footer" class="footer position-relative">
 
-    <div class="container py-5">
+    <div class="container">
         <div class="row gy-4">
             <div class="col-lg-4 col-md-6 footer-about" data-aos="fade-up" data-aos-delay="100">
                 <a href="{{ route('welcome') }}" class="logo d-flex align-items-center text-decoration-none">
@@ -62,7 +62,7 @@
         </div>
     </div>
 
-    <div class="container-fluid copyright text-center mt-4">
+    <div class="container-fluid copyright text-center">
         <p>© <span>Copyright</span> <strong class="px-1 sitename"><a href="{{ url('/') }}">CricAuction</a>.
             </strong><span>All Rights
                 Reserved</span></p>
