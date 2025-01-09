@@ -46,7 +46,7 @@
     }
 
     .features .card {
-        margin-bottom: 28px;
+        margin-bottom: 23px;
     }
 
     .features .f-num h1 {
@@ -58,7 +58,7 @@
     }
 
     .features .carousel-item {
-        padding: 0px;
+        padding: 0 20px;
     }
 
     .features .fc-main h5 img {
