@@ -166,7 +166,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-12 features-slider order-lg-2 order-1" data-aos="fade-up"
+                        <div class="col-lg-4 col-md-12 features-slider order-lg-2 order-1" style="text-align: center;" data-aos="fade-up"
                             data-aos-delay="200">
                             <div id="carouselExample" class="carousel slide">
                                 <div class="carousel-inner">
