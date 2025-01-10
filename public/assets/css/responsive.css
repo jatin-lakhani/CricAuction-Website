@@ -693,6 +693,15 @@
     .features-details {
         padding-top: 0px;
     }
+
+    .features .carousel-item {
+        padding: 0px;
+    }
+
+    .features .features-slider img {
+        width: 100%;
+        height: 100%;
+    }
 }
 
 @media (max-width: 912px) {
