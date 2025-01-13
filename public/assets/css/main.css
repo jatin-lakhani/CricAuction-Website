@@ -559,7 +559,7 @@ section,
 }
 
 .features .features-details {
-    padding: 0 3rem;
+    padding: 0 8rem;
 }
 
 .features .container-fluid {
@@ -574,6 +574,11 @@ section,
 .features .features-right-content {
     display: flex;
     align-items: center;
+}
+
+.features .features-left,
+.features .features-right {
+    flex: 1 1 0%;
 }
 
 .features .card {
@@ -596,7 +601,7 @@ section,
 .features .fc-main h5,
 .features .fm-main h5 {
     font-family: var(--nav-font);
-    font-size: 23px;
+    font-size: 26px;
     font-weight: 600;
     text-align: right;
     color: #000000;
@@ -609,6 +614,7 @@ section,
     font-weight: 600;
     text-align: right;
     color: #909090;
+    text-transform: capitalize;
 }
 
 .features .features-right-content .fc-main h5,
@@ -616,6 +622,7 @@ section,
 .features .fm-main h5,
 .features .fm-main p {
     text-align: left;
+    padding-left: 10px;
 }
 
 .features .fc-main h5 img,
@@ -627,12 +634,11 @@ section,
 .features .f-num h1,
 .features .fm-num h1 {
     font-family: var(--features-font);
-    font-size: 90px;
+    font-size: 95px;
     font-weight: 300;
     letter-spacing: -0.07em;
     color: #DADCDE99;
     text-align: right;
-    padding-right: 5px;
 }
 
 .features .fm-num h1 {
@@ -640,17 +646,13 @@ section,
 }
 
 .features .features-slider img {
-    width: 90%;
-    height: 675px;
+    width: 100%;
+    height: 100%;
     border-radius: 30px;
 }
 
 .features .feature-btn {
     display: none;
-}
-
-.features .carousel-item {
-    padding: 0 35px;
 }
 
 .features .carousel-inner {

@@ -95,18 +95,18 @@
             <div class="container-fluid">
                 <div class="features-details">
                     <div class="row">
-                        <div class="col-lg-4 col-md-6 features-left order-lg-1 order-2" data-aos="fade-up"
+                        <div class="col col-md-6 features-left order-lg-1 order-2" data-aos="fade-up"
                             data-aos-delay="100">
                             <div class="card active" data-target="0">
                                 <div class="features-left-content">
                                     <div class="card-body fc-main">
                                         <h5 class="card-title">Live Player Auction <img
                                                 src="{{ asset('assets/images/features/f1.png') }}" alt="F1"></h5>
-                                        <p class="card-text">Experience real-time player bidding with dynamic updates and
+                                        <p class="card-text">Experience real-time player bidding with</br> dynamic updates and
                                             seamless functionality.</p>
                                     </div>
-                                    <div class="card-body f-num">
-                                        <h1>01</h1>
+                                    <div class="f-num">
+                                        <h1 style="padding-right: 10px;">01</h1>
                                     </div>
                                 </div>
                             </div>
@@ -116,11 +116,11 @@
                                     <div class="card-body fc-main">
                                         <h5 class="card-title">Tournament management <img
                                                 src="{{ asset('assets/images/features/f2.png') }}" alt="F2"></h5>
-                                        <p class="card-text">Create and manage tournaments effortlessly with customizable
+                                        <p class="card-text">Create and manage tournaments effortlessly with</br> customizable
                                             settings for teams, players, and schedules.</p>
                                     </div>
-                                    <div class="card-body f-num">
-                                        <h1>02</h1>
+                                    <div class="f-num">
+                                        <h1 style="padding-right: 10px;">02</h1>
                                     </div>
                                 </div>
                             </div>
@@ -130,11 +130,11 @@
                                     <div class="card-body fc-main">
                                         <h5 class="card-title">Team Management <img
                                                 src="{{ asset('assets/images/features/f3.png') }}" alt="F3"></h5>
-                                        <p class="card-text">Add, edit, and organize teams to ensure a streamlined
+                                        <p class="card-text">Add, edit, and organize teams to ensure a</br> streamlined
                                             tournament process.</p>
                                     </div>
-                                    <div class="card-body f-num">
-                                        <h1>03</h1>
+                                    <div class="f-num">
+                                        <h1 style="padding-right: 10px;">03</h1>
                                     </div>
                                 </div>
                             </div>
@@ -144,11 +144,11 @@
                                     <div class="card-body fc-main">
                                         <h5 class="card-title">Player Management <img
                                                 src="{{ asset('assets/images/features/f4.png') }}" alt="F4"></h5>
-                                        <p class="card-text">Manage player profiles, stats, and availability for efficient
+                                        <p class="card-text">Manage player profiles, stats, and</br> availability for efficient
                                             team-building.</p>
                                     </div>
-                                    <div class="card-body f-num">
-                                        <h1>04</h1>
+                                    <div class="f-num">
+                                        <h1 style="padding-right: 10px;">04</h1>
                                     </div>
                                 </div>
                             </div>
@@ -158,15 +158,15 @@
                                     <div class="card-body fc-main">
                                         <h5 class="card-title">Real-Time Updates <img
                                                 src="{{ asset('assets/images/features/f5.png') }}" alt="F5"></h5>
-                                        <p class="card-text">Get live updates on bids, players, and match progress.</p>
+                                        <p class="card-text">Get live updates on bids, players,</br> and match progress.</p>
                                     </div>
-                                    <div class="card-body f-num">
-                                        <h1>05</h1>
+                                    <div class="f-num">
+                                        <h1 style="padding-right: 10px;">05</h1>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-12 features-slider order-lg-2 order-1" style="text-align: center;" data-aos="fade-up"
+                        <div class="col-lg-3 col-md-12 features-slider order-lg-2 order-1" style="text-align: center;" data-aos="fade-up"
                             data-aos-delay="200">
                             <div id="carouselExample" class="carousel slide">
                                 <div class="carousel-inner">
@@ -225,17 +225,17 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 features-right order-lg-3 order-2" data-aos="fade-up"
+                        <div class="col col-md-6 features-right order-lg-3 order-2" data-aos="fade-up"
                             data-aos-delay="300">
                             <div class="card" data-target="5">
                                 <div class="features-right-content">
-                                    <div class="card-body f-num">
-                                        <h1>06</h1>
+                                    <div class="f-num">
+                                        <h1 style="padding-left: 5px;">06</h1>
                                     </div>
                                     <div class="card-body fc-main">
                                         <h5 class="card-title"><img src="{{ asset('assets/images/features/f6.png') }}"
                                                 alt="F6"> Web Integration</h5>
-                                        <p class="card-text">Share your tournament link for live auction viewing on the
+                                        <p class="card-text">Share your tournament link for live</br> auction viewing on the
                                             web.
                                         </p>
                                     </div>
@@ -244,13 +244,13 @@
 
                             <div class="card" data-target="6">
                                 <div class="features-right-content">
-                                    <div class="card-body f-num">
-                                        <h1>07</h1>
+                                    <div class="f-num">
+                                        <h1 style="padding-left: 5px;">07</h1>
                                     </div>
                                     <div class="card-body fc-main">
                                         <h5 class="card-title"><img src="{{ asset('assets/images/features/f7.png') }}"
                                                 alt="F7"> Join Tournaments by Code</h5>
-                                        <p class="card-text">Simple and secure method to join tournaments using a unique
+                                        <p class="card-text">Simple and secure method to join tournaments</br> using a unique
                                             tournament code.
                                         </p>
                                     </div>
@@ -259,13 +259,13 @@
 
                             <div class="card" data-target="7">
                                 <div class="features-right-content">
-                                    <div class="card-body f-num">
-                                        <h1>08</h1>
+                                    <div class="f-num">
+                                        <h1 style="padding-left: 5px;">08</h1>
                                     </div>
                                     <div class="card-body fc-main">
                                         <h5 class="card-title"><img src="{{ asset('assets/images/features/f8.png') }}"
                                                 alt="F8"> User-Friendly Interface</h5>
-                                        <p class="card-text">Enjoy a sleek, intuitive design for smooth navigation and
+                                        <p class="card-text">Enjoy a sleek, intuitive design for smooth</br> navigation and
                                             interaction.
                                         </p>
                                     </div>
@@ -274,13 +274,13 @@
 
                             <div class="card" data-target="8">
                                 <div class="features-right-content">
-                                    <div class="card-body f-num">
-                                        <h1>09</h1>
+                                    <div class="f-num">
+                                        <h1 style="padding-left: 5px;">09</h1>
                                     </div>
                                     <div class="card-body fc-main">
                                         <h5 class="card-title"><img src="{{ asset('assets/images/features/f9.png') }}"
                                                 alt="F9"> Multi-Platform Accessibility</h5>
-                                        <p class="card-text">Access CricAuction on both mobile and web platforms for
+                                        <p class="card-text">Access CricAuction on both mobile and web</br> platforms for
                                             convenience.
                                         </p>
                                     </div>
@@ -289,13 +289,13 @@
 
                             <div class="card" data-target="9">
                                 <div class="features-right-content">
-                                    <div class="card-body f-num">
-                                        <h1>10</h1>
+                                    <div class="f-num">
+                                        <h1 style="padding-left: 5px;">10</h1>
                                     </div>
                                     <div class="card-body fc-main">
                                         <h5 class="card-title"><img src="{{ asset('assets/images/features/f10.png') }}"
                                                 alt="F10"> Customizable Bidding Rules</h5>
-                                        <p class="card-text">Tailor auction settings like base price, bid increments, and
+                                        <p class="card-text">Tailor auction settings like base price, bid increments,</br> and
                                             player limits to match your preferences.
                                         </p>
                                     </div>
