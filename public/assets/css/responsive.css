@@ -86,11 +86,11 @@
     }
 
     .pricing .pricing-details .card .circle h2 span {
-        font-size: 30px;
+        font-size: 22px;
     }
 
     .pricing .pricing-details .card .circle h2 {
-        font-size: 44px;
+        font-size: 28px;
     }
 
     .footer .footer-links ul a {
@@ -126,6 +126,28 @@
     .section-title h1 {
         font-size: 44px;
     }
+
+    .pricing .price {
+        padding: 0 4rem;
+    }
+    
+    .pricing .pricing-details {
+        padding: 0;
+    }
+
+    .pricing .pricing-details .card .circle img {
+        width: 39%;
+        height: 39%;
+    }
+
+    .pricing .pricing-details .card .circle {
+        padding-top: 85px;
+    }
+
+    .pricing .pricing-details .btn-secondary {
+        font-size: 18px;
+        padding: 8px 0;
+    }
 }
 
 @media (max-width:1366px) {
@@ -160,7 +182,7 @@
     }
 
     .pricing .pricing-details .btn-secondary {
-        margin-top: 15px;
+        margin-top: 5px;
     }
 
     .pricing .pricing-details .card .circle h2 {
@@ -177,6 +199,36 @@
 
     .contactus form textarea {
         height: 100px;
+    }
+
+    .pricing .price {
+        padding: 0 4rem;
+    }
+    
+    .pricing .pricing-details {
+        padding: 0;
+    }
+
+    .pricing .pricing-details .card .circle img {
+        width: 44%;
+        height: 44%;
+    }
+
+    .pricing .pricing-details .card .circle {
+        padding-top: 70px;
+    }
+
+    .pricing .pricing-details .btn-secondary {
+        font-size: 16px;
+        padding: 6px 0;
+    }
+
+    .pricing .pricing-details .card .circle h2 span {
+        font-size: 20px;
+    }
+
+    .pricing .pricing-details .card .circle h2 {
+        font-size: 24px;
     }
 }
 
@@ -217,7 +269,7 @@
     }
 
     .pricing .pricing-details .card .circle {
-        padding-top: 115px;
+        padding-top: 75px;
     }
 
     .auctions .auctions-details .card-body {
@@ -240,14 +292,6 @@
 
     .contactus form input {
         height: 50px;
-    }
-
-    .pricing .pricing-details .card .circle h2 {
-        font-size: 38px;
-    }
-
-    .pricing .pricing-details .card .circle h2 span {
-        font-size: 32px;
     }
 
     .footer .footer-links ul a {
@@ -289,6 +333,24 @@
 
     .features .card {
         margin-bottom: 9px;
+    }
+
+    .pricing .pricing-details .card .circle h2 {
+        font-size: 22px;
+    }
+
+    .pricing .pricing-details .card .circle h2 span {
+        font-size: 18px;
+    }
+
+    .pricing .price {
+        margin-bottom: 0.7rem;
+    }
+
+    .pricing .pricing-details .btn-secondary {
+        font-size: 15px;
+        padding: 5px 0;
+        margin-top: 5px;
     }
 }
 
@@ -698,7 +760,20 @@
     }
 
     .pricing .pricing-details .card .circle {
-        padding-top: 90px;
+        padding-top: 60px;
+    }
+
+    .pricing .pricing-details .card .circle h2 {
+        font-size: 21px;
+    }
+
+    .pricing .pricing-details .card .circle h2 span {
+        font-size: 18px;
+    }
+
+    .pricing .pricing-details .btn-secondary {
+        font-size: 14px;
+        padding: 3px 0;
     }
 
     .features .fc-main {
@@ -724,15 +799,6 @@
 
     .features .card {
         margin-bottom: 7px;
-    }
-
-    .pricing .pricing-details .card .circle h2 {
-        font-size: 31px;
-        border-radius: 15px;
-    }
-
-    .pricing .pricing-details .card .circle h2 span {
-        font-size: 28px;
     }
 
     .footer h4 {
@@ -868,6 +934,10 @@
         border-top-right-radius: 10px;
     }
 
+    .pricing .price {
+        padding: 0 1rem;
+    }
+
     .pricing .pricing-details .card .circle {
         padding-top: 65px;
     }
@@ -877,19 +947,18 @@
     }
 
     .pricing .pricing-details .btn-secondary {
-        font-size: 16px;
-        padding: 6px 0;
-        margin-top: 15px;
+        font-size: 14px;
+        padding: 3px 0;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
     }
 
     .pricing .pricing-details .card .circle h2 {
-        font-size: 23px;
+        font-size: 20px;
     }
 
     .pricing .pricing-details .card .circle h2 span {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .features .card:hover,
