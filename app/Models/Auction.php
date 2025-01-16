@@ -23,7 +23,9 @@ class Auction extends Model
         'current_auction_team_id',
         'current_auction_player_id',
         'created_at',
-        'creator_id'
+        'creator_id',
+        'creator_phone',
+        'creator_email'
     ];
 
     protected $casts = [

@@ -28,6 +28,8 @@ class AuctionResource extends JsonResource
             'play_type' => $this->play_type,
             'player_registration' => $this->player_registration,
             'creator_id' => $this->creator_id,
+            'creator_phone' => $this->creator_phone,
+            'creator_email' => $this->creator_email,
             'auction_image' => $this->auction_image,
             'auction_code' => $this->auction_code,
             'created_at' => $this->created_at->toDateTimeString(),

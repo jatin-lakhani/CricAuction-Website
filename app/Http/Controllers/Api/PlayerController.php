@@ -47,76 +47,16 @@ class PlayerController extends Controller
     }
 
     // Store or update a player
-    // public function store(Request $request)
-    // {
-    //     if ($request->has('id') && !empty($request->input('id'))) {
-    //     } else {
-    //         $validator = Validator::make($request->all(), [
-    //             'auction_code' => 'nullable',
-    //             'team_id' => 'nullable',
-    //             // 'player_id' => 'required',
-    //             'player_firstname' => 'nullable|string|max:255',
-    //             'player_mobile_no' => 'nullable|string|max:15',
-    //         ]);
-    //     }
-
-    //     if (isset($validator) && $validator->fails()) {
-    //         return apiValidationError($validator->messages(), 422);
-    //     }
-
-    //     try {
-    //         $player_id = 0;
-    //         if ($request->has('player_id') && !empty($request->input('player_id'))) {
-    //             $player = Player::where('id', $request->player_id)->first();
-    //             // if (!$auction) {
-    //             //     return apiFalseResponse('Auction not found.');
-    //             // }
-    //             if ($player) {
-    //                 $player_id = $player->id;
-    //             }
-    //         }
-
-    //         $data = $request->all();
-    //         if ($request->has('auction_code') && !empty($request->input('auction_code'))) {
-    //             $auction = Auction::where('auction_code', $request->auction_code)->first();
-    //             if (!$auction) {
-    //                 return apiFalseResponse('Auction with specified code is not found');
-    //             }
-    //             $data['auction_id'] = $auction->id;
-    //         }
-    //         if ($request->has('team_id') && !empty($request->input('team_id'))) {
-    //             $team = Team::where('id', $request->team_id)->first();
-    //             if (!$team) {
-    //                 return apiFalseResponse('Team with specified id is not found');
-    //             }
-    //             $data['team_id'] = $team->id;
-    //         }
-
-    //         if (isset($player) && $player) {
-    //             $player->update($data);
-    //             $message = 'Player details updated successfully';
-    //         } else {
-    //             $player = Player::create($data);
-    //             $message = 'Player created successfully';
-    //         }
-
-    //         return apiResponse($message);
-    //     } catch (\Exception $e) {
-    //         logError($e);
-    //         return apiErrorResponse($e->getMessage());
-    //     }
-    // }
-
-
     public function store(Request $request)
     {
         if ($request->has('id') && !empty($request->input('id'))) {
         } else {
             $validator = Validator::make($request->all(), [
-                'auction_code' => 'required|string',
+                'auction_code' => 'nullable',
                 'team_id' => 'nullable',
+                // 'player_id' => 'required',
                 'player_firstname' => 'nullable|string|max:255',
-                'player_mobile_no' => 'required|string|max:15',
+                'player_mobile_no' => 'nullable|string|max:15',
             ]);
         }
 
@@ -125,43 +65,34 @@ class PlayerController extends Controller
         }
 
         try {
-            $data = $request->all();
+            $player_id = 0;
+            if ($request->has('player_id') && !empty($request->input('player_id'))) {
+                $player = Player::where('id', $request->player_id)->first();
+                // if (!$auction) {
+                //     return apiFalseResponse('Auction not found.');
+                // }
+                if ($player) {
+                    $player_id = $player->id;
+                }
+            }
 
-            // Get auction details
+            $data = $request->all();
             if ($request->has('auction_code') && !empty($request->input('auction_code'))) {
                 $auction = Auction::where('auction_code', $request->auction_code)->first();
                 if (!$auction) {
                     return apiFalseResponse('Auction with specified code is not found');
                 }
                 $data['auction_id'] = $auction->id;
-            } else {
-                return apiFalseResponse('Auction code is required');
             }
-
-            // Check if a player with the same mobile number exists in the same auction
-            if ($request->has('player_mobile_no') && !empty($request->input('player_mobile_no'))) {
-                $existingPlayer = Player::where('player_mobile_no', $request->player_mobile_no)
-                    ->where('auction_id', $auction->id)
-                    ->first();
-
-                if ($existingPlayer) {
-                    // Return auction details for the existing player
-                    $existingAuction = Auction::find($existingPlayer->auction_id);
-                    return apiFalseResponse([
-                        'message' => 'A player with this mobile number already exists in the same auction.',
-                        'auction' => $existingAuction
-                    ]);
+            if ($request->has('team_id') && !empty($request->input('team_id'))) {
+                $team = Team::where('id', $request->team_id)->first();
+                if (!$team) {
+                    return apiFalseResponse('Team with specified id is not found');
                 }
+                $data['team_id'] = $team->id;
             }
 
-            // Check if the player exists for updating
-            $player = null;
-            if ($request->has('player_id') && !empty($request->input('player_id'))) {
-                $player = Player::where('id', $request->player_id)->first();
-            }
-
-            // Create or update the player
-            if ($player) {
+            if (isset($player) && $player) {
                 $player->update($data);
                 $message = 'Player details updated successfully';
             } else {
@@ -175,6 +106,75 @@ class PlayerController extends Controller
             return apiErrorResponse($e->getMessage());
         }
     }
+
+
+    // public function store(Request $request)
+    // {
+    //     if ($request->has('id') && !empty($request->input('id'))) {
+    //     } else {
+    //         $validator = Validator::make($request->all(), [
+    //             'auction_code' => 'required|string',
+    //             'team_id' => 'nullable',
+    //             'player_firstname' => 'nullable|string|max:255',
+    //             'player_mobile_no' => 'required|string|max:15',
+    //         ]);
+    //     }
+
+    //     if (isset($validator) && $validator->fails()) {
+    //         return apiValidationError($validator->messages(), 422);
+    //     }
+
+    //     try {
+    //         $data = $request->all();
+
+    //         // Get auction details
+    //         if ($request->has('auction_code') && !empty($request->input('auction_code'))) {
+    //             $auction = Auction::where('auction_code', $request->auction_code)->first();
+    //             if (!$auction) {
+    //                 return apiFalseResponse('Auction with specified code is not found');
+    //             }
+    //             $data['auction_id'] = $auction->id;
+    //         } else {
+    //             return apiFalseResponse('Auction code is required');
+    //         }
+
+    //         // Check if a player with the same mobile number exists in the same auction
+    //         if ($request->has('player_mobile_no') && !empty($request->input('player_mobile_no'))) {
+    //             $existingPlayer = Player::where('player_mobile_no', $request->player_mobile_no)
+    //                 ->where('auction_id', $auction->id)
+    //                 ->first();
+
+    //             if ($existingPlayer) {
+    //                 // Return auction details for the existing player
+    //                 $existingAuction = Auction::find($existingPlayer->auction_id);
+    //                 return apiFalseResponse([
+    //                     'message' => 'A player with this mobile number already exists in the same auction.',
+    //                     'auction' => $existingAuction
+    //                 ]);
+    //             }
+    //         }
+
+    //         // Check if the player exists for updating
+    //         $player = null;
+    //         if ($request->has('player_id') && !empty($request->input('player_id'))) {
+    //             $player = Player::where('id', $request->player_id)->first();
+    //         }
+
+    //         // Create or update the player
+    //         if ($player) {
+    //             $player->update($data);
+    //             $message = 'Player details updated successfully';
+    //         } else {
+    //             $player = Player::create($data);
+    //             $message = 'Player created successfully';
+    //         }
+
+    //         return apiResponse($message);
+    //     } catch (\Exception $e) {
+    //         logError($e);
+    //         return apiErrorResponse($e->getMessage());
+    //     }
+    // }
 
 
     // Retrieve player details
@@ -194,61 +194,6 @@ class PlayerController extends Controller
         return apiResponse('Player deleted successfully');
     }
 
-    // public function playerBulkStore(Request $request)
-    // {
-    //     $validator = Validator::make($request->all(), [
-    //         'players' => 'required|array',
-    //         'players.*.player_id' => 'nullable',
-    //         'players.*.player_firstname' => 'nullable|string|max:255',
-    //         'players.*.player_mobile_no' => 'nullable|string|max:15',
-    //         'players.*.auction_code' => 'nullable|string',
-    //         'players.*.team_id' => 'nullable',
-    //     ]);
-
-    //     if ($validator->fails()) {
-    //         return apiValidationError($validator->messages());
-    //     }
-    //     $results = [];
-    //     try {
-    //         foreach ($request->players as $playerData) {
-    //             $data = $playerData;
-    //             if (isset($playerData['auction_code']) && !empty($playerData['auction_code'])) {
-    //                 $auction = Auction::where('auction_code', $playerData['auction_code'])->first();
-    //                 if ($auction) {
-    //                     $data['auction_id'] = $auction->id;
-    //                 } else {
-    //                     $results[] = "Auction with code {$playerData['auction_code']} not found for player.";
-    //                     continue;
-    //                 }
-    //             }
-    //             if (isset($playerData['team_id']) && !empty($playerData['team_id'])) {
-    //                 $team = Team::where('id', $playerData['team_id'])->first();
-    //                 if ($team) {
-    //                     $data['team_id'] = $team->id;
-    //                 } else {
-    //                     $results[] = "Team with ID {$playerData['team_id']} not found for player}.";
-    //                     continue;
-    //                 }
-    //             }
-    //             $existingPlayer = null;
-    //             if (isset($playerData['player_id']) && !empty($playerData['player_id'])) {
-    //                 $existingPlayer = Player::where('id', $playerData['player_id'])->first();
-    //             }
-    //             if ($existingPlayer) {
-    //                 $existingPlayer->update($data);
-    //                 $results[] = "Player with ID {$playerData['player_id']} updated successfully.";
-    //             } else {
-    //                 $player = Player::create($data);
-    //                 $results[] = "Player with ID {$player->id} created successfully.";
-    //             }
-    //         }
-    //         return apiResponse('Bulk player operations completed successfully', $results);
-    //     } catch (\Exception $e) {
-    //         logError($e);
-    //         return apiErrorResponse($e->getMessage());
-    //     }
-    // }
-
     public function playerBulkStore(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -263,13 +208,10 @@ class PlayerController extends Controller
         if ($validator->fails()) {
             return apiValidationError($validator->messages());
         }
-
         $results = [];
         try {
             foreach ($request->players as $playerData) {
                 $data = $playerData;
-
-                // Validate auction and team
                 if (isset($playerData['auction_code']) && !empty($playerData['auction_code'])) {
                     $auction = Auction::where('auction_code', $playerData['auction_code'])->first();
                     if ($auction) {
@@ -279,48 +221,106 @@ class PlayerController extends Controller
                         continue;
                     }
                 }
-
                 if (isset($playerData['team_id']) && !empty($playerData['team_id'])) {
                     $team = Team::where('id', $playerData['team_id'])->first();
                     if ($team) {
                         $data['team_id'] = $team->id;
                     } else {
-                        $results[] = "Team with ID {$playerData['team_id']} not found for player.";
+                        $results[] = "Team with ID {$playerData['team_id']} not found for player}.";
                         continue;
                     }
                 }
-
-                // Check if a player with the same mobile number already exists
-                if (isset($playerData['player_mobile_no']) && !empty($playerData['player_mobile_no'])) {
-                    $existingPlayer = Player::where('player_mobile_no', $playerData['player_mobile_no'])->first();
-                    if ($existingPlayer) {
-                        $results[] = "Player with mobile number {$playerData['player_mobile_no']} already exists. Skipping this player.";
-                        continue; // Skip this player as the mobile number already exists
-                    }
-                }
-
-                // Check if updating an existing player or creating a new one
+                $existingPlayer = null;
                 if (isset($playerData['player_id']) && !empty($playerData['player_id'])) {
                     $existingPlayer = Player::where('id', $playerData['player_id'])->first();
                 }
-
                 if ($existingPlayer) {
-                    // If the player exists, update the player data
                     $existingPlayer->update($data);
                     $results[] = "Player with ID {$playerData['player_id']} updated successfully.";
                 } else {
-                    // If no existing player, create a new one
                     $player = Player::create($data);
                     $results[] = "Player with ID {$player->id} created successfully.";
                 }
             }
-
             return apiResponse('Bulk player operations completed successfully', $results);
         } catch (\Exception $e) {
             logError($e);
             return apiErrorResponse($e->getMessage());
         }
     }
+
+    // public function playerBulkStore(Request $request)
+    // {
+    //     $validator = Validator::make($request->all(), [
+    //         'players' => 'required|array',
+    //         'players.*.player_id' => 'nullable',
+    //         'players.*.player_firstname' => 'nullable|string|max:255',
+    //         'players.*.player_mobile_no' => 'nullable|string|max:15',
+    //         'players.*.auction_code' => 'nullable|string',
+    //         'players.*.team_id' => 'nullable',
+    //     ]);
+
+    //     if ($validator->fails()) {
+    //         return apiValidationError($validator->messages());
+    //     }
+
+    //     $results = [];
+    //     try {
+    //         foreach ($request->players as $playerData) {
+    //             $data = $playerData;
+
+    //             // Validate auction and team
+    //             if (isset($playerData['auction_code']) && !empty($playerData['auction_code'])) {
+    //                 $auction = Auction::where('auction_code', $playerData['auction_code'])->first();
+    //                 if ($auction) {
+    //                     $data['auction_id'] = $auction->id;
+    //                 } else {
+    //                     $results[] = "Auction with code {$playerData['auction_code']} not found for player.";
+    //                     continue;
+    //                 }
+    //             }
+
+    //             if (isset($playerData['team_id']) && !empty($playerData['team_id'])) {
+    //                 $team = Team::where('id', $playerData['team_id'])->first();
+    //                 if ($team) {
+    //                     $data['team_id'] = $team->id;
+    //                 } else {
+    //                     $results[] = "Team with ID {$playerData['team_id']} not found for player.";
+    //                     continue;
+    //                 }
+    //             }
+
+    //             // Check if a player with the same mobile number already exists
+    //             if (isset($playerData['player_mobile_no']) && !empty($playerData['player_mobile_no'])) {
+    //                 $existingPlayer = Player::where('player_mobile_no', $playerData['player_mobile_no'])->first();
+    //                 if ($existingPlayer) {
+    //                     $results[] = "Player with mobile number {$playerData['player_mobile_no']} already exists. Skipping this player.";
+    //                     continue; // Skip this player as the mobile number already exists
+    //                 }
+    //             }
+
+    //             // Check if updating an existing player or creating a new one
+    //             if (isset($playerData['player_id']) && !empty($playerData['player_id'])) {
+    //                 $existingPlayer = Player::where('id', $playerData['player_id'])->first();
+    //             }
+
+    //             if ($existingPlayer) {
+    //                 // If the player exists, update the player data
+    //                 $existingPlayer->update($data);
+    //                 $results[] = "Player with ID {$playerData['player_id']} updated successfully.";
+    //             } else {
+    //                 // If no existing player, create a new one
+    //                 $player = Player::create($data);
+    //                 $results[] = "Player with ID {$player->id} created successfully.";
+    //             }
+    //         }
+
+    //         return apiResponse('Bulk player operations completed successfully', $results);
+    //     } catch (\Exception $e) {
+    //         logError($e);
+    //         return apiErrorResponse($e->getMessage());
+    //     }
+    // }
 
 
     // Store a masked player with only name and masked mobile number
