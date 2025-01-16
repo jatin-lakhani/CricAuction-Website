@@ -668,18 +668,11 @@
         <section id="video" class="section video pt-0">
             <div class="container" data-aos="zoom-out" data-aos-delay="300">
                 <!-- Video Container -->
-                {{-- <div style="position: relative;"> --}}
-                <!-- Placeholder Image -->
-                {{-- <img src="{{ asset('assets/images/video-sec.png') }}" alt="Video Thumbnail"
-                        style="width: 100%; cursor: pointer;" onclick="playYouTubeVideo()" id="videoThumbnail"> --}}
-
-                <!-- YouTube Video (Initially Hidden) -->
                 <div id="youtubeVideoContainer"
-                    style="position: relative; width: 100%; padding-bottom: 51.25%; height: 0;">
+                    style="position: relative; width: 100%; padding-bottom: 48%; height: 0;">
                     <div id="youtubePlayer" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
                     </div>
                 </div>
-                {{-- </div> --}}
             </div>
         </section>
         <script>

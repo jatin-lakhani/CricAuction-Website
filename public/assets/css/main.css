@@ -15,19 +15,19 @@
 
 /* Global Colors & Nav Menu Colors */
 :root {
-    --background-color: #AD2112;
+    --background-color: #910F0D;
     --light-bg: rgba(173, 33, 18, 0.7);
     --default-color: #000000;
     --heading-color: #F4B81C;
-    --accent-color: #AD2112;
+    --accent-color: #910F0D;
     --surface-color: #ffffff;
     --shadow: #00000040;
     --nav-color: #000000;
-    --nav-hover-color: #AD2112;
+    --nav-hover-color: #910F0D;
     --nav-mobile-background-color: rgba(173, 33, 18, 0.9);
     --nav-dropdown-background-color: rgba(173, 33, 18, 0.9);
     --nav-dropdown-color: #000000;
-    --nav-dropdown-hover-color: #AD2112;
+    --nav-dropdown-hover-color: #910F0D;
 }
 
 /* Smooth scroll */
@@ -537,7 +537,7 @@ section,
 .auctions .auctions-details .card-auc img {
     width: 30px;
     height: 30px;
-    border: 1px solid #AD2112;
+    border: 1px solid #910F0D;
     border-radius: 100%;
     margin-left: -12px;
 }
@@ -559,7 +559,7 @@ section,
 }
 
 .features .features-details {
-    padding: 0 8rem;
+    padding: 0 6rem;
 }
 
 .features .container-fluid {
@@ -647,7 +647,8 @@ section,
 
 .features .features-slider img {
     width: 100%;
-    height: 100%;
+    height: 95%;
+    max-height: 100%;
     border-radius: 30px;
 }
 
