@@ -8,20 +8,26 @@ use Illuminate\Http\Request;
 
 class AuctionController extends Controller
 {
-    // public function showAuctions()
-    // {
-    //     $auctions = Auction::with('players')->take(3)->get();
-    //     return view('index', compact('auctions'));
-    // }
-
     public function showAuctions()
     {
-        $today = now()->toDateString(); // Get today's date in 'Y-m-d' format
-        $auctions = Auction::whereDate('auction_date', $today) // Filter by today's date
+        $today = now()->toDateString();
+        $yesterday = now()->subDay()->toDateString(); 
+
+        $auctions = Auction::whereDate('auction_date', $today)
             ->with('players')
             ->take(3)
             ->get();
 
-        return view('index', compact('auctions'));
+        if ($auctions->isEmpty()) {
+            $auctions = Auction::whereDate('auction_date', $yesterday)
+                ->with('players')
+                ->take(3)
+                ->get();
+            $title = "Recent"; 
+        } else {
+            $title = "Today's"; 
+        }
+
+        return view('index', compact('auctions', 'title'));
     }
 }

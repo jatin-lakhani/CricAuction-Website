@@ -1,7 +1,30 @@
+@media (min-width: 1920px) {
+
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl,
+    .container-xxl {
+        max-width: 1550px !important;
+    }
+}
+
 @media (max-width:1440px) {
     .hero .hero-title h1 {
         font-size: 75px;
         line-height: 75px;
+    }
+
+    .hero .hero-img img {
+        width: 95%;
+        height: 100%;
+        position: static;
+    }
+
+    .hero .hero-left {
+        margin-top: 40px;
+        margin-left: 60px;
     }
 
     .hero .hero-des h2 {
@@ -12,6 +35,93 @@
     .hero .hero-title h1 sup {
         top: -2.0em;
     }
+
+    .hero .hero-btns a:last-child {
+        margin-left: -20px;
+    }
+
+    .features .card {
+        margin-bottom: 15px;
+    }
+
+    .features .f-num h1 {
+        font-size: 75px;
+    }
+
+    .features .fc-main h5 {
+        font-size: 20px;
+    }
+
+    .features .fc-main h5 img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .features .fc-main p {
+        font-size: 14px;
+    }
+
+    .features .features-details {
+        padding: 0;
+    }
+
+    .auctions .auctions-details .card-body {
+        bottom: 25px;
+        left: 25px;
+    }
+
+    .mobile-app .mobile-app-content p {
+        font-size: 22px;
+    }
+
+    .mobile-app .mobile-app-list .list-item p,
+    .mobile-app .mobile-app-list .list-item i {
+        font-size: 23px;
+    }
+
+    .about .about-details .about-content p {
+        font-size: 18px;
+        line-height: 34px;
+        margin-bottom: 24px;
+    }
+
+    .pricing .pricing-details .card .circle h2 span {
+        font-size: 30px;
+    }
+
+    .pricing .pricing-details .card .circle h2 {
+        font-size: 44px;
+    }
+
+    .footer .footer-links ul a {
+        font-size: 22px;
+    }
+
+    .footer .footer-links .social img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .auctions,
+    .features,
+    .about,
+    .mobile-app,
+    .clients,
+    .help,
+    .video,
+    .pricing,
+    .contactus {
+        padding: 15px 0;
+    }
+
+    .about .container,
+    .about .container .row {
+        padding-top: 2rem;
+    }
+
+    .features .container-fluid {
+        padding: 1rem 3rem;
+    }
 }
 
 @media (max-width:1280px) {
@@ -19,8 +129,101 @@
         font-size: 42px;
     }
 
+    .about .about-details .about-heading h2 {
+        font-size: 52px;
+    }
+
+    .about .about-details {
+        width: 100%;
+    }
+
+    .features .fc-main h5 {
+        font-size: 20px;
+    }
+
+    .features .card-body {
+        padding: 6px;
+    }
+
+    .help-details .card .card-body .card-text {
+        font-size: 14px;
+        padding: 0px;
+    }
+
+    .about .container,
+    .about .container .row {
+        padding-top: 1rem;
+    }
+
+    .pricing .pricing-details .card .circle {
+        padding-top: 115px;
+    }
+
+    .auctions .auctions-details .card-body {
+        bottom: 22px;
+        left: 22px;
+    }
+
+    .auctions .auctions-details .card-body .auction-img {
+        width: 70px;
+        height: 70px;
+    }
+
     .hero .hero-left {
         margin-left: 70px;
+    }
+
+    .contactus .contact-form {
+        padding-left: 1rem;
+    }
+
+    .contactus form input {
+        height: 50px;
+    }
+
+    .pricing .pricing-details .card .circle h2 {
+        font-size: 38px;
+    }
+
+    .pricing .pricing-details .card .circle h2 span {
+        font-size: 32px;
+    }
+
+    .footer .footer-links ul a {
+        font-size: 20px;
+    }
+
+    .footer .footer-links .con i {
+        margin-right: 6px;
+    }
+
+    .footer .footer-links .social img {
+        width: 28px;
+        height: 28px;
+        margin-right: 8px;
+    }
+
+    .auctions .auctions-details .card-auc img {
+        margin-left: -10px;
+    }
+
+    .mobile-app .mobile-app-list .list-item p,
+    .mobile-app .mobile-app-list .list-item i {
+        font-size: 20px;
+        line-height: 22px;
+    }
+
+    .mobile-app .mobile-app-content p {
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    .features .fc-main p {
+        font-size: 12px;
+    }
+
+    .features .f-num h1 {
+        font-size: 64px;
     }
 }
 
@@ -340,25 +543,30 @@
         font-size: 22px;
     }
 
-    .footer .footer-links ul a {
-        font-size: 18px;
-    }
-
     .hero .hero-left {
         margin-left: 50px;
     }
 
-    .hero .hero-title h1 sup {
-        font-size: 16px;
+    .hero .hero-btns a:last-child {
+        margin-left: -10px;
     }
 
-    .auctions .auctions-details .card-body .card-title {
+    .auctions .auctions-details .card-body .card-title,
+    .hero .hero-title h1 sup,
+    .footer .footer-links ul a {
         font-size: 16px;
     }
 
     .auctions .auctions-details .card-body {
-        bottom: 15px;
-        left: 15px;
+        bottom: 18px;
+        left: 18px;
+        padding: 5px;
+    }
+
+    .auctions .auctions-details .card-auc img,
+    .footer .footer-links .social img {
+        width: 24px;
+        height: 24px;
     }
 
     .about .about-details .about-heading h2 {
@@ -367,8 +575,8 @@
     }
 
     .about .about-details .about-content p {
-        font-size: 18px;
-        line-height: 30px;
+        font-size: 15px;
+        line-height: 24px;
     }
 
     .about .about-details .about-btn a {
@@ -380,36 +588,34 @@
         line-height: 50px;
     }
 
+    .mobile-app .mobile-app-heading img {
+        width: 35px;
+        height: 35px;
+    }
+
     .mobile-app .mobile-app-content p,
-    .mobile-app .mobile-app-list p {
-        font-size: 18px;
-        line-height: 28px;
+    .mobile-app .mobile-app-list .list-item p,
+    .mobile-app .mobile-app-list .list-item i {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .register-btn a {
+        padding: 8px 16px;
+        font-size: 16px !important;
     }
 
     .mobile-app .mobile-app-list p i {
         padding-right: 10px;
     }
 
-    .help .help-details {
-        padding-left: 30px;
+    .help-details .card .card-body .card-title {
+        font-size: 20px;
     }
 
-    .help .help-details .help-content .help-card-det h5 {
-        font-size: 22px;
-        line-height: 22px;
-    }
-
-    .help .help-details .help-content .help-card-det p {
+    .help-details .card .card-body .card-text {
         font-size: 12px;
         line-height: 20px;
-    }
-
-    .help .help-details .help-content .help-card-det img {
-        max-width: 160px;
-    }
-
-    .auctions .auctions-details .card {
-        height: 280px;
     }
 
     .about .about-details .about-heading h2 sup,
@@ -420,6 +626,102 @@
 
     .clients .clients-details .client-img {
         margin: 0px;
+    }
+
+    .pricing .pricing-details .card .circle {
+        padding-top: 90px;
+    }
+
+    .features .fc-main {
+        padding: 3px;
+    }
+
+    .features .fc-main h5 {
+        font-size: 15px;
+    }
+
+    .features .fc-main h5 img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .features .fc-main p {
+        font-size: 10px;
+    }
+
+    .features .f-num h1 {
+        font-size: 60px;
+    }
+
+    .features .card {
+        margin-bottom: 8px;
+    }
+
+    .pricing .pricing-details .card .circle h2 {
+        font-size: 31px;
+        border-radius: 15px;
+    }
+
+    .pricing .pricing-details .card .circle h2 span {
+        font-size: 28px;
+    }
+
+    .footer h4 {
+        padding-bottom: 15px;
+    }
+
+    .contactus form label {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .contactus form input {
+        height: 40px;
+    }
+
+    .auctions .auctions-details .card-body .auction-img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .hero {
+        padding: 100px 0 40px 0;
+    }
+
+    .auctions-details,
+    .features-details {
+        padding-top: 0px;
+    }
+
+    .features .f-num h1 {
+        font-size: 50px;
+    }
+
+    .features .card:hover, .features .card.active {
+        border-bottom: 4px solid #910F0D;
+    }
+
+    .features .card {
+        border-bottom: 4px solid #ccc;
+        border-radius: 10px;
+    }
+
+    .features .features-slider img {
+        border-radius: 20px;
+    }
+}
+
+@media (max-width: 912px) {
+    .pricing .pricing-details .card .circle h2 {
+        font-size: 23px;
+    }
+
+    .pricing .pricing-details .card .circle h2 span {
+        font-size: 20px;
+    }
+
+    .features .features-slider {
+        margin-bottom: 30px;
     }
 }
 
@@ -432,13 +734,19 @@
         padding: 10px 30px;
     }
 
-    .hero .hero-img img {
+    .footer .container {
+        padding: 1.5rem 0;
+    }
+
+    .hero .hero-img img,
+    .help::before {
         width: 100%;
         height: 100%;
+        top: 0px;
     }
 
     .auctions .auctions-details .card-body .card-title {
-        font-size: 11px;
+        font-size: 12px;
     }
 
     .auctions .auctions-details .card-body {
@@ -446,22 +754,18 @@
         left: 11px;
     }
 
-    .auctions .auctions-details .card-body img {
-        width: 25px;
-        height: 25px;
+    .auctions .auctions-details .card-body .auction-img img {
+        width: 100%;
+        height: 55px;
+        max-height: fit-content;
+    }
+
+    .features .feature-btn {
+        display: block;
     }
 
     .price-left {
         padding-top: 30px !important;
-    }
-
-    .help::before {
-        width: 100%;
-        height: 100%;
-    }
-
-    .help .help-details {
-        padding-left: 0px;
     }
 
     .help .help-details .help-content .help-card-det h5 {
@@ -472,10 +776,6 @@
         font-size: 14px;
     }
 
-    .auctions .auctions-details .card {
-        height: 250px;
-    }
-
     .mobile-app-details {
         padding-bottom: 2.5rem;
     }
@@ -483,6 +783,99 @@
     .about .container,
     .about .container .row {
         padding-top: 1rem;
+    }
+
+    .pricing .pricing-details .card {
+        border-radius: 10px;
+    }
+
+    .pricing .pricing-details .card .pricing-img {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .pricing .pricing-details .card .circle {
+        padding-top: 65px;
+    }
+
+    .pricing .pricing-details .card .circle h2 {
+        font-size: 19px;
+    }
+
+    .pricing .pricing-details .btn-secondary {
+        font-size: 16px;
+        padding: 6px 0;
+        margin-top: 15px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    .pricing .pricing-details .card .circle h2 {
+        font-size: 23px;
+    }
+
+    .pricing .pricing-details .card .circle h2 span {
+        font-size: 18px;
+    }
+
+    .features .card:hover, .features .card.active {
+        border-bottom: 6px solid #910F0D;
+    }
+
+    .features .card {
+        border-bottom: 6px solid #ccc;
+    }
+
+    .features .features-left,
+    .features .features-right {
+        display: none;
+    }
+
+    .features .mobile-features {
+        display: block;
+    }
+
+    .features .features-mobile {
+        display: flex;
+        align-items: center;
+        justify-items: flex-start;
+    }
+
+    .features .carousel-item {
+        padding: 0 10rem;
+    }
+
+    .features .container-fluid {
+        padding: 1.5rem;
+    }
+
+    .footer .copyright,
+    .footer .copyright a {
+        margin-top: 0rem;
+    }
+
+    .register-btn {
+        justify-content: center;
+    }
+
+    .pricing .pricing-details {
+        padding: 1rem 0;
+    }
+
+    .mobile-app .row,
+    .help-details {
+        padding: 0.5rem 0;
+    }
+
+    .video img,
+    .video video,
+    .video iframe {
+        border-radius: 20px;
+    }
+
+    .features .features-slider img {
+        width: 100%;
+        height: 100%;
     }
 }
 
@@ -525,6 +918,31 @@
     .pricing .pricing-details .price-images .p-step {
         margin-top: 20px;
     }
+
+    .video img,
+    .video video {
+        border-radius: 20px;
+    }
+
+    .pricing .pricing-details .card .circle {
+        padding-top: 140px;
+    }
+
+    .pricing .pricing-details .card .circle h2 {
+        font-size: 54px;
+    }
+
+    .pricing .pricing-details .card .circle h2 span {
+        font-size: 38px;
+    }
+
+    .features .carousel-item {
+        padding: 0 3rem;
+    }
+
+    .features .features-slider img {
+        border-radius: 20px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -534,10 +952,6 @@
 
     .header .logo h1 {
         font-size: 35px;
-    }
-
-    .auctions .auctions-details .card {
-        height: 320px;
     }
 
     .hero .hero-left {
@@ -557,6 +971,35 @@
     .about .about-details .about-heading h2 sup,
     .mobile-app .mobile-app-heading h1 span sup {
         font-size: 9px;
+    }
+
+    .pricing .pricing-details .card .circle {
+        padding-top: 115px;
+    }
+
+    .pricing .pricing-details .card .circle h2 {
+        font-size: 40px;
+        border-radius: 40px;
+    }
+
+    .register-btn a {
+        padding: 8px 16px;
+        font-size: 14px !important;
+    }
+
+    .footer .container {
+        padding: 1rem;
+    }
+
+    .video img,
+    .video video,
+    .video iframe {
+        border-radius: 10px;
+    }
+
+    .features .features-slider img {
+        width: 100%;
+        height: 100%;
     }
 }
 
@@ -580,8 +1023,8 @@
     }
 
     .auctions .auctions-details .card-body {
-        bottom: 20px;
-        left: 20px;
+        bottom: 23px;
+        left: 23px;
     }
 
     .auctions .auctions-details .card-body .card-title {
@@ -589,33 +1032,40 @@
     }
 
     .about .about-details .about-heading h2 {
-        font-size: 32px;
-        line-height: 42px;
+        font-size: 28px;
+        line-height: 38px;
     }
 
     .about .about-details .about-content p {
-        font-size: 14px;
-        line-height: 24px;
+        font-size: 13px;
+        line-height: 22px;
     }
 
     .mobile-app .mobile-app-heading img {
-        width: 35px;
-        height: 35px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .mobile-app .mobile-app-list .list-item {
+        display: flex;
+        gap: 8px;
+        color: var(--accent-color);
     }
 
     .mobile-app .mobile-app-heading h1 {
-        font-size: 26px;
-        line-height: 44px;
+        font-size: 23px;
+        line-height: 32px;
     }
 
     .mobile-app .mobile-app-content p,
-    .mobile-app .mobile-app-list p {
+    .mobile-app .mobile-app-list .list-item p,
+    .mobile-app .mobile-app-list .list-item i {
         font-size: 16px;
         line-height: 20px;
     }
 
     .clients .clients-details .row {
-        padding: 20px;
+        padding: 0 20px;
     }
 
     .help .help-details .help-content .help-card-det h5 {
@@ -629,6 +1079,80 @@
     .about .container,
     .about .container .row {
         padding-top: 0.5rem;
+    }
+
+    .pricing .pricing-details .card .circle h2 {
+        font-size: 42px;
+        border-radius: 28px;
+    }
+
+    .pricing .pricing-details .card .circle h2 span {
+        font-size: 30px;
+    }
+
+    .features .features-details {
+        margin: -37px;
+    }
+
+    .features .fm-num h1 {
+        font-size: 60px;
+    }
+
+    .features .fm-main h5 {
+        font-size: 18px;
+    }
+
+    .features .fm-main h5 img {
+        width: 26px;
+        height: 26px;
+    }
+
+    .features .fm-main p {
+        font-size: 12px;
+    }
+
+    .features .container-fluid {
+        padding: 3rem;
+    }
+
+    .auctions .auctions-details .auc {
+        margin-bottom: 0.6rem;
+    }
+
+    .contactus form input,
+    .contactus form textarea {
+        border-radius: 6px !important;
+    }
+
+    .section-title h1 {
+        font-size: 44px;
+    }
+
+    .auctions,
+    .features,
+    .about,
+    .mobile-app,
+    .clients,
+    .help,
+    .video,
+    .pricing,
+    .contactus {
+        padding: 10px 0;
+    }
+
+    .pricing .pricing-details {
+        padding: 1rem 0 0 0;
+    }
+
+    .pricing .price {
+        margin-bottom: 0.9rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .pricing .pricing-details .card .circle h2 {
+        font-size: 37px;
+        border-radius: 20px;
     }
 }
 
@@ -645,8 +1169,8 @@
     }
 
     .auctions .auctions-details .card-body {
-        bottom: 15px;
-        left: 15px;
+        bottom: 18px;
+        left: 18px;
     }
 
     .about .about-details .about-heading h2 {
@@ -675,5 +1199,38 @@
 
     .help .help-details .help-content .help-card-det img {
         max-width: 100%;
+    }
+
+    .pricing .pricing-details .card .circle {
+        padding-top: 90px;
+    }
+
+    .pricing .pricing-details .card .circle h2 {
+        font-size: 31px;
+    }
+
+    .pricing .pricing-details .card .circle h2 span {
+        font-size: 24px;
+    }
+
+    .features .fm-num h1 {
+        padding-left: 5px;
+    }
+
+    .features .fm-main h5 {
+        font-size: 15px;
+    }
+
+    .features .fm-main p {
+        font-size: 11px;
+    }
+
+    .features .fm-main h5 img {
+        width: 26px;
+        height: 26px;
+    }
+
+    .features .carousel-item {
+        padding: 0 2.5rem;
     }
 }
