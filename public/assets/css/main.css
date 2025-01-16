@@ -925,12 +925,12 @@ section,
 
 /*  # Pricing Section  */
 .pricing .pricing-details {
-    padding: 1.5rem 0;
+    padding: 1rem 0;
 }
 
 .pricing .price {
     margin-bottom: 1.5rem;
-    padding: 0 3rem;
+    padding: 0 4rem;
 }
 
 .pricing .pricing-details .card {
