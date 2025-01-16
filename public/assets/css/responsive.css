@@ -124,7 +124,7 @@
     }
 
     .section-title h1 {
-        font-size: 46px;
+        font-size: 44px;
     }
 }
 
@@ -135,11 +135,12 @@
     }
 
     .features .f-num h1 {
-        font-size: 65px;
+        font-size: 58px;
     }
 
     .features .features-slider img {
         height: 93%;
+        width: 92%;
     }
 
     .features .card {
@@ -165,11 +166,28 @@
     .pricing .pricing-details .card .circle h2 {
         font-size: 38px;
     }
+
+    .contactus form input {
+        height: 45px;
+    }
+
+    .contactus .con-mar {
+        margin-bottom: 0.5rem;
+    }
+
+    .contactus form textarea {
+        height: 100px;
+    }
 }
 
 @media (max-width:1280px) {
     .mobile-app .mobile-app-heading h1 {
         font-size: 42px;
+    }
+
+    .features .features-slider img {
+        width: 98%;
+        height: 96%;
     }
 
     .about .about-details .about-heading h2 {

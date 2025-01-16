@@ -665,11 +665,11 @@
         </section><!-- /Help Section -->
 
         <!-- Video Section -->
-        <section id="video" class="section video pt-0">
+        <section id="video" class="section video">
             <div class="container" data-aos="zoom-out" data-aos-delay="300">
                 <!-- Video Container -->
                 <div id="youtubeVideoContainer"
-                    style="position: relative; width: 100%; padding-bottom: 50%; height: 0;">
+                    style="position: relative; width: 100%; padding-bottom: 46%; height: 0;">
                     <div id="youtubePlayer" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
                     </div>
                 </div>
@@ -850,12 +850,12 @@
                                     @csrf
                                     <!-- Name Fields -->
                                     <div class="row">
-                                        <div class="col-md-6 mb-3">
+                                        <div class="col-md-6 con-mar">
                                             <label for="fname" class="form-label">First Name</label>
                                             <input type="text" class="form-control" id="fname" name="fname"
                                                 placeholder="Your Name">
                                         </div>
-                                        <div class="col-md-6 mb-3">
+                                        <div class="col-md-6 con-mar">
                                             <label for="lname" class="form-label">Last Name</label>
                                             <input type="text" class="form-control" id="lname" name="lname"
                                                 placeholder="Your Surname">
@@ -863,21 +863,21 @@
                                     </div>
                                     <!-- Email and Mobile Fields -->
                                     <div class="row">
-                                        <div class="col-md-6 mb-3">
+                                        <div class="col-md-6 con-mar">
                                             <label for="email" class="form-label">Email id*</label>
                                             <input type="email" class="form-control" id="email" name="email"
                                                 placeholder="Your Email Id" required>
                                         </div>
-                                        <div class="col-md-6 mb-3">
+                                        <div class="col-md-6 con-mar">
                                             <label for="mno" class="form-label">Mobile Number</label>
                                             <input type="text" class="form-control" id="mno" name="mno"
                                                 placeholder="Your Mobile No">
                                         </div>
                                     </div>
                                     <!-- Message Field -->
-                                    <div class="mb-3">
+                                    <div class="con-mar">
                                         <label for="message" class="form-label">Message</label>
-                                        <textarea name="message" id="message" class="form-control" rows="7" placeholder="Your Message"></textarea>
+                                        <textarea name="message" id="message" class="form-control"  placeholder="Your Message"></textarea>
                                     </div>
                                     <!-- Submit Button -->
                                     <div class="d-flex justify-content-center pt-3">
