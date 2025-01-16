@@ -669,7 +669,7 @@
             <div class="container" data-aos="zoom-out" data-aos-delay="300">
                 <!-- Video Container -->
                 <div id="youtubeVideoContainer"
-                    style="position: relative; width: 100%; padding-bottom: 48%; height: 0;">
+                    style="position: relative; width: 100%; padding-bottom: 50%; height: 0;">
                     <div id="youtubePlayer" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
                     </div>
                 </div>
