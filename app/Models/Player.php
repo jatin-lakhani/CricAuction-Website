@@ -34,6 +34,7 @@ class Player extends Model
         'playerTeamName',
         'playerStatus',
         'playerSelectedIcon',
+        'is_reserved',
     ];
 
     protected $casts = [

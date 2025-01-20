@@ -32,6 +32,7 @@ class AuctionResource extends JsonResource
             'creator_email' => $this->creator_email,
             'auction_image' => $this->auction_image,
             'auction_code' => $this->auction_code,
+            'status' => $this->status,
             'created_at' => $this->created_at->toDateTimeString(),
             'teamList' => TeamResource::collection($this->whenLoaded('teams')),
             'playerList' => PlayerResource::collection($this->whenLoaded('players')),
@@ -42,6 +43,8 @@ class AuctionResource extends JsonResource
             // ],
             'pricing' => new PricingResource($this->whenLoaded('pricing')),
             'oldPricing' => new PricingResource($this->whenLoaded('oldPricing')),
+            'bidSlaps' => new PricingResource($this->whenLoaded('bidSlaps')),
+            'bidders' => new PricingResource($this->whenLoaded('bidders')),
         ];
     }
 }

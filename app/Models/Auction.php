@@ -25,7 +25,8 @@ class Auction extends Model
         'created_at',
         'creator_id',
         'creator_phone',
-        'creator_email'
+        'creator_email',
+        'status'
     ];
 
     protected $casts = [
@@ -63,6 +64,16 @@ class Auction extends Model
     {
         return $this->auction_image ? Storage::disk('public')->url($this->auction_image) : null;
         // return $this->profile_image ? Storage::disk('public')->url($this->profile) : Storage::disk('public')->url('upload/profile_image/default_profile.png');
+    }
+
+    public function bidSlaps()
+    {
+        return $this->hasMany(AuctionBidSlap::class);
+    }
+
+    public function bidders()
+    {
+        return $this->hasMany(AuctionBidder::class);
     }
 
 }

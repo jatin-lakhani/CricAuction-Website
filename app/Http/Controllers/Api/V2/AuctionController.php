@@ -36,37 +36,65 @@ class AuctionController extends Controller
 
     public function getAuctions(Request $request)
     {
-        $creator_id = $request->creator_id; // Optional: Creator ID filter
-        $search = $request->auction_name;  // Auction name to search for (required for search functionality)
+        $creator_id = $request->creator_id;
+        $search = $request->auction_name;
+        $sort_by = $request->sort_by ?? 'created_at';
+        $sort_order = $request->sort_order ?? 'desc';
+        $per_page = $request->per_page ?? 10;
 
-        // Ensure a search term is provided, and apply filters strictly
-        $auctions = Auction::query()
-            ->when($creator_id, function ($query) use ($creator_id) {
-                $query->where('creator_id', $creator_id); // Filter by creator ID
-            })
+        // Normalize the mobile number from the request
+        $player_mobile = $request->query('player_mobile');
+        if ($player_mobile) {
+            // Remove spaces and + from the mobile number
+            $player_mobile = preg_replace('/[\s+]/', '', $player_mobile);
+        }
+
+        $auctions = Auction::when($creator_id, function ($query) use ($creator_id, $player_mobile) {
+            $query->where('creator_id', $creator_id)
+                ->orWhere(function ($subQuery) use ($player_mobile) {
+                    $subQuery->when($player_mobile, function ($playerSubQuery) use ($player_mobile) {
+                        $playerSubQuery->whereHas('players', function ($q) use ($player_mobile) {
+                            // Remove spaces and + from database column during the query
+                            $q->whereRaw("REPLACE(REPLACE(player_mobile_no, ' ', ''), '+', '') = ?", [$player_mobile]);
+                        });
+                    });
+                });
+        })
             ->when($search, function ($query) use ($search) {
-                // Perform case-insensitive search
                 $query->whereRaw('LOWER(auction_name) LIKE ?', ["%" . strtolower($search) . "%"]);
-            })->with('teams', 'pricing', 'oldPricing')->get();
+            })
+            ->orderBy($sort_by, $sort_order)
+            ->with('teams', 'pricing', 'oldPricing', 'players')
+            ->paginate($per_page);
 
-        // Check if search term was provided and no data was found
-        if ($search && $auctions->isEmpty()) {
-            return apiResponse("No auctions found for '$search'.", []);
-        }
+        $data['data'] = AuctionResource::collection($auctions);
+        $data['pagination'] = [
+            'current_page' => $auctions->currentPage(),
+            'first_page_url' => $auctions->url(1),
+            'from' => $auctions->firstItem(),
+            'last_page' => $auctions->lastPage(),
+            'last_page_url' => $auctions->url($auctions->lastPage()),
+            'links' => $auctions->linkCollection()->toArray(),
+            'next_page_url' => $auctions->nextPageUrl(),
+            'path' => $auctions->path(),
+            'per_page' => $auctions->perPage(),
+            'prev_page_url' => $auctions->previousPageUrl(),
+            'to' => $auctions->lastItem(),
+            'total' => $auctions->total(),
+        ];
 
-        // Check if no auctions match the filter
-        if ($auctions->isEmpty()) {
-            return apiResponse('No auctions found.', []);
-        }
-
-        // Return auctions if data is found
-        return apiResponse('Auctions retrieved successfully', AuctionResource::collection($auctions));
+        return apiResponse('Auctions retrieved successfully', $data);
     }
 
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'auction_code' => 'required',
+            'auction_bid_slaps' => 'array',
+            'auction_bid_slaps.*.upto_amount' => 'required|numeric',
+            'auction_bid_slaps.*.increment_value' => 'required|numeric',
+            'auction_bidders' => 'array',
+            'auction_bidders.*.creator_id' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -114,6 +142,20 @@ class AuctionController extends Controller
         } else {
             $auction = Auction::create($data);
             $message = 'Auction created successfully';
+        }
+        if ($request->has('auction_bid_slaps')) {
+            $auction->bidSlaps()->delete();
+            foreach ($request->auction_bid_slaps as $slap) {
+                $auction->bidSlaps()->create($slap);
+            }
+        }
+
+        // Manage Bidders
+        if ($request->has('auction_bidders')) {
+            $auction->bidders()->delete();
+            foreach ($request->auction_bidders as $bidder) {
+                $auction->bidders()->create($bidder);
+            }
         }
         return apiResponse($message);
     }
