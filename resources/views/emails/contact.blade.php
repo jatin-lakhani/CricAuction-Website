@@ -48,7 +48,7 @@
         }
 
         .footer a {
-            color: #AD2112;
+            color: #910F0D;
             text-decoration: none;
         }
 

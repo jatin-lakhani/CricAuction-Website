@@ -15,19 +15,19 @@
 
 /* Global Colors & Nav Menu Colors */
 :root {
-    --background-color: #AD2112;
+    --background-color: #910F0D;
     --light-bg: rgba(173, 33, 18, 0.7);
     --default-color: #000000;
     --heading-color: #F4B81C;
-    --accent-color: #AD2112;
+    --accent-color: #910F0D;
     --surface-color: #ffffff;
     --shadow: #00000040;
     --nav-color: #000000;
-    --nav-hover-color: #AD2112;
+    --nav-hover-color: #910F0D;
     --nav-mobile-background-color: rgba(173, 33, 18, 0.9);
     --nav-dropdown-background-color: rgba(173, 33, 18, 0.9);
     --nav-dropdown-color: #000000;
-    --nav-dropdown-hover-color: #AD2112;
+    --nav-dropdown-hover-color: #910F0D;
 }
 
 /* Smooth scroll */
@@ -537,7 +537,7 @@ section,
 .auctions .auctions-details .card-auc img {
     width: 30px;
     height: 30px;
-    border: 1px solid #AD2112;
+    border: 1px solid #910F0D;
     border-radius: 100%;
     margin-left: -12px;
 }
@@ -559,7 +559,7 @@ section,
 }
 
 .features .features-details {
-    padding: 0 8rem;
+    padding: 0 6rem;
 }
 
 .features .container-fluid {
@@ -647,7 +647,8 @@ section,
 
 .features .features-slider img {
     width: 100%;
-    height: 100%;
+    height: 95%;
+    max-height: 100%;
     border-radius: 30px;
 }
 
@@ -852,6 +853,7 @@ section,
     align-items: center;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
 }
 
 .clients .clients-details .client-img img {
@@ -923,11 +925,12 @@ section,
 
 /*  # Pricing Section  */
 .pricing .pricing-details {
-    padding: 1.5rem 0;
+    padding: 1rem 0;
 }
 
 .pricing .price {
     margin-bottom: 1.5rem;
+    padding: 0 4rem;
 }
 
 .pricing .pricing-details .card {
@@ -947,25 +950,25 @@ section,
     align-items: center;
     justify-content: center;
     position: relative;
-    padding-top: 150px;
+    padding-top: 115px;
 }
 
 .pricing .pricing-details .card .circle img {
-    width: 45%;
-    height: 45%;
+    width: 42%;
+    height: 42%;
 }
 
 .pricing .pricing-details .card .circle h2 {
     position: absolute;
     font-family: var(--nav-font);
-    font-size: 52px;
+    font-size: 38px;
     font-weight: 800;
     text-align: center;
     color: #201F1F;
 }
 
 .pricing .pricing-details .card .circle h2 span {
-    font-size: 40px;
+    font-size: 32px;
     font-weight: 500;
 }
 
@@ -978,7 +981,7 @@ section,
     line-height: 26.24px;
     color: #201F1F;
     padding: 12px 0;
-    margin-top: 30px;
+    margin-top: 5px;
     border: none;
     border-radius: 0px;
     border-bottom-left-radius: 20px;
@@ -1007,6 +1010,10 @@ section,
     margin-bottom: 20px;
 }
 
+.contactus .con-mar{
+    margin-bottom: 1rem;
+}
+
 .contactus form input {
     border: 1px solid #9D9D9DCC !important;
     background: #D9D9D933 !important;
@@ -1018,6 +1025,7 @@ section,
     border: 1px solid #9D9D9DCC !important;
     background: rgba(217, 217, 217, 0.2) !important;
     border-radius: 10px !important;
+    height: 190px;
 }
 
 .contactus form label {

@@ -45,7 +45,7 @@
     }
 
     .features .f-num h1 {
-        font-size: 75px;
+        font-size: 70px;
     }
 
     .features .fc-main h5 {
@@ -86,15 +86,15 @@
     }
 
     .pricing .pricing-details .card .circle h2 span {
-        font-size: 30px;
+        font-size: 22px;
     }
 
     .pricing .pricing-details .card .circle h2 {
-        font-size: 44px;
+        font-size: 28px;
     }
 
     .footer .footer-links ul a {
-        font-size: 22px;
+        font-size: 20px;
     }
 
     .footer .footer-links .social img {
@@ -120,13 +120,126 @@
     }
 
     .features .container-fluid {
-        padding: 1rem 3rem;
+        padding: 0 3rem;
+    }
+
+    .section-title h1 {
+        font-size: 44px;
+    }
+
+    .pricing .price {
+        padding: 0 4rem;
+    }
+    
+    .pricing .pricing-details {
+        padding: 0;
+    }
+
+    .pricing .pricing-details .card .circle img {
+        width: 39%;
+        height: 39%;
+    }
+
+    .pricing .pricing-details .card .circle {
+        padding-top: 85px;
+    }
+
+    .pricing .pricing-details .btn-secondary {
+        font-size: 18px;
+        padding: 8px 0;
+    }
+}
+
+@media (max-width:1366px) {
+    .footer .footer-links .social img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .features .f-num h1 {
+        font-size: 58px;
+    }
+
+    .features .features-slider img {
+        height: 93%;
+        width: 92%;
+    }
+
+    .features .card {
+        margin-bottom: 10px;
+    }
+
+    .about .about-details .about-heading h2 {
+        font-size: 46px;
+    }
+
+    .mobile-app .mobile-app-heading h1 {
+        font-size: 42px;
+    }
+
+    .pricing .pricing-details .card .circle {
+        padding-top: 110px;
+    }
+
+    .pricing .pricing-details .btn-secondary {
+        margin-top: 5px;
+    }
+
+    .pricing .pricing-details .card .circle h2 {
+        font-size: 38px;
+    }
+
+    .contactus form input {
+        height: 45px;
+    }
+
+    .contactus .con-mar {
+        margin-bottom: 0.5rem;
+    }
+
+    .contactus form textarea {
+        height: 100px;
+    }
+
+    .pricing .price {
+        padding: 0 4rem;
+    }
+    
+    .pricing .pricing-details {
+        padding: 0;
+    }
+
+    .pricing .pricing-details .card .circle img {
+        width: 44%;
+        height: 44%;
+    }
+
+    .pricing .pricing-details .card .circle {
+        padding-top: 70px;
+    }
+
+    .pricing .pricing-details .btn-secondary {
+        font-size: 16px;
+        padding: 6px 0;
+    }
+
+    .pricing .pricing-details .card .circle h2 span {
+        font-size: 20px;
+    }
+
+    .pricing .pricing-details .card .circle h2 {
+        font-size: 24px;
     }
 }
 
 @media (max-width:1280px) {
     .mobile-app .mobile-app-heading h1 {
         font-size: 42px;
+    }
+
+    .features .features-slider img {
+        width: 98%;
+        height: 96%;
     }
 
     .about .about-details .about-heading h2 {
@@ -156,7 +269,7 @@
     }
 
     .pricing .pricing-details .card .circle {
-        padding-top: 115px;
+        padding-top: 75px;
     }
 
     .auctions .auctions-details .card-body {
@@ -179,14 +292,6 @@
 
     .contactus form input {
         height: 50px;
-    }
-
-    .pricing .pricing-details .card .circle h2 {
-        font-size: 38px;
-    }
-
-    .pricing .pricing-details .card .circle h2 span {
-        font-size: 32px;
     }
 
     .footer .footer-links ul a {
@@ -223,7 +328,29 @@
     }
 
     .features .f-num h1 {
-        font-size: 64px;
+        font-size: 60px;
+    }
+
+    .features .card {
+        margin-bottom: 9px;
+    }
+
+    .pricing .pricing-details .card .circle h2 {
+        font-size: 22px;
+    }
+
+    .pricing .pricing-details .card .circle h2 span {
+        font-size: 18px;
+    }
+
+    .pricing .price {
+        margin-bottom: 0.7rem;
+    }
+
+    .pricing .pricing-details .btn-secondary {
+        font-size: 15px;
+        padding: 5px 0;
+        margin-top: 5px;
     }
 }
 
@@ -535,6 +662,10 @@
         padding: 0px 55px;
     }
 
+    .section-title h1 {
+        font-size: 40px;
+    }
+
     .heading-bottom {
         padding: 10px 55px;
     }
@@ -629,7 +760,20 @@
     }
 
     .pricing .pricing-details .card .circle {
-        padding-top: 90px;
+        padding-top: 60px;
+    }
+
+    .pricing .pricing-details .card .circle h2 {
+        font-size: 21px;
+    }
+
+    .pricing .pricing-details .card .circle h2 span {
+        font-size: 18px;
+    }
+
+    .pricing .pricing-details .btn-secondary {
+        font-size: 14px;
+        padding: 3px 0;
     }
 
     .features .fc-main {
@@ -654,16 +798,7 @@
     }
 
     .features .card {
-        margin-bottom: 8px;
-    }
-
-    .pricing .pricing-details .card .circle h2 {
-        font-size: 31px;
-        border-radius: 15px;
-    }
-
-    .pricing .pricing-details .card .circle h2 span {
-        font-size: 28px;
+        margin-bottom: 7px;
     }
 
     .footer h4 {
@@ -697,7 +832,8 @@
         font-size: 50px;
     }
 
-    .features .card:hover, .features .card.active {
+    .features .card:hover,
+    .features .card.active {
         border-bottom: 4px solid #910F0D;
     }
 
@@ -708,6 +844,10 @@
 
     .features .features-slider img {
         border-radius: 20px;
+    }
+
+    .features .features-slider img {
+        height: 100%;
     }
 }
 
@@ -794,6 +934,10 @@
         border-top-right-radius: 10px;
     }
 
+    .pricing .price {
+        padding: 0 1rem;
+    }
+
     .pricing .pricing-details .card .circle {
         padding-top: 65px;
     }
@@ -803,22 +947,22 @@
     }
 
     .pricing .pricing-details .btn-secondary {
-        font-size: 16px;
-        padding: 6px 0;
-        margin-top: 15px;
+        font-size: 14px;
+        padding: 3px 0;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
     }
 
     .pricing .pricing-details .card .circle h2 {
-        font-size: 23px;
+        font-size: 20px;
     }
 
     .pricing .pricing-details .card .circle h2 span {
-        font-size: 18px;
+        font-size: 16px;
     }
 
-    .features .card:hover, .features .card.active {
+    .features .card:hover,
+    .features .card.active {
         border-bottom: 6px solid #910F0D;
     }
 
@@ -1166,6 +1310,15 @@
     .section-title h1,
     .section-title h1 span {
         font-size: 40px;
+    }
+
+    .hero .hero-title h1 {
+        font-size: 46px;
+    }
+
+    .hero .hero-des h2 {
+        font-size: 28px;
+        line-height: 30px;
     }
 
     .auctions .auctions-details .card-body {
