@@ -41,8 +41,8 @@
                     <li><a href="https://www.youtube.com/@CricAuction-o9q" target="_blank"><img
                                 src="{{ asset('assets/images/footer/Youtube.png') }}" alt="YouTube">You-Tube</a>
                     </li>
-                    <li><a href="https://www.linkedin.com/company/cricauction" target="_blank"><img src="{{ asset('assets/images/footer/linkedin.png') }}"
-                                alt="LinkedIn">LinkedIn</a></li>
+                    <li><a href="https://www.linkedin.com/company/cricauction" target="_blank"><img
+                                src="{{ asset('assets/images/footer/linkedin.png') }}" alt="LinkedIn">LinkedIn</a></li>
                     <li><a href="https://x.com/Cricauctio52918" target="_blank"><img
                                 src="{{ asset('assets/images/footer/twitter.png') }}" alt="Twitter">Twitter</a></li>
                 </ul>
@@ -74,22 +74,9 @@
 <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
         class="bi bi-arrow-up-short"></i></a>
 
-
-<!-- Main JS File -->
 <script src="{{ asset('assets/js/main.js') }}"></script>
-
-<!-- Vendor JS Files -->
-<script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
-<script src="{{ asset('assets/vendor/typed.js/typed.umd.js') }}"></script>
-<script src="{{ asset('assets/vendor/purecounter/purecounter_vanilla.js') }}"></script>
-<script src="{{ asset('assets/vendor/waypoints/noframework.waypoints.js') }}"></script>
-<script src="{{ asset('assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
-<script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
-<script src="{{ asset('assets/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
-<script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
 
-<!-- Initialize AOS -->
 <script>
     AOS.init();
 </script>
@@ -123,12 +110,12 @@
 </script>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
         const cards = document.querySelectorAll('.features-left .card, .features-right .card');
         const carousel = document.querySelector('#carouselExample');
 
         cards.forEach((card) => {
-            card.addEventListener('mouseenter', function() {
+            card.addEventListener('mouseenter', function () {
                 // Remove the active class from all cards
                 cards.forEach((c) => c.classList.remove('active'));
 
@@ -145,7 +132,7 @@
 </script>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
         const cards = document.querySelectorAll('.mobile-features .card');
         const carousel = document.querySelector('#carouselExample');
         const carouselInner = document.querySelector('.carousel-inner');
@@ -184,7 +171,7 @@
 
         // Handle card hover to change carousel slide and active card
         cards.forEach((card) => {
-            card.addEventListener('mouseenter', function() {
+            card.addEventListener('mouseenter', function () {
                 // Remove the active class from all cards
                 cards.forEach((c) => c.classList.remove('active'));
 
@@ -199,7 +186,7 @@
         });
 
         // Update active card when the carousel slide changes
-        carousel.addEventListener('slide.bs.carousel', function(event) {
+        carousel.addEventListener('slide.bs.carousel', function (event) {
             activateCard(event.to);
         });
 
@@ -208,7 +195,7 @@
         const nextBtn = document.querySelector('.carousel-control-next');
 
         if (prevBtn && nextBtn) {
-            prevBtn.addEventListener('click', function() {
+            prevBtn.addEventListener('click', function () {
                 const activeIndex = [...carouselInner.children].findIndex((item) =>
                     item.classList.contains('active')
                 );
@@ -217,7 +204,7 @@
                 activateCard(newIndex);
             });
 
-            nextBtn.addEventListener('click', function() {
+            nextBtn.addEventListener('click', function () {
                 const activeIndex = [...carouselInner.children].findIndex((item) =>
                     item.classList.contains('active')
                 );
@@ -231,14 +218,6 @@
     });
 </script>
 
-<!-- Bootstrap JavaScript Libraries -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
-</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
