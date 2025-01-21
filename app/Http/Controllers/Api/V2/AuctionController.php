@@ -37,7 +37,9 @@ class AuctionController extends Controller
     public function getAuctions(Request $request)
     {
         $creator_id = $request->creator_id;
-        $search = $request->auction_name;
+        $creator_phone = $request->creator_phone;
+        $auction_name = $request->auction_name;
+        $search = $request->search;
         $sort_by = $request->sort_by ?? 'created_at';
         $sort_order = $request->sort_order ?? 'desc';
         $per_page = $request->per_page ?? 10;
@@ -49,19 +51,32 @@ class AuctionController extends Controller
             $player_mobile = preg_replace('/[\s+]/', '', $player_mobile);
         }
 
-        $auctions = Auction::when($creator_id, function ($query) use ($creator_id, $player_mobile) {
-            $query->where('creator_id', $creator_id)
-                ->orWhere(function ($subQuery) use ($player_mobile) {
-                    $subQuery->when($player_mobile, function ($playerSubQuery) use ($player_mobile) {
-                        $playerSubQuery->whereHas('players', function ($q) use ($player_mobile) {
-                            // Remove spaces and + from database column during the query
-                            $q->whereRaw("REPLACE(REPLACE(player_mobile_no, ' ', ''), '+', '') = ?", [$player_mobile]);
+        $auctions = Auction::
+            when($creator_id, function ($query) use ($creator_id, $player_mobile) {
+                $query->where(function ($sub_query) use ($creator_id, $player_mobile) {
+                    $sub_query->where('creator_id', $creator_id)
+                        ->orWhere(function ($subQuery) use ($player_mobile) {
+                            $subQuery->when($player_mobile, function ($playerSubQuery) use ($player_mobile) {
+                                $playerSubQuery->whereHas('players', function ($q) use ($player_mobile) {
+                                    // Remove spaces and + from database column during the query
+                                    $q->whereRaw("REPLACE(REPLACE(player_mobile_no, ' ', ''), '+', '') = ?", [$player_mobile]);
+                                });
+                            });
                         });
-                    });
                 });
-        })
+            })
+            ->when($creator_phone, function ($query) use ($creator_phone) {
+                $query->whereRaw("REPLACE(REPLACE(creator_phone, ' ', ''), '+', '') = ?", [$creator_phone]);
+            })
+            ->when($auction_name, function ($query) use ($auction_name) {
+                $query->whereRaw('LOWER(auction_name) LIKE ?', ["%" . strtolower($auction_name) . "%"]);
+            })
             ->when($search, function ($query) use ($search) {
-                $query->whereRaw('LOWER(auction_name) LIKE ?', ["%" . strtolower($search) . "%"]);
+                $query->where(function ($subQuery) use ($search) {
+                    $subQuery->whereRaw('LOWER(creator_id) LIKE ?', ["%" . strtolower($search) . "%"])
+                        ->orWhereRaw("REPLACE(REPLACE(creator_phone, ' ', ''), '+', '') LIKE ?", ["%" . preg_replace('/[\s+]/', '', $search) . "%"])
+                        ->orWhereRaw('LOWER(auction_name) LIKE ?', ["%" . strtolower($search) . "%"]);
+                });
             })
             ->orderBy($sort_by, $sort_order)
             ->with('teams', 'pricing', 'oldPricing', 'players')
