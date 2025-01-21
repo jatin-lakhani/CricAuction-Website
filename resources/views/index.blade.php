@@ -57,9 +57,8 @@
                         ? (str_contains($auction->auction_image, 'drive.google.com')
                             ? str_replace('/uc?', '/thumbnail?', $auction->auction_image)
                             : $auction->auction_image)
-                        : asset('assets/images/auction/Auction.png') }}"
-                                                            class="card-img-top auction_image" id="auction_image"
-                                                            alt="{{ $auction->auction_name }}">
+                        : asset('assets/images/auction/Auction.png') }}" class="card-img-top auction_image"
+                                                            id="auction_image" alt="{{ $auction->auction_name }}">
                                                     </div>
                                                     <div class="text-left">
                                                         <h5 class="card-title auction_name" id="auction_name">
@@ -173,44 +172,44 @@
                         <div id="carouselExample" class="carousel slide">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="{{ asset('assets/images/features/slider/feature-1.png') }}"  class="lazyload"  loading="lazy"
-                                        alt="Feature 1">
+                                    <img src="{{ asset('assets/images/features/slider/feature-1.png') }}"
+                                        class="lazyload" loading="lazy" alt="Feature 1">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="{{ asset('assets/images/features/slider/feature-2.png') }}"  class="lazyload"  loading="lazy"
-                                        alt="Feature 2">
+                                    <img src="{{ asset('assets/images/features/slider/feature-2.png') }}"
+                                        class="lazyload" loading="lazy" alt="Feature 2">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="{{ asset('assets/images/features/slider/feature-3.png') }}"  class="lazyload"  loading="lazy"
-                                        alt="Feature 3">
+                                    <img src="{{ asset('assets/images/features/slider/feature-3.png') }}"
+                                        class="lazyload" loading="lazy" alt="Feature 3">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="{{ asset('assets/images/features/slider/feature-4.png') }}"  class="lazyload"  loading="lazy"
-                                        alt="Feature 4">
+                                    <img src="{{ asset('assets/images/features/slider/feature-4.png') }}"
+                                        class="lazyload" loading="lazy" alt="Feature 4">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="{{ asset('assets/images/features/slider/feature-5.png') }}"  class="lazyload"  loading="lazy"
-                                        alt="Feature 5">
+                                    <img src="{{ asset('assets/images/features/slider/feature-5.png') }}"
+                                        class="lazyload" loading="lazy" alt="Feature 5">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="{{ asset('assets/images/features/slider/feature-6.png') }}"  class="lazyload"  loading="lazy"
-                                        alt="Feature 6">
+                                    <img src="{{ asset('assets/images/features/slider/feature-6.png') }}"
+                                        class="lazyload" loading="lazy" alt="Feature 6">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="{{ asset('assets/images/features/slider/feature-7.png') }}"  class="lazyload"  loading="lazy"
-                                        alt="Feature 7">
+                                    <img src="{{ asset('assets/images/features/slider/feature-7.png') }}"
+                                        class="lazyload" loading="lazy" alt="Feature 7">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="{{ asset('assets/images/features/slider/feature-8.png') }}"  class="lazyload"  loading="lazy"
-                                        alt="Feature 8">
+                                    <img src="{{ asset('assets/images/features/slider/feature-8.png') }}"
+                                        class="lazyload" loading="lazy" alt="Feature 8">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="{{ asset('assets/images/features/slider/feature-9.png') }}"  class="lazyload"  loading="lazy"
-                                        alt="Feature 9">
+                                    <img src="{{ asset('assets/images/features/slider/feature-9.png') }}"
+                                        class="lazyload" loading="lazy" alt="Feature 9">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="{{ asset('assets/images/features/slider/feature-10.png') }}"  class="lazyload"  loading="lazy"
-                                        alt="Feature 10">
+                                    <img src="{{ asset('assets/images/features/slider/feature-10.png') }}"
+                                        class="lazyload" loading="lazy" alt="Feature 10">
                                 </div>
 
                             </div>
@@ -399,7 +398,8 @@
                                     </div>
                                     <div class="card-body fm-main">
                                         <h5 class="card-title text-left"><img
-                                                src="{{ asset('assets/images/features/f6.png') }}" alt="F6" loading="lazy">
+                                                src="{{ asset('assets/images/features/f6.png') }}" alt="F6"
+                                                loading="lazy">
                                             Web
                                             Integration</h5>
                                         <p class="card-text">Share your tournament link for live auction viewing on the
@@ -416,7 +416,8 @@
                                     </div>
                                     <div class="card-body fm-main">
                                         <h5 class="card-title text-left"><img
-                                                src="{{ asset('assets/images/features/f7.png') }}" alt="F7"  loading="lazy" >
+                                                src="{{ asset('assets/images/features/f7.png') }}" alt="F7"
+                                                loading="lazy">
                                             Join Tournaments by Code</h5>
                                         <p class="card-text">Simple and secure method to join tournaments using a
                                             unique tournament code.
