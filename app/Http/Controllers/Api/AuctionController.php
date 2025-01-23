@@ -102,6 +102,11 @@ class AuctionController extends Controller
                 'player_registration' => true
             ]);
         }
+        if ($request->has('player_registration') && is_null($request->input('player_registration'))) {
+            $request->merge([
+                'player_registration' => true
+            ]);
+        }
         $data = $request->all();
         // if ($request->hasfile('auction_image')) {
         //     $file = $request->file('auction_image');
