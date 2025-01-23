@@ -97,11 +97,6 @@ class AuctionController extends Controller
                 'auction_time' => Carbon::createFromFormat('h:i A', $request->auction_time)->format('H:i:s'),
             ]);
         }
-        if ($request->has('player_registration') && empty($request->input('player_registration'))) {
-            $request->merge([
-                'player_registration' => true
-            ]);
-        }
         if ($request->has('player_registration') && is_null($request->input('player_registration'))) {
             $request->merge([
                 'player_registration' => true
