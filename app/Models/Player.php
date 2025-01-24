@@ -35,6 +35,9 @@ class Player extends Model
         'playerStatus',
         'playerSelectedIcon',
         'is_reserved',
+        'match',
+        'run',
+        'wicket',
     ];
 
     protected $casts = [
