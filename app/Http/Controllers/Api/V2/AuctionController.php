@@ -105,11 +105,11 @@ class AuctionController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'auction_code' => 'required',
-            'auction_bid_slaps' => 'array',
-            'auction_bid_slaps.*.upto_amount' => 'required|numeric',
-            'auction_bid_slaps.*.increment_value' => 'required|numeric',
-            'auction_bidders' => 'array',
-            'auction_bidders.*.creator_id' => 'required'
+            'bidSlaps' => 'array',
+            'bidSlaps.*.upto_amount' => 'required|numeric',
+            'bidSlaps.*.increment_value' => 'required|numeric',
+            'bidders' => 'nullable|string',
+            // 'bidders.*.creator_id' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -158,18 +158,27 @@ class AuctionController extends Controller
             $auction = Auction::create($data);
             $message = 'Auction created successfully';
         }
-        if ($request->has('auction_bid_slaps')) {
+        if ($request->has('bidSlaps')) {
             $auction->bidSlaps()->delete();
-            foreach ($request->auction_bid_slaps as $slap) {
+            foreach ($request->bidSlaps as $slap) {
                 $auction->bidSlaps()->create($slap);
             }
         }
 
         // Manage Bidders
-        if ($request->has('auction_bidders')) {
+        if ($request->has('bidders')) {
             $auction->bidders()->delete();
-            foreach ($request->auction_bidders as $bidder) {
-                $auction->bidders()->create($bidder);
+            if (is_string($request->bidders)) {
+                $bidders = explode(',', $request->bidders);
+            } else {
+                $bidders = $request->bidders;
+            }
+            if($bidders){
+                foreach ($bidders as $bidder) {
+                    $auction->bidders()->create([
+                        'creator_id' => $bidder,
+                    ]);
+                }
             }
         }
         return apiResponse($message);
