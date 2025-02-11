@@ -79,7 +79,7 @@ class AuctionController extends Controller
                 });
             })
             ->orderBy($sort_by, $sort_order)
-            ->with('teams', 'pricing', 'oldPricing', 'players')
+            ->with('teams', 'pricing', 'oldPricing', 'players', 'bidSlaps', 'bidders')
             ->paginate($per_page);
 
         $data['data'] = AuctionResource::collection($auctions);
@@ -177,7 +177,7 @@ class AuctionController extends Controller
 
     public function show($id)
     {
-        $auction = Auction::with('teams.players', 'players', 'pricing', 'oldPricing')->where('auction_code', $id)->first();
+        $auction = Auction::with('teams.players', 'players', 'pricing', 'oldPricing', 'bidSlaps', 'bidders')->where('auction_code', $id)->first();
         if (!$auction) {
             return apiFalseResponse('Auction details not found');
         }
