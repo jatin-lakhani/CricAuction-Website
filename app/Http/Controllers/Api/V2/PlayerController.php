@@ -72,12 +72,7 @@ class PlayerController extends Controller
                     $player_id = $player->id;
                 }
             }
-            if ($request->has('player_mobile_no') && !empty($request->input('player_mobile_no'))) {
-                $existingPlayer = Player::where('player_mobile_no', $request->player_mobile_no)->whereNot('id', $player_id)->first();
-                if ($existingPlayer) {
-                    return apiFalseResponse('A player with this mobile number already exists.');
-                }
-            }
+
 
             $data = $request->all();
             if ($request->has('auction_code') && !empty($request->input('auction_code'))) {
@@ -86,6 +81,16 @@ class PlayerController extends Controller
                     return apiFalseResponse('Auction with specified code is not found');
                 }
                 $data['auction_id'] = $auction->id;
+            }
+            if ($request->filled('player_mobile_no')) {
+                $existingPlayer = Player::where('auction_id', $data['auction_id'])
+                    ->where('player_mobile_no', $request->input('player_mobile_no'))
+                    ->where('id', '!=', $player_id)
+                    ->first();
+
+                if ($existingPlayer) {
+                    return apiFalseResponse('A player with this mobile number already exists.');
+                }
             }
             if ($request->has('team_id') && !empty($request->input('team_id'))) {
                 $team = Team::where('id', $request->team_id)->first();
