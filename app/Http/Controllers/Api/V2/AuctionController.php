@@ -109,6 +109,8 @@ class AuctionController extends Controller
             'bidSlaps.*.upto_amount' => 'required|numeric',
             'bidSlaps.*.increment_value' => 'required|numeric',
             'bidders' => 'nullable|string',
+            'payment_qr' => 'nullable|string',
+            'payment_receipt' => 'nullable|string',
             // 'bidders.*.creator_id' => 'required'
         ]);
 
