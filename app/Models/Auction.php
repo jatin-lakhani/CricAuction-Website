@@ -27,7 +27,6 @@ class Auction extends Model
         'creator_phone',
         'creator_email',
         'payment_qr',
-        'payment_receipt',
         'status'
     ];
 
