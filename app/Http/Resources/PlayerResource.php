@@ -46,6 +46,7 @@ class PlayerResource extends JsonResource
             'match' => $this->match,
             'run' => $this->run,
             'wicket' => $this->wicket,
+            'payment_receipt' => $this->payment_receipt,
             // 'created_at' => $this->created_at->toDateTimeString(),
             // 'updated_at' => $this->updated_at->toDateTimeString(),
             // 'team' => new TeamResource($this->whenLoaded('team')),
