@@ -44,7 +44,14 @@ class AuctionResource extends JsonResource
             // ],
             'pricing' => new PricingResource($this->whenLoaded('pricing')),
             'oldPricing' => new PricingResource($this->whenLoaded('oldPricing')),
-            'bidSlaps' => $this->whenLoaded('bidSlaps'),
+            'bidSlaps' => $this->whenLoaded('bidSlaps', function () {
+                return $this->bidSlaps->map(function ($bidSlap) {
+                    return [
+                        'upto_amount' => $bidSlap->upto_amount,
+                        'increment_value' => $bidSlap->increment_value,
+                    ];
+                });
+            }),
             'bidders' => $this->whenLoaded('bidders', function () {
                 return $this->bidders->pluck('creator_id');
             }),
