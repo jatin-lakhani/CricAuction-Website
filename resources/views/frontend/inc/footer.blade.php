@@ -36,10 +36,10 @@
                     <li><a href="https://www.facebook.com/profile.php?id=61571234099766" target="_blank"><img
                                 src="{{ asset('assets/images/footer/facebook.png') }}" alt="Facebook">Facebook</a></li>
                     <li><a href="https://www.instagram.com/cricauction.official" target="_blank"><img
-                                src="{{ asset('assets/images/footer/instagram.png') }}" alt="Instagaram">Instagaram</a>
+                                src="{{ asset('assets/images/footer/instagram.png') }}" alt="Instagram">Instagram</a>
                     </li>
                     <li><a href="https://www.youtube.com/@CricAuction-o9q" target="_blank"><img
-                                src="{{ asset('assets/images/footer/Youtube.png') }}" alt="YouTube">You-Tube</a>
+                                src="{{ asset('assets/images/footer/Youtube.png') }}" alt="YouTube">YouTube</a>
                     </li>
                     <li><a href="https://www.linkedin.com/company/cricauction" target="_blank"><img
                                 src="{{ asset('assets/images/footer/linkedin.png') }}" alt="LinkedIn">LinkedIn</a></li>
