@@ -247,7 +247,7 @@ class PlayerController extends Controller
                     }
                 }
                 if (isset($playerData['player_mobile_no']) && !empty($playerData['player_mobile_no'])) {
-                    $mobileExists = Player::where('player_mobile_no', $playerData['player_mobile_no'])->whereNot('id', $player_id)->first();
+                    $mobileExists = Player::where('auction_id', $data['auction_id'])->where('player_mobile_no', $playerData['player_mobile_no'])->whereNot('id', $player_id)->first();
                     if ($mobileExists) {
                         $results[] = "Skipping Player with mobile {$playerData['player_mobile_no']} as mobile already exist with another player.";
                         continue;
