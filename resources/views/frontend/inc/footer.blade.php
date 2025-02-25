@@ -20,32 +20,26 @@
                 <h4>Quick Links</h4>
                 <nav style="cursor: pointer;">
                     <ul>
-                        <li><a data-target="hero">Home</a></li>
-                        <li><a data-target="auctions">Auctions</a></li>
-                        <li><a data-target="features">Features</a></li>
-                        <li><a data-target="help">Help</a></li>
-                        <li><a data-target="pricing">Pricing</a></li>
-                        <li><a data-target="contactus">Contact Us</a></li>
+                        <li><a href="{{ route('welcome') }}">Home</a></li>
+                        <li><a href="{{ route('welcome', ['section' => 'auctions']) }}">Auctions</a></li>
+                        <li><a href="{{ route('welcome', ['section' => 'features']) }}">Features</a></li>
+                        <li><a href="{{ route('welcome', ['section' => 'help']) }}">Help</a></li>
+                        <li><a href="{{ route('welcome', ['section' => 'pricing']) }}">Pricing</a></li>
+                        <li><a href="{{ route('welcome', ['section' => 'contactus']) }}">Contact Us</a></li>
                     </ul>
                 </nav>
             </div>
 
             <div class="col-lg-3 col-md-3 footer-links" data-aos="fade-up" data-aos-delay="300">
-                <h4>Follow Us</h4>
-                <ul class="social">
-                    <li><a href="https://www.facebook.com/profile.php?id=61571234099766" target="_blank"><img
-                                src="{{ asset('assets/images/footer/facebook.png') }}" alt="Facebook">Facebook</a></li>
-                    <li><a href="https://www.instagram.com/cricauction.official" target="_blank"><img
-                                src="{{ asset('assets/images/footer/instagram.png') }}" alt="Instagram">Instagram</a>
-                    </li>
-                    <li><a href="https://www.youtube.com/@CricAuction-o9q" target="_blank"><img
-                                src="{{ asset('assets/images/footer/Youtube.png') }}" alt="YouTube">YouTube</a>
-                    </li>
-                    <li><a href="https://www.linkedin.com/company/cricauction" target="_blank"><img
-                                src="{{ asset('assets/images/footer/linkedin.png') }}" alt="LinkedIn">LinkedIn</a></li>
-                    <li><a href="https://x.com/Cricauctio52918" target="_blank"><img
-                                src="{{ asset('assets/images/footer/twitter.png') }}" alt="Twitter">Twitter</a></li>
-                </ul>
+                <h4>Quick Links</h4>
+                <nav style="cursor: pointer;">
+                    <ul>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/terms">Terms & Conditions</a></li>
+                        <li><a href="/cancel">Cancellation & Refund</a></li>
+                        <li><a href="/shipping">Shipping & Delivery</a></li>
+                    </ul>
+                </nav>
             </div>
 
             <div class="col-lg-3 col-md-12 footer-links" data-aos="fade-up" data-aos-delay="400">
@@ -55,6 +49,19 @@
                                 style="color: #ffffff;"></i>info@argonitservices.com</a></li>
                     <li><a href="tel:+917698767767"><i class="bi bi-telephone" style="color: #ffffff;"></i>+91 76 98 767
                             767 </a></li>
+
+                    <li class="d-flex gap-2">
+                        <a href="https://www.facebook.com/profile.php?id=61571234099766" target="_blank"><img
+                                src="{{ asset('assets/images/footer/facebook.png') }}" alt="Facebook"></a>
+                        <a href="https://www.instagram.com/cricauction.official" target="_blank"><img
+                                src="{{ asset('assets/images/footer/instagram.png') }}" alt="Instagram"></a>
+                        <a href="https://www.youtube.com/@CricAuction-o9q" target="_blank"><img
+                                src="{{ asset('assets/images/footer/Youtube.png') }}" alt="YouTube"></a>
+                        <a href="https://www.linkedin.com/company/cricauction" target="_blank"><img
+                                src="{{ asset('assets/images/footer/linkedin.png') }}" alt="LinkedIn"></a>
+                        <a href="https://x.com/Cricauctio52918" target="_blank"><img
+                                src="{{ asset('assets/images/footer/twitter.png') }}" alt="Twitter"></a>
+                    </li>
                 </ul>
 
             </div>
@@ -110,12 +117,12 @@
 </script>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function() {
         const cards = document.querySelectorAll('.features-left .card, .features-right .card');
         const carousel = document.querySelector('#carouselExample');
 
         cards.forEach((card) => {
-            card.addEventListener('mouseenter', function () {
+            card.addEventListener('mouseenter', function() {
                 // Remove the active class from all cards
                 cards.forEach((c) => c.classList.remove('active'));
 
@@ -132,7 +139,7 @@
 </script>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function() {
         const cards = document.querySelectorAll('.mobile-features .card');
         const carousel = document.querySelector('#carouselExample');
         const carouselInner = document.querySelector('.carousel-inner');
@@ -171,7 +178,7 @@
 
         // Handle card hover to change carousel slide and active card
         cards.forEach((card) => {
-            card.addEventListener('mouseenter', function () {
+            card.addEventListener('mouseenter', function() {
                 // Remove the active class from all cards
                 cards.forEach((c) => c.classList.remove('active'));
 
@@ -186,7 +193,7 @@
         });
 
         // Update active card when the carousel slide changes
-        carousel.addEventListener('slide.bs.carousel', function (event) {
+        carousel.addEventListener('slide.bs.carousel', function(event) {
             activateCard(event.to);
         });
 
@@ -195,7 +202,7 @@
         const nextBtn = document.querySelector('.carousel-control-next');
 
         if (prevBtn && nextBtn) {
-            prevBtn.addEventListener('click', function () {
+            prevBtn.addEventListener('click', function() {
                 const activeIndex = [...carouselInner.children].findIndex((item) =>
                     item.classList.contains('active')
                 );
@@ -204,7 +211,7 @@
                 activateCard(newIndex);
             });
 
-            nextBtn.addEventListener('click', function () {
+            nextBtn.addEventListener('click', function() {
                 const activeIndex = [...carouselInner.children].findIndex((item) =>
                     item.classList.contains('active')
                 );

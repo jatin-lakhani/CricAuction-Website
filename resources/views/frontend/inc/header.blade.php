@@ -17,6 +17,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/page.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}" />
 
     <!-- Vendor CSS -->
@@ -51,12 +52,16 @@
 
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li><a href="{{ route('welcome') }}" data-target="hero" class="active">Home</a></li>
-                    <li><a data-target="auctions">Auctions</a></li>
-                    <li><a data-target="features">Features</a></li>
-                    <li><a data-target="help">Help</a></li>
-                    <li><a data-target="pricing">Pricing</a></li>
-                    <li><a data-target="contactus">Contact Us</a></li>
+                    <li><a href="{{ route('welcome') }}"class="active">Home</a></li>
+                    <li><a href="{{ route('welcome', ['section' => 'auctions']) }}" data-target="auctions">Auctions</a>
+                    </li>
+                    <li><a href="{{ route('welcome', ['section' => 'features']) }}" data-target="features">Features</a>
+                    </li>
+                    <li><a href="{{ route('welcome', ['section' => 'help']) }}" data-target="help">Help</a></li>
+                    <li><a href="{{ route('welcome', ['section' => 'pricing']) }}" data-target="pricing">Pricing</a>
+                    </li>
+                    <li><a href="{{ route('welcome', ['section' => 'contactus']) }}" data-target="contactus">Contact
+                            Us</a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>

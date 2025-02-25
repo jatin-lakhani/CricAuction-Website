@@ -1,0 +1,88 @@
+.page-content {
+    padding-top: 5rem;
+}
+
+.privacy-sec {
+    background-image: url('../images/auction/bg.png');
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+.privacy-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.privacy-heading h1 span {
+    color: var(--accent-color)
+}
+
+.privacy-heading img {
+    width: 40px;
+    height: 40px;
+}
+
+.privacy {
+    background-image: url('../images/features/features-bg.png');
+    background-attachment: fixed;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.data-content p {
+    margin-bottom: 0.5rem !important;
+    color: var(--default-color);
+    font-family: var(--nav-font);
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.data-content .sub-heading {
+    font-family: var(--heading-font);
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.data-content .inter-heading {
+    color: black;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.data-content .defination-account {
+    margin-left: 35px;
+}
+
+@media (max-width:768px) {
+    .data-content .inter-heading {
+        font-size: 1.25rem;
+    }
+
+    .data-content .sub-heading {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width:425px) {
+    .data-content .inter-heading {
+        font-size: 1.2rem;
+    }
+
+    .data-content .sub-heading {
+        font-size: 1.25rem;
+    }
+
+    .data-content p {
+        font-size: 15px;
+    }
+
+    .privacy-heading img {
+        width: 35px;
+        height: 35px;
+    }
+}
