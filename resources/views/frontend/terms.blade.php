@@ -15,7 +15,7 @@
         <section class="section privacy" id="privacy">
             <div class="container">
                 <div class="data-content">
-                    <p>Last updated 13th March 2024</p>
+                    <p style="text-align: right">Last updated 13th March 2024</p>
                     <h3 class="sub-heading">AGREEMENT TO OUR LEGAL TERMS</h3>
                     <p>We are Cricket Auction Community ("Company," "we," "us," "our").</p>
                     <p>We operate , as well as any other related products and services that refer or link to these legal

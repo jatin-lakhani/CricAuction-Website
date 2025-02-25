@@ -25,7 +25,6 @@
                         <li><a href="{{ route('welcome', ['section' => 'features']) }}">Features</a></li>
                         <li><a href="{{ route('welcome', ['section' => 'help']) }}">Help</a></li>
                         <li><a href="{{ route('welcome', ['section' => 'pricing']) }}">Pricing</a></li>
-                        <li><a href="{{ route('welcome', ['section' => 'contactus']) }}">Contact Us</a></li>
                     </ul>
                 </nav>
             </div>
@@ -34,6 +33,7 @@
                 <h4>Quick Links</h4>
                 <nav style="cursor: pointer;">
                     <ul>
+                        <li><a href="{{ route('welcome', ['section' => 'contactus']) }}">Contact Us</a></li>
                         <li><a href="/privacy">Privacy Policy</a></li>
                         <li><a href="/terms">Terms & Conditions</a></li>
                         <li><a href="/cancel">Cancellation & Refund</a></li>

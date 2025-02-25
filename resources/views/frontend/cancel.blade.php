@@ -15,8 +15,8 @@
         <section class="section privacy" id="privacy">
             <div class="container">
                 <div class="data-content">
+                    <p style="text-align: right">Last updated: March 1st, 2024</p>
                     <h3 class="sub-heading">Cancellation and Refund Policy</h3>
-                    <p>Last updated: March 1st, 2024</p>
                     <p>Thank you for ordering at Cricket Auction Community.</p>
                     <p>The following terms are applicable for any products that you purchased with Us.</p>
                     <h3 class="sub-heading">Interpretation and Definitions</h3>
