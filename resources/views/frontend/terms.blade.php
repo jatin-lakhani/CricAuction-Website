@@ -17,13 +17,13 @@
                 <div class="data-content">
                     <p style="text-align: right">Last updated 13th March 2024</p>
                     <h3 class="sub-heading">AGREEMENT TO OUR LEGAL TERMS</h3>
-                    <p>We are Cricket Auction Community ("Company," "we," "us," "our").</p>
+                    <p>We are CricAuction ("Company," "we," "us," "our").</p>
                     <p>We operate , as well as any other related products and services that refer or link to these legal
                         terms (the "Legal Terms") (collectively, the "Services").</p>
                     <p>You can contact us by email at <a href="mailto:info@argonitservices.com">info@argonitservices.com</a>
                     </p>
                     <p>These Legal Terms constitute a legally binding agreement made between you, whether personally or on
-                        behalf of an entity ("you"), and Cricket Auction Community, concerning your access to and use of the
+                        behalf of an entity ("you"), and CricAuction, concerning your access to and use of the
                         Services. You agree that by accessing the Services, you have read, understood, and agreed to be
                         bound by all of these Legal Terms. IF YOU DO NOT AGREE WITH ALL OF THESE LEGAL TERMS, THEN YOU ARE
                         EXPRESSLY PROHIBITED FROM USING THE SERVICES AND YOU MUST DISCONTINUE USE IMMEDIATELY.</p>
@@ -37,27 +37,25 @@
                         continued use of the Services after the date such revised Legal Terms are posted.</p>
                     <p>We recommend that you print a copy of these Legal Terms for your records.</p>
                     <h3 class="sub-heading">TABLE OF CONTENTS</h3>
-                    <div class="mb-4">
-                        1. OUR SERVICES<br>
-                        2. INTELLECTUAL PROPERTY RIGHTS<br>
-                        3. USER REPRESENTATIONS<br>
-                        4. PROHIBITED ACTIVITIES<br>
-                        5. USER GENERATED CONTRIBUTIONS<br>
-                        6. CONTRIBUTION LICENSE<br>
-                        7. SERVICES MANAGEMENT<br>
-                        8. TERM AND TERMINATION<br>
-                        9. MODIFICATIONS AND INTERRUPTIONS<br>
-                        10. GOVERNING LAW<br>
-                        11. DISPUTE RESOLUTION<br>
-                        12. CORRECTIONS<br>
-                        13. DISCLAIMER<br>
-                        14. LIMITATIONS OF LIABILITY<br>
-                        15. INDEMNIFICATION<br>
-                        16. USER DATA<br>
-                        17. ELECTRONIC COMMUNICATIONS, TRANSACTIONS, AND SIGNATURES<br>
-                        18. MISCELLANEOUS<br>
-                        19. CONTACT US<br>
-                    </div>
+                    <p>1. OUR SERVICES</p>
+                    <p>2. INTELLECTUAL PROPERTY RIGHTS</p>
+                    <p>3. USER REPRESENTATIONS</p>
+                    <p>4. PROHIBITED ACTIVITIES</p>
+                    <p>5. USER GENERATED CONTRIBUTIONS</p>
+                    <p>6. CONTRIBUTION LICENSE</p>
+                    <p>7. SERVICES MANAGEMENT</p>
+                    <p>8. TERM AND TERMINATION</p>
+                    <p>9. MODIFICATIONS AND INTERRUPTIONS</p>
+                    <p>10. GOVERNING LAW</p>
+                    <p>11. DISPUTE RESOLUTION</p>
+                    <p>12. CORRECTIONS</p>
+                    <p>13. DISCLAIMER</p>
+                    <p>14. LIMITATIONS OF LIABILITY</p>
+                    <p>15. INDEMNIFICATION</p>
+                    <p>16. USER DATA</p>
+                    <p>17. ELECTRONIC COMMUNICATIONS, TRANSACTIONS, AND SIGNATURES</p>
+                    <p>18. MISCELLANEOUS</p>
+                    <p>19. CONTACT US</p>
                     <h3 class="sub-heading">1. OUR SERVICES</h3>
                     <p>The information provided when using the Services is not intended for distribution to or use by any
                         person or entity in any jurisdiction or country where such distribution or use would be contrary to
@@ -140,9 +138,9 @@
                         available. The Services may not be used in connection with any</p>
                     <p>commercial endeavors except those that are specifically endorsed or approved by us.</p>
                     <div class="defination-account">
-                        <p></p> ▪ Systematically retrieve data or other content from the Services to create or compile,
+                        <p>▪ Systematically retrieve data or other content from the Services to create or compile,
                         directly or indirectly, a collection, compilation, database, or directory without written
-                        permission from us.<p></p>
+                        permission from us.</p>
                         <p>▪ Trick, defraud, or mislead us and other users, especially in any attempt to learn sensitive
                             account
                             information such as user passwords.</p>
@@ -202,7 +200,7 @@
                         through third-party websites. When you create or make available any Contributions, you thereby
                         represent and warrant that:</p>
                     <h3 class="sub-heading">6. CONTRIBUTION LICENSE</h3>
-                    <p>TYou and Services agree that we may access, store, process, and use any information and personal data
+                    <p>You and Services agree that we may access, store, process, and use any information and personal data
                         that you provide and your choices (including settings).</p>
                     <p>By submitting suggestions or other feedback regarding the Services, you agree that we can use and
                         share such feedback for any purpose without compensation to you.</p>

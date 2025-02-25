@@ -37,7 +37,8 @@
     color: var(--default-color);
     font-family: var(--nav-font);
     font-size: 18px;
-    line-height: 1.5;
+    line-height: 2;
+    text-align: justify;
 }
 
 .data-content .sub-heading {
@@ -45,12 +46,14 @@
     color: var(--accent-color);
     font-weight: 600;
     font-size: 2rem;
+    padding: 20px 0;
 }
 
 .data-content .inter-heading {
     color: black;
     font-weight: 600;
     font-size: 1.5rem;
+    padding: 10px 0;
 }
 
 .data-content .defination-account {

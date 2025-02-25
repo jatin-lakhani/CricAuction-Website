@@ -34,7 +34,7 @@
                             with a party, where "control" means ownership of 50% or more of the shares, equity
                             interest or other securities entitled to vote for election of directors or other
                             managing authority</p>
-                        <p><strong>Application</strong> refers to Cricket Auction Community, the software program provided by the
+                        <p><strong>Application</strong> refers to CricAuction, the software program provided by the
                             Company</p>
                         <p><strong>Company</strong> Company (referred to as either "the Company", "We", "Us" or "Our" in
                             this
@@ -62,7 +62,7 @@
                     </div>
                     <h3 class="sub-heading">Collecting and Using Your Personal Data</h3>
                     <h5 class="inter-heading">Types of Data Collected</h5>
-                    <h5 class="inter-heading">Personal Data</h5>
+                    <h5 class="inter-heading">Personal Data </h5>
                     <p>While using Our Service, We may ask You to provide Us with certain personally identifiable
                         information that can be used to contact or identify You. Personally identifiable information may
                         include, but is not limited to</p>
@@ -71,6 +71,7 @@
                             Email address<br>
                             First name and last name<br>
                             Profile image<br>
+                            Phone<br>
                             Usage Data<br>
                         </p>
                     </div>
