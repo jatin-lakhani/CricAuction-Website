@@ -3,7 +3,7 @@
 @section('main-container')
     <main class="page-content">
 
-        <section class="section privacy-heading ">
+        <section class="section privacy-sec">
             <div class="container">
                 <div class="privacy-heading" data-aos="fade-up" data-aos-delay="100">
                     <img src="{{ asset('assets/images/logo.png') }}" alt="Logo">

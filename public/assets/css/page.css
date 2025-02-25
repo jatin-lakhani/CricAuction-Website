@@ -6,7 +6,6 @@
     background-image: url('../images/auction/bg.png');
     width: 100%;
     object-fit: contain;
-    object-position: center;
 }
 
 .privacy-heading {
