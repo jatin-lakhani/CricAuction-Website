@@ -53,14 +53,14 @@
             <nav id="navmenu" class="navmenu">
                 <ul>
                     <li><a href="{{ route('welcome') }}"class="active">Home</a></li>
-                    <li><a href="{{ route('welcome', ['section' => 'auctions']) }}" data-target="auctions">Auctions</a>
+                    <li><a href="{{ route('welcome', ['section' => 'auctions']) }}">Auctions</a>
                     </li>
-                    <li><a href="{{ route('welcome', ['section' => 'features']) }}" data-target="features">Features</a>
+                    <li><a href="{{ route('welcome', ['section' => 'features']) }}">Features</a>
                     </li>
-                    <li><a href="{{ route('welcome', ['section' => 'help']) }}" data-target="help">Help</a></li>
-                    <li><a href="{{ route('welcome', ['section' => 'pricing']) }}" data-target="pricing">Pricing</a>
+                    <li><a href="{{ route('welcome', ['section' => 'help']) }}">Help</a></li>
+                    <li><a href="{{ route('welcome', ['section' => 'pricing']) }}">Pricing</a>
                     </li>
-                    <li><a href="{{ route('welcome', ['section' => 'contactus']) }}" data-target="contactus">Contact
+                    <li><a href="{{ route('welcome', ['section' => 'contactus']) }}">Contact
                             Us</a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
