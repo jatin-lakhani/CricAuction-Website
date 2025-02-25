@@ -50,7 +50,7 @@
                     <li><a href="tel:+917698767767"><i class="bi bi-telephone" style="color: #ffffff;"></i>+91 76 98 767
                             767 </a></li>
 
-                    <li class="d-flex gap-2">
+                    <li class="social-links">
                         <a href="https://www.facebook.com/profile.php?id=61571234099766" target="_blank"><img
                                 src="{{ asset('assets/images/footer/facebook.png') }}" alt="Facebook"></a>
                         <a href="https://www.instagram.com/cricauction.official" target="_blank"><img
