@@ -19,8 +19,8 @@
                         digital services (app CricAuction) and not physical products, this
                         policy outlines our approach to order fulfilment, cancellations, and refunds</h5>
                     <h3 class="sub-heading">Order Fulfilment</h3>
-                    <p>• Once you purchase a testing service package through our platform, you will receive a
-                        confirmation email with details about your order.</p>
+                    <p>• Once you purchase a auction service package through our platform, you will receive a confirmation
+                        email with details about your order.</p>
                     <p>• We will not ship any physical products. Our auction app will access your app provide auction
                         service based on the chosen service package.</p>
                     <p>• You will be able to track the progress of your auction through our platform.</p>
