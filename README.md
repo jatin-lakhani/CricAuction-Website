@@ -68,3 +68,5 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 ## Added column in Player table
 
 ALTER TABLE `players` ADD `crichero_profile_url` VARCHAR(255) NULL AFTER `player_image`;
+
+## Added auto deployement in server with hooks on Push trigger
