@@ -64,7 +64,7 @@
 
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li><a href="{{ route('welcome') }}"class="active">Home</a></li>
+                    <li><a href="{{ route('welcome', ['section' => 'hero']) }}" class="active">Home</a></li>
                     <li><a href="{{ route('welcome', ['section' => 'auctions']) }}">Auctions</a></li>
                     <li><a href="{{ route('welcome', ['section' => 'features']) }}">Features</a></li>
                     <li><a href="{{ route('welcome', ['section' => 'help']) }}">Help</a></li>

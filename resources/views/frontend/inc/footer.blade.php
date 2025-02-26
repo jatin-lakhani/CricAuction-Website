@@ -20,7 +20,7 @@
                 <h4>Quick Links</h4>
                 <nav id="navmenu" style="cursor: pointer;">
                     <ul>
-                        <li><a href="{{ route('welcome') }}">Home</a></li>
+                        <li><a href="{{ route('welcome', ['section' => 'hero']) }}" class="active">Home</a></li>
                         <li><a href="{{ route('welcome', ['section' => 'auctions']) }}">Auctions</a></li>
                         <li><a href="{{ route('welcome', ['section' => 'features']) }}">Features</a></li>
                         <li><a href="{{ route('welcome', ['section' => 'help']) }}">Help</a></li>
