@@ -24,3 +24,4 @@ yarn-error.log
 cricauction/
 cricauctionadmin/
 index.nginx-debian.html
+/public/deploy.sh
