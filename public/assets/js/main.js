@@ -92,83 +92,32 @@
 /**
    * Navmenu Scrollspy
    */
-let navmenulinks = document.querySelectorAll('.navmenu a');
+document.addEventListener('DOMContentLoaded', function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const sectionName = urlParams.get('section');
 
-function navmenuScrollspy() {
-    navmenulinks.forEach(navmenulink => {
-        if (!navmenulink.hash) return;
-        let section = document.querySelector(navmenulink.hash);
-        if (!section) return;
-        let position = window.scrollY + 200;
-        if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-            document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
-            navmenulink.classList.add('active');
-        } else {
-            navmenulink.classList.remove('active');
+    const scrollToSection = (section) => {
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+            history.replaceState(null, '', window.location.pathname);
         }
-    })
-}
-window.addEventListener('load', navmenuScrollspy);
-document.addEventListener('scroll', navmenuScrollspy);
+    };
 
-// document.addEventListener("DOMContentLoaded", () => {
-//     const navLinks = document.querySelectorAll("#navmenu a[data-target]");
-//     const sections = document.querySelectorAll("section");
+    if (sectionName) {
+        const targetSection = document.getElementById(sectionName);
+        scrollToSection(targetSection);
+    }
 
-//     // Scroll and activate link
-//     const scrollToSection = (targetId) => {
-//         const targetSection = document.getElementById(targetId);
-//         if (targetSection) {
-//             window.scrollTo({
-//                 top: targetSection.offsetTop - 50,
-//                 behavior: "smooth"
-//             });
+    document.querySelectorAll('#navmenu a').forEach(link => {
+        link.addEventListener('click', function (e) {
+            const url = new URL(this.href);
+            const sectionParam = url.searchParams.get('section');
 
-//             activateNavLink(targetId);
-//         }
-//     };
-
-//     // Activate nav link based on target ID
-//     const activateNavLink = (targetId) => {
-//         navLinks.forEach(link => {
-//             link.classList.toggle("active", link.getAttribute("data-target") === targetId);
-//         });
-//     };
-
-//     // Handle click on nav links
-//     navLinks.forEach(link => {
-//         link.addEventListener("click", (event) => {
-//             const targetId = link.getAttribute("data-target");
-//             if (targetId) {
-//                 event.preventDefault();
-//                 scrollToSection(targetId);
-//             }
-//         });
-//     });
-
-//     // Update active link on scroll
-//     const highlightActiveSection = () => {
-//         sections.forEach(section => {
-//             const rect = section.getBoundingClientRect();
-//             if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-//                 activateNavLink(section.id);
-//             }
-//         });
-//     };
-
-//     window.addEventListener("scroll", highlightActiveSection);
-
-//     // On page load: handle query param ?section=...
-//     const urlParams = new URLSearchParams(window.location.search);
-//     const sectionParam = urlParams.get("section");
-
-//     if (sectionParam) {
-//         setTimeout(() => {
-//             scrollToSection(sectionParam);
-
-//             // Clean URL (removes ?section=...)
-//             const cleanURL = `${window.location.origin}${window.location.pathname}`;
-//             history.replaceState(null, "", cleanURL);
-//         }, 200); // Delay ensures elements are loaded
-//     }
-// });
+            if (window.location.pathname === url.pathname && sectionParam) {
+                e.preventDefault();
+                const targetSection = document.getElementById(sectionParam);
+                scrollToSection(targetSection);
+            }
+        });
+    });
+});
