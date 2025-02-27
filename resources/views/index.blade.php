@@ -269,9 +269,9 @@
                                     </div>
                                     <div class="card-body fc-main">
                                         <h5 class="card-title"><img src="{{ asset('assets/images/features/f8.png') }}"
-                                                alt="F8"> User-Friendly Interface</h5>
-                                        <p class="card-text">Enjoy a sleek, intuitive design for smooth</br> navigation and
-                                            interaction.
+                                                alt="F8"> YouTube Live Overlay</h5>
+                                        <p class="card-text">Watch live player bids and auction updates with YouTube
+                                            streaming in real time!
                                         </p>
                                     </div>
                                 </div>
@@ -438,9 +438,9 @@
                                         <div class="card-body fm-main">
                                             <h5 class="card-title text-left"><img
                                                     src="{{ asset('assets/images/features/f8.png') }}" alt="F8">
-                                                User-Friendly Interface</h5>
-                                            <p class="card-text">Enjoy a sleek, intuitive design for smooth navigation and
-                                                interaction.
+                                                    YouTube Live Overlay</h5>
+                                            <p class="card-text">Watch live player bids and auction updates with YouTube
+                                                streaming in real time!
                                             </p>
                                         </div>
                                     </div>
