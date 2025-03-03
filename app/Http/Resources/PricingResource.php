@@ -27,6 +27,7 @@ class PricingResource extends JsonResource
             'paymentStatus' => $this->paymentStatus,
             'paymentDate' => $this->paymentDate,
             'paymentScreenshot' => $this->paymentScreenshot,
+            'payment_id' => $this->payment_id,
         ];
     }
 }

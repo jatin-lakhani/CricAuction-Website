@@ -24,6 +24,7 @@ class Pricing extends Model
         'paymentStatus',
         'paymentDate',
         'paymentScreenshot',
+        'payment_id',
     ];
 
     protected $casts = [
