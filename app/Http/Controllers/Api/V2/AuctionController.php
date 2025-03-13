@@ -44,6 +44,7 @@ class AuctionController extends Controller
         $sort_order = $request->sort_order ?? 'desc';
         $per_page = $request->per_page ?? 10;
         $is_include_player = $request->input('is_include_player', false);
+        $is_included_as_bidder = $request->input('is_included_as_bidder', false);
 
         // Normalize the mobile number from the request
         $player_mobile = $request->query('player_mobile');
@@ -53,14 +54,20 @@ class AuctionController extends Controller
         }
 
         $auctions = Auction::
-            when($creator_id, function ($query) use ($creator_id, $player_mobile) {
-                $query->where(function ($sub_query) use ($creator_id, $player_mobile) {
+            when($creator_id, function ($query) use ($creator_id, $player_mobile, $is_included_as_bidder) {
+                $query->where(function ($sub_query) use ($creator_id, $player_mobile, $is_included_as_bidder) {
                     $sub_query->where('creator_id', $creator_id)
-                        ->orWhere(function ($subQuery) use ($player_mobile) {
+                        ->orWhere(function ($subQuery) use ($player_mobile, $is_included_as_bidder, $creator_id) {
                             $subQuery->when($player_mobile, function ($playerSubQuery) use ($player_mobile) {
                                 $playerSubQuery->whereHas('players', function ($q) use ($player_mobile) {
                                     // Remove spaces and + from database column during the query
                                     $q->whereRaw("REPLACE(REPLACE(player_mobile_no, ' ', ''), '+', '') = ?", [$player_mobile]);
+                                });
+                            });
+                        })->orWhere(function ($subQuery) use ($player_mobile, $is_included_as_bidder, $creator_id) {
+                            $subQuery->when($is_included_as_bidder, function ($bidderSubQuery) use ($creator_id) {
+                                $bidderSubQuery->whereHas('bidders', function ($q) use ($creator_id) {
+                                    $q->where("creator_id", $creator_id);
                                 });
                             });
                         });
