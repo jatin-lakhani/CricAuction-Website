@@ -43,6 +43,7 @@ class AuctionController extends Controller
         $sort_by = $request->sort_by ?? 'created_at';
         $sort_order = $request->sort_order ?? 'desc';
         $per_page = $request->per_page ?? 10;
+        $is_include_player = $request->input('is_include_player', false);
 
         // Normalize the mobile number from the request
         $player_mobile = $request->query('player_mobile');
@@ -78,25 +79,29 @@ class AuctionController extends Controller
                         ->orWhereRaw('LOWER(auction_name) LIKE ?', ["%" . strtolower($search) . "%"]);
                 });
             })
+            ->when($is_include_player, function ($query) {
+                $query->with('players');
+            })
             ->orderBy($sort_by, $sort_order)
-            ->with('teams', 'pricing', 'oldPricing', 'players', 'bidSlaps', 'bidders')
+            ->with('teams', 'pricing', 'oldPricing', 'bidSlaps', 'bidders')
             ->paginate($per_page);
 
-        $data['data'] = AuctionResource::collection($auctions);
-        $data['pagination'] = [
-            'current_page' => $auctions->currentPage(),
-            'first_page_url' => $auctions->url(1),
-            'from' => $auctions->firstItem(),
-            'last_page' => $auctions->lastPage(),
-            'last_page_url' => $auctions->url($auctions->lastPage()),
-            'links' => $auctions->linkCollection()->toArray(),
-            'next_page_url' => $auctions->nextPageUrl(),
-            'path' => $auctions->path(),
-            'per_page' => $auctions->perPage(),
-            'prev_page_url' => $auctions->previousPageUrl(),
-            'to' => $auctions->lastItem(),
-            'total' => $auctions->total(),
-        ];
+        $data = AuctionResource::collection($auctions);
+        // $data['data'] = AuctionResource::collection($auctions);
+        // $data['pagination'] = [
+        //     'current_page' => $auctions->currentPage(),
+        //     'first_page_url' => $auctions->url(1),
+        //     'from' => $auctions->firstItem(),
+        //     'last_page' => $auctions->lastPage(),
+        //     'last_page_url' => $auctions->url($auctions->lastPage()),
+        //     'links' => $auctions->linkCollection()->toArray(),
+        //     'next_page_url' => $auctions->nextPageUrl(),
+        //     'path' => $auctions->path(),
+        //     'per_page' => $auctions->perPage(),
+        //     'prev_page_url' => $auctions->previousPageUrl(),
+        //     'to' => $auctions->lastItem(),
+        //     'total' => $auctions->total(),
+        // ];
 
         return apiResponse('Auctions retrieved successfully', $data);
     }
@@ -175,7 +180,7 @@ class AuctionController extends Controller
             } else {
                 $bidders = $request->bidders;
             }
-            if($bidders){
+            if ($bidders) {
                 foreach ($bidders as $bidder) {
                     $auction->bidders()->create([
                         'creator_id' => $bidder,
