@@ -72,7 +72,7 @@ if (!function_exists('apiValidationError')) {
     /**
      * Return a validation error JSON response for API.
      *
-     * @param array $errors
+     * @param mixed $errors
      * @return \Illuminate\Http\JsonResponse
      */
     function apiValidationError($errors, $statusCode = 422)

@@ -268,6 +268,23 @@ class PlayerController extends Controller
             return apiErrorResponse($e->getMessage());
         }
     }
+    public function playerBulkDelete(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'player_ids' => 'required|array',
+        ]);
+
+        if ($validator->fails()) {
+            return apiValidationError($validator->messages());
+        }
+        try {
+            Player::whereIn('player_id', $request->input('player_ids', []))->delete();
+            return apiResponse('Player deleted successfully');
+        } catch (\Exception $e) {
+            logError($e);
+            return apiErrorResponse($e->getMessage());
+        }
+    }
 
     // public function playerBulkStore(Request $request)
     // {

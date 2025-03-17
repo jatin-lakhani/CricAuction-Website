@@ -32,6 +32,7 @@ Route::prefix('v2')->name('v2.')->group(function () {
         Route::resource('team', TeamController::class);
         Route::resource('player', PlayerController::class);
         Route::post('playerBulkStore', [PlayerController::class, 'playerBulkStore']);
+        Route::post('playerBulkDelete', [PlayerController::class, 'playerBulkDelete']);
         Route::resource('pricing', PricingController::class);
 
         Route::get('migrateUserDate', [UserController::class, 'migrateUserDate']);
