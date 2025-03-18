@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\V2;
+namespace App\Http\Controllers\Api\V3;
 
 use App\Helper\FileUploadHelper;
 use App\Http\Controllers\Controller;
@@ -198,9 +198,23 @@ class PlayerController extends Controller
     // Delete a player
     public function destroy($id)
     {
-        Player::where('id', $id)->delete();
-        return apiResponse('Player deleted successfully');
+        try {
+            $player = Player::find($id);
+            if (!$player) {
+                return apiErrorResponse('Player not found');
+            }
+            $team = $player->team;
+            if ($team) {
+                $team->decrement('teamUsedPoint', ($player->sold_value ?? 0));
+            }
+            $player->delete();
+            return apiResponse('Player deleted successfully');
+        } catch (\Exception $e) {
+            logError($e);
+            return apiErrorResponse($e->getMessage());
+        }
     }
+
 
     public function playerBulkStore(Request $request)
     {

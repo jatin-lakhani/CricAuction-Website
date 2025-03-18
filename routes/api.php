@@ -37,3 +37,4 @@ Route::middleware('log.api.requests')->group(function () {
 });
 
 require base_path('routes/api_v2.php');
+require base_path('routes/api_v3.php');
