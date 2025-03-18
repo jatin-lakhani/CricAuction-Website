@@ -278,7 +278,7 @@ class PlayerController extends Controller
             return apiValidationError($validator->messages());
         }
         try {
-            Player::whereIn('player_id', $request->input('player_ids', []))->delete();
+            Player::whereIn('id', $request->input('player_ids', []))->delete();
             return apiResponse('Player deleted successfully');
         } catch (\Exception $e) {
             logError($e);
