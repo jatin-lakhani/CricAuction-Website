@@ -27,7 +27,7 @@ class Team extends Model
         'number_of_teams' => 'integer',
         'paymentStatus' => 'integer',
     ];
-    
+
     public function auction()
     {
         return $this->belongsTo(Auction::class);
@@ -44,4 +44,17 @@ class Team extends Model
         // return $this->profile_image ? Storage::disk('public')->url($this->profile) : Storage::disk('public')->url('upload/profile_image/default_profile.png');
     }
 
+    public function getMaxBid($auction)
+    {
+        $soldPlayerCount = $this->players()->where('playerStatus', 1)->count(); // 0
+        if ($auction->player_per_team == $soldPlayerCount) {
+            return 0;
+        }
+        $teamRemainPlayer = $auction->player_per_team - $soldPlayerCount - 1;
+        $teamAvailablePoint = $auction->points_par_team - ($this->teamUsedPoint ?? 0);
+        $requiredPoint = $auction->min_bid * $teamRemainPlayer;
+        $maxBidPrice = $teamAvailablePoint - $requiredPoint;
+        $maxBidPrice = max(0, $maxBidPrice);
+        return $maxBidPrice;
+    }
 }

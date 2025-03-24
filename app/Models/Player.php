@@ -18,6 +18,7 @@ class Player extends Model
         'player_specification_two',
         'player_specification_three',
         'player_image',
+        'player_crop_image',
         'crichero_profile_url',
         'base_value',
         'sold_value',
