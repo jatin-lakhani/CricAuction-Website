@@ -25,6 +25,7 @@ class PlayerResource extends JsonResource
             'player_specification_two' => $this->player_specification_two,
             'player_specification_three' => $this->player_specification_three,
             'player_image' => $this->player_image,
+            'player_crop_image' => $this->player_crop_image,
             'crichero_profile_url' => $this->crichero_profile_url,
             // 'player_teamName' => $this->player_teamName,
             'base_value' => $this->base_value ?? 0,
