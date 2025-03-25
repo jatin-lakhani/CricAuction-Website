@@ -223,20 +223,33 @@ class AuctionController extends Controller
     public function resetAuction(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'auction_id' => 'required',
+            'auction_id' => 'required|integer|exists:auctions,id',
         ]);
 
         if ($validator->fails()) {
             return apiValidationError($validator->messages());
         }
-        $auction = Auction::where('id', $request->auction_id)->first();
+        $auction = Auction::find($request->auction_id);
         if (!$auction) {
             return apiFalseResponse('Auction details not found');
         }
-        $auction->players()->delete();
-        $auction->teams()->delete();
-        return apiResponse('Auction reseted successfully');
+        $auction->players()->update([
+            'playerStatus' => 0,
+            'team_id' => null,
+            'sold_value' => 0,
+        ]);
+        $auction->teams()->update([
+            'teamUsedPoint' => 0,
+        ]);
+        foreach ($auction->teams as $team) {
+            $team->update([
+                'maxBid' => $team->getMaxBid($auction),
+            ]);
+        }
+
+        return apiResponse('Auction reset successfully');
     }
+
     public function resetAuctionUnsoldPlayers(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -253,6 +266,7 @@ class AuctionController extends Controller
         $playerUpdateData = [
             'playerStatus' => 0,
             'team_id' => null,
+            'sold_value' => 0,
         ];
         $auction->players()->where('playerStatus', 2)->update($playerUpdateData);
         return apiResponse('Auction unsold players reseted successfully');
