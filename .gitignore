@@ -28,3 +28,5 @@ index.nginx-debian.html
 staging/
 staging_new/
 staging.env
+storage/CricAuction-UserData.json
+storage/old_service_account.json
