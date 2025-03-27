@@ -494,7 +494,20 @@
                                 <h2>About <span><span>Cric</span>Auction</span><sup>TM</sup></h2>
                             </div>
                             <div class="about-content">
-                                <p>Every tournament coordinator knows how challenging it can be to sort through piles of entry forms, create draws, and schedule matches to organize a great tournament. CricAuction is designed to simplify the entire competition process, providing powerful and efficient tools to manage it all with ease. With a wide range of features and unmatched precision, CricAuction brings accuracy and professionalism to your tournament management. Whether it’s cricket, football, tennis, or any other sport — CricAuction is built for all.</p>
+                                <p>
+                                    CricAuction simplifies sports tournament management — from collecting player entries to
+                                    creating teams and running live auctions. Perfect for Cricket, Football, Volleyball,
+                                    Kabaddi, and more, it offers real-time, accurate, and efficient auction tools.
+                                </p>
+                                <p>
+                                    Used in thousands of tournaments, CricAuction helps you host professional events via web
+                                    or mobile — all from one place.
+                                </p>
+                                <p>
+                                    If you're planning a tournament, CricAuction is your go-to platform for smooth auctions
+                                    and team management.
+
+                                </p>
                             </div>
                             <div class="register-btn">
                                 <a href="" class="btn btn-primary" target="_blank">Register Now <i
