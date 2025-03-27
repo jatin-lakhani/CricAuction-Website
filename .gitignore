@@ -25,3 +25,6 @@ cricauction/
 cricauctionadmin/
 index.nginx-debian.html
 /public/deploy.sh
+staging/
+staging_new/
+staging.env
