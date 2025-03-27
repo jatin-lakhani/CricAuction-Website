@@ -494,12 +494,7 @@
                                 <h2>About <span><span>Cric</span>Auction</span><sup>TM</sup></h2>
                             </div>
                             <div class="about-content">
-                                <p>Each tournament coordinator knows that it is so difficult to figure
-                                    out piles of entry forms, make the draws out of it and matches to have an incredible
-                                    tournament. Super Player Auction is intended to deal with a competition and gives you
-                                    useful, and proficient abilities. Super Player Auction offers loads of functionalities
-                                    with unmatched exactness and proficiency. Super Player Auction is made for all type of
-                                    sports.</p>
+                                <p>Every tournament coordinator knows how challenging it can be to sort through piles of entry forms, create draws, and schedule matches to organize a great tournament. CricAuction is designed to simplify the entire competition process, providing powerful and efficient tools to manage it all with ease. With a wide range of features and unmatched precision, CricAuction brings accuracy and professionalism to your tournament management. Whether it’s cricket, football, tennis, or any other sport — CricAuction is built for all.</p>
                             </div>
                             <div class="register-btn">
                                 <a href="" class="btn btn-primary" target="_blank">Register Now <i
