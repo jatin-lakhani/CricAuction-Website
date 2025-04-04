@@ -541,7 +541,9 @@ section {
 }
 
 .auctions .auctions-details .card-body .auction-img img {
-    border-radius: 100%
+    border-radius: 100%;
+    max-width: 70px;
+    max-height: 70px;
 }
 
 .auctions .auctions-details .card-body .card-title {
