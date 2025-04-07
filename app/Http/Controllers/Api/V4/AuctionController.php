@@ -45,6 +45,7 @@ class AuctionController extends Controller
         $per_page = $request->per_page ?? 10;
         $is_include_player = $request->input('is_include_player', false);
         $is_included_as_bidder = $request->input('is_included_as_bidder', false);
+        $paymentStatus = $request->input('paymentStatus', false);
 
         // Normalize the mobile number from the request
         $player_mobile = $request->query('player_mobile');
@@ -78,6 +79,11 @@ class AuctionController extends Controller
             })
             ->when($auction_name, function ($query) use ($auction_name) {
                 $query->whereRaw('LOWER(auction_name) LIKE ?', ["%" . strtolower($auction_name) . "%"]);
+            })
+            ->when($paymentStatus, function ($query) use ($paymentStatus) {
+                $query->whereHas('pricing', function ($subQuery) use ($paymentStatus) {
+                    $subQuery->where('paymentStatus', $paymentStatus);
+                });
             })
             ->when($search, function ($query) use ($search) {
                 $query->where(function ($subQuery) use ($search) {

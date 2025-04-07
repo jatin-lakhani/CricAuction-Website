@@ -30,6 +30,8 @@ class PlayerResource extends JsonResource
             // 'player_teamName' => $this->player_teamName,
             'base_value' => $this->base_value ?? 0,
             'sold_value' => $this->sold_value ?? 0,
+            'sold_at' => $this->sold_at,
+            'unsold_at' => $this->unsold_at,
             'is_team_owner' => $this->is_team_owner,
             'is_non_playing_owner' => $this->is_non_playing_owner,
             'jersey_name' => $this->jersey_name,

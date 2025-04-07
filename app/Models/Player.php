@@ -22,6 +22,8 @@ class Player extends Model
         'crichero_profile_url',
         'base_value',
         'sold_value',
+        'sold_at',
+        'unsold_at',
         'is_team_owner',
         'is_non_playing_owner',
         'jersey_name',

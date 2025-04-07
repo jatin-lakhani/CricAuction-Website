@@ -93,6 +93,15 @@ class PlayerController extends Controller
                     return apiFalseResponse('A player with this mobile number already exists.');
                 }
             }
+            if ($request->filled('playerStatus')) {
+                $data['playerStatus'] = $request->input('playerStatus');
+                if ($data['playerStatus'] == 1) {
+                    $data['sold_at'] = now();
+                }
+                if ($data['playerStatus'] == 2) {
+                    $data['unsold_at'] = now();
+                }
+            }
             if ($request->has('team_id') && !empty($request->input('team_id'))) {
                 $team = Team::where('id', $request->team_id)->first();
                 if (!$team) {
