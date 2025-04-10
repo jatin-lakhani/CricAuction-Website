@@ -21,6 +21,56 @@ class UserController extends Controller
             return apiErrorResponse($e->getMessage());
         }
     }
+
+    public function getUserList()
+    {
+        $query = User::query();
+        if (request('name')) {
+            $query->where('name', 'like', '%' . request('name') . '%');
+        }
+        if (request('email')) {
+            $query->where('email', 'like', '%' . request('email') . '%');
+        }
+        if (request('phoneNumber')) {
+            $query->where('phoneNumber', 'like', '%' . request('phoneNumber') . '%');
+        }
+        if (request('city')) {
+            $query->where('city', 'like', '%' . request('city') . '%');
+        }
+        // Filter by status
+        if (request('status')) {
+            $query->where('status', request('status'));
+        }
+        // Filter by role
+        if (request('role')) {
+            $query->where('role', request('role'));
+        }
+        // Filter by created_at date range 
+        if (request('created_at')) {
+            $dateRange = explode(',', request('created_at'));
+            if (count($dateRange) == 2) {
+                $startDate = date('Y-m-d H:i:s', strtotime($dateRange[0]));
+                $endDate = date('Y-m-d H:i:s', strtotime($dateRange[1]));
+                $query->whereBetween('created_at', [$startDate, $endDate]);
+            }
+        }
+        // Pagination
+        // $perPage = request('per_page', 10);
+        // $page = request('page', 1);
+        // $offset = ($page - 1) * $perPage;
+        // $total = $query->count();
+        // $data = $query->offset($offset)->limit($perPage)->get();
+        // $response = [
+        //     'current_page' => $page,
+        //     'per_page' => $perPage,
+        //     'total' => $total,
+        //     'last_page' => ceil($total / $perPage),
+        //     'data' => UserResource::collection($data),
+        // ];
+        $data = $query->latest()->get();
+        $response = UserResource::collection($data);
+        return apiResponse('User list get successfully', $response);
+    }
     public function update_profile(Request $request)
     {
         $messages = [

@@ -25,7 +25,7 @@ Route::prefix('v4')->name('V4.')->group(function () {
             Route::GET('profile', [UserController::class, 'get_profile']);
             Route::POST('profile', [UserController::class, 'update_profile']);
         });
-
+        
         // Auction APIs 
         Route::GET('getAuctions', [AuctionController::class, 'getAuctions']);
         Route::resource('auction', AuctionController::class);
@@ -38,7 +38,8 @@ Route::prefix('v4')->name('V4.')->group(function () {
         Route::post('soldPlayer', [PlayerController::class, 'soldPlayer']);
         Route::post('makePlayerAvailable', [PlayerController::class, 'makePlayerAvailable']);
         Route::resource('pricing', PricingController::class);
-
+        
+        Route::get('users', [UserController::class, 'getUserList']);
         Route::get('migrateUserDate', [UserController::class, 'migrateUserDate']);
     });
 });
