@@ -4,8 +4,8 @@
         <div class="row gy-4">
             <div class="col-lg-4 col-md-6 footer-about" data-aos="fade-up" data-aos-delay="100">
                 <a href="{{ route('welcome') }}" class="logo d-flex align-items-center text-decoration-none">
-                    <img src="{{ asset('assets/images/logo2.png') }}" alt="Logo">
-                    <h1>Cric<span>Auction</span><sup>TM</sup></h1>
+                    <img src="{{ asset('assets/images/logo2.png') }}" alt="Cric Aution TM">
+                    <span>Cric<span>Auction</span><sup>TM</sup></span>
                 </a>
                 <div class="footer-contact">
                     <a href="https://play.google.com/store/apps/details?id=com.cricauction.cricket.playerauction&hl=en_IN"
@@ -17,7 +17,7 @@
             </div>
 
             <div class="col-lg-2 col-md-3 footer-links" data-aos="fade-up" data-aos-delay="200">
-                <h4>Quick Links</h4>
+                <strong>Quick Links</strong>
                 <nav id="navmenu" style="cursor: pointer;">
                     <ul>
                         <li><a href="{{ route('welcome', ['section' => 'hero']) }}" class="active">Home</a></li>
@@ -30,7 +30,7 @@
             </div>
 
             <div class="col-lg-3 col-md-3 footer-links" data-aos="fade-up" data-aos-delay="300">
-                <h4>Quick Links</h4>
+                <strong>Quick Links</h4>
                 <nav id="navmenu" style="cursor: pointer;">
                     <ul>
                         <li><a href="{{ route('welcome', ['section' => 'contactus']) }}">Contact Us</a></li>
@@ -43,7 +43,7 @@
             </div>
 
             <div class="col-lg-3 col-md-12 footer-links" data-aos="fade-up" data-aos-delay="400">
-                <h4>Contact Us</h4>
+                <strong>Contact Us</strong>
                 <ul class="con">
                     <li><a href="mailto:info@argonitservices.com"><i class="bi bi-envelope"
                                 style="color: #ffffff;"></i>info@argonitservices.com</a></li>
