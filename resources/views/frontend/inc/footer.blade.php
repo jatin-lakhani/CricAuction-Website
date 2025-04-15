@@ -17,7 +17,7 @@
             </div>
 
             <div class="col-lg-2 col-md-3 footer-links" data-aos="fade-up" data-aos-delay="200">
-                <strong>Quick Links</strong>
+                <strong class="h4">Quick Links</strong>
                 <nav id="navmenu" style="cursor: pointer;">
                     <ul>
                         <li><a href="{{ route('welcome', ['section' => 'hero']) }}" class="active">Home</a></li>
@@ -30,7 +30,7 @@
             </div>
 
             <div class="col-lg-3 col-md-3 footer-links" data-aos="fade-up" data-aos-delay="300">
-                <strong>Quick Links</h4>
+                <strong class="h4">Quick Links</strong>
                 <nav id="navmenu" style="cursor: pointer;">
                     <ul>
                         <li><a href="{{ route('welcome', ['section' => 'contactus']) }}">Contact Us</a></li>
@@ -43,7 +43,7 @@
             </div>
 
             <div class="col-lg-3 col-md-12 footer-links" data-aos="fade-up" data-aos-delay="400">
-                <strong>Contact Us</strong>
+                <strong class="h4">Contact Us</strong>
                 <ul class="con">
                     <li><a href="mailto:info@argonitservices.com"><i class="bi bi-envelope"
                                 style="color: #ffffff;"></i>info@argonitservices.com</a></li>
@@ -70,8 +70,8 @@
     </div>
 
     <div class="container-fluid copyright text-center">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename"><a href="{{ url('/') }}">CricAuction</a>.
-            </strong><span>All Rights
+        <p>© <span>Copyright</span><strong class="px-1 sitename"><a
+                    href="{{ url('/') }}">CricAuction</a>.</strong><span>All Rights
                 Reserved</span></p>
     </div>
 

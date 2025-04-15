@@ -15,13 +15,13 @@ body {
     color: var(--default-color)
 }
 
-.footer .footer-about .logo h1,
+.footer .footer-about .logo span,
 .header .logo h1,
 body {
     font-family: var(--default-font)
 }
 
-.footer h4,
+.footer .h4,
 .heading-top span,
 i.bi.bi-telephone {
     color: var(--heading-color)
@@ -128,7 +128,7 @@ i.bi.bi-telephone {
 }
 
 .footer .footer-links ul a,
-.footer h4 {
+.footer .h4 {
     font-size: 26px;
     font-family: var(--nav-font)
 }
@@ -190,18 +190,18 @@ i.bi.bi-telephone {
     margin-right: 6px
 }
 
-.footer .footer-about .logo h1 {
+.footer .footer-about .logo span {
     font-size: 40px;
     font-weight: 400;
     color: var(--surface-color)
 }
 
-.footer .footer-about .logo h1 span {
+.footer .footer-about .logo span span {
     font-weight: 700;
     color: var(--heading-color)
 }
 
-.footer .footer-about .logo h1 sup {
+.footer .footer-about .logo span sup {
     font-family: var(--Inter-font);
     font-size: 12px;
     font-weight: 700;
@@ -210,17 +210,16 @@ i.bi.bi-telephone {
     margin-left: -3px
 }
 
-.footer h4 {
+.footer .h4 {
     font-weight: 700;
     position: relative;
     text-transform: uppercase;
-    padding-bottom: 30px
 }
 
 .footer .footer-links ul {
     list-style: none;
     padding: 0;
-    margin: 0
+    margin-top: 30px;
 }
 
 .footer .footer-links ul i {
@@ -406,7 +405,7 @@ section {
     font-weight: 700
 }
 
-.hero .hero-des h2 {
+.hero .hero-des h1 {
     color: var(--heading-color);
     font-weight: 700;
     font-size: 61px;
@@ -461,14 +460,30 @@ section {
     height: 40px
 }
 
-.section-title h1 {
+.section-title h1,
+.section-title h2,
+.section-title h3,
+.section-title h4,
+.section-title h5,
+.section-title h6 {
     font-family: var(--nav-font);
     font-size: 48px;
     font-weight: 600;
     color: var(--nav-color)
 }
 
-.section-title h1 span {
+.section-title h3 span,
+.section-title h5 span,
+.section-title h6 span {
+    color: var(--accent-color);
+}
+
+.section-title h1 span,
+.section-title h2 span,
+.section-title h3 span,
+.section-title h4 span,
+.section-title h5 span,
+.section-title h6 span {
     font-weight: 700
 }
 
@@ -557,7 +572,7 @@ section {
 .auctions .auctions-details .card-auc img {
     width: 30px;
     height: 30px;
-    border: 1px solid #910f0d;
+    border: 2px solid #910f0d;
     border-radius: 100%;
     margin-left: -12px
 }
@@ -616,13 +631,15 @@ section {
     border-bottom: 6px solid #910f0d
 }
 
-.features .fc-main h5,
-.features .fm-main h5 {
+.features .fc-main strong,
+.features .fm-main strong {
     font-family: var(--nav-font);
     font-size: 26px;
     font-weight: 600;
     text-align: right;
-    color: #000
+    color: #000;
+    display: flex;
+    justify-content: end;
 }
 
 .features .fc-main p,
@@ -635,37 +652,44 @@ section {
     text-transform: capitalize
 }
 
-.features .features-right-content .fc-main h5,
+.features .features-right-content .fc-main strong,
 .features .features-right-content .fc-main p,
-.features .fm-main h5,
+.features .fm-main strong,
 .features .fm-main p {
     text-align: left;
-    padding-left: 10px
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
 }
 
-.features .fc-main h5 img,
-.features .fm-main h5 img {
+.features .fc-main strong img,
+.features .fm-main strong img {
     width: 36px;
     height: 36px
 }
 
-.features .f-num h1,
-.features .fm-num h1 {
+.features .f-num strong,
+.features .fm-num strong {
     font-family: var(--features-font);
-    font-size: 95px;
+    font-size: 85px;
     font-weight: 300;
     letter-spacing: -.07em;
     color: #dadCDE99;
     text-align: right
 }
 
-.features .fm-num h1 {
+.features .fm-num strong {
     padding-left: 10px
+}
+
+.features .carousel {
+    height: 100%;
 }
 
 .features .features-slider img {
     width: 100%;
-    height: 95%;
+    height: 98%;
     max-height: 100%;
     border-radius: 30px
 }
@@ -682,6 +706,7 @@ section {
 .features .carousel-inner {
     position: relative;
     width: 100%;
+    height: 100%;
     overflow: hidden;
     display: flex;
     gap: 20px
@@ -736,9 +761,9 @@ section {
     text-align: center;
     font-size: 21px;
     font-weight: 500;
-    line-height: 40px;
+    line-height: 36px;
     color: var(--surface-color);
-    margin-bottom: 30px
+    margin-bottom: 15px;
 }
 
 .register-btn a {
