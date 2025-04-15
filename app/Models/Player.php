@@ -42,6 +42,7 @@ class Player extends Model
         'run',
         'wicket',
         'payment_receipt',
+        'tag',
     ];
 
     protected $casts = [

@@ -22,9 +22,13 @@ class UserController extends Controller
         }
     }
 
-    public function getUserList()
+    public function getUserList(Request $request)
     {
         $query = User::query();
+        $search = request('search');
+        $sort_by = $request->sort_by ?? 'created_at';
+        $sort_order = $request->sort_order ?? 'desc';
+        $per_page = $request->per_page ?? 10;
         if (request('name')) {
             $query->where('name', 'like', '%' . request('name') . '%');
         }
@@ -54,6 +58,13 @@ class UserController extends Controller
                 $query->whereBetween('created_at', [$startDate, $endDate]);
             }
         }
+        if ($search) {
+            $query->where(function ($subQuery) use ($search) {
+                $subQuery->where('name', 'like', '%' . request('search') . '%')
+                    ->orWhereRaw("REPLACE(REPLACE(phoneNumber, ' ', ''), '+', '') LIKE ?", ["%" . preg_replace('/[\s+]/', '', $search) . "%"])
+                    ->orWhereRaw('LOWER(email) LIKE ?', ["%" . strtolower($search) . "%"]);
+            });
+        }
         // Pagination
         // $perPage = request('per_page', 10);
         // $page = request('page', 1);
@@ -67,7 +78,8 @@ class UserController extends Controller
         //     'last_page' => ceil($total / $perPage),
         //     'data' => UserResource::collection($data),
         // ];
-        $data = $query->latest()->get();
+        $data = $query->latest()->paginate($per_page);
+        ;
         $response = UserResource::collection($data);
         return apiResponse('User list get successfully', $response);
     }

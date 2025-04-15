@@ -2,8 +2,11 @@
 
 use App\Http\Controllers\Api\V4\AuctionController;
 use App\Http\Controllers\Api\V4\AuthController;
+use App\Http\Controllers\Api\V4\BankDetailController;
 use App\Http\Controllers\Api\V4\PlayerController;
 use App\Http\Controllers\Api\V4\PricingController;
+use App\Http\Controllers\Api\V4\PricingMasterController;
+use App\Http\Controllers\Api\V4\SponsorController;
 use App\Http\Controllers\Api\V4\TeamController;
 use App\Http\Controllers\Api\V4\UserController;
 use Illuminate\Http\Request;
@@ -25,7 +28,7 @@ Route::prefix('v4')->name('V4.')->group(function () {
             Route::GET('profile', [UserController::class, 'get_profile']);
             Route::POST('profile', [UserController::class, 'update_profile']);
         });
-        
+
         // Auction APIs 
         Route::GET('getAuctions', [AuctionController::class, 'getAuctions']);
         Route::resource('auction', AuctionController::class);
@@ -38,8 +41,12 @@ Route::prefix('v4')->name('V4.')->group(function () {
         Route::post('soldPlayer', [PlayerController::class, 'soldPlayer']);
         Route::post('makePlayerAvailable', [PlayerController::class, 'makePlayerAvailable']);
         Route::resource('pricing', PricingController::class);
-        
+
         Route::get('users', [UserController::class, 'getUserList']);
         Route::get('migrateUserDate', [UserController::class, 'migrateUserDate']);
+
+        Route::resource('pricingMaster', PricingMasterController::class);
+        Route::resource('bankDetail', BankDetailController::class);
+        Route::resource('sponsor', SponsorController::class);
     });
 });

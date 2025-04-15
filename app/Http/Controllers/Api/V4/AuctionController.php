@@ -89,7 +89,8 @@ class AuctionController extends Controller
                 $query->where(function ($subQuery) use ($search) {
                     $subQuery->whereRaw('LOWER(creator_id) LIKE ?', ["%" . strtolower($search) . "%"])
                         ->orWhereRaw("REPLACE(REPLACE(creator_phone, ' ', ''), '+', '') LIKE ?", ["%" . preg_replace('/[\s+]/', '', $search) . "%"])
-                        ->orWhereRaw('LOWER(auction_name) LIKE ?', ["%" . strtolower($search) . "%"]);
+                        ->orWhereRaw('LOWER(auction_name) LIKE ?', ["%" . strtolower($search) . "%"])
+                        ->orWhereRaw('LOWER(auction_code) LIKE ?', ["%" . strtolower($search) . "%"]);
                 });
             })
             ->when($is_include_player, function ($query) {
