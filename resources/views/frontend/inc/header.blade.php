@@ -7,7 +7,13 @@
     <!-- Required Meta Tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="Your description here" />
+    <meta name="title" content="CricAuction | Online Cricket Auction Platform for Teams & Tournaments" />
+    <meta name="description" content="Create and manage your own cricket auctions online with CricAuction. Real-time bidding, team creation, and live score updates make it perfect for local tournaments and leagues." />
+
+    <meta property="og:title" content="CricAuction | Online Cricket Auction Platform for Teams & Tournaments" />
+    <meta property="og:description" content="Create and manage your own cricket auctions online with CricAuction. Real-time bidding, team creation, and live score updates make it perfect for local tournaments and leagues." />
+    <meta property="og:image" content="{{ asset('assets/images/logo.png') }}" />
+
     <meta name="keywords" content="Your keywords here" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
