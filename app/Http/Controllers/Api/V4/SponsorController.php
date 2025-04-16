@@ -13,13 +13,22 @@ class SponsorController extends Controller
 {
     public function index()
     {
-        $sponsors = Sponsor::all();
+        $sponsors = Sponsor::query();
+        if (request()->has('auction_id') && request()->input('auction_id') != '') {
+            $sponsors = $sponsors->where('auction_id', request()->input('auction_id'));
+        }
+        $sponsors = $sponsors->orderBy('id', 'desc')->get();
+        if ($sponsors->isEmpty()) {
+            return apiFalseResponse('No sponsors found');
+        }
         return apiResponse('Sponsors retrieved successfully', SponsorResource::collection($sponsors));
     }
 
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'auction_id' => 'required|exists:auctions,id',
+            'id' => 'nullable|exists:sponsors,id',
             'name' => 'required|string|max:255',
             'price' => 'required',
             'sponsor_of' => 'required|string|max:255',

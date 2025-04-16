@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 class Sponsor extends Model
 {
     protected $fillable = [
+        'auction_id',
         'name',
         'image',
         'price',
@@ -17,5 +18,10 @@ class Sponsor extends Model
     public function getImageUrlAttribute()
     {
         return $this->image ? Storage::disk('public')->url($this->image) : null;
+    }
+
+    public function auction()
+    {
+        return $this->belongsTo(Auction::class);
     }
 }

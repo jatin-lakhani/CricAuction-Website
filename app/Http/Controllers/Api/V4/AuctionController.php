@@ -97,7 +97,7 @@ class AuctionController extends Controller
                 $query->with('players');
             })
             ->orderBy($sort_by, $sort_order)
-            ->with('teams', 'pricing', 'oldPricing', 'bidSlaps', 'bidders')
+            ->with('teams', 'pricing', 'oldPricing', 'bidSlaps', 'bidders', 'sponsors')
             ->paginate($per_page);
 
         $data = AuctionResource::collection($auctions);
