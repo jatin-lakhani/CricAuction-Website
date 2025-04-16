@@ -505,7 +505,7 @@
                             </p>
                             <p>
                                 If you're planning a cricket tournament or looking for a reliable cricket auction
-                                platform, CricAuction™ is your all-in-one solution for managing player bidding and
+                                platform, CricAuction<sup>TM</sup> is your all-in-one solution for managing player bidding and
                                 building balanced teams with ease.
                             </p>
                         </div>
@@ -627,7 +627,7 @@
                     <div class="col-lg-3 col-md-6 mb-3" data-aos="fade-up" data-aos-delay="100">
                         <div class="card">
                             <img src="{{ asset('assets/images/help/help1.png') }}" class="card-img-top" alt="Help 1">
-                            <div class="card-body">
+                            <div class="card-body text-center">
                                 <strong class="card-title">Create Auction</strong>
                                 <p class="card-text">Once you've filled in the necessary details, click the
                                     <span>"Create
@@ -641,7 +641,7 @@
                     <div class="col-lg-3 col-md-6 mb-3" data-aos="fade-up" data-aos-delay="200">
                         <div class="card">
                             <img src="{{ asset('assets/images/help/help2.png') }}" class="card-img-top" alt="Help 2">
-                            <div class="card-body">
+                            <div class="card-body text-center">
                                 <strong class="card-title">Add Auction Team</strong>
                                 <p class="card-text"><span>Adding teams</span> allows you to establish your presence in
                                     the auction
@@ -653,7 +653,7 @@
                     <div class="col-lg-3 col-md-6 mb-3" data-aos="fade-up" data-aos-delay="300">
                         <div class="card">
                             <img src="{{ asset('assets/images/help/help3.png') }}" class="card-img-top" alt="Help 3">
-                            <div class="card-body">
+                            <div class="card-body text-center">
                                 <strong class="card-title">Add Auction Player</strong>
                                 <p class="card-text">Get to know the <span>Players</span> before you bid. Check out
                                     their strengths, stats, and playing style to make informed decisions during the
@@ -664,7 +664,7 @@
                     <div class="col-lg-3 col-md-6 mb-3" data-aos="fade-up" data-aos-delay="400">
                         <div class="card">
                             <img src="{{ asset('assets/images/help/help4.png') }}" class="card-img-top" alt="Help 4">
-                            <div class="card-body">
+                            <div class="card-body text-center">
                                 <strong class="card-title">Start Auction Bid</strong>
                                 <p class="card-text">To participate in the ongoing auction, enter your desired bid
                                     amount in the provided field and then click the <span>Bid Button</span> to submit
