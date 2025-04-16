@@ -489,7 +489,7 @@
                 <div class="col-lg-6">
                     <div class="about-details" data-aos="fade-in" data-aos-delay="300">
                         <div class="about-heading">
-                            <h3>About <span><span>Cric</span>Auction</span><sup>TM</sup></h3>
+                            <h3>About <span><span>Cric</span>Auction</span><sup></sup></h3>
                         </div>
                         <div class="about-content">
                             <p>
