@@ -4,8 +4,8 @@
         <div class="row gy-4">
             <div class="col-lg-4 col-md-6 footer-about" data-aos="fade-up" data-aos-delay="100">
                 <a href="{{ route('welcome') }}" class="logo d-flex align-items-center text-decoration-none">
-                    <img src="{{ asset('assets/images/logo2.png') }}" alt="Cric Aution tm">
-                    <span>Cric<span>Auction</span><sup>tm</sup></span>
+                    <img src="{{ asset('assets/images/logo2.png') }}" alt="Cric Aution TM">
+                    <span>Cric<span>Auction</span><sup>TM</sup></span>
                 </a>
                 <div class="footer-contact">
                     <a href="https://play.google.com/store/apps/details?id=com.cricauction.cricket.playerauction&hl=en_IN"

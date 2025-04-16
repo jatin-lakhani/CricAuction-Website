@@ -455,6 +455,7 @@ class PlayerController extends Controller
                 return apiFalseResponse('Player and Team are associated with different auctions');
             }
             $player->playerStatus = 1;
+            $player->sold_at = now();
             $player->team_id = $team->id;
             $player->sold_value = $request->sold_value;
             $player->save();

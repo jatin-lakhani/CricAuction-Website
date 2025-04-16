@@ -47,7 +47,7 @@
 
             <a href="{{ route('welcome') }}" class="logo d-flex align-items-center text-decoration-none">
                 <img src="{{ asset('assets/images/logo.png') }}" alt="Logo">
-                <h1><span>Cric</span>Auction<sup>tm</sup></h1>
+                <h1><span>Cric</span>Auction<sup>TM</sup></h1>
             </a>
 
             {{-- <nav id="navmenu" class="navmenu">

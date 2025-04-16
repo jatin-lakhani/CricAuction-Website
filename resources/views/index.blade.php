@@ -12,7 +12,7 @@
                 <div class="col-lg-6 col-md-12 d-flex align-items-center">
                     <div class="hero-left">
                         <div class="hero-title" data-aos="fade-up" data-aos-delay="100">
-                            <h1><span>Cric</span>Auction<sup>tm</sup></h1>
+                            <h1><span>Cric</span>Auction<sup>TM</sup></h1>
                         </div>
                         <div class="hero-des" data-aos="fade-up" data-aos-delay="200">
                             <h1>The Ultimate Cricket Auction Software</h1>
@@ -505,7 +505,7 @@
                             </p>
                             <p>
                                 If you're planning a cricket tournament or looking for a reliable cricket auction
-                                platform, CricAuction<sup>tm</sup> is your all-in-one solution for managing player bidding and
+                                platform, CricAuction<sup>TM</sup> is your all-in-one solution for managing player bidding and
                                 building balanced teams with ease.
                             </p>
                         </div>
@@ -537,7 +537,7 @@
                     <div class="mobile-app-details" data-aos="fade-up" data-aos-delay="300">
                         <div class="mobile-app-heading d-flex align-items-center gap-3">
                             <img src="{{ asset('assets/images/logo.png') }}" alt="Logo">
-                            <h1><span><span>Cric</span>Auction<sup>tm</sup></span> Mobile App</h1>
+                            <h1><span><span>Cric</span>Auction<sup>TM</sup></span> Mobile App</h1>
                         </div>
                         <div class="mobile-app-content">
                             <p>CricAuction is the easiest and most versatile player auction software, designed for any
