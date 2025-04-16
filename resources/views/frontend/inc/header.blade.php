@@ -14,7 +14,11 @@
     <meta property="og:description" content="Create and manage your own cricket auctions online with CricAuction. Real-time bidding, team creation, and live score updates make it perfect for local tournaments and leagues." />
     <meta property="og:image" content="{{ asset('assets/images/logo.png') }}" />
 
-    <meta name="keywords" content="Your keywords here" />
+    <meta name="keywords" content="player auction app, cricket auction software, cricket auction app, auction games cricket, cricket auction games, Online Cricket Auction, cricket auction software, online auction website" />
+
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="Pq2WJ-ByyE3hahiI_3CVgi7m-K4DZbKypi7CYfOyBc0" />
+
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <!-- Favicons -->
@@ -37,6 +41,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Battambang:wght@100;300;400;700;900&display=swap"
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap" rel="stylesheet" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HN6VXBN3BD"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-HN6VXBN3BD'); </script>
 </head>
 
 

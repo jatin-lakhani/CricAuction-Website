@@ -12,7 +12,7 @@
                 <div class="col-lg-6 col-md-12 d-flex align-items-center">
                     <div class="hero-left">
                         <div class="hero-title" data-aos="fade-up" data-aos-delay="100">
-                            <h1><span>Cric</span>Auction<sup>TM</sup></h1>
+                            <div><span>Cric</span>Auction<sup>TM</sup></div>
                         </div>
                         <div class="hero-des" data-aos="fade-up" data-aos-delay="200">
                             <h1>The Ultimate Cricket Auction Software</h1>
@@ -41,7 +41,7 @@
         <div class="container">
             <div class="section-title pt-4" data-aos="fade-up" data-aos-delay="100">
                 <img src="{{ asset('assets/images/logo.png') }}" alt="Today's Cricket Auction">
-                <h1><span>{{ $title }}</span> Cricket Auction</h1>
+                <h2><span>{{ $title }}</span> Cricket Auction</h2>
             </div>
             <div class="auctions-details">
                 <div class="row">
@@ -489,7 +489,7 @@
                 <div class="col-lg-6">
                     <div class="about-details" data-aos="fade-in" data-aos-delay="300">
                         <div class="about-heading">
-                            <h2>About <span><span>Cric</span>Auction</span><sup></sup></h2>
+                            <h3>About <span><span>Cric</span>Auction</span><sup></sup></h3>
                         </div>
                         <div class="about-content">
                             <p>
@@ -537,10 +537,10 @@
                     <div class="mobile-app-details" data-aos="fade-up" data-aos-delay="300">
                         <div class="mobile-app-heading d-flex align-items-center gap-3">
                             <img src="{{ asset('assets/images/logo.png') }}" alt="Logo">
-                            <h1><span><span>Cric</span>Auction<sup>TM</sup></span> Mobile App</h1>
+                            <h3><span><span>Cric</span>Auction<sup>TM</sup></span> Mobile App</h3>
                         </div>
                         <div class="mobile-app-content">
-                            <p>CricAuction is the easiest and most versatile player auction software, designed for any
+                            <p>CricAuction is the easiest and most versatile player auction app, designed for any
                                 sport including Cricket, Kabaddi, Hockey, Volleyball, Badminton, and more. Whether you
                                 need a cricket auction app or a custom player auction system, our cricket auction
                                 software makes live player bidding simple.</p>
