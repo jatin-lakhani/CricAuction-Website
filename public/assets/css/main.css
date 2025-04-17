@@ -257,7 +257,7 @@ i.bi.bi-telephone {
     color: #fff
 }
 
-.mobile-app .mobile-app-heading h1 span,
+.mobile-app .mobile-app-heading h3 span,
 .register-btn a i,
 .section-title h1 span {
     color: var(--accent-color)
@@ -375,7 +375,7 @@ section {
     margin-left: 170px
 }
 
-.hero .hero-title h1 {
+.hero .hero-title .h1 {
     margin: 0;
     font-weight: 700;
     font-family: var(--default-font);
@@ -384,13 +384,13 @@ section {
     line-height: 100px
 }
 
-.about .about-details .about-heading h2 span span,
-.hero .hero-title h1 span,
-.mobile-app .mobile-app-heading h1 span span {
+.about .about-details .about-heading h3 span span,
+.hero .hero-title .h1 span,
+.mobile-app .mobile-app-heading h3 span span {
     font-weight: 300
 }
 
-.hero .hero-title h1 sup {
+.hero .hero-title .h1 sup {
     font-family: var(--Inter-font);
     font-size: 20px;
     font-weight: 700;
@@ -399,8 +399,8 @@ section {
     top: -2.5em
 }
 
-.about .about-details .about-heading h2 span,
-.mobile-app .mobile-app-heading h1 span {
+.about .about-details .about-heading h3 span,
+.mobile-app .mobile-app-heading h3 span {
     font-family: var(--default-font);
     font-weight: 700
 }
@@ -741,7 +741,7 @@ section {
     width: 90%
 }
 
-.about .about-details .about-heading h2 {
+.about .about-details .about-heading h3 {
     font-size: 56px;
     color: var(--heading-color);
     line-height: 72px;
@@ -749,7 +749,7 @@ section {
     font-weight: 700
 }
 
-.about .about-details .about-heading h2 sup {
+.about .about-details .about-heading h3 sup {
     font-family: var(--Inter-font);
     font-size: 12px;
     top: -2.5em;
@@ -803,7 +803,7 @@ section {
     height: 50px
 }
 
-.mobile-app .mobile-app-heading h1 {
+.mobile-app .mobile-app-heading h3 {
     font-size: 48px;
     font-family: var(--nav-font);
     font-weight: 600;
@@ -811,7 +811,7 @@ section {
     line-height: 60px
 }
 
-.mobile-app .mobile-app-heading h1 span sup {
+.mobile-app .mobile-app-heading h3 span sup {
     font-family: var(--Inter-font);
     font-size: 12px;
     font-weight: 700;

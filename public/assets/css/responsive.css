@@ -11,7 +11,7 @@
 }
 
 @media (max-width:1440px) {
-    .hero .hero-title h1 {
+    .hero .hero-title .h1 {
         font-size: 75px;
         line-height: 75px
     }
@@ -32,7 +32,7 @@
         line-height: 50px
     }
 
-    .hero .hero-title h1 sup {
+    .hero .hero-title .h1 sup {
         top: -2em
     }
 
@@ -168,11 +168,11 @@
         margin-bottom: 10px
     }
 
-    .about .about-details .about-heading h2 {
+    .about .about-details .about-heading h3 {
         font-size: 46px
     }
 
-    .mobile-app .mobile-app-heading h1 {
+    .mobile-app .mobile-app-heading h3 {
         font-size: 42px
     }
 
@@ -221,15 +221,15 @@
 }
 
 @media (max-width:1280px) {
-    .mobile-app .mobile-app-heading h1 {
-        font-size: 42px
+    .mobile-app .mobile-app-heading h3 {
+        font-size: 40px
     }
 
     .features .features-slider img {
         height: 98%
     }
 
-    .about .about-details .about-heading h2 {
+    .about .about-details .about-heading h3 {
         font-size: 52px
     }
 
@@ -347,7 +347,7 @@
         order: 3
     }
 
-    .hero .hero-title h1 {
+    .hero .hero-title .h1 {
         font-size: 65px;
         line-height: 45px
     }
@@ -681,7 +681,7 @@
         height: 24px
     }
 
-    .about .about-details .about-heading h2 {
+    .about .about-details .about-heading h3 {
         font-size: 42px;
         line-height: 50px
     }
@@ -691,7 +691,7 @@
         line-height: 24px
     }
 
-    .mobile-app .mobile-app-heading h1 {
+    .mobile-app .mobile-app-heading h3 {
         font-size: 34px;
         line-height: 50px
     }
@@ -725,8 +725,8 @@
         line-height: 20px
     }
 
-    .about .about-details .about-heading h2 sup,
-    .mobile-app .mobile-app-heading h1 span sup {
+    .about .about-details .about-heading h3 sup,
+    .mobile-app .mobile-app-heading h3 span sup {
         top: -1.5em;
         margin-left: -3px
     }
@@ -988,21 +988,6 @@
 }
 
 @media (max-width:640px) {
-    .hero h1 {
-        font-size: 28px;
-        line-height: 36px
-    }
-
-    .hero p {
-        font-size: 18px;
-        line-height: 24px;
-        margin-bottom: 30px
-    }
-
-    .hero .btn-get-started {
-        font-size: 13px
-    }
-
     .auctions .auctions-details .card-body {
         bottom: 20px;
         left: 25px
@@ -1057,7 +1042,7 @@
         margin-left: 0
     }
 
-    .hero .hero-title h1 {
+    .hero .hero-title .h1 {
         font-size: 50px;
         line-height: 0
     }
@@ -1071,8 +1056,18 @@
         padding: 25px 18px;
     }
 
-    .about .about-details .about-heading h2 sup,
-    .mobile-app .mobile-app-heading h1 span sup {
+    .mobile-app .mobile-app-heading h3 {
+        font-size: 28px;
+        line-height: 40px;
+    }
+
+    .about .about-details .about-heading h3 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .about .about-details .about-heading h3 sup,
+    .mobile-app .mobile-app-heading h3 span sup {
         font-size: 9px
     }
 
@@ -1138,7 +1133,7 @@
         font-size: 15px
     }
 
-    .about .about-details .about-heading h2 {
+    .about .about-details .about-heading h3 {
         font-size: 28px;
         line-height: 38px
     }
@@ -1159,7 +1154,7 @@
         color: var(--accent-color)
     }
 
-    .mobile-app .mobile-app-heading h1 {
+    .mobile-app .mobile-app-heading h3 {
         font-size: 23px;
         line-height: 32px
     }
@@ -1287,8 +1282,12 @@
         font-size: 28px
     }
 
-    .hero .hero-title h1 {
+    .hero .hero-title .h1 {
         font-size: 46px
+    }
+
+    .hero .hero-title .h1 sup {
+        font-size: 13px;
     }
 
     .hero .hero-des h1 {
@@ -1360,5 +1359,15 @@
 
     .features .carousel-item {
         padding: 0 2.5rem
+    }
+
+    .mobile-app .mobile-app-heading h3 {
+        font-size: 28px;
+        line-height: 28px;
+    }
+
+    .footer .footer-about .logo img {
+        max-height: 40px;
+        margin-right: 6px;
     }
 }

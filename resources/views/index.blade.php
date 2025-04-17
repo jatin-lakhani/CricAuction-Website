@@ -12,7 +12,7 @@
                 <div class="col-lg-6 col-md-12 d-flex align-items-center">
                     <div class="hero-left">
                         <div class="hero-title" data-aos="fade-up" data-aos-delay="100">
-                            <div><span>Cric</span>Auction<sup>TM</sup></div>
+                            <div class="h1"><span>Cric</span>Auction<sup>TM</sup></div>
                         </div>
                         <div class="hero-des" data-aos="fade-up" data-aos-delay="200">
                             <h1>The Ultimate Cricket Auction Software</h1>
@@ -489,7 +489,7 @@
                 <div class="col-lg-6">
                     <div class="about-details" data-aos="fade-in" data-aos-delay="300">
                         <div class="about-heading">
-                            <h3>About <span><span>Cric</span>Auction</span><sup></sup></h3>
+                            <h3>About <span><span>Cric</span>Auction</span><sup>TM</sup></h3>
                         </div>
                         <div class="about-content">
                             <p>
