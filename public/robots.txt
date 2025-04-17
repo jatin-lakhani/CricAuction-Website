@@ -1,2 +1,3 @@
 User-agent: *
-Disallow:
+Disallow: /cgi-bin/
+Sitemap: https://www.cricauction.live/sitemap.xml
