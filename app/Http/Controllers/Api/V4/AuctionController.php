@@ -18,7 +18,7 @@ class AuctionController extends Controller
     public function index(Request $request)
     {
         $creator_id = $request->creator_id;
-        $auctions = Auction::with('teams.players', 'players', 'pricing', 'oldPricing')
+        $auctions = Auction::with('teams.players', 'players', 'pricing', 'oldPricing', 'sponsors')
             ->when($creator_id, function ($query) use ($creator_id) {
                 $query->where('creator_id', $creator_id);
             })->get();
@@ -214,7 +214,7 @@ class AuctionController extends Controller
 
     public function show($id)
     {
-        $auction = Auction::with('teams.players', 'players', 'pricing', 'oldPricing', 'bidSlaps', 'bidders')->where('auction_code', $id)->first();
+        $auction = Auction::with('teams.players', 'players', 'pricing', 'oldPricing', 'bidSlaps', 'bidders', 'sponsors')->where('auction_code', $id)->first();
         if (!$auction) {
             return apiFalseResponse('Auction details not found');
         }

@@ -34,6 +34,7 @@ class AuctionResource extends JsonResource
             'auction_code' => $this->auction_code,
             'status' => $this->status,
             'payment_qr' => $this->payment_qr,
+            'currency_formatting' => $this->currency_formatting,
             'created_at' => $this->created_at->toDateTimeString(),
             'teamList' => TeamResource::collection($this->whenLoaded('teams')),
             'playerList' => PlayerResource::collection($this->whenLoaded('players')),

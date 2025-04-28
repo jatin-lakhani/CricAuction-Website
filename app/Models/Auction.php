@@ -22,6 +22,7 @@ class Auction extends Model
         'auction_code',
         'current_auction_team_id',
         'current_auction_player_id',
+        'currency_formatting',
         'created_at',
         'creator_id',
         'creator_phone',
