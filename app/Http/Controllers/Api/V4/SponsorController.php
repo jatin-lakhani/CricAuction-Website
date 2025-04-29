@@ -32,7 +32,7 @@ class SponsorController extends Controller
             'name' => 'required|string|max:255',
             'price' => 'required',
             'sponsor_of' => 'required|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            // 'image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
         ]);
 
         if ($validator->fails()) {
@@ -41,12 +41,6 @@ class SponsorController extends Controller
 
         try {
             $data = $request->all();
-
-            if ($request->hasFile('image')) {
-                $file = $request->file('image');
-                $filePath = FileUploadHelper::uploadFile($file, 'upload/sponsors');
-                $data['image'] = $filePath;
-            }
             if ($request->has('id') && !empty($request->input('id'))) {
                 $sponsor = Sponsor::find($request->id);
                 if (!$sponsor) {

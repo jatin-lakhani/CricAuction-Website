@@ -15,10 +15,10 @@ class Sponsor extends Model
         'sponsor_of'
     ];
 
-    public function getImageUrlAttribute()
-    {
-        return $this->image ? Storage::disk('public')->url($this->image) : null;
-    }
+    // public function getImageUrlAttribute()
+    // {
+    //     return $this->image ? Storage::disk('public')->url($this->image) : null;
+    // }
 
     public function auction()
     {

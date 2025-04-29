@@ -18,7 +18,7 @@ class SponsorResource extends JsonResource
             'id' => $this->id,
             'auction_id' => $this->auction_id,
             'name' => $this->name,
-            'image' => $this->image_url,
+            'image' => $this->image,
             'price' => $this->price,
             'sponsor_of' => $this->sponsor_of,
         ];
