@@ -82,4 +82,8 @@ class Auction extends Model
     {
         return $this->hasMany(Sponsor::class);
     }
+    public function categories()
+    {
+        return $this->hasMany(AuctionCategory::class);
+    }
 }

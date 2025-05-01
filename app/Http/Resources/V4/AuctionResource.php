@@ -39,6 +39,7 @@ class AuctionResource extends JsonResource
             'teamList' => TeamResource::collection($this->whenLoaded('teams')),
             'playerList' => PlayerResource::collection($this->whenLoaded('players')),
             'sponsors' => SponsorResource::collection($this->whenLoaded('sponsors')),
+            'categories' => CategoryResource::collection($this->whenLoaded('categories')),
             // 'viewAuction' => [
             //     'teamList' => TeamResource::collection($this->whenLoaded('teams')),
             //     'playerList' => PlayerResource::collection($this->whenLoaded('players')),

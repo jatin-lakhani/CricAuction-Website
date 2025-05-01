@@ -18,7 +18,7 @@ class AuctionController extends Controller
     public function index(Request $request)
     {
         $creator_id = $request->creator_id;
-        $auctions = Auction::with('teams.players', 'players', 'pricing', 'oldPricing', 'sponsors')
+        $auctions = Auction::with('teams.players', 'players', 'pricing', 'oldPricing', 'sponsors', 'categories')
             ->when($creator_id, function ($query) use ($creator_id) {
                 $query->where('creator_id', $creator_id);
             })->get();
@@ -97,7 +97,7 @@ class AuctionController extends Controller
                 $query->with('players');
             })
             ->orderBy($sort_by, $sort_order)
-            ->with('teams', 'pricing', 'oldPricing', 'bidSlaps', 'bidders', 'sponsors')
+            ->with('teams', 'pricing', 'oldPricing', 'bidSlaps', 'bidders', 'sponsors', 'categories')
             ->paginate($per_page);
 
         $data = AuctionResource::collection($auctions);
@@ -125,6 +125,7 @@ class AuctionController extends Controller
         $validator = Validator::make($request->all(), [
             'auction_code' => 'required',
             'bidSlaps' => 'array',
+            'categories' => 'nullable|array',
             'bidSlaps.*.upto_amount' => 'required|numeric',
             'bidSlaps.*.increment_value' => 'required|numeric',
             'bidders' => 'nullable|string',
@@ -192,6 +193,12 @@ class AuctionController extends Controller
                 $auction->bidSlaps()->create($slap);
             }
         }
+        if ($request->has('categories')) {
+            $auction->categories()->delete();
+            foreach ($request->categories as $category) {
+                $auction->categories()->create($category);
+            }
+        }
 
         // Manage Bidders
         if ($request->has('bidders')) {
@@ -214,7 +221,7 @@ class AuctionController extends Controller
 
     public function show($id)
     {
-        $auction = Auction::with('teams.players', 'players', 'pricing', 'oldPricing', 'bidSlaps', 'bidders', 'sponsors')->where('auction_code', $id)->first();
+        $auction = Auction::with('teams.players', 'players', 'pricing', 'oldPricing', 'bidSlaps', 'bidders', 'sponsors', 'categories')->where('auction_code', $id)->first();
         if (!$auction) {
             return apiFalseResponse('Auction details not found');
         }
