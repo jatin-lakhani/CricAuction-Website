@@ -42,6 +42,10 @@
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap" rel="stylesheet" />
 
+    <!-- slider -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HN6VXBN3BD"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-HN6VXBN3BD'); </script>
 </head>
@@ -78,7 +82,12 @@
             <nav id="navmenu" class="navmenu">
                 <ul>
                     <li><a href="{{ route('welcome', ['section' => 'hero']) }}" class="active">Home</a></li>
-                    <li><a href="{{ route('welcome', ['section' => 'auctions']) }}">Auctions</a></li>
+                    <li><a href="{{ route('auctionlist.today')}}">Today's Auctions</a></li>
+                    {{-- <li><a href="{{ route('welcome', ['section' => 'auctions']) }}">Auctions</a></li> --}}
+                    <li><a href="{{ route('video_gallery')}}">video Gallery</a></li>
+                    <li><a href="{{ route('auctionlist.upcoming')}}">Upcoming Auctions</a></li>
+                    <li><a href="{{ route('blogs')}}">Blogs</a></li>
+                    <li><a href="{{ route('faq')}}">Faqs</a></li>
                     <li><a href="{{ route('welcome', ['section' => 'features']) }}">Features</a></li>
                     <li><a href="{{ route('welcome', ['section' => 'help']) }}">Help</a></li>
                     <li><a href="{{ route('welcome', ['section' => 'pricing']) }}">Pricing</a></li>

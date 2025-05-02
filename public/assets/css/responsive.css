@@ -218,6 +218,12 @@
     .pricing .pricing-details .card .circle h2 {
         font-size: 24px
     }
+    .team-subcontent{
+        font-size: 14px;
+    }
+    .team-location{
+        font-size: 14px;
+    }
 }
 
 @media (max-width:1280px) {
@@ -629,6 +635,52 @@
     section {
         scroll-margin-top: 66px
     }
+    .auction-title{
+        font-size: 23px;
+    }
+    .today-date{
+        font-size: 20px;
+    }
+    .upcoming-auction{
+        padding: 0px;
+    }
+    .auction-title-upcoming {
+        font-size: 23px;
+    }
+    .upcoming-date {
+        font-size: 20px;
+    }
+    .team-content{
+        display: flex;
+    }
+    .team-image img{
+        width: 150px;
+        height: 154px;
+    }
+    .team-subcontent{
+        font-size: 12px;
+        line-height: 23px;
+    }
+    .team-location{
+        font-size: 12px;
+    }
+    .team-detail {
+        margin-top: 6px;
+    }
+    .team-content{
+        gap: 15px;
+    }
+    .team-detail h2 {
+        font-size: 18px;
+        line-height: 23px;
+    }
+    .gallery-title{
+        font-size: 17px;
+    }
+    .auction-date-video{
+        font-size: 16px;
+    }
+    
 }
 
 @media (max-width:1024px) {
@@ -814,6 +866,44 @@
     .features .features-slider img {
         border-radius: 20px;
     }
+    .blog-heading{
+        font-size: 49px;
+    }
+    .blog-heading span{
+        font-size: 49px;
+    }
+    .read-head{
+        font-size: 40px;
+    }
+    .read-content{
+        font-size: 27px;
+    }
+    .auction-number{
+        font-size: 54px;
+    }
+    .auct-head {
+        font-size: 20px;
+    }
+    #current-logo img{
+        width: 120px;
+        height: 120px;
+    }
+    #prev-logos img, #next-logos img {
+        width: 70px;
+        height: 70px;
+    }
+    .testimonial-quote h3 {
+        font-size: 37px;
+    }
+    .testimonial-quote p {
+        font-size: 20px;
+    }
+    .fir-bgimg img {
+        width: 130px;
+    }
+    .sec-bgimg img {
+        width: 130px;
+    }
 }
 
 @media (max-width:912px) {
@@ -827,6 +917,18 @@
 
     .features .features-slider {
         margin-bottom: 30px
+    }
+    .team-image img{
+        width: 210px;
+    }
+    .team-content{
+        display: flex;
+    }
+    .arrow.right-arrow{
+        margin-right: 0px;
+    }
+    .arrow.left-arrow{
+        margin-left: 0px;
     }
 }
 
@@ -979,6 +1081,84 @@
         width: 75%;
         height: 100%
     }
+    .team-detail h2{
+        font-size: 21px;
+    }
+    .team-subcontent {
+        font-size: 14px;
+    }
+    .team-location{
+        font-size: 15px;
+    }
+    .blog-heading {
+        font-size: 40px;
+    }
+    .blog-heading span {
+        font-size: 30px;
+    }
+    .image-read img {
+        height: 500px;
+    }
+    .read-date {
+        font-size: 30px;
+    }
+    .read-head {
+        font-size: 30px;
+    }
+    .read-content {
+        font-size: 20px;
+    }
+    .player-today h1 {
+        font-size: 35px;
+    }
+    .faq-item{
+        padding:15px;
+    }
+    .faq-question{
+        font-size: 18px;
+    }
+    .faq-answer{
+        font-size: 18px;
+    }
+    .arrow-icon{
+        font-size: 23px;
+    }
+    .faq-search-box {
+        width: 450px;
+    }
+    .faq-search-box input{
+        font-size: 17px;
+    }
+    .faq-search-box .search-icon {
+        font-size: 16px;
+    }
+    .auction-number{
+        font-size: 64px;
+    }
+    .auct-head {
+        font-size: 23px;
+    }
+    .testimonial-carousel-wrapper .arrow {
+        font-size: 20px;
+    }
+    .fir-bgimg img {
+        width: 0px;
+    }
+    .sec-bgimg img {
+        width: 0px;
+    }
+    .orgament-firstup-img img{
+        width: 0px;
+    }
+    .orgament-firstdown-img img{
+        width: 0px;
+    }
+    .orgament-seconddown-img img{
+        width: 0px;
+    }
+    .orgament-secondup-img img{
+        width: 0px;
+    }
 }
 
 @media screen and (max-width:768px) {
@@ -1102,6 +1282,83 @@
     .section-title img {
         width: 35px;
         height: 35px;
+    }
+    .team-detail h2{
+        font-size: 20px;
+    }
+    .team-subcontent {
+        font-size: 12px;
+    }
+    .team-location{
+        font-size: 12px;
+    }
+    .team-content{
+        display: block;
+    }
+    .team-image img{
+        width: 100%;
+    }
+    .image-read img{
+        height: 400px;
+    }
+    .blog-heading {
+        font-size: 34px;
+    }
+    .blog-heading span {
+        font-size: 27px;
+    }
+    .image-read{
+        margin: 25px 0px;
+    }
+    .read-date {
+        font-size: 26px;
+    }
+    .read-head {
+        font-size: 26px;
+    }
+    .read-content {
+        font-size: 16px;
+    }
+    .faq-search-box{
+        width: auto;
+    }
+    .player-today h1 {
+        font-size: 25px;
+    }
+    .faq-item {
+        padding: 11px;
+    }
+    .faq-question {
+        font-size: 16px;
+    }
+    .faq-item{
+        margin-bottom: 22px;
+    }
+    .arrow-icon {
+        font-size: 21px;
+    }
+    #current-logo img {
+        width: 90px;
+        height: 90px;
+    }
+    #prev-logos img, #next-logos img {
+        width: 45px;
+        height: 45px;
+    }
+    .testimonial-quote{
+        padding: 20px;
+    }
+    .testimonial-quote h3{
+        font-size: 26px;
+    }
+    .testimonial-quote p {
+        font-size: 17px;
+        line-height: 25px;
+    }
+    .testimonial-quote:after{
+        height: 40px;
+        width: 40px;
+        bottom: -40px;
     }
 }
 
@@ -1251,12 +1508,44 @@
     .pricing .price {
         margin-bottom: .9rem
     }
+    
+    .today-content {
+        gap: 17px;
+    }
+    .auction-title {
+        font-size: 19px;
+    }
+    .today-date {
+        font-size: 18px;
+    }
+    .testimonial-carousel-wrapper .arrow{
+        padding: 10px;
+    }
 }
 
 @media (max-width:375px) {
     .pricing .pricing-details .card .circle h2 {
         font-size: 35px;
         border-radius: 20px
+    }
+    .auction-title {
+        font-size: 20px;
+    }
+    .today-date {
+        font-size: 16px;
+    }
+    .upcoming-date{
+        font-size:16px;
+    }
+    .auction-title-upcoming{
+        font-size: 20px;
+    }
+    .auction-logo-upcoming{
+        width: 90px;
+        height: 90px;
+    }
+    .number-app {
+        font-size: 13px;
     }
 }
 
@@ -1369,5 +1658,8 @@
     .footer .footer-about .logo img {
         max-height: 40px;
         margin-right: 6px;
+    }
+    .player-today h1 {
+        font-size: 20px;
     }
 }

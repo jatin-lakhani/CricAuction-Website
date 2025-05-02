@@ -3,6 +3,7 @@
 @import url(https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Mada:wght@200..900&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..900&display=swap);
 
 .heading-top,
 body {
@@ -33,6 +34,7 @@ i.bi.bi-telephone {
     --nav-font: "Urbanist", serif;
     --Inter-font: "Inter", serif;
     --features-font: "Mada", serif;
+    --number-font: "Plus Jakarta Sans", sans-serif;
     --background-color: #910F0D;
     --light-bg: rgba(173, 33, 18, 0.7);
     --default-color: #000000;
@@ -1046,4 +1048,503 @@ section {
 .footer .social-links a {
     padding-right: 10px;
     display: flex;
+}
+
+
+/* number section css */
+.number {
+    background-image: url('../images/number-background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 60px 0;
+    width: 100%;
+}
+
+.auction-number {
+    color: var(--accent-color);
+    font-weight: 800;
+    font-size: 65px;
+    font-family: var(--number-font);
+    line-height: 1.2;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    -webkit-text-stroke: 2px #FFFFFF;    
+    letter-spacing: -2px;
+
+}
+
+.auct-head {
+    font-weight: 700;
+    font-size: 23px;
+    text-transform: uppercase;
+    margin: 0;
+    font-family: var(--number-font);
+}
+
+.number-content .card {
+    border: 1.5px solid transparent;
+    border-image: linear-gradient(180deg, #E3E0E0 0%, #CF2525 100%);
+    border-image-slice: 1;
+    box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.3), 
+                0px 4px 6px rgba(0, 0, 0, 0.15);
+    border-radius: 0px;
+    background: none;
+}
+.number-content .card:hover {
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, .3);
+}
+.row.number-content {
+    margin: 20px 0px 40px;
+}
+.number-app .number-head{
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 48px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+}
+.number-app .app-button{
+    border: 2px solid #302727;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+    letter-spacing: 0px;
+    padding: 9px;
+    font-family: var(--nav-font);
+    border-radius: 4px;
+}
+.number-app{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+
+/* auction today new section */
+.auction-carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: inherit;
+    margin-top: 30px;
+}
+
+.auction-carousel {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    flex-wrap: nowrap !important;
+    padding: 0;
+    margin: 0;
+}
+
+.auction-card {
+    background-image: url(../images/today/today_home_bg.jpg);
+    border-radius: 15px;
+    text-align: center;
+    padding: 0px 10px;
+    transition: transform 0.3s;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 4px solid #d5d2d2;
+    width: 100%;
+}
+
+.today-logo {
+    width: 114px; /* 100px image + 2 * 7px padding */
+    height: 114px;
+    background-image: url('../images/today/title_border.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    padding: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Ensures nothing leaks outside the circle */
+}
+
+.auction-logo {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover; /* Ensures it fills without distortion */
+}
+
+
+.today-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+}
+.auction-title {
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 100%;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+    color: var(--default-color);
+    font-family: var(--nav-font);
+}
+
+.auction-date {
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: 0px;
+    text-transform: uppercase; 
+    margin-bottom: 0px;   
+}
+
+.auction-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    color: #868080;
+    border: 2px solid #868080;
+    border-radius: 50%;
+    padding: 2px 8px;
+    z-index: 10;
+    cursor: pointer;
+}
+.auction-nav.prev {
+    left: -12px;
+}
+
+.auction-nav.next {
+    right: -12px;
+}
+
+.today-head {
+    text-align: start;
+}
+.today-date {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--accent-color);
+    font-size: 22px;
+    font-family: var(--nav-font);
+}
+.view-all{
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 2%;
+    text-align: end;
+    margin: 10px 0px;
+}
+
+.view-all a{
+    color: var(--accent-color) ;
+}
+
+
+
+/* upcoming section css */
+
+.upcoming {
+    background-image: url('../images/upcoming/upcoming-background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 60px 0;
+    width: 100%;
+}
+
+.upcoming-heading{
+    color: var(--surface-color) !important;
+    margin-bottom: 40px;
+}
+.upcoming-heading span{
+    color: var(--heading-color) !important;
+}
+
+.auction-card-upcoming {
+    background-image: url(../images/today/today_home_bg.jpg);
+    border-radius: 15px;
+    text-align: center;
+    padding: 0px 10px;
+    transition: transform 0.3s;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 4px solid #d5d2d2;
+    width: 100%;
+}
+
+.upcoming-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+}
+
+.upcoming-logo{
+    background: linear-gradient(180deg, #939496 -3.42%, #C1C2C5 -0.2%, #C8CACD 5.17%, #CBCCCD 10.54%, #E0E1E1 15.92%, #EDEEEE 20.21%, #F1F2F2 24.51%, #F0F1F1 26.66%, #E6E7E8 38.48%, #F5F6F6 49.23%, #FFFFFF 58.9%, #E0E1E2 64.27%, #C6C7C9 69.64%, #BCBEC0 72.86%, #B0B2B4 75.01%, #BBBCBD 86.83%, #B4B4B5 93.28%, #C9C6C6 98.65%, #A8A8A9 104.02%);
+    border-radius: 50%;
+    object-fit: contain;
+    padding: 7px;
+}
+
+.auction-logo-upcoming {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.upcoming-head {
+    text-align: start;
+}
+.upcoming-date {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--accent-color);
+    font-size: 22px;
+    font-family: var(--nav-font);
+}
+
+.auction-title-upcoming {
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 100%;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+    color: var(--default-color);
+    font-family: var(--nav-font);
+}
+
+.auction-date-upcoming {
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: 0px;
+    text-transform: uppercase; 
+    margin-bottom: 0px;   
+}
+
+.upcoming-auction{
+    padding: 0px 125px;
+    row-gap: 25px;
+}
+
+.view-all a.view-all-upcoming{
+    color: var(--heading-color);
+}
+
+/* test monial css*/
+.testimonial-section {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.fir-bgimg {
+    position: absolute;
+    left: 69px;
+    z-index: 0;
+    bottom: 195px;
+}
+
+.fir-bgimg img {
+    width: 165px;
+}
+
+.sec-bgimg {
+    position: absolute;
+    right: 69px;
+    z-index: 0;
+    top: 0px;
+}
+
+.sec-bgimg img {
+    width: 165px;
+}
+.orgament-firstup-img{
+    position: absolute;
+    left: 0px;
+    z-index: 0;
+    top: 0px;
+}
+.orgament-firstup-img img{
+    width: 35px;
+}
+.orgament-firstdown-img{
+    position: absolute;
+    left: 44px;
+    z-index: 0;
+    top: 30px;
+}
+.orgament-firstdown-img img{
+    width: 35px;
+}
+.orgament-seconddown-img{
+    position: absolute;
+    right: 0px;
+    z-index: 0;
+    bottom: 38%;
+}
+.orgament-seconddown-img img{
+    width: 35px;
+}
+.orgament-secondup-img{
+    position: absolute;
+    right: 44px;
+    z-index: 0;
+    bottom: 44%;
+}
+.orgament-secondup-img img{
+    width: 35px;
+}
+.testimonial-carousel-wrapper,
+.testimonial-carousel {
+    position: relative;
+    z-index: 2; /* Ensure content stays above background */
+}
+
+.testimonial-quote {
+    position: relative;
+    background: #FFFFFF; /* White background */
+    padding: 25px;
+    border-radius: 10px;
+    border: 2px solid #D5D5D5; /* Border color */
+    box-shadow: 0px 4px 25px 0px #0000001A;
+    width: 1060px;
+    margin: 20px auto 40px;
+}
+
+.testimonial-quote:before, .testimonial-quote:after {
+    border: solid transparent;
+    content: '';
+    position: absolute;
+}
+
+.testimonial-quote:after {
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    background: #FFFFFF;
+    border: 2px solid #D5D5D5;
+    box-shadow: var(--shadow);
+    height: 48px;
+    width: 48px;
+    bottom: -48px;
+    left: 50%;
+    transform-origin: 0 0;
+    transform: translateX(70%) rotate(135deg);
+
+}
+
+.testimonial-carousel {
+    display: flex;
+    justify-content: center;
+    margin-bottom: auto;
+}
+
+.carousel-logo .profile-name {
+    font-family: var(--nav-font);
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 34px;
+    text-align: center;
+    color: var(--accent-color);
+}
+
+.carousel-logo .profile-title {
+    font-size: 0.8em;
+    color: gray;
+}
+
+.current {
+    position: relative;
+}
+
+.arrows {
+    display: flex;
+    justify-content: center;
+}
+
+
+.testimonial-quote h3 {
+    font-family: var(--nav-font);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 100%;
+    text-align: center;
+    color: #303030;
+    margin-bottom: 26px;
+    line-height: 100%;
+}
+
+.testimonial-quote p {
+    font-family: var(--nav-font);
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 37px;
+    text-align: center;
+    color: #303030;
+}
+div#current-logo{
+    text-align: center;
+}
+
+.testimonial-carousel-wrapper {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 20px;
+}
+
+.testimonial-carousel-wrapper .arrow {
+    cursor: pointer;
+    user-select: none;
+    color: #565656;
+    padding: 10px;
+    margin: auto;
+    font-size: 30px;
+}
+
+#current-logo img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 2px solid var(--accent-color);
+    margin-bottom: 10px;
+}
+
+#prev-logos img,
+#next-logos img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0px 6px;
+}
+#prev-logos ,
+#next-logos {
+    display: flex;
+    margin: 30px 0px;
+    flex-direction: row;
+}
+.testimonial-quote, .carousel-logo.current {
+    opacity: 1;
+    transition: opacity 0.7s ease-in-out;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+.arrow.right-arrow{
+    margin-right: 50px;
+}
+.arrow.left-arrow{
+    margin-left: 50px;
+}
+
+.profile-rating i {
+    color: gold;
 }
