@@ -28,7 +28,7 @@
                                                     ? (str_contains($auction->auction_image, 'drive.google.com')
                                                         ? str_replace('/uc?', '/thumbnail?', $auction->auction_image)
                                                         : $auction->auction_image)
-                                                    : asset('assets/images/today/team1.png') }}" alt="">
+                                                    : asset('assets/images/auction/Auc-2.png') }}" alt="">
                                             </div>
                                             <div class="team-detail">
                                                 <h2>{{ $auction->auction_name }}</h2>
