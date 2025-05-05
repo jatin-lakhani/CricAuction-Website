@@ -685,9 +685,8 @@
                                         ? (str_contains($upcoming_auction->auction_image, 'drive.google.com')
                                             ? str_replace('/uc?', '/thumbnail?', $upcoming_auction->auction_image)
                                             : $upcoming_auction->auction_image)
-                                        : asset('assets/images/today/second.png') }}"
-                                        alt="Auction Logo"
-                                        class="auction-logo-upcoming">
+                                        : asset('assets/images/today/first.png') }}" class="auction-logo"
+                                            id="auction_image" alt="not working">
                                 </div>
                                 <div class="upcoming-head">
                                     <h4 class="auction-title-upcoming">
