@@ -125,16 +125,31 @@ class AuctionController extends Controller
             'auction_code' => 'required',
             'bidSlaps' => 'array',
             'categories' => 'nullable|array',
+            // 'categories.*.name' => ['required', 'string', 'distinct'],
             'bidSlaps.*.upto_amount' => 'required|numeric',
             'bidSlaps.*.increment_value' => 'required|numeric',
             'bidders' => 'nullable|string',
             'payment_qr' => 'nullable|string',
             'payment_receipt' => 'nullable|string',
             // 'bidders.*.creator_id' => 'required'
+        ], [
+            'categories.*.name.required' => 'The category name field is required.',
+            'categories.*.name.string' => 'The category name must be a string.',
+            'categories.*.name.distinct' => 'The category name must be unique.',
+            'bidSlaps.*.upto_amount.required' => 'The upto amount field is required.',
+            'bidSlaps.*.upto_amount.numeric' => 'The upto amount must be a number.',
+            'bidSlaps.*.increment_value.required' => 'The increment value field is required.',
+            'bidSlaps.*.increment_value.numeric' => 'The increment value must be a number.',
         ]);
 
         if ($validator->fails()) {
             return apiValidationError($validator->messages());
+        }
+        if ($request->has('categories')) {
+            $categoryNames = collect($request->categories)->pluck('name')->map(fn($name) => trim(strtolower($name)))->toArray();
+            if (count($categoryNames) !== count(array_unique($categoryNames))) {
+                return apiFalseResponse('Duplicate category names found.');
+            }
         }
         $auction_id = 0;
         if ($request->has('auction_code') && !empty($request->input('auction_code'))) {
