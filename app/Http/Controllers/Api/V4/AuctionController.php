@@ -45,78 +45,77 @@ class AuctionController extends Controller
         $per_page = $request->per_page ?? 10;
         $is_include_player = $request->input('is_include_player', false);
         $is_included_as_bidder = $request->input('is_included_as_bidder', false);
-        $paymentStatus = $request->input('paymentStatus', false);
+        $paymentStatus = $request->input('paymentStatus');
 
-        // Normalize the mobile number from the request
-        $player_mobile = $request->query('player_mobile');
-        if ($player_mobile) {
-            // Remove spaces and + from the mobile number
-            $player_mobile = preg_replace('/[\s+]/', '', $player_mobile);
-        }
+        $player_mobile = preg_replace('/[\s+]/', '', $request->query('player_mobile'));
 
-        $auctions = Auction::
-            when($creator_id, function ($query) use ($creator_id, $player_mobile, $is_included_as_bidder) {
-                $query->where(function ($sub_query) use ($creator_id, $player_mobile, $is_included_as_bidder) {
-                    $sub_query->where('creator_id', $creator_id)
-                        ->orWhere(function ($subQuery) use ($player_mobile, $is_included_as_bidder, $creator_id) {
-                            $subQuery->when($player_mobile, function ($playerSubQuery) use ($player_mobile) {
-                                $playerSubQuery->whereHas('players', function ($q) use ($player_mobile) {
-                                    // Remove spaces and + from database column during the query
-                                    $q->whereRaw("REPLACE(REPLACE(player_mobile_no, ' ', ''), '+', '') = ?", [$player_mobile]);
-                                });
-                            });
-                        })->orWhere(function ($subQuery) use ($player_mobile, $is_included_as_bidder, $creator_id) {
-                            $subQuery->when($is_included_as_bidder, function ($bidderSubQuery) use ($creator_id) {
-                                $bidderSubQuery->whereHas('bidders', function ($q) use ($creator_id) {
-                                    $q->where("creator_id", $creator_id);
-                                });
+        $auctions = Auction::query()
+            ->select('auctions.*', 'latest_pricing.paymentDate')
+            ->when($creator_id, function ($query) use ($creator_id, $player_mobile, $is_included_as_bidder) {
+                $query->where('creator_id', $creator_id)
+                    ->orWhere(function ($subQuery) use ($player_mobile) {
+                        $subQuery->when($player_mobile, function ($q) use ($player_mobile) {
+                            $q->whereHas('players', function ($q2) use ($player_mobile) {
+                                $q2->whereRaw("REPLACE(REPLACE(player_mobile_no, ' ', ''), '+', '') = ?", [$player_mobile]);
                             });
                         });
-                });
+                    })
+                    ->orWhere(function ($subQuery) use ($creator_id, $is_included_as_bidder) {
+                        $subQuery->when($is_included_as_bidder, function ($q) use ($creator_id) {
+                            $q->whereHas('bidders', function ($q2) use ($creator_id) {
+                                $q2->where('creator_id', $creator_id);
+                            });
+                        });
+                    });
             })
             ->when($creator_phone, function ($query) use ($creator_phone) {
                 $query->whereRaw("REPLACE(REPLACE(creator_phone, ' ', ''), '+', '') = ?", [$creator_phone]);
             })
             ->when($auction_name, function ($query) use ($auction_name) {
-                $query->whereRaw('LOWER(auction_name) LIKE ?', ["%" . strtolower($auction_name) . "%"]);
+                $query->where('auction_name', 'LIKE', "%" . $auction_name . "%");
             })
-            ->when($paymentStatus, function ($query) use ($paymentStatus) {
+            ->when($paymentStatus !== null, function ($query) use ($paymentStatus) {
                 $query->whereHas('pricing', function ($subQuery) use ($paymentStatus) {
                     $subQuery->where('paymentStatus', $paymentStatus);
                 });
             })
             ->when($search, function ($query) use ($search) {
                 $query->where(function ($subQuery) use ($search) {
-                    $subQuery->whereRaw('LOWER(creator_id) LIKE ?', ["%" . strtolower($search) . "%"])
+                    $subQuery->where('creator_id', 'LIKE', "%" . $search . "%")
                         ->orWhereRaw("REPLACE(REPLACE(creator_phone, ' ', ''), '+', '') LIKE ?", ["%" . preg_replace('/[\s+]/', '', $search) . "%"])
-                        ->orWhereRaw('LOWER(auction_name) LIKE ?', ["%" . strtolower($search) . "%"])
-                        ->orWhereRaw('LOWER(auction_code) LIKE ?', ["%" . strtolower($search) . "%"]);
+                        ->orWhere('auction_name', 'LIKE', "%" . $search . "%")
+                        ->orWhere('auction_code', 'LIKE', "%" . $search . "%");
                 });
             })
             ->when($is_include_player, function ($query) {
                 $query->with('players');
             })
-            ->orderBy($sort_by, $sort_order)
-            ->with('teams', 'pricing', 'oldPricing', 'bidSlaps', 'bidders', 'sponsors', 'categories')
+            ->leftJoin('pricings AS latest_pricing', function ($join) {
+                $join->on('auctions.id', '=', 'latest_pricing.auction_id')
+                    ->whereIn('latest_pricing.id', function ($query) {
+                        $query->selectRaw('MAX(id) FROM pricings GROUP BY auction_id');
+                    });
+            })
+            ->orderByRaw(
+                "CASE WHEN latest_pricing.paymentDate IS NULL THEN 1 ELSE 0 END ASC"
+            )
+            ->orderByRaw(
+                match ($sort_by) {
+                    'paymentDate' => "STR_TO_DATE(latest_pricing.paymentDate, '%d-%m-%Y') $sort_order",
+                    default => "auctions.$sort_by $sort_order",
+                }
+            )
+            ->with([
+                'teams',
+                'pricing',
+                'oldPricing',
+                'bidSlaps',
+                'bidders',
+                'sponsors',
+                'categories',
+            ])
             ->paginate($per_page);
-
         $data = AuctionResource::collection($auctions);
-        // $data['data'] = AuctionResource::collection($auctions);
-        // $data['pagination'] = [
-        //     'current_page' => $auctions->currentPage(),
-        //     'first_page_url' => $auctions->url(1),
-        //     'from' => $auctions->firstItem(),
-        //     'last_page' => $auctions->lastPage(),
-        //     'last_page_url' => $auctions->url($auctions->lastPage()),
-        //     'links' => $auctions->linkCollection()->toArray(),
-        //     'next_page_url' => $auctions->nextPageUrl(),
-        //     'path' => $auctions->path(),
-        //     'per_page' => $auctions->perPage(),
-        //     'prev_page_url' => $auctions->previousPageUrl(),
-        //     'to' => $auctions->lastItem(),
-        //     'total' => $auctions->total(),
-        // ];
-
         return apiResponse('Auctions retrieved successfully', $data);
     }
 
