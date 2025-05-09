@@ -36,7 +36,7 @@
         </div>
     </section><!-- /Hero Section -->
 
-    <!-- Auctions Section -->
+    {{-- <!-- Auctions Section -->
     <section id="auctions" class="section auctions">
         <div class="container">
             <div class="section-title pt-4" data-aos="fade-up" data-aos-delay="100">
@@ -81,7 +81,72 @@
                 </div>
             </div>
         </div>
-    </section><!-- /Auctions Section -->
+    </section><!-- /Auctions Section --> --}}
+
+    <!--Today section new -->
+    <section id="auctions" class="section auctions">
+        <div class="container">
+            <div class="section-title pt-4" data-aos="fade-up" data-aos-delay="100">
+                <img src="{{ asset('assets/images/logo.png') }}" alt="Today's Cricket Auction">
+                <h2><span>Today's</span> Auction</h2>
+            </div>
+    
+            <div class="auction-carousel-wrapper" data-aos="fade-up" data-aos-delay="200">
+                @if($auctions->isNotEmpty())
+                    <button class="auction-nav prev">
+                        <img src="{{asset('assets/images/previous.png')}}" class="mb-1" style="margin-right:3px" alt="">
+                    </button>
+                @endif
+
+                <div class="row auction-carousel">
+                    @if($auctions->isNotEmpty())
+                        @foreach($auctions as $auction)
+                            <div class="col-lg-4 col-md-6">
+                                <div class="auction-card">
+                                    <div class="today-content">
+                                        <div class="today-logo">
+                                            <img src="{{ $auction->auction_image
+                                            ? (str_contains($auction->auction_image, 'drive.google.com')
+                                                ? str_replace('/uc?', '/thumbnail?', $auction->auction_image)
+                                                : $auction->auction_image)
+                                            : asset('assets/images/today/first.png') }}" class="auction-logo"
+                                                id="auction_image" alt="not working">
+                                        </div>
+                                        <div class="today-head">
+                                            <h4 class="auction-title">{{ Str::limit($auction->auction_name, 10) }}</h4>
+                                            <div class="today-date">
+                                                <i class="bi bi-calendar-fill"></i>
+                                                <p class="auction-date">{{ \Carbon\Carbon::parse($auction->auction_date)->format('d-m-Y') }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                        @else
+                        <p class="text-  text-muted" style="font-size: 1.2rem; padding: 20px;">Today no auction.</p>
+                    @endif
+                </div>
+
+                @if($auctions->isNotEmpty())
+                    <button class="auction-nav next">
+                        <img src="{{asset('assets/images/next.png')}}" class="mb-1" style="margin-left: 3px;" alt="">
+                    </button>
+                @endif
+            </div>
+
+            @if($auctions->isNotEmpty())
+                <div class="view-all" data-aos="fade-up" data-aos-delay="300">
+                    <a href="{{route('auctionlist.today')}}">View All</a>
+                </div>
+            @endif
+
+        </div>
+        
+    </section>
+    <!--Today section new -->
+
+
 
     <!-- Features Section -->
     <section id="features" class="section features">
@@ -615,6 +680,50 @@
         </div>
     </section><!-- /Client Section -->
 
+    <!-- Upcoming Auction -->
+    <section id="upcoming" class="section upcoming">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-delay="100">
+                <img src="{{ asset('assets/images/logo3.png') }}" alt="Our Client">
+                <h3 class="upcoming-heading"><span>Upcoming</span> Auction</h3>
+            </div>
+            <div class="row upcoming-auction" data-aos="fade-up" data-aos-delay="200">
+                @foreach($upcoming_auctions as $upcoming_auction)
+
+                    <div class="col-lg-6 col-md-12">
+                        <div class="auction-card-upcoming">
+                            <div class="upcoming-content">
+                                <div class="upcoming-logo">
+                                    <img src="{{ $upcoming_auction->auction_image
+                                        ? (str_contains($upcoming_auction->auction_image, 'drive.google.com')
+                                            ? str_replace('/uc?', '/thumbnail?', $upcoming_auction->auction_image)
+                                            : $upcoming_auction->auction_image)
+                                        : asset('assets/images/today/first.png') }}" class="auction-logo"
+                                            id="auction_image" alt="not working">
+                                </div>
+                                <div class="upcoming-head">
+                                    <h4 class="auction-title-upcoming">
+                                        {{ $upcoming_auction->auction_name }}
+                                    </h4>
+                                    <div class="upcoming-date">
+                                        <i class="bi bi-calendar-fill"></i>
+                                        <p class="auction-date-upcoming">
+                                            {{ \Carbon\Carbon::parse($upcoming_auction->auction_date)->format('d-m-Y') }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+                <div class="view-all" data-aos="fade-up" data-aos-delay="300">
+                    <a href="{{route('auctionlist.upcoming')}}" class="view-all-upcoming">View All</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Upcoming Auction -->
+
     <!-- Help Section -->
     <section id="help" class="section help">
         <div class="container">
@@ -676,6 +785,46 @@
             </div>
         </div>
     </section><!-- /Help Section -->
+
+     <!-- number section -->
+    <section id="number" class="section number">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-delay="100">
+                <img src="{{ asset('assets/images/logo.png') }}" alt="Help">
+                <h3><span>CricAuction</span> in Numbers</h3>
+            </div>    
+            <div class="row number-content">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card text-center py-4 mt-3">
+                        <h5 class="auction-number count-up" data-count="15820">0</h5>
+                        <p class="auct-head">TOTAL AUCTIONS</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="150">
+                    <div class="card text-center py-4 mt-3">
+                        <h5 class="auction-number count-up" data-count="9243">0</h5>
+                        <p class="auct-head">TOTAL USERS</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card text-center py-4 mt-3">
+                        <h5 class="auction-number count-up" data-count="20640">0</h5>
+                        <p class="auct-head">TOTAL TEAMS</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="250">
+                    <div class="card text-center py-4 mt-3">
+                        <h5 class="auction-number count-up" data-count="50000">0</h5>
+                        <p class="auct-head">TOTAL PLAYERS</p>
+                    </div>
+                </div>
+            </div>
+            <div class="number-app"  data-aos="fade-up" data-aos-delay="100">
+                <div class="app-head">👉 Join the Global Cricket Network!</div>
+                <div class="app-button">GET APP</div>
+            </div>
+        </div>
+    </section><!-- number section -->
 
     <!-- Video Section -->
     <section id="video" class="section video">
@@ -752,7 +901,7 @@
         }
     </script><!-- /Video Section -->
 
-    <!-- Pricing Section -->
+    <!-- pricing and testimonial Section -->
     <section id="pricing" class="section pricing">
         <div class="container">
             <div class="section-title" data-aos="fade-up" data-aos-delay="100">
@@ -829,8 +978,55 @@
                     </div>
                 </div>
             </div>
+            <div class="section-title mt-5" data-aos="fade-up" data-aos-delay="100">
+                <img src="{{ asset('assets/images/logo.png') }}" alt="Our Pricing">
+                <h5><span>Our</span> Client's Says</h5>
+            </div>
+            <div class="testimonial-section" data-aos="fade-up" data-aos-delay="100">
+                <div class="fir-bgimg">
+                    <img src="{{asset('assets/images/dot_bg_img.png')}}" alt="">
+                </div>
+                <div class="sec-bgimg">
+                    <img src="{{asset('assets/images/dot_bg_img.png')}}" alt="">
+                </div>
+                <div class="orgament-firstup-img">
+                    <img src="{{asset('assets/images/ornament_up.png')}}" alt="">
+                </div>
+                <div class="orgament-firstdown-img">
+                    <img src="{{asset('assets/images/ornament_down.png')}}" alt="">
+                </div>
+                <div class="orgament-seconddown-img">
+                    <img src="{{asset('assets/images/ornament_down.png')}}" alt="">
+                </div>
+                <div class="orgament-secondup-img">
+                    <img src="{{asset('assets/images/ornament_up.png')}}" alt="">
+                </div>
+                <div class="testimonial-carousel-wrapper mt-3">
+                    <div class="arrow left-arrow" onclick="prevTestimonial()"><i class="bi bi-chevron-left"></i></div>
+                        <div class="testimonial-quote meh" id="quote">
+                            <h3 id="quote-heading">{{ $testimonials[0]->title }}</h3>
+                            <p id="quote-text">
+                                "{!! nl2br(e($testimonials[0]->review)) !!}"
+
+                            </p>
+                        </div>
+                    <div class="arrow right-arrow" onclick="nextTestimonial()"><i class="bi bi-chevron-right"></i></div>
+                </div>
+                <div class="testimonial-carousel">
+                    <div class="carousel-logo prev-logos" id="prev-logos"></div>
+                    <div class="carousel-logo current" id="current-logo">
+                        <img src="{{ asset($testimonials[0]->image) }}" id="profile-img" alt="User">
+                        <div class="profile-name" id="profile-name">{{ $testimonials[0]->name }}</div>
+                        <div class="profile-rating" id="profile-rating">
+                            {!! str_repeat('<i class="bi bi-star-fill"></i>', $testimonials[0]->rating) !!}
+                            {!! str_repeat('<i class="bi bi-star"></i>', 5 - $testimonials[0]->rating) !!}
+                        </div>
+                    </div>
+                    <div class="carousel-logo next-logos" id="next-logos"></div>
+                </div>
+            </div>     
         </div>
-    </section><!-- /Pricing Section -->
+    </section><!-- /pricing and testimonial Section -->
 
     <!-- Contact Us Section -->
     <section id="contactus" class="section contactus">
@@ -908,3 +1104,74 @@
     </section><!-- /Contact Us Section -->
 </main>
 @endsection
+@push('scripts')
+<script>
+    const testimonials = @json($testimonials);
+    let index = 0;
+
+    function showTestimonial(i) {
+        const defaultImage = 'public/assets/images/gallery/demo_video.jpg'; 
+
+        const imagePath = testimonials[i].image;
+        const imageUrl = testimonials[i].image ? '/storage/app/public/' + testimonials[i].image : defaultImage;
+
+        document.getElementById("quote-heading").textContent = testimonials[i].title;
+        document.getElementById("quote-text").textContent = testimonials[i].review;
+        document.getElementById("profile-name").textContent = testimonials[i].name;
+        document.getElementById("profile-img").src = imageUrl;
+
+        const ratingContainer = document.getElementById("profile-rating");
+        const stars = [];
+        for (let r = 1; r <= 5; r++) {
+            if (r <= testimonials[i].rating) {
+                stars.push('<i class="bi bi-star-fill"></i>');
+            } else {
+                stars.push('<i class="bi bi-star"></i>');
+            }
+        }
+        ratingContainer.innerHTML = stars.join("");
+
+        let prevLogosContainer = document.getElementById("prev-logos");
+        prevLogosContainer.innerHTML = "";
+        for (let j = 1; j <= 2; j++) {
+            const prevIndex = (i - j + testimonials.length) % testimonials.length;
+            const logo = document.createElement("img");
+            const prevImageUrl = testimonials[prevIndex].image ? '/storage/' + testimonials[prevIndex].image : defaultImage;
+            logo.src = prevImageUrl;
+            prevLogosContainer.appendChild(logo);
+        }
+
+        let nextLogosContainer = document.getElementById("next-logos");
+        nextLogosContainer.innerHTML = "";
+        for (let k = 1; k <= 2; k++) {
+            const nextIndex = (i + k) % testimonials.length;
+            const logo = document.createElement("img");
+            const nextImageUrl = testimonials[nextIndex].image ? '/storage/' + testimonials[nextIndex].image : defaultImage;
+            logo.src = nextImageUrl;
+            nextLogosContainer.appendChild(logo);
+        }
+    }
+
+    function nextTestimonial() {
+        index = (index + 1) % testimonials.length;
+        showTestimonial(index);
+    }
+
+    function prevTestimonial() {
+        index = (index - 1 + testimonials.length) % testimonials.length;
+        showTestimonial(index);
+    }
+
+    showTestimonial(index);
+
+    // Auto-rotate every 5 seconds
+    let autoSlide = setInterval(nextTestimonial, 5000);
+
+    // Pause on hover
+    const section = document.getElementById("testimonial-section");
+    section.addEventListener("mouseenter", () => clearInterval(autoSlide));
+    section.addEventListener("mouseleave", () => {
+        autoSlide = setInterval(nextTestimonial, 5000);
+    });
+</script>
+@endpush

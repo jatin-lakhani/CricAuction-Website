@@ -8,7 +8,14 @@ use App\Http\Controllers\Api\V4\PricingController;
 use App\Http\Controllers\Api\V4\PricingMasterController;
 use App\Http\Controllers\Api\V4\SponsorController;
 use App\Http\Controllers\Api\V4\TeamController;
+use App\Http\Controllers\Api\V4\TestmonialController;
 use App\Http\Controllers\Api\V4\UserController;
+use App\Http\Controllers\Api\V4\FaqController;
+use App\Http\Controllers\Api\V4\BlogController;
+use App\Http\Controllers\Api\V4\VideoGallery;
+use App\Http\Controllers\Api\V4\Testmonial;
+
+use App\Http\Controllers\Api\V4\VideoGalleryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -48,5 +55,11 @@ Route::prefix('v4')->name('V4.')->group(function () {
         Route::resource('pricingMaster', PricingMasterController::class);
         Route::resource('bankDetail', BankDetailController::class);
         Route::resource('sponsor', SponsorController::class);
+
+        Route::resource('faq', FaqController::class);
+        Route::resource('blog', BlogController::class);
+        Route::resource('videogallery', VideoGalleryController::class);
+        Route::resource('testimonial', TestmonialController::class);
+
     });
 });

@@ -42,6 +42,10 @@
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap" rel="stylesheet" />
 
+    <!-- slider -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HN6VXBN3BD"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-HN6VXBN3BD'); </script>
 </head>
@@ -77,12 +81,17 @@
 
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li><a href="{{ route('welcome', ['section' => 'hero']) }}" class="active">Home</a></li>
-                    <li><a href="{{ route('welcome', ['section' => 'auctions']) }}">Auctions</a></li>
-                    <li><a href="{{ route('welcome', ['section' => 'features']) }}">Features</a></li>
-                    <li><a href="{{ route('welcome', ['section' => 'help']) }}">Help</a></li>
-                    <li><a href="{{ route('welcome', ['section' => 'pricing']) }}">Pricing</a></li>
-                    <li><a href="{{ route('welcome', ['section' => 'contactus']) }}">Contact Us</a></li>
+                    <li><a href="{{ route('welcome', ['section' => 'hero']) }}" class="{{ request()->routeIs('welcome') && request()->get('section') == 'hero' ? 'active' : '' }}">Home</a></li>
+                    <li><a href="{{ route('auctionlist.today')}}" class="{{ request()->routeIs('auctionlist.today') ? 'active' : '' }}">Today's Auctions</a></li>
+                    {{-- <li><a href="{{ route('welcome', ['section' => 'auctions']) }}">Auctions</a></li> --}}
+                    <li><a href="{{ route('video_gallery')}}" class="{{ request()->routeIs('video_gallery') ? 'active' : '' }}">Video Gallery</a></li>
+                    <li><a href="{{ route('auctionlist.upcoming')}}" class="{{ request()->routeIs('auctionlist.upcoming') ? 'active' : '' }}">Upcoming Auctions</a></li>
+                    <li><a href="{{ route('blogs')}}" class="{{ request()->routeIs('blogs') ? 'active' : '' }}">Blogs</a></li>
+                    <li><a href="{{ route('faq')}}" class="{{ request()->routeIs('faq') ? 'active' : '' }}">FAQs</a></li>
+                    <li><a href="{{ route('welcome', ['section' => 'features']) }}" class="{{ request()->routeIs('welcome') && request()->get('section') == 'features' ? 'active' : '' }}">Features</a></li>
+                    <li><a href="{{ route('welcome', ['section' => 'help']) }}" class="{{ request()->routeIs('welcome') && request()->get('section') == 'help' ? 'active' : '' }}">Help</a></li>
+                    <li><a href="{{ route('welcome', ['section' => 'pricing']) }}" class="{{ request()->routeIs('welcome') && request()->get('section') == 'pricing' ? 'active' : '' }}">Pricing</a></li>
+                    <li><a href="{{ route('welcome', ['section' => 'contactus']) }}" class="{{ request()->routeIs('welcome') && request()->get('section') == 'contactus' ? 'active' : '' }}">Contact Us</a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
