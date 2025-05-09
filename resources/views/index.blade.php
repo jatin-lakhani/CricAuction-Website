@@ -978,53 +978,57 @@
                     </div>
                 </div>
             </div>
-            <div class="section-title mt-5" data-aos="fade-up" data-aos-delay="100">
-                <img src="{{ asset('assets/images/logo.png') }}" alt="Our Pricing">
-                <h5><span>Our</span> Client's Says</h5>
-            </div>
-            <div class="testimonial-section" data-aos="fade-up" data-aos-delay="100">
-                <div class="fir-bgimg">
-                    <img src="{{asset('assets/images/dot_bg_img.png')}}" alt="">
+            @if(count($testimonials) > 0)
+                <div class="section-title mt-5" data-aos="fade-up" data-aos-delay="100">
+                    <img src="{{ asset('assets/images/logo.png') }}" alt="Our Pricing">
+                    <h5><span>Our</span> Client's Says</h5>
                 </div>
-                <div class="sec-bgimg">
-                    <img src="{{asset('assets/images/dot_bg_img.png')}}" alt="">
-                </div>
-                <div class="orgament-firstup-img">
-                    <img src="{{asset('assets/images/ornament_up.png')}}" alt="">
-                </div>
-                <div class="orgament-firstdown-img">
-                    <img src="{{asset('assets/images/ornament_down.png')}}" alt="">
-                </div>
-                <div class="orgament-seconddown-img">
-                    <img src="{{asset('assets/images/ornament_down.png')}}" alt="">
-                </div>
-                <div class="orgament-secondup-img">
-                    <img src="{{asset('assets/images/ornament_up.png')}}" alt="">
-                </div>
-                <div class="testimonial-carousel-wrapper mt-3">
-                    <div class="arrow left-arrow" onclick="prevTestimonial()"><i class="bi bi-chevron-left"></i></div>
+                <div class="testimonial-section" data-aos="fade-up" data-aos-delay="100">
+                    <!-- Background Images -->
+                    <div class="fir-bgimg">
+                        <img src="{{ asset('assets/images/dot_bg_img.png') }}" alt="">
+                    </div>
+                    <div class="sec-bgimg">
+                        <img src="{{ asset('assets/images/dot_bg_img.png') }}" alt="">
+                    </div>
+                    <div class="orgament-firstup-img">
+                        <img src="{{ asset('assets/images/ornament_up.png') }}" alt="">
+                    </div>
+                    <div class="orgament-firstdown-img">
+                        <img src="{{ asset('assets/images/ornament_down.png') }}" alt="">
+                    </div>
+                    <div class="orgament-seconddown-img">
+                        <img src="{{ asset('assets/images/ornament_down.png') }}" alt="">
+                    </div>
+                    <div class="orgament-secondup-img">
+                        <img src="{{ asset('assets/images/ornament_up.png') }}" alt="">
+                    </div>
+                
+                    <!-- Testimonial Carousel -->
+                    <div class="testimonial-carousel-wrapper mt-3">
+                        <div class="arrow left-arrow" onclick="prevTestimonial()"><i class="bi bi-chevron-left"></i></div>
                         <div class="testimonial-quote meh" id="quote">
                             <h3 id="quote-heading">{{ $testimonials[0]->title }}</h3>
-                            <p id="quote-text">
-                                "{!! nl2br(e($testimonials[0]->review)) !!}"
-
-                            </p>
+                            <p id="quote-text">"{!! nl2br(e($testimonials[0]->review)) !!}"</p>
                         </div>
-                    <div class="arrow right-arrow" onclick="nextTestimonial()"><i class="bi bi-chevron-right"></i></div>
-                </div>
-                <div class="testimonial-carousel">
-                    <div class="carousel-logo prev-logos" id="prev-logos"></div>
-                    <div class="carousel-logo current" id="current-logo">
-                        <img src="{{ asset($testimonials[0]->image) }}" id="profile-img" alt="User">
-                        <div class="profile-name" id="profile-name">{{ $testimonials[0]->name }}</div>
-                        <div class="profile-rating" id="profile-rating">
-                            {!! str_repeat('<i class="bi bi-star-fill"></i>', $testimonials[0]->rating) !!}
-                            {!! str_repeat('<i class="bi bi-star"></i>', 5 - $testimonials[0]->rating) !!}
-                        </div>
+                        <div class="arrow right-arrow" onclick="nextTestimonial()"><i class="bi bi-chevron-right"></i></div>
                     </div>
-                    <div class="carousel-logo next-logos" id="next-logos"></div>
+                
+                    <div class="testimonial-carousel">
+                        <div class="carousel-logo prev-logos" id="prev-logos"></div>
+                        <div class="carousel-logo current" id="current-logo">
+                            <img src="{{ asset($testimonials[0]->image) }}" id="profile-img" alt="User">
+                            <div class="profile-name" id="profile-name">{{ $testimonials[0]->name }}</div>
+                            <div class="profile-rating" id="profile-rating">
+                                {!! str_repeat('<i class="bi bi-star-fill"></i>', $testimonials[0]->rating) !!}
+                                {!! str_repeat('<i class="bi bi-star"></i>', 5 - $testimonials[0]->rating) !!}
+                            </div>
+                        </div>
+                        <div class="carousel-logo next-logos" id="next-logos"></div>
+                    </div>
                 </div>
-            </div>     
+            @endif
+             
         </div>
     </section><!-- /pricing and testimonial Section -->
 
