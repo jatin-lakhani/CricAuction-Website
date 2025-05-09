@@ -214,7 +214,7 @@ button:disabled i {
     padding: 2px;
     margin: 0 auto;
     list-style: none;
-    border: 2px solid #e0e0e0;
+    /* border: 2px solid #e0e0e0; */
 }
 
 .video-tab {
@@ -224,7 +224,7 @@ button:disabled i {
     font-size: 20px;
     border: none;
     cursor: pointer;
-    /* clip-path: polygon(7% 0%, 100% 0%, 93% 100%, 0% 100%); */
+    clip-path: polygon(7% 0%, 100% 0%, 93% 100%, 0% 100%);
     transition: all 0.3s ease;
     font-family: var(--nav-font);
     font-weight: 600;
@@ -240,9 +240,9 @@ button:disabled i {
 .video-tab:not(.active):hover {
     background-color: #d5d5d5;
 }
-/* .video-tab + .video-tab {
-    margin-left: -18px;
-} */
+.video-tab + .video-tab {
+    margin-left: -10px;
+}
 
 .card-img-top{
     background: none !important;
