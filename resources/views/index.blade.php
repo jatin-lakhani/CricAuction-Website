@@ -1117,7 +1117,7 @@
         const defaultImage = 'public/assets/images/gallery/demo_video.jpg'; 
 
         const imagePath = testimonials[i].image;
-        const imageUrl = testimonials[i].image ? '/storage/app/public/' + testimonials[i].image : defaultImage;
+        const imageUrl = testimonials[i].image ? '/storage/' + testimonials[i].image : defaultImage;
 
         document.getElementById("quote-heading").textContent = testimonials[i].title;
         document.getElementById("quote-text").textContent = testimonials[i].review;
