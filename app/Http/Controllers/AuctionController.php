@@ -6,6 +6,7 @@ use App\Models\Auction;
 use Carbon\Carbon;
 use App\Models\Player;
 use Illuminate\Http\Request;
+use App\Models\Testimonial;
 
 class AuctionController extends Controller
 {
@@ -55,7 +56,9 @@ class AuctionController extends Controller
             ->limit(4)
             ->get();
         
-        return view('index', compact('auctions','upcoming_auctions'));
+        $testimonials = Testimonial::where('status', 'Active')->get();
+        // dd($testimonials);
+        return view('index', compact('auctions','upcoming_auctions', 'testimonials'));
     }
 
     

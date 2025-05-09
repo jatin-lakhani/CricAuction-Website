@@ -17,131 +17,72 @@
         <div class="container">
 
             <!-- Nav Tabs -->
-            <div class="mb-4 video-tab-buttons" id="videoTab" role="tablist">
+            <div class="mb-4 video-tab-buttons" id="videoTab" role="tablist" data-aos="fade-up" data-aos-delay="100">
                 <button class="video-tab active" id="auction-tab" data-bs-toggle="tab" data-bs-target="#auction" type="button" role="tab">Auction Video</button>
                 <button class="video-tab" id="demo-tab" data-bs-toggle="tab" data-bs-target="#demo" type="button" role="tab">Demo Video</button>
             </div>
 
             <!-- Tab Contents -->
-            <div class="tab-content" id="videoTabContent">
+            <div class="tab-content" id="videoTabContent" data-aos="fade-up" data-aos-delay="150">
 
                 <!-- Auction Videos Tab -->
                 <div class="tab-pane fade show active" id="auction" role="tabpanel">
                     <div class="row g-4">
-                        <div class="col-lg-4 col-md-6">
-                            <a href="https://www.youtube.com/live/z1fm6YK_OuE?si=Px6HkaD0FEuE4Lk8" target="_blank" class="card-link">
-                                <div class="card-auction-video h-100">
-                                    <div class="video-thumbnail-wrapper">
-                                        <img class="card-img-top" src="{{ asset('assets/images/help/help2.png') }}" alt="Auction Video 2">
-                                        <img class="play-button" src="{{ asset('assets/images/gallery/play-button.png') }}" alt="Play Button">
-                                    </div>                                    
-                                    <div class="content-video">
-                                        <div class="auction-date-video">
-                                            <i class="bi bi-calendar-fill"></i>
-                                            <p>06-04-2025</p>
+                        @forelse($auctionVideos as $video)
+                            <div class="col-lg-4 col-md-6">
+                                <a href="{{ $video->url }}" target="_blank" class="card-link">
+                                    <div class="card-auction-video h-100">
+                                        <div class="video-thumbnail-wrapper">
+                                            <img class="card-img-top" 
+                                            src="{{ $video->thumb_image ? asset('storage/' . $video->thumb_image) : asset('assets/images/gallery/demo_video.jpg') }}" 
+                                            alt="">
+                                            <img class="play-button" src="{{ asset('assets/images/gallery/play-button.png') }}" alt="Play Button">
                                         </div>
-                                        <h5 class="gallery-title">Khopala Premier League Auction 2025 Auction Moments</h5>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <a href="https://www.youtube.com/live/z1fm6YK_OuE?si=Px6HkaD0FEuE4Lk8" target="_blank" class="card-link">
-                                <div class="card-auction-video h-100">
-                                    <div class="video-thumbnail-wrapper">
-                                        <img class="card-img-top" src="{{ asset('assets/images/help/help2.png') }}" alt="Auction Video 2">
-                                        <img class="play-button" src="{{ asset('assets/images/gallery/play-button.png') }}" alt="Play Button">
-                                    </div>                                             
-                                    <div class="content-video">
-                                        <div class="auction-date-video">
-                                            <i class="bi bi-calendar-fill"></i>
-                                            <p>06-04-2025</p>
+                                        <div class="content-video">
+                                            <div class="auction-date-video">
+                                                <i class="bi bi-calendar-fill"></i>
+                                                <p>{{ $video->created_at->format('d-m-Y') }}</p>
+                                            </div>
+                                            <h5 class="gallery-title">{{ $video->title }}</h5>
                                         </div>
-                                        <h5 class="gallery-title">Khopala Premier League Auction 2025 Auction Moments</h5>
                                     </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <a href="https://www.youtube.com/live/z1fm6YK_OuE?si=Px6HkaD0FEuE4Lk8" target="_blank" class="card-link">
-                                <div class="card-auction-video h-100">
-                                    <div class="video-thumbnail-wrapper">
-                                        <img class="card-img-top" src="{{ asset('assets/images/help/help2.png') }}" alt="Auction Video 2">
-                                        <img class="play-button" src="{{ asset('assets/images/gallery/play-button.png') }}" alt="Play Button">
-                                    </div>  
-                                    <div class="content-video">
-                                        <div class="auction-date-video">
-                                            <i class="bi bi-calendar-fill"></i>
-                                            <p>06-04-2025</p>
-                                        </div>
-                                        <h5 class="gallery-title">Khopala Premier League Auction 2025 Auction Moments</h5>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                                </a>
+                            </div>
+                        @empty
+                            <p>No auction videos available.</p>
+                        @endforelse
                     </div>
                 </div>
-
+                
                 <!-- Demo Videos Tab -->
                 <div class="tab-pane fade" id="demo" role="tabpanel">
                     <div class="row g-4">
-                        <div class="col-lg-4 col-md-6">
-                            <a href="https://www.youtube.com/live/z1fm6YK_OuE?si=Px6HkaD0FEuE4Lk8" target="_blank" class="card-link">
-                                <div class="card-auction-video h-100">
-                                    <div class="video-thumbnail-wrapper">
-                                        <img class="card-img-top" src="{{ asset('assets/images/gallery/demo_video.jpg') }}" alt="Auction Video 2">
-                                        <img class="play-button" src="{{ asset('assets/images/gallery/play-button.png') }}" alt="Play Button">
-                                    </div>                                      
-                                    <div class="content-video">
-                                        <div class="auction-date-video">
-                                            <i class="bi bi-calendar-fill"></i>
-                                            <p>06-04-2025</p>
+                        @forelse($demoVideos as $video)
+                            <div class="col-lg-4 col-md-6">
+                                <a href="{{ $video->url }}" target="_blank" class="card-link">
+                                    <div class="card-auction-video h-100">
+                                        <div class="video-thumbnail-wrapper">
+                                            <img class="card-img-top" 
+                                            src="{{ $video->thumb_image ? asset('storage/' . $video->thumb_image) : asset('assets/images/gallery/demo_video.jpg') }}" 
+                                            alt="">
+                                            <img class="play-button" src="{{ asset('assets/images/gallery/play-button.png') }}" alt="Play Button">
                                         </div>
-                                        <h5 class="gallery-title">Khopala Premier League Auction 2025 Auction Moments</h5>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <a href="https://www.youtube.com/live/z1fm6YK_OuE?si=Px6HkaD0FEuE4Lk8" target="_blank" class="card-link">
-                                <div class="card-auction-video h-100">
-                                    <div class="video-thumbnail-wrapper">
-                                        <img class="card-img-top" src="{{ asset('assets/images/gallery/demo_video.jpg') }}" alt="Auction Video 2">
-                                        <img class="play-button" src="{{ asset('assets/images/gallery/play-button.png') }}" alt="Play Button">
-                                    </div>                                      
-                                    <div class="content-video">
-                                        <div class="auction-date-video">
-                                            <i class="bi bi-calendar-fill"></i>
-                                            <p>06-04-2025</p>
+                                        <div class="content-video">
+                                            <div class="auction-date-video">
+                                                <i class="bi bi-calendar-fill"></i>
+                                                <p>{{ $video->created_at->format('d-m-Y') }}</p>
+                                            </div>
+                                            <h5 class="gallery-title">{{ $video->title }}</h5>
                                         </div>
-                                        <h5 class="gallery-title">Khopala Premier League Auction 2025 Auction Moments</h5>
                                     </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <a href="https://www.youtube.com/live/z1fm6YK_OuE?si=Px6HkaD0FEuE4Lk8" target="_blank" class="card-link">
-                                <div class="card-auction-video h-100">
-                                    <div class="video-thumbnail-wrapper">
-                                        <img class="card-img-top" src="{{ asset('assets/images/gallery/demo_video.jpg') }}" alt="Auction Video 2">
-                                        <img class="play-button" src="{{ asset('assets/images/gallery/play-button.png') }}" alt="Play Button">
-                                    </div>                                      
-                                    <div class="content-video">
-                                        <div class="auction-date-video">
-                                            <i class="bi bi-calendar-fill"></i>
-                                            <p>06-04-2025</p>
-                                        </div>
-                                        <h5 class="gallery-title">Khopala Premier League Auction 2025 Auction Moments</h5>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                                </a>
+                            </div>
+                        @empty
+                            <p>No demo videos available.</p>
+                        @endforelse
                     </div>
                 </div>
+                
 
             </div>
         </div>

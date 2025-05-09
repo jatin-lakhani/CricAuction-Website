@@ -4,7 +4,7 @@
     <main class="page-content">
         <section class="section player-today">
             <div class="container">
-                <div class="previous-next-head">
+                <div class="previous-next-head" data-aos="fade-up" data-aos-delay="100">
                     <h1><span>Upcoming</span> Auctions</h1>
                     <div class="">
                         <button id="prevBtn" class="player-button">
@@ -15,7 +15,7 @@
                         </button>
                     </div>
                 </div>
-                <div id="team-rows">
+                <div id="team-rows" data-aos="fade-up" data-aos-delay="150">
                     @foreach($upcoming_auctions->chunk(6) as $chunk)
                         <div class="team-row">
                             <div class="row custom-changes">

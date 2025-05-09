@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Auction;
+use App\Models\VideoGallery;
+use App\Models\Blog;
+use App\Models\Faq;
 use Carbon\Carbon;
 class Homecontroller extends Controller
 {
@@ -60,21 +63,30 @@ class Homecontroller extends Controller
 
     public function video_gallery()
     {
-        return view('frontend.video_gallery');
+        $auctionVideos = VideoGallery::where('type', 'Auction')->latest()->get();
+        $demoVideos = VideoGallery::where('type', 'Demo')->latest()->get();
+
+        return view('frontend.video_gallery', compact('auctionVideos', 'demoVideos'));
     }
+    
 
     public function blogs()
     {
-        return view('frontend.blogs');
+        $blogs = Blog::latest()->get();
+        return view('frontend.blogs', compact('blogs'));  
     }
 
-    public function faq()
+
+    public function faqPage()
     {
-        return view('frontend.faq');
+        $faqs = Faq::where('status', 'Active')->orderBy('order')->get();
+        return view('frontend.faq', compact('faqs'));
     }
 
-    public function blog_read()
+
+    public function blog_read($id)
     {
-        return view('frontend.blog_read');
+        $blog = Blog::findOrFail($id);
+        return view('frontend.blog_read', compact('blog'));
     }
 }

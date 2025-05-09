@@ -92,42 +92,55 @@
             </div>
     
             <div class="auction-carousel-wrapper" data-aos="fade-up" data-aos-delay="200">
-                <button class="auction-nav prev">
-                    <img src="{{asset('assets/images/previous.png')}}" class="mb-1" style="margin-right:3px" alt="">
-                </button>
+                @if($auctions->isNotEmpty())
+                    <button class="auction-nav prev">
+                        <img src="{{asset('assets/images/previous.png')}}" class="mb-1" style="margin-right:3px" alt="">
+                    </button>
+                @endif
+
                 <div class="row auction-carousel">
-                    @foreach($auctions as $auction)
-                        <div class="col-lg-4 col-md-6">
-                            <div class="auction-card">
-                                <div class="today-content">
-                                    <div class="today-logo">
-                                        <img src="{{ $auction->auction_image
-                                        ? (str_contains($auction->auction_image, 'drive.google.com')
-                                            ? str_replace('/uc?', '/thumbnail?', $auction->auction_image)
-                                            : $auction->auction_image)
-                                        : asset('assets/images/today/first.png') }}" class="auction-logo"
-                                            id="auction_image" alt="not working">
-                                    </div>
-                                    <div class="today-head">
-                                        <h4 class="auction-title">{{ Str::limit($auction->auction_name, 10) }}</h4>
-                                        <div class="today-date">
-                                            <i class="bi bi-calendar-fill"></i>
-                                            <p class="auction-date">{{ \Carbon\Carbon::parse($auction->auction_date)->format('d-m-Y') }}</p>
+                    @if($auctions->isNotEmpty())
+                        @foreach($auctions as $auction)
+                            <div class="col-lg-4 col-md-6">
+                                <div class="auction-card">
+                                    <div class="today-content">
+                                        <div class="today-logo">
+                                            <img src="{{ $auction->auction_image
+                                            ? (str_contains($auction->auction_image, 'drive.google.com')
+                                                ? str_replace('/uc?', '/thumbnail?', $auction->auction_image)
+                                                : $auction->auction_image)
+                                            : asset('assets/images/today/first.png') }}" class="auction-logo"
+                                                id="auction_image" alt="not working">
+                                        </div>
+                                        <div class="today-head">
+                                            <h4 class="auction-title">{{ Str::limit($auction->auction_name, 10) }}</h4>
+                                            <div class="today-date">
+                                                <i class="bi bi-calendar-fill"></i>
+                                                <p class="auction-date">{{ \Carbon\Carbon::parse($auction->auction_date)->format('d-m-Y') }}</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                        @else
+                        <p class="text-  text-muted" style="font-size: 1.2rem; padding: 20px;">Today no auction.</p>
+                    @endif
                 </div>
-                <button class="auction-nav next">
-                    <img src="{{asset('assets/images/next.png')}}" class="mb-1" style="margin-left: 3px;" alt="">
-                </button>
+
+                @if($auctions->isNotEmpty())
+                    <button class="auction-nav next">
+                        <img src="{{asset('assets/images/next.png')}}" class="mb-1" style="margin-left: 3px;" alt="">
+                    </button>
+                @endif
             </div>
 
-            <div class="view-all" data-aos="fade-up" data-aos-delay="300">
-                <a href="{{route('auctionlist.today')}}">View All</a>
-            </div>
+            @if($auctions->isNotEmpty())
+                <div class="view-all" data-aos="fade-up" data-aos-delay="300">
+                    <a href="{{route('auctionlist.today')}}">View All</a>
+                </div>
+            @endif
+
         </div>
         
     </section>
@@ -888,7 +901,7 @@
         }
     </script><!-- /Video Section -->
 
-    <!-- Pricing Section -->
+    <!-- pricing and testimonial Section -->
     <section id="pricing" class="section pricing">
         <div class="container">
             <div class="section-title" data-aos="fade-up" data-aos-delay="100">
@@ -991,9 +1004,10 @@
                 <div class="testimonial-carousel-wrapper mt-3">
                     <div class="arrow left-arrow" onclick="prevTestimonial()"><i class="bi bi-chevron-left"></i></div>
                         <div class="testimonial-quote meh" id="quote">
-                            <h3 id="quote-heading">What Our Customers Are Saying</h3>
+                            <h3 id="quote-heading">{{ $testimonials[0]->title }}</h3>
                             <p id="quote-text">
-                                "An adventure for the curious mind. Every click led to a new discovery. It's like a digital journey through the wonders of the internet."
+                                "{!! nl2br(e($testimonials[0]->review)) !!}"
+
                             </p>
                         </div>
                     <div class="arrow right-arrow" onclick="nextTestimonial()"><i class="bi bi-chevron-right"></i></div>
@@ -1001,15 +1015,18 @@
                 <div class="testimonial-carousel">
                     <div class="carousel-logo prev-logos" id="prev-logos"></div>
                     <div class="carousel-logo current" id="current-logo">
-                        <img src="https://i.pravatar.cc/80?img=12" id="profile-img" alt="User">
-                        <div class="profile-name" id="profile-name">Ethan</div>
-                        <div class="profile-rating" id="profile-rating"></div>
+                        <img src="{{ asset($testimonials[0]->image) }}" id="profile-img" alt="User">
+                        <div class="profile-name" id="profile-name">{{ $testimonials[0]->name }}</div>
+                        <div class="profile-rating" id="profile-rating">
+                            {!! str_repeat('<i class="bi bi-star-fill"></i>', $testimonials[0]->rating) !!}
+                            {!! str_repeat('<i class="bi bi-star"></i>', 5 - $testimonials[0]->rating) !!}
+                        </div>
                     </div>
                     <div class="carousel-logo next-logos" id="next-logos"></div>
                 </div>
             </div>     
         </div>
-    </section><!-- /Pricing Section -->
+    </section><!-- /pricing and testimonial Section -->
 
     <!-- Contact Us Section -->
     <section id="contactus" class="section contactus">
@@ -1089,37 +1106,19 @@
 @endsection
 @push('scripts')
 <script>
-    const testimonials = [
-        {
-            heading: "What Our Customers Are Saying",
-            quote: "An adventure for the curious mind. Every click led to a new discovery. It's like a digital journey through the wonders of the internet.",
-            name: "Ethan",
-            rating: 5,
-            img: "https://i.pravatar.cc/80?img=12"
-        },
-        {
-            heading: "How It Changed Our Workflow",
-            quote: "With CricAuction, we easily managed teams, players, and live bids in one place. The real-time auction feature and YouTube streaming made the event exciting for everyone!",
-            name: "Sophia",
-            rating: 5,
-            img: "https://i.pravatar.cc/80?img=15"
-        },
-        {
-            heading: "Reliable and Fast Support",
-            quote: "Their service is exceptional. Fast, reliable, and incredibly helpful support team.",
-            name: "Liam",
-            rating: 3,
-            img: "https://i.pravatar.cc/80?img=11"
-        }
-    ];
-
+    const testimonials = @json($testimonials);
     let index = 0;
 
     function showTestimonial(i) {
-        document.getElementById("quote-heading").textContent = testimonials[i].heading;
-        document.getElementById("quote-text").textContent = testimonials[i].quote;
+        const defaultImage = 'public/assets/images/gallery/demo_video.jpg'; 
+
+        const imagePath = testimonials[i].image;
+        const imageUrl = testimonials[i].image ? '/storage/app/public/' + testimonials[i].image : defaultImage;
+
+        document.getElementById("quote-heading").textContent = testimonials[i].title;
+        document.getElementById("quote-text").textContent = testimonials[i].review;
         document.getElementById("profile-name").textContent = testimonials[i].name;
-        document.getElementById("profile-img").src = testimonials[i].img;
+        document.getElementById("profile-img").src = imageUrl;
 
         const ratingContainer = document.getElementById("profile-rating");
         const stars = [];
@@ -1132,23 +1131,23 @@
         }
         ratingContainer.innerHTML = stars.join("");
 
-        // Update Previous Logos
         let prevLogosContainer = document.getElementById("prev-logos");
         prevLogosContainer.innerHTML = "";
         for (let j = 1; j <= 2; j++) {
             const prevIndex = (i - j + testimonials.length) % testimonials.length;
             const logo = document.createElement("img");
-            logo.src = testimonials[prevIndex].img;
+            const prevImageUrl = testimonials[prevIndex].image ? '/storage/' + testimonials[prevIndex].image : defaultImage;
+            logo.src = prevImageUrl;
             prevLogosContainer.appendChild(logo);
         }
 
-        // Update Next Logos
         let nextLogosContainer = document.getElementById("next-logos");
         nextLogosContainer.innerHTML = "";
         for (let k = 1; k <= 2; k++) {
             const nextIndex = (i + k) % testimonials.length;
             const logo = document.createElement("img");
-            logo.src = testimonials[nextIndex].img;
+            const nextImageUrl = testimonials[nextIndex].image ? '/storage/' + testimonials[nextIndex].image : defaultImage;
+            logo.src = nextImageUrl;
             nextLogosContainer.appendChild(logo);
         }
     }
@@ -1175,5 +1174,4 @@
         autoSlide = setInterval(nextTestimonial, 5000);
     });
 </script>
-
 @endpush

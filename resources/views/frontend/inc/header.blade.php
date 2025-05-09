@@ -81,17 +81,17 @@
 
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li><a href="{{ route('welcome', ['section' => 'hero']) }}" class="active">Home</a></li>
-                    <li><a href="{{ route('auctionlist.today')}}">Today's Auctions</a></li>
+                    <li><a href="{{ route('welcome', ['section' => 'hero']) }}" class="{{ request()->routeIs('welcome') && request()->get('section') == 'hero' ? 'active' : '' }}">Home</a></li>
+                    <li><a href="{{ route('auctionlist.today')}}" class="{{ request()->routeIs('auctionlist.today') ? 'active' : '' }}">Today's Auctions</a></li>
                     {{-- <li><a href="{{ route('welcome', ['section' => 'auctions']) }}">Auctions</a></li> --}}
-                    <li><a href="{{ route('video_gallery')}}">video Gallery</a></li>
-                    <li><a href="{{ route('auctionlist.upcoming')}}">Upcoming Auctions</a></li>
-                    <li><a href="{{ route('blogs')}}">Blogs</a></li>
-                    <li><a href="{{ route('faq')}}">Faqs</a></li>
-                    <li><a href="{{ route('welcome', ['section' => 'features']) }}">Features</a></li>
-                    <li><a href="{{ route('welcome', ['section' => 'help']) }}">Help</a></li>
-                    <li><a href="{{ route('welcome', ['section' => 'pricing']) }}">Pricing</a></li>
-                    <li><a href="{{ route('welcome', ['section' => 'contactus']) }}">Contact Us</a></li>
+                    <li><a href="{{ route('video_gallery')}}" class="{{ request()->routeIs('video_gallery') ? 'active' : '' }}">Video Gallery</a></li>
+                    <li><a href="{{ route('auctionlist.upcoming')}}" class="{{ request()->routeIs('auctionlist.upcoming') ? 'active' : '' }}">Upcoming Auctions</a></li>
+                    <li><a href="{{ route('blogs')}}" class="{{ request()->routeIs('blogs') ? 'active' : '' }}">Blogs</a></li>
+                    <li><a href="{{ route('faq')}}" class="{{ request()->routeIs('faq') ? 'active' : '' }}">FAQs</a></li>
+                    <li><a href="{{ route('welcome', ['section' => 'features']) }}" class="{{ request()->routeIs('welcome') && request()->get('section') == 'features' ? 'active' : '' }}">Features</a></li>
+                    <li><a href="{{ route('welcome', ['section' => 'help']) }}" class="{{ request()->routeIs('welcome') && request()->get('section') == 'help' ? 'active' : '' }}">Help</a></li>
+                    <li><a href="{{ route('welcome', ['section' => 'pricing']) }}" class="{{ request()->routeIs('welcome') && request()->get('section') == 'pricing' ? 'active' : '' }}">Pricing</a></li>
+                    <li><a href="{{ route('welcome', ['section' => 'contactus']) }}" class="{{ request()->routeIs('welcome') && request()->get('section') == 'contactus' ? 'active' : '' }}">Contact Us</a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>

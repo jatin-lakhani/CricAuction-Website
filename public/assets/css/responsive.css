@@ -1159,6 +1159,13 @@
     .orgament-secondup-img img{
         width: 0px;
     }
+    .video-tab{
+        padding: 10px 35px;
+        font-size: 15px;
+    }
+    /* .video-tab + .video-tab {
+        margin-left: -12px;
+    } */
 }
 
 @media screen and (max-width:768px) {

@@ -30,6 +30,6 @@ Route::get('/auctionlist-upcoming', [Homecontroller::class,'auctionlist_upcoming
 
 Route::get('/video-gallery', [Homecontroller::class,'video_gallery'])->name('video_gallery');
 Route::get('/blogs', [Homecontroller::class,'blogs'])->name('blogs');
-Route::get('/blog-read', [Homecontroller::class,'blog_read'])->name('blog_read');
+Route::get('/blog-read/{id}', [Homecontroller::class,'blog_read'])->name('blog_read');
 
-Route::get('/faq', [Homecontroller::class,'faq'])->name('faq');
+Route::get('/faq', [Homecontroller::class,'faqPage'])->name('faq');

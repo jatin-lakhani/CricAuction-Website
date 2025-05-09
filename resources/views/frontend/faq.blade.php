@@ -15,102 +15,86 @@
                 </div>
             </div>
           
-            <div class="faq-section">
-                <div class="faq-item">
-                    <div class="faq-question" onclick="this.classList.toggle('active')">
-                        How can I join a cricket tournament?
-                        <span class="arrow-icon"> <i class="bi bi-chevron-down arrow-icon"></i></span>
+            <div class="faq-section" data-aos="fade-up" data-aos-delay="200">
+                @forelse($faqs as $faq)
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="this.classList.toggle('active')">
+                            {{ $faq->question }}
+                            <span class="arrow-icon"> <i class="bi bi-chevron-down arrow-icon"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>{!! nl2br(e($faq->answer)) !!}</p>
+                        </div>
                     </div>
-                    <div class="faq-answer">
-                        <p>We accept returns within 30 days of purchase. Items must be unused and in original packaging.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="this.classList.toggle('active')">
-                        Is my tournament data secure?
-                        <span class="arrow-icon"> <i class="bi bi-chevron-down arrow-icon"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Creating a new auction on the Cricket Auction App is simple and fast. First, log in to your
-                        account on the app or website. Once logged in, go to the dashboard and tap on “Create Auction” or “New Tournament”. You’ll be asked to enter important details like the tournament name, location, date, and format.
-                        Next, you can customize your auction settings—choose the base price for players, set bid increments, assign team budgets, and decide the maximum number of players per team. After saving the settings, you’ll get a unique tournament code which you can share with participants so they can join. Once the setup is complete, you’re ready to start adding teams and players, and begin the live auction when you're ready!</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="this.classList.toggle('active')">
-                        How does live bidding work?
-                        <span class="arrow-icon"> <i class="bi bi-chevron-down arrow-icon"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, we ship to over 50 countries. Shipping fees and delivery time depend on your location.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="this.classList.toggle('active')">
-                        Can I manage teams and players?                
-                        <span class="arrow-icon"> <i class="bi bi-chevron-down arrow-icon"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, we ship to over 50 countries. Shipping fees and delivery time depend on your location.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="this.classList.toggle('active')">
-                        Is there a web version of the app?                
-                        <span class="arrow-icon"> <i class="bi bi-chevron-down arrow-icon"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, we ship to over 50 countries. Shipping fees and delivery time depend on your location.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="this.classList.toggle('active')">
-                        Can I import player data in bulk?                
-                        <span class="arrow-icon"> <i class="bi bi-chevron-down arrow-icon"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, we ship to over 50 countries. Shipping fees and delivery time depend on your location.</p>
-                    </div>
-                </div>
+                @empty
+                    <p>No FAQs available at this time.</p>
+                @endforelse
             </div>
+            
         </div>
     </section>
 </main>
 @endsection
-@push('script')
+@push('scripts')
 <script>
-  const faqQuestions = document.querySelectorAll('.faq-question');
-  const faqAnswers = document.querySelectorAll('.faq-answer');
+document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('faqSearchInput');
+    const faqItems = document.querySelectorAll('.faq-item');
 
-  faqQuestions.forEach(question => {
-    question.addEventListener('click', function () {
-      // Close all others
-      faqQuestions.forEach(q => {
-        if (q !== this) {
-          q.classList.remove('active');
-          q.nextElementSibling.style.display = 'none';
-        }
-      });
-
-      // Toggle current
-      const answer = this.nextElementSibling;
-      const isActive = this.classList.contains('active');
-      this.classList.toggle('active', !isActive);
-      answer.style.display = !isActive ? 'block' : 'none';
+    // Initially hide all answers
+    faqItems.forEach(item => {
+        item.querySelector('.faq-answer').style.display = 'none';
     });
-  });
 
-  // Search Filter
-  const searchInput = document.getElementById('faqSearchInput');
-  searchInput.addEventListener('keyup', function () {
-    const keyword = this.value.toLowerCase();
-    faqQuestions.forEach(q => {
-      const text = q.textContent.toLowerCase();
-      const item = q.closest('.faq-item');
-      item.style.display = text.includes(keyword) ? 'block' : 'none';
+    // Click toggle
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+
+        question.addEventListener('click', function () {
+            // Hide all other answers
+            faqItems.forEach(other => {
+                if (other !== item) {
+                    other.querySelector('.faq-answer').style.display = 'none';
+                    other.querySelector('.faq-question').classList.remove('active');
+                }
+            });
+
+            // Toggle current
+            const isVisible = answer.style.display === 'block';
+            answer.style.display = isVisible ? 'none' : 'block';
+            question.classList.toggle('active', !isVisible);
+        });
     });
-  });
+
+    // Create and insert 'No results' message
+    const noResult = document.createElement('p');
+    noResult.id = 'noResult';
+    noResult.textContent = 'No FAQs  found.';
+    noResult.style.display = 'none';
+    noResult.style.marginTop = '20px';
+    document.querySelector('.faq-section').appendChild(noResult);
+
+    // Search filter
+    searchInput.addEventListener('input', function () {
+        const keyword = this.value.toLowerCase().trim();
+        let found = false;
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question').textContent.toLowerCase();
+            if (question.includes(keyword)) {
+                item.style.display = 'block';
+                found = true;
+            } else {
+                item.style.display = 'none';
+            }
+            item.querySelector('.faq-answer').style.display = 'none'; // hide answer on search
+            item.querySelector('.faq-question').classList.remove('active');
+        });
+
+        noResult.style.display = found ? 'none' : 'block';
+    });
+});
 </script>
-
-
 @endpush
+
