@@ -34,10 +34,10 @@
                 <nav id="navmenu" style="cursor: pointer;">
                     <ul>
                         <li><a href="{{ route('welcome', ['section' => 'contactus']) }}">Contact Us</a></li>
-                        <li><a href="{{route('privacy')}}">Privacy Policy</a></li>
-                        <li><a href="{{route('terms')}}">Terms & Conditions</a></li>
-                        <li><a href="/cancel">Cancellation & Refund</a></li>
-                        <li><a href="/shipping">Shipping & Delivery</a></li>
+                        <li><a href="{{ route('privacy') }}">Privacy Policy</a></li>
+                        <li><a href="{{ route('terms') }}">Terms & Conditions</a></li>
+                        <li><a href="{{ route('cancel') }}">Cancellation & Refund</a></li>
+                        <li><a href="{{ route('shipping') }}">Shipping & Delivery</a></li>
                     </ul>
                 </nav>
             </div>
@@ -230,23 +230,29 @@
         const prevBtn = document.querySelector('.auction-nav.prev');
         const nextBtn = document.querySelector('.auction-nav.next');
         const carousel = document.querySelector('.auction-carousel');
-    
+
         if (prevBtn && carousel) {
             prevBtn.addEventListener('click', () => {
-                carousel.scrollBy({ left: -320, behavior: 'smooth' });
+                carousel.scrollBy({
+                    left: -320,
+                    behavior: 'smooth'
+                });
             });
         }
-    
+
         if (nextBtn && carousel) {
             nextBtn.addEventListener('click', () => {
-                carousel.scrollBy({ left: 320, behavior: 'smooth' });
+                carousel.scrollBy({
+                    left: 320,
+                    behavior: 'smooth'
+                });
             });
         }
     });
 </script>
-    
 
-{{-- count up number section js--}}
+
+{{-- count up number section js --}}
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const counters = document.querySelectorAll('.count-up');
@@ -289,17 +295,23 @@
 
 <script>
     var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 3,
-      spaceBetween: 30,
-      grabCursor: true, // for nice hand cursor effect
-      loop: true,
-      breakpoints: {
-        0: { slidesPerView: 1 },
-        768: { slidesPerView: 2 },
-        992: { slidesPerView: 3 }
-      }
+        slidesPerView: 3,
+        spaceBetween: 30,
+        grabCursor: true, // for nice hand cursor effect
+        loop: true,
+        breakpoints: {
+            0: {
+                slidesPerView: 1
+            },
+            768: {
+                slidesPerView: 2
+            },
+            992: {
+                slidesPerView: 3
+            }
+        }
     });
-</script>    
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async></script>

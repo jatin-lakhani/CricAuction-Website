@@ -54,7 +54,7 @@
 <body class="index-page">
 
     <header id="header" class="header align-items-center fixed-top">
-        <div class="position-relative  align-items-center heading-top" style="display: none;">
+        <div class="position-relative  align-items-center heading-top">
             <ul>
                 <span>"Welcome to Cricauction—start bidding on exclusive cricket memorabilia now!"</span>
                 <li><a href="tel:+917698767767"><i class="bi bi-telephone"></i>+91 76 98 767 767</a></li>
@@ -67,31 +67,13 @@
                 <h1><span>Cric</span>Auction<sup>TM</sup></h1>
             </a>
 
-            {{-- <nav id="navmenu" class="navmenu">
-                <ul>
-                    <li><a href="{{ route('welcome') }}"class="active">Home</a></li>
-                    <li><a href="{{ route('welcome') }}#auctions">Auctions</a></li>
-                    <li><a href="{{ route('welcome') }}#features">Features</a></li>
-                    <li><a href="{{ route('welcome') }}#help">Help</a></li>
-                    <li><a href="{{ route('welcome') }}#pricing">Pricing</a></li>
-                    <li><a href="{{ route('welcome') }}#contactus">Contact Us</a></li>
-                </ul>
-                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-            </nav> --}}
-
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li><a href="{{ route('welcome', ['section' => 'hero']) }}" class="{{ request()->routeIs('welcome') && request()->get('section') == 'hero' ? 'active' : '' }}">Home</a></li>
+                    <li><a href="{{ route('welcome')}}" class="{{ request()->routeIs('welcome') ? 'active' : '' }}">Home</a></li>
                     <li><a href="{{ route('auctionlist.today')}}" class="{{ request()->routeIs('auctionlist.today') ? 'active' : '' }}">Today's Auctions</a></li>
-                    {{-- <li><a href="{{ route('welcome', ['section' => 'auctions']) }}">Auctions</a></li> --}}
-                    <li><a href="{{ route('video_gallery')}}" class="{{ request()->routeIs('video_gallery') ? 'active' : '' }}">Video Gallery</a></li>
                     <li><a href="{{ route('auctionlist.upcoming')}}" class="{{ request()->routeIs('auctionlist.upcoming') ? 'active' : '' }}">Upcoming Auctions</a></li>
+                    <li><a href="{{ route('video_gallery')}}" class="{{ request()->routeIs('video_gallery') ? 'active' : '' }}">Video Gallery</a></li>
                     <li><a href="{{ route('blogs')}}" class="{{ request()->routeIs('blogs') ? 'active' : '' }}">Blogs</a></li>
-                    <li><a href="{{ route('faq')}}" class="{{ request()->routeIs('faq') ? 'active' : '' }}">FAQs</a></li>
-                    <li><a href="{{ route('welcome', ['section' => 'features']) }}" class="{{ request()->routeIs('welcome') && request()->get('section') == 'features' ? 'active' : '' }}">Features</a></li>
-                    <li><a href="{{ route('welcome', ['section' => 'help']) }}" class="{{ request()->routeIs('welcome') && request()->get('section') == 'help' ? 'active' : '' }}">Help</a></li>
-                    <li><a href="{{ route('welcome', ['section' => 'pricing']) }}" class="{{ request()->routeIs('welcome') && request()->get('section') == 'pricing' ? 'active' : '' }}">Pricing</a></li>
-                    <li><a href="{{ route('welcome', ['section' => 'contactus']) }}" class="{{ request()->routeIs('welcome') && request()->get('section') == 'contactus' ? 'active' : '' }}">Contact Us</a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>

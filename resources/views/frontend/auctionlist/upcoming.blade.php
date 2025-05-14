@@ -8,18 +8,18 @@
                     <h1><span>Upcoming</span> Auctions</h1>
                     <div class="">
                         <button id="prevBtn" class="player-button">
-                            <img src="{{asset('assets/images/previous.png')}}" alt="">
+                            <img src="{{ asset('assets/images/previous.png') }}" alt="">
                         </button>
                         <button id="nextBtn" class="player-button">
-                            <img src="{{asset('assets/images/next.png')}}" alt="">
+                            <img src="{{ asset('assets/images/next.png') }}" alt="">
                         </button>
                     </div>
                 </div>
                 <div id="team-rows" data-aos="fade-up" data-aos-delay="150">
-                    @foreach($upcoming_auctions->chunk(6) as $chunk)
+                    @foreach ($upcoming_auctions->chunk(6) as $chunk)
                         <div class="team-row">
                             <div class="row custom-changes">
-                                @foreach($chunk as $auction)
+                                @foreach ($chunk as $auction)
                                     <div class="col-lg-6 col-md-12">
                                         <div class="card card-list-player">
                                             <div class="team-content">
@@ -28,7 +28,8 @@
                                                         ? (str_contains($auction->auction_image, 'drive.google.com')
                                                             ? str_replace('/uc?', '/thumbnail?', $auction->auction_image)
                                                             : $auction->auction_image)
-                                                        : asset('assets/images/auction/Auc-2.png') }}" alt="">
+                                                        : asset('assets/images/auction/Auc-2.png') }}"
+                                                        alt="">
                                                 </div>
                                                 <div class="team-detail">
                                                     <h2>{{ Str::limit($auction->auction_name, 45) }}</h2>
@@ -48,7 +49,15 @@
                                                         <div class="col-6">
                                                             <div class="team-subcontent">
                                                                 <i class="bi bi-clock"></i>
-                                                                <p>{{ \Carbon\Carbon::parse($auction->auction_time)->format('g:i A') }}</p>
+                                                                <p>{{ \Carbon\Carbon::parse($auction->auction_time)->format('g:i A') }}
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <div class="team-subcontent">
+                                                                <i class="bi bi-calendar"></i>
+                                                                {{ \Carbon\Carbon::parse($auction->auction_date)->format('d-m-Y') }}
+                                                                </p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -65,53 +74,52 @@
                         </div>
                     @endforeach
                 </div>
-                
+
             </div>
         </section>
     </main>
 @endsection
 @push('scripts')
-<script>
-    let currentIndex = 0;
+    <script>
+        let currentIndex = 0;
 
-    function showTeamRow(index) {
-        const rows = document.querySelectorAll('#team-rows .team-row');
+        function showTeamRow(index) {
+            const rows = document.querySelectorAll('#team-rows .team-row');
 
-        rows.forEach((row, i) => {
-            row.classList.remove('show');
-            row.style.display = 'none';
+            rows.forEach((row, i) => {
+                row.classList.remove('show');
+                row.style.display = 'none';
+            });
+
+            const activeRow = rows[index];
+            activeRow.style.display = 'flex';
+
+            // Trigger animation
+            setTimeout(() => {
+                activeRow.classList.add('show');
+            }, 10);
+
+            // Update button states
+            document.getElementById('prevBtn').disabled = index === 0;
+            document.getElementById('nextBtn').disabled = index === rows.length - 1;
+        }
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            const rows = document.querySelectorAll('#team-rows .team-row');
+            if (currentIndex < rows.length - 1) {
+                currentIndex++;
+                showTeamRow(currentIndex);
+            }
         });
 
-        const activeRow = rows[index];
-        activeRow.style.display = 'flex';
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                showTeamRow(currentIndex);
+            }
+        });
 
-        // Trigger animation
-        setTimeout(() => {
-            activeRow.classList.add('show');
-        }, 10);
-
-        // Update button states
-        document.getElementById('prevBtn').disabled = index === 0;
-        document.getElementById('nextBtn').disabled = index === rows.length - 1;
-    }
-
-    document.getElementById('nextBtn').addEventListener('click', () => {
-        const rows = document.querySelectorAll('#team-rows .team-row');
-        if (currentIndex < rows.length - 1) {
-            currentIndex++;
-            showTeamRow(currentIndex);
-        }
-    });
-
-    document.getElementById('prevBtn').addEventListener('click', () => {
-        if (currentIndex > 0) {
-            currentIndex--;
-            showTeamRow(currentIndex);
-        }
-    });
-
-    // Initial load
-    showTeamRow(currentIndex);
-</script>
-
+        // Initial load
+        showTeamRow(currentIndex);
+    </script>
 @endpush
