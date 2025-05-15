@@ -20,11 +20,20 @@
                 <strong class="h4">Quick Links</strong>
                 <nav id="navmenu" style="cursor: pointer;">
                     <ul>
-                        <li><a href="{{ route('welcome', ['section' => 'hero']) }}" class="active">Home</a></li>
-                        <li><a href="{{ route('welcome', ['section' => 'auctions']) }}">Auctions</a></li>
-                        <li><a href="{{ route('welcome', ['section' => 'features']) }}">Features</a></li>
-                        <li><a href="{{ route('welcome', ['section' => 'help']) }}">Help</a></li>
-                        <li><a href="{{ route('welcome', ['section' => 'pricing']) }}">Pricing</a></li>
+                        <li><a href="{{ route('welcome') }}" class="active">Home</a></li>
+                        <li><a href="{{ route('auctionlist.today') }}"
+                                class="{{ request()->routeIs('auctionlist.today') ? 'active' : '' }}">Today's
+                                Auctions</a></li>
+                        <li><a href="{{ route('auctionlist.upcoming') }}"
+                                class="{{ request()->routeIs('auctionlist.upcoming') ? 'active' : '' }}">Upcoming
+                                Auctions</a></li>
+                        <li><a href="{{ route('video_gallery') }}"
+                                class="{{ request()->routeIs('video_gallery') ? 'active' : '' }}">Video Gallery</a>
+                        </li>
+                        <li><a href="{{ route('blogs') }}"
+                                class="{{ request()->routeIs('blogs') ? 'active' : '' }}">Blogs</a></li>
+                        <li><a href="{{ route('faq') }}"
+                                class="{{ request()->routeIs('faq') ? 'active' : '' }}">Faqs</a></li>
                     </ul>
                 </nav>
             </div>

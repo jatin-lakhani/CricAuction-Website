@@ -6,7 +6,7 @@
             <div class="container">
                 <div class="previous-next-head" data-aos="fade-up" data-aos-delay="100">
                     <h1><span>Today's Player</span> Auctions</h1>
-                    <div class="">
+                    <div class="auction-btns">
                         <button id="prevBtn" class="player-button" disabled>
                             <img src="{{asset('assets/images/previous.png')}}" alt="">
                         </button>

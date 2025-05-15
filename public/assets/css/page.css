@@ -60,36 +60,6 @@
     margin-left: 35px;
 }
 
-@media (max-width:768px) {
-    .data-content .inter-heading {
-        font-size: 1.25rem;
-    }
-
-    .data-content .sub-heading {
-        font-size: 1.5rem;
-    }
-}
-
-@media (max-width:425px) {
-    .data-content .inter-heading {
-        font-size: 1.2rem;
-    }
-
-    .data-content .sub-heading {
-        font-size: 1.25rem;
-    }
-
-    .data-content p {
-        font-size: 15px;
-    }
-
-    .privacy-heading img {
-        width: 35px;
-        height: 35px;
-    }
-}
-
-
 /* auction list page css */
 .team-row {
     display: none;
@@ -113,8 +83,10 @@ button:disabled i {
     row-gap: 25px;
 }
 
-.player-today .container {
-    padding: 50px 0;
+.auction-btns{
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .player-today {
@@ -123,6 +95,11 @@ button:disabled i {
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
+}
+
+.player-today,
+.blog-sec {
+    padding: 100px 0 50px 0;
 }
 
 .player-today h1 {
@@ -148,7 +125,7 @@ button:disabled i {
 
 .team-content {
     display: flex;
-    align-items: start;
+    align-items: center;
     padding: 15px;
     gap: 20px;
 }
@@ -176,7 +153,7 @@ button:disabled i {
     gap: 10px;
     font-family: var(--nav-font);
     font-weight: 600;
-    font-size: 17px;
+    font-size: 18px;
     line-height: 36px;
     letter-spacing: 0px;
     text-transform: capitalize;
@@ -184,6 +161,12 @@ button:disabled i {
 
 .team-subcontent p {
     margin-bottom: 0px;
+}
+
+.team-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .team-location {
@@ -524,6 +507,35 @@ button:disabled i {
     /* chevron-down becomes up */
 }
 
-.privacy-sec .container{
-    padding-top: 40px;
+.privacy-sec {
+    padding-top: 80px;
+}
+
+@media (max-width:768px) {
+    .data-content .inter-heading {
+        font-size: 1.25rem;
+    }
+
+    .data-content .sub-heading {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width:425px) {
+    .data-content .inter-heading {
+        font-size: 1.2rem;
+    }
+
+    .data-content .sub-heading {
+        font-size: 1.25rem;
+    }
+
+    .data-content p {
+        font-size: 15px;
+    }
+
+    .privacy-heading img {
+        width: 35px;
+        height: 35px;
+    }
 }

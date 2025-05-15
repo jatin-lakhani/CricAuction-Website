@@ -6,7 +6,7 @@
             <div class="container">
                 <div class="previous-next-head" data-aos="fade-up" data-aos-delay="100">
                     <h1><span>Upcoming</span> Auctions</h1>
-                    <div class="">
+                    <div class="auction-btns">
                         <button id="prevBtn" class="player-button">
                             <img src="{{ asset('assets/images/previous.png') }}" alt="">
                         </button>
@@ -32,7 +32,7 @@
                                                         alt="">
                                                 </div>
                                                 <div class="team-detail">
-                                                    <h2>{{ Str::limit($auction->auction_name, 45) }}</h2>
+                                                    <h2>{{ Str::limit($auction->auction_name, 25) }}</h2>
                                                     <div class="row">
                                                         <div class="col-6">
                                                             <div class="team-subcontent">

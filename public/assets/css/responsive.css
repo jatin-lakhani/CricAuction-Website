@@ -328,6 +328,15 @@
     .pricing .pricing-details .card .circle {
         padding-top: 60px;
     }
+
+    .team-detail {
+        gap: 0px;
+    }
+
+    .team-detail h2 {
+        font-size: 26px;
+        line-height: 28px;
+    }
 }
 
 @media (max-width:1280px) {
