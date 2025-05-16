@@ -508,6 +508,15 @@ button:disabled i {
     padding-top: 80px;
 }
 
+.card-img-top1 {
+    background: none !important;
+    border: none !important;
+    border-radius: 10px !important;
+    box-shadow: -4px -4px 10px 0px #A9777733;
+    height: 250px;
+    width: 100%;
+}
+
 @media (max-width:768px) {
     .data-content .inter-heading {
         font-size: 1.25rem;

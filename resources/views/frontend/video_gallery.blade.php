@@ -30,7 +30,7 @@
                                     <a href="{{ $video->url }}" target="_blank" class="card-link">
                                         <div class="card-auction-video h-100">
                                             <div class="video-thumbnail-wrapper">
-                                                <img class="card-img-top"
+                                                <img class="card-img-top1"
                                                     src="{{ filter_var($video->thumb_image, FILTER_VALIDATE_URL) ? $video->thumb_image : ($video->thumb_image ? asset('storage/' . $video->thumb_image) : asset('assets/images/gallery/demo_video.jpg')) }}"
                                                     alt="">
                                                 <img class="play-button"
