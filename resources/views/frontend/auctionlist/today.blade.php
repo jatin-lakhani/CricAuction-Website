@@ -8,64 +8,71 @@
                     <h1><span>Today's Player</span> Auctions</h1>
                     <div class="auction-btns">
                         <button id="prevBtn" class="player-button" disabled>
-                            <img src="{{asset('assets/images/previous.png')}}" alt="">
+                            <img src="{{ asset('assets/images/previous.png') }}" alt="">
                         </button>
                         <button id="nextBtn" class="player-button" disabled>
-                            <img src="{{asset('assets/images/next.png')}}" alt="">
+                            <img src="{{ asset('assets/images/next.png') }}" alt="">
                         </button>
                     </div>
                 </div>
                 <div id="team-rows" data-aos="fade-up" data-aos-delay="150">
-                    @if($today_auctions->isNotEmpty())
-                            @foreach($today_auctions->chunk(6) as $chunk)
+                    @if ($today_auctions->isNotEmpty())
+                        @foreach ($today_auctions->chunk(6) as $chunk)
                             <div class="team-row">
                                 <div class="row custom-changes">
-                                    @foreach($chunk as $auction)
+                                    @foreach ($chunk as $auction)
                                         <div class="col-lg-6 col-md-12">
-                                            <div class="card card-list-player">
-                                                <div class="team-content">
-                                                    <div class="team-image">
-                                                        <img src="{{ $auction->auction_image
-                                                            ? (str_contains($auction->auction_image, 'drive.google.com')
-                                                                ? str_replace('/uc?', '/thumbnail?', $auction->auction_image)
-                                                                : $auction->auction_image)
-                                                            : asset('assets/images/auction/Auc-2.png') }}" alt="">
-                                                    </div>
-                                                    <div class="team-detail">
-                                                        <h2>{{ $auction->auction_name }}</h2>
-                                                        <div class="row">
-                                                            <div class="col-6">
-                                                                <div class="team-subcontent">
-                                                                    <i class="bi bi-people"></i>
-                                                                    <p>{{ $auction->player_per_team ?? 'N/A' }} Players/Team</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-6">
-                                                                <div class="team-subcontent">
-                                                                    <i class="bi bi-award"></i>
-                                                                    <p>{{ $auction->points_par_team ?? '100' }} points</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-6">
-                                                                <div class="team-subcontent">
-                                                                    <i class="bi bi-clock"></i>
-                                                                    <p>{{ \Carbon\Carbon::parse($auction->auction_time)->format('g:i A') }}</p>
-                                                                </div>
-                                                            </div>
+                                            <a href="https://cricauction.live/auctions/#/find-auction/?auctionCode={{ $auction->auction_code }}"
+                                                class="text-decoration-none" target="_blank">
+                                                <div class="card card-list-player">
+                                                    <div class="team-content">
+                                                        <div class="team-image">
+                                                            <img src="{{ $auction->auction_image
+                                                                ? (str_contains($auction->auction_image, 'drive.google.com')
+                                                                    ? str_replace('/uc?', '/thumbnail?', $auction->auction_image)
+                                                                    : $auction->auction_image)
+                                                                : asset('assets/images/auction/Auc-2.png') }}"
+                                                                alt="">
                                                         </div>
-                                                        <div class="team-location">
-                                                            <i class="bi bi-geo-alt"></i>
-                                                            <p>{{ $auction->venue ?? 'N/A' }}</p>
+                                                        <div class="team-detail">
+                                                            <h2>{{ $auction->auction_name }}</h2>
+                                                            <div class="row">
+                                                                <div class="col-6">
+                                                                    <div class="team-subcontent">
+                                                                        <i class="bi bi-people"></i>
+                                                                        <p>{{ $auction->player_per_team ?? 'N/A' }}
+                                                                            Players/Team</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-6">
+                                                                    <div class="team-subcontent">
+                                                                        <i class="bi bi-award"></i>
+                                                                        <p>{{ $auction->points_par_team ?? '100' }} points
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-6">
+                                                                    <div class="team-subcontent">
+                                                                        <i class="bi bi-clock"></i>
+                                                                        <p>{{ \Carbon\Carbon::parse($auction->auction_time)->format('g:i A') }}
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="team-location">
+                                                                <i class="bi bi-geo-alt"></i>
+                                                                <p>{{ $auction->venue ?? 'N/A' }}</p>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </a>
                                         </div>
                                     @endforeach
                                 </div>
                             </div>
-                            @endforeach
-                        @else
+                        @endforeach
+                    @else
                         <p class="text-muted" style="font-size: 1.2rem;">Today no auction</p>
                     @endif
                 </div>

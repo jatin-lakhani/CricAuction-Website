@@ -83,7 +83,7 @@ button:disabled i {
     row-gap: 25px;
 }
 
-.auction-btns{
+.auction-btns {
     display: flex;
     align-items: center;
     gap: 20px;
@@ -100,6 +100,10 @@ button:disabled i {
 .player-today,
 .blog-sec {
     padding: 100px 0 50px 0;
+}
+
+.player-today .container {
+    padding: 0 5rem;
 }
 
 .player-today h1 {
@@ -125,7 +129,6 @@ button:disabled i {
 
 .team-content {
     display: flex;
-    align-items: center;
     padding: 15px;
     gap: 20px;
 }
@@ -161,12 +164,6 @@ button:disabled i {
 
 .team-subcontent p {
     margin-bottom: 0px;
-}
-
-.team-detail {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
 }
 
 .team-location {

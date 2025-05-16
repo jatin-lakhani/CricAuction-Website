@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Auction;
+use App\Models\Team;
+use App\Models\User;
 use Carbon\Carbon;
 use App\Models\Player;
 use Illuminate\Http\Request;
@@ -44,22 +46,30 @@ class AuctionController extends Controller
                 $pricing = $auction->pricing;
 
                 if ($pricing && $pricing->paymentStatus == 2) {
-                    return 999999; 
+                    return 999999;
                 }
 
                 return $pricing->number_of_teams ?? 0;
             })
             ->take(4);
-        
+
         $upcoming_auctions = Auction::where('auction_date', '>', now())
             ->orderBy('auction_date', 'asc')
             ->limit(4)
             ->get();
-        
+
         $testimonials = Testimonial::where('status', 'Active')->get();
         // dd($testimonials);
-        return view('index', compact('auctions','upcoming_auctions', 'testimonials'));
+
+         $stats = [
+            'total_auctions' => Auction::count(),
+            'total_users' => User::count(),
+            'total_teams' => Team::count(),
+            'total_players' => Player::count(),
+        ];
+
+        return view('index', compact('stats','auctions', 'upcoming_auctions', 'testimonials'));
     }
 
-    
+
 }

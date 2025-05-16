@@ -54,29 +54,33 @@
                         <div class="row auction-carousel">
                             @foreach ($auctions as $auction)
                                 <div class="col-lg-4 col-md-6">
-                                    <div class="auction-card">
-                                        <div class="today-content">
-                                            <div class="today-logo">
-                                                <img src="{{ $auction->auction_image
-                                                    ? (str_contains($auction->auction_image, 'drive.google.com')
-                                                        ? str_replace('/uc?', '/thumbnail?', $auction->auction_image)
-                                                        : $auction->auction_image)
-                                                    : asset('assets/images/today/first.png') }}"
-                                                    class="auction-logo" id="auction_image" alt="not working">
-                                            </div>
-                                            <div class="today-head">
-                                                <h4 class="auction-title">{{ Str::limit($auction->auction_name, 10) }}</h4>
-                                                <div class="today-date">
-                                                    <img class="calender"
-                                                        src="{{ asset('assets/images/upcoming/calender.png') }}"
-                                                        alt="">
-                                                    <p class="auction-date">
-                                                        {{ \Carbon\Carbon::parse($auction->auction_date)->format('d-m-Y') }}
-                                                    </p>
+                                    <a href="https://cricauction.live/auctions/#/find-auction/?auctionCode={{ $auction->auction_code }}"
+                                        class="text-decoration-none" target="_blank">
+                                        <div class="auction-card">
+                                            <div class="today-content">
+                                                <div class="today-logo">
+                                                    <img src="{{ $auction->auction_image
+                                                        ? (str_contains($auction->auction_image, 'drive.google.com')
+                                                            ? str_replace('/uc?', '/thumbnail?', $auction->auction_image)
+                                                            : $auction->auction_image)
+                                                        : asset('assets/images/today/first.png') }}"
+                                                        class="auction-logo" id="auction_image" alt="not working">
+                                                </div>
+                                                <div class="today-head">
+                                                    <h4 class="auction-title">{{ Str::limit($auction->auction_name, 10) }}
+                                                    </h4>
+                                                    <div class="today-date">
+                                                        <img class="calender"
+                                                            src="{{ asset('assets/images/upcoming/calender.png') }}"
+                                                            alt="">
+                                                        <p class="auction-date">
+                                                            {{ \Carbon\Carbon::parse($auction->auction_date)->format('d-m-Y') }}
+                                                        </p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                             @endforeach
                         </div>
@@ -514,30 +518,34 @@
                 <div class="row upcoming-auction" data-aos="fade-up" data-aos-delay="200">
                     @foreach ($upcoming_auctions as $upcoming_auction)
                         <div class="col-lg-6 col-md-12">
-                            <div class="auction-card-upcoming">
-                                <div class="upcoming-content">
-                                    <div class="upcoming-logo">
-                                        <img src="{{ $upcoming_auction->auction_image
-                                            ? (str_contains($upcoming_auction->auction_image, 'drive.google.com')
-                                                ? str_replace('/uc?', '/thumbnail?', $upcoming_auction->auction_image)
-                                                : $upcoming_auction->auction_image)
-                                            : asset('assets/images/today/first.png') }}"
-                                            class="auction-logo" id="auction_image" alt="not working">
-                                    </div>
-                                    <div class="upcoming-head">
-                                        <h4 class="auction-title-upcoming">
-                                            {{ Str::limit($upcoming_auction->auction_name, 20) }}
-                                        </h4>
-                                        <div class="upcoming-date">
-                                            <img class="calender"
-                                                src="{{ asset('assets/images/upcoming/calender.png') }}" alt="">
-                                            <p class="auction-date-upcoming">
-                                                {{ \Carbon\Carbon::parse($upcoming_auction->auction_date)->format('d-m-Y') }}
-                                            </p>
+                            <a href="https://cricauction.live/auctions/#/find-auction/?auctionCode={{ $upcoming_auction->auction_code }}"
+                                class="text-decoration-none" target="_blank">
+                                <div class="auction-card-upcoming">
+                                    <div class="upcoming-content">
+                                        <div class="upcoming-logo">
+                                            <img src="{{ $upcoming_auction->auction_image
+                                                ? (str_contains($upcoming_auction->auction_image, 'drive.google.com')
+                                                    ? str_replace('/uc?', '/thumbnail?', $upcoming_auction->auction_image)
+                                                    : $upcoming_auction->auction_image)
+                                                : asset('assets/images/today/first.png') }}"
+                                                class="auction-logo" id="auction_image" alt="not working">
+                                        </div>
+                                        <div class="upcoming-head">
+                                            <h4 class="auction-title-upcoming">
+                                                {{ Str::limit($upcoming_auction->auction_name, 20) }}
+                                            </h4>
+                                            <div class="upcoming-date">
+                                                <img class="calender"
+                                                    src="{{ asset('assets/images/upcoming/calender.png') }}"
+                                                    alt="">
+                                                <p class="auction-date-upcoming">
+                                                    {{ \Carbon\Carbon::parse($upcoming_auction->auction_date)->format('d-m-Y') }}
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     @endforeach
                     <div class="view-all" data-aos="fade-up" data-aos-delay="300">
@@ -718,25 +726,25 @@
                 <div class="row number-content">
                     <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
                         <div class="card text-center py-4 mt-3">
-                            <h5 class="auction-number count-up" data-count="15820">0</h5>
+                            <h5 class="auction-number count-up" data-count="{{ $stats['total_auctions'] }}">0</h5>
                             <p class="auct-head">TOTAL AUCTIONS</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="150">
                         <div class="card text-center py-4 mt-3">
-                            <h5 class="auction-number count-up" data-count="9243">0</h5>
+                            <h5 class="auction-number count-up" data-count="{{ $stats['total_users'] }}">0</h5>
                             <p class="auct-head">TOTAL USERS</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
                         <div class="card text-center py-4 mt-3">
-                            <h5 class="auction-number count-up" data-count="20640">0</h5>
+                            <h5 class="auction-number count-up" data-count="{{ $stats['total_teams'] }}">0</h5>
                             <p class="auct-head">TOTAL TEAMS</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="250">
                         <div class="card text-center py-4 mt-3">
-                            <h5 class="auction-number count-up" data-count="50000">0</h5>
+                            <h5 class="auction-number count-up" data-count="{{ $stats['total_players'] }}">0</h5>
                             <p class="auct-head">TOTAL PLAYERS</p>
                         </div>
                     </div>

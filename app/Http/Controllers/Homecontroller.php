@@ -42,7 +42,7 @@ class Homecontroller extends Controller
 
     public function auctionlist_today()
     {
-        $today = Carbon::today(); 
+        $today = Carbon::today();
 
         $today_auctions = Auction::whereDate('auction_date', $today)
             ->orderBy('auction_date', 'asc')
@@ -56,10 +56,10 @@ class Homecontroller extends Controller
         $upcoming_auctions = Auction::where('auction_date', '>', now())
             ->orderBy('auction_date', 'asc')
             ->get();
-    
+
         return view('frontend.auctionlist.upcoming', compact('upcoming_auctions'));
     }
-    
+
 
     public function video_gallery()
     {
@@ -68,12 +68,12 @@ class Homecontroller extends Controller
 
         return view('frontend.video_gallery', compact('auctionVideos', 'demoVideos'));
     }
-    
+
 
     public function blogs()
     {
         $blogs = Blog::latest()->get();
-        return view('frontend.blogs', compact('blogs'));  
+        return view('frontend.blogs', compact('blogs'));
     }
 
 

@@ -56,8 +56,9 @@
                 <ul class="con">
                     <li><a href="mailto:info@argonitservices.com"><i class="bi bi-envelope"
                                 style="color: #ffffff;"></i>info@argonitservices.com</a></li>
-                    <li><a href="tel:+917698767767"><i class="bi bi-telephone" style="color: #ffffff;"></i>+91 76 98 767
-                            767 </a></li>
+                    <li class="d-block"><i class="bi bi-telephone" style="color: #ffffff;"></i><a
+                            href="tel:+917698767767">+91 76 98 767
+                            767 /</a> <a href="tel:+919978779471">+91 99 78 779 471</a></li>
 
                     <li class="social-links">
                         <a href="https://www.facebook.com/profile.php?id=61571234099766" target="_blank"><img
@@ -269,28 +270,27 @@
         const animateCount = (counter) => {
             const target = +counter.getAttribute('data-count');
             let count = 0;
-            const increment = 300; // You can change this to 1, 10, 500 etc.
+            const increment = Math.ceil(target / 100); // Smooth increment
 
             const updateCount = () => {
                 count += increment;
 
                 if (count < target) {
                     counter.innerText = count;
-                    setTimeout(updateCount, 20); // Delay in milliseconds
+                    setTimeout(updateCount, 20);
                 } else {
-                    counter.innerText = target; // Final value, no commas
+                    counter.innerText = target + '+'; // Add + when done
                 }
             };
 
             updateCount();
         };
 
-        // Run animation when element enters the viewport
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     animateCount(entry.target);
-                    observer.unobserve(entry.target); // run once
+                    observer.unobserve(entry.target);
                 }
             });
         }, {
@@ -300,6 +300,7 @@
         counters.forEach(counter => observer.observe(counter));
     });
 </script>
+
 
 
 <script>

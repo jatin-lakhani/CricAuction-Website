@@ -71,6 +71,10 @@
         padding: 0
     }
 
+    .player-today .container {
+        padding: 0 15px;
+    }
+
     .auctions .auctions-details .card-body {
         bottom: 25px;
         left: 25px
@@ -214,6 +218,10 @@
     .card-img-top {
         width: 100%;
         height: 60%;
+    }
+
+    .footer .footer-links ul i {
+        font-size: 22px;
     }
 }
 
@@ -1036,6 +1044,28 @@
     .sec-bgimg img {
         width: 130px;
     }
+
+    .heading-top {
+        display: flex;
+        justify-content: center;
+    }
+
+    .heading-top ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        flex-direction: column;
+    }
+
+    .head-top a img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .footer .footer-links ul i {
+        font-size: 17px;
+    }
 }
 
 @media (max-width:912px) {
@@ -1602,6 +1632,19 @@
     .auction-date-upcoming {
         font-size: 16px;
     }
+
+    .head-top {
+        gap: 7px;
+    }
+
+    .head-top a img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .footer .footer-links ul a {
+        line-height: 20px;
+    }
 }
 
 @media (max-width:450px) {
@@ -1611,10 +1654,6 @@
 
     .heading-bottom {
         padding: 10px 12px
-    }
-
-    .heading-top ul li {
-        display: none
     }
 
     .heading-top ul {
