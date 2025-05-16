@@ -92,6 +92,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required',
+            'profile' => 'string'
         ], $messages);
         if ($validator->fails()) {
             return apiValidationError($validator->messages(), 422);
