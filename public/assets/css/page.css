@@ -513,8 +513,9 @@ button:disabled i {
     border: none !important;
     border-radius: 10px !important;
     box-shadow: -4px -4px 10px 0px #A9777733;
-    height: 250px;
+    height: 240px;
     width: 100%;
+    object-fit: cover;
 }
 
 @media (max-width:768px) {
