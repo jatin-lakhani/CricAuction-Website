@@ -147,92 +147,46 @@
     });
 </script>
 
+{{-- Testimonials section script --}}
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const cards = document.querySelectorAll('.mobile-features .card');
-        const carousel = document.querySelector('#carouselExample');
-        const carouselInner = document.querySelector('.carousel-inner');
-        const activeCardContainer = document.querySelector('#active-card-container');
+    const testimonials = @json($testimonials);
+    let currentIndex = 0;
 
-        // Function to activate the card and update the active card container
-        function activateCard(index) {
-            cards.forEach((card) => card.classList.remove('active'));
-            const targetCard = Array.from(cards).find((card) => parseInt(card.getAttribute('data-target'),
-                10) === index);
+    function updateTestimonial(index) {
+        const quoteHeading = document.getElementById('quote-heading');
+        const quoteText = document.getElementById('quote-text');
+        const profileImg = document.getElementById('profile-img');
+        const profileName = document.getElementById('profile-name');
+        const profileRating = document.getElementById('profile-rating');
 
-            if (targetCard) {
-                targetCard.classList.add('active');
-                updateActiveCardContent(targetCard);
-            }
-        }
+        if (testimonials.length === 0) return;
 
-        // Function to update the active card content in the container
-        function updateActiveCardContent(card) {
-            const title = card.querySelector('.card-title').innerHTML;
-            const text = card.querySelector('.card-text').innerHTML;
-            const image = card.querySelector('img').outerHTML;
+        const testimonial = testimonials[index];
 
-            activeCardContainer.innerHTML = `
-            <div class="card active">
-                <div class="features-mobile">
-                    <div class="fm-num">${card.querySelector('.fm-num').innerHTML}</div>
-                    <div class="card-body fm-main">
-                        <h5 class="card-title text-left">${title}</h5>
-                        <p class="card-text">${text}</p>
-                    </div>
-                </div>
-            </div>
-        `;
-        }
+        quoteHeading.textContent = testimonial.title;
+        quoteText.innerHTML = `"${testimonial.review.replace(/\n/g, '<br>')}"`;
+        profileImg.src = `{{ asset('') }}` + testimonial.image;
+        profileName.textContent = testimonial.name;
 
-        // Handle card hover to change carousel slide and active card
-        cards.forEach((card) => {
-            card.addEventListener('mouseenter', function() {
-                // Remove the active class from all cards
-                cards.forEach((c) => c.classList.remove('active'));
+        const filledStars = '<i class="bi bi-star-fill"></i>'.repeat(testimonial.rating);
+        const emptyStars = '<i class="bi bi-star"></i>'.repeat(5 - testimonial.rating);
+        profileRating.innerHTML = filledStars + emptyStars;
+    }
 
-                // Add the active class to the hovered card
-                this.classList.add('active');
+    function nextTestimonial() {
+        currentIndex = (currentIndex + 1) % testimonials.length;
+        updateTestimonial(currentIndex);
+    }
 
-                // Get the target index for the carousel
-                const targetIndex = parseInt(this.getAttribute('data-target'), 10);
-                const carouselInstance = bootstrap.Carousel.getOrCreateInstance(carousel);
-                carouselInstance.to(targetIndex);
-            });
-        });
+    function prevTestimonial() {
+        currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+        updateTestimonial(currentIndex);
+    }
 
-        // Update active card when the carousel slide changes
-        carousel.addEventListener('slide.bs.carousel', function(event) {
-            activateCard(event.to);
-        });
-
-        // Handle "Previous" and "Next" buttons to sync active card with slide
-        const prevBtn = document.querySelector('.carousel-control-prev');
-        const nextBtn = document.querySelector('.carousel-control-next');
-
-        if (prevBtn && nextBtn) {
-            prevBtn.addEventListener('click', function() {
-                const activeIndex = [...carouselInner.children].findIndex((item) =>
-                    item.classList.contains('active')
-                );
-                const newIndex = (activeIndex - 1 + carouselInner.children.length) % carouselInner
-                    .children.length;
-                activateCard(newIndex);
-            });
-
-            nextBtn.addEventListener('click', function() {
-                const activeIndex = [...carouselInner.children].findIndex((item) =>
-                    item.classList.contains('active')
-                );
-                const newIndex = (activeIndex + 1) % carouselInner.children.length;
-                activateCard(newIndex);
-            });
-        }
-
-        // Initialize the active card content on load
-        activateCard(0);
-    });
+    // Optional: Auto-play carousel
+    setInterval(nextTestimonial, 5000);
 </script>
+
 
 {{-- carousel home today section js --}}
 <script>
@@ -260,7 +214,6 @@
         }
     });
 </script>
-
 
 {{-- count up number section js --}}
 <script>
@@ -300,8 +253,6 @@
         counters.forEach(counter => observer.observe(counter));
     });
 </script>
-
-
 
 <script>
     var swiper = new Swiper(".mySwiper", {
