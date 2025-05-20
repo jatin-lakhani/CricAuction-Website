@@ -68,15 +68,15 @@
 
 <body class="index-page">
     <div id="getapp" class="getapp">
-        <div class="container">
-            <div class="row">
-                <div class="col left-side">
+        <div class="row m-0">
+            <div class="col-lg-7 col-md-12" style="margin: auto">
+                <div class="left-side">
                     <img class="getlogo" src="{{ asset('assets/images/getapp/getapp-logo.png') }}" alt="Logo">
                     <div class="section-details">
-                        Manage every player, every bid where teams are born!
+                        Manage every player, every bid<br> where teams are born!
                     </div>
                     <div class="section-para">
-                        Download our free and easy-to-use cricket auction app.
+                        Download our free and easy-to-use<br>cricket auction app.
                     </div>
                     <div class="getlinks">
                         <img src="{{ asset('assets/images/getapp/gplay.png') }}" alt="gplay">
@@ -87,18 +87,103 @@
                         <img src="{{ asset('assets/images/getapp/rate1.png') }}" alt="appstore">
                     </div>
                 </div>
+            </div>
 
+            <div class="col-lg-5 col-md-12 right-side text-center" id="appMockupSlider">
+                <div class="mockup-block">
+                    <div class="auction-title">Live Player Auction</div>
+                    <div class="auction-subtitle">Real-Time Player Bidding With Live Updates.</div>
+                    <div class="app-mockup">
+                        <img src="{{ asset('assets/images/getapp/get1.png') }}" alt="App Mockup">
+                    </div>
+                </div>
+                <div class="mockup-block">
+                    <div class="auction-title">Tournament management</div>
+                    <div class="auction-subtitle">Create and manage tournaments with ease.</div>
+                    <div class="app-mockup">
+                        <img src="{{ asset('assets/images/getapp/get2.png') }}" alt="App Mockup">
+                    </div>
+                </div>
+                <div class="mockup-block">
+                    <div class="auction-title">Team Management</div>
+                    <div class="auction-subtitle">Manage teams easily for a smooth tournament.</div>
+                    <div class="app-mockup">
+                        <img src="{{ asset('assets/images/getapp/get3.png') }}" alt="App Mockup">
+                    </div>
+                </div>
+                <div class="mockup-block">
+                    <div class="auction-title">Player Management</div>
+                    <div class="auction-subtitle">Manage player profiles, stats, and availability easily.</div>
+                    <div class="app-mockup">
+                        <img src="{{ asset('assets/images/getapp/get4.png') }}" alt="App Mockup">
+                    </div>
+                </div>
+                <div class="mockup-block">
+                    <div class="auction-title">Real-Time Updates</div>
+                    <div class="auction-subtitle">Get live updates on bids, players, and matches.</div>
+                    <div class="app-mockup">
+                        <img src="{{ asset('assets/images/getapp/get5.png') }}" alt="App Mockup">
+                    </div>
+                </div>
+                <div class="mockup-block active">
+                    <div class="auction-title">Web Integration</div>
+                    <div class="auction-subtitle">Share your link for live auction viewing.</div>
+                    <div class="app-mockup">
+                        <img src="{{ asset('assets/images/getapp/get6.png') }}" alt="App Mockup">
+                    </div>
+                </div>   
+                <div class="mockup-block active">
+                    <div class="auction-title">Join Tournaments by Code</div>
+                    <div class="auction-subtitle">Join tournaments easily with a unique code.</div>
+                    <div class="app-mockup">
+                        <img src="{{ asset('assets/images/getapp/get7.png') }}" alt="App Mockup">
+                    </div>
+                </div>   
+                <div class="mockup-block active">
+                    <div class="auction-title">YouTube Live Overlay</div>
+                    <div class="auction-subtitle">Watch live bids and auctions with YouTube streaming.</div>
+                    <div class="app-mockup">
+                        <img src="{{ asset('assets/images/getapp/get8.png') }}" alt="App Mockup">
+                    </div>
+                </div>    
+                <div class="mockup-block active">
+                    <div class="auction-title">Multi-Platform Accessibility</div>
+                    <div class="auction-subtitle">Access CricAuction easily on mobile and web.</div>
+                    <div class="app-mockup">
+                        <img src="{{ asset('assets/images/getapp/get9.png') }}" alt="App Mockup">
+                    </div>
+                </div>     
+                <div class="mockup-block active">
+                    <div class="auction-title">Watch live bids and auctions with YouTube streaming.</div>
+                    <div class="auction-subtitle">Customize base price, bids, and player limits easily.</div>
+                    <div class="app-mockup">
+                        <img src="{{ asset('assets/images/getapp/get10.png') }}" alt="App Mockup">
+                    </div>
+                </div>        
             </div>
         </div>
-        <div class="col-lg-5 right-side text-center">
-            <div class="auction-title">Live Player Auction</div>
-            <div class="auction-subtitle">Real-Time Player Bidding With Live Updates.</div>
-            <div class="app-mockup">
-                <img src="{{ asset('assets/images/getapp/get1.png') }}" alt="App Mockup">
-            </div>
-        </div>
-        </section>
+    </div>
+    
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const blocks = document.querySelectorAll("#appMockupSlider .mockup-block");
+        let index = 0;
 
-<footer>
-</footer>
+        function showNextBlock() {
+            blocks.forEach(block => block.classList.remove("active"));
+            blocks[index].classList.add("active");
+            index = (index + 1) % blocks.length;
+        }
+
+        // Initial display
+        showNextBlock();
+
+        // Change every 3 seconds
+        setInterval(showNextBlock, 3000);
+    });
+</script>
+
+</html>
+
+

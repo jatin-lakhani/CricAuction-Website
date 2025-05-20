@@ -554,72 +554,59 @@ button:disabled i {
         url('../images/getapp/left-top.png'),
         url('../images/getapp/right-bottom.png'),
         url('../images/getapp/getappbg1.png'),
-        url('../images/getapp/getappbg.png');
+        url('../images/getapp/getappbg.png');   
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-    background-position:
-        top left,
-        bottom 0 right 300px,
-        center center,
-        center center;
-    background-size: auto, auto, cover, cover;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
+    background-position:top left,bottom right,center center,center center;    
+    background-size:200px auto,200px auto,cover,cover;            
 }
 
-.getapp .left-side {
+.left-side {
+    padding: 40px 40px;
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    padding-left: 6rem;
+    justify-content: center;
+    gap: 20px;
+    min-height: 100%;
 }
 
 .getapp .getlogo {
-    width: 694px;
-    height: 120px;
+    max-width: 500px;
+    height: auto;
 }
 
 .getapp .section-details {
     font-family: var(--nav-font);
     font-weight: 700;
-    font-size: 54px;
-    width: 90%;
-    line-height: 100%;
-    letter-spacing: 0px;
+    font-size: 40px;
+    line-height: 1.2;
     text-transform: uppercase;
     color: #FAD15F;
 }
 
 .getapp .section-para {
-    font-family: Poppins;
-    font-weight: 500;
-    font-size: 34px;
-    width: 65%;
-    line-height: 124%;
-    letter-spacing: 0px;
-    text-transform: capitalize;
+    font-family: var(--heading-font);
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 1.4;
     color: #FFFFFF;
 }
 
 .getapp .getlinks,
 .getapp .getrating {
     display: flex;
-    gap: 30px;
+    flex-wrap: wrap;
+    gap: 20px;
     padding: 10px 0;
 }
 
-.getapp .getrating {
-    gap: 65px;
-}
-
-.getapp .getlinks img {
-    width: auto;
-    height: 115px;
-}
-
+.getapp .getlinks img,
 .getapp .getrating img {
-    width: auto;
-    height: 137px;
+    max-width: 160px;
+    height: auto;
+}
+
+.getapp .getrating {
+    gap: 30px;
 }
 
 .getapp .right-side {
@@ -627,44 +614,61 @@ button:disabled i {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    gap: 20px;
-    border: 1px solid #FFFFFF
+    padding: 40px 0px;
+    text-align: center;
 }
 
 .right-side .auction-title {
     font-family: var(--nav-font);
     font-weight: 700;
-    font-size: 60px;
-    line-height: 100%;
-    letter-spacing: 0px;
-    text-align: center;
-    text-transform: capitalize;
+    font-size: 32px;
     color: #272626;
     text-shadow: 2px 2px 4px #00000026;
+    margin-bottom: 10px;
 }
 
 .right-side .auction-subtitle {
     font-family: var(--nav-font);
     font-weight: 600;
-    font-size: 28px;
-    line-height: 100%;
-    letter-spacing: 0px;
-    text-align: center;
-    text-transform: capitalize;
+    font-size: 20px;
     color: #686868;
+    margin-bottom: 20px;
+    line-height: normal;
 }
 
 .right-side .app-mockup {
-    width: auto;
-    height: 100%;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.right-side .app-mockup img{
+.right-side .app-mockup img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    max-height: 75vh; /* prevents it from being too tall on large screens */
+    object-fit: contain;
 }
+#appMockupSlider .mockup-block {
+    display: none;
+    animation: fadeIn 1s ease-in-out;
+}
+
+#appMockupSlider .mockup-block.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+
+

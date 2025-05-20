@@ -1070,6 +1070,18 @@
     .footer .footer-links ul i {
         font-size: 17px;
     }
+     .getapp .getlogo {
+        max-width: 450px;
+    }
+    .getapp .section-details{
+        font-size: 29px;
+    }
+    .getapp .section-para {
+        font-size: 18px;;
+    }
+    .left-side{
+        gap: 15px;
+    }
 }
 
 @media (max-width:912px) {
@@ -1370,6 +1382,41 @@
 @media screen and (max-width:768px) {
     [data-aos-delay] {
         transition-delay: 0 !important
+    }
+    .getapp .left-side {
+        padding: 20px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .getapp .getlogo {
+        max-width: 450px;
+    }
+
+    .right-side .auction-title,
+    .right-side .auction-subtitle {
+        font-size: 24px;
+    }
+
+    .right-side .app-mockup img {
+        max-width: 250px;
+    }
+
+    .right-side .app-mockup {
+        max-width: 280px;
+    }
+
+    .getapp .getlinks img,
+    .getapp .getrating img {
+        max-width: 140px;
+    }
+    .getapp .getlinks, .getapp .getrating {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-between;
+        padding: 10px 0;
+        width: -webkit-fill-available;
     }
 }
 
@@ -1797,6 +1844,15 @@
     .testimonial-carousel-wrapper .arrow {
         padding: 10px;
     }
+    .getapp .getlogo {
+        max-width: 385px;
+    }
+    .getapp .section-details {
+        font-size: 19px;
+    }
+    .getapp .section-para {
+        font-size: 15px;
+    }
 }
 
 @media (max-width:375px) {
@@ -1812,6 +1868,18 @@
 
     .number-app {
         font-size: 13px;
+    }
+    .getapp .getlogo {
+        max-width: 300px;
+    }
+    .getapp .section-details {
+        font-size: 15px;
+    }
+    .getapp .section-para {
+        font-size: 13px;
+    }
+    .getapp .getlinks img, .getapp .getrating img {
+        max-width: 115px;
     }
 }
 
