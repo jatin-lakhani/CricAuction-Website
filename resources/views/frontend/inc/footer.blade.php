@@ -56,9 +56,10 @@
                 <ul class="con">
                     <li><a href="mailto:info@argonitservices.com"><i class="bi bi-envelope"
                                 style="color: #ffffff;"></i>info@argonitservices.com</a></li>
-                    <li class="d-block"><i class="bi bi-telephone" style="color: #ffffff;"></i><a
-                            href="tel:+917698767767">+91 76 98 767
-                            767 /</a> <a href="tel:+919978779471">+91 99 78 779 471</a></li>
+                    <li><i class="bi bi-telephone" style="color: #ffffff;"></i>
+                        <div><a href="tel:+917698767767">+91 76 98 767
+                                767 </a> <a href="tel:+919978779471">+91 99 78 779 471</a></div>
+                    </li>
 
                     <li class="social-links">
                         <a href="https://www.facebook.com/profile.php?id=61571234099766" target="_blank"><img

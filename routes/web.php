@@ -23,7 +23,7 @@ Route::get('/privacy', [Homecontroller::class, 'privacy'])->name('privacy');
 Route::get('/terms', [Homecontroller::class, 'terms'])->name('terms');
 Route::get('/cancel', [Homecontroller::class, 'cancel'])->name('cancel');
 Route::get('/shipping', [Homecontroller::class, 'shipping'])->name('shipping');
-
+Route::get('/getapp', [Homecontroller::class, 'getapp'])->name('getapp');
 
 Route::get('/today-auction', [Homecontroller::class,'auctionlist_today'])->name('auctionlist.today');
 Route::get('/upcoming-auction', [Homecontroller::class,'auctionlist_upcoming'])->name('auctionlist.upcoming');

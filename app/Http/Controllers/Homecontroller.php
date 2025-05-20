@@ -40,6 +40,11 @@ class Homecontroller extends Controller
         return view('frontend.shipping');
     }
 
+    public function getapp()
+    {
+        return view('frontend.getapp');
+    }
+
     public function auctionlist_today()
     {
         $today = Carbon::today();

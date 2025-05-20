@@ -223,6 +223,10 @@
     .footer .footer-links ul i {
         font-size: 22px;
     }
+
+    .footer .footer-links ul a {
+        line-height: 28px;
+    }
 }
 
 @media (max-width:1366px) {

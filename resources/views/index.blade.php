@@ -751,7 +751,7 @@
                 </div>
                 <div class="number-app" data-aos="fade-up" data-aos-delay="100">
                     <div class="app-head">👉 Join the Global Cricket Network!</div>
-                    <div class="app-button">GET APP</div>
+                    <a class="app-button" href="{{route('getapp')}}">GET APP</a>
                 </div>
             </div>
         </section><!-- number section -->
