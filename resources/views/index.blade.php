@@ -532,7 +532,7 @@
                                         </div>
                                         <div class="upcoming-head">
                                             <h4 class="auction-title-upcoming">
-                                                {{ Str::limit($upcoming_auction->auction_name, 20) }}
+                                                {{ Str::limit($upcoming_auction->auction_name, 15) }}
                                             </h4>
                                             <div class="upcoming-date">
                                                 <img class="calender"
@@ -981,20 +981,20 @@
 
                         <!-- Testimonial Carousel -->
                         <div class="testimonial-carousel-wrapper mt-3">
-                            <div class="arrow left-arrow" onclick="prevTestimonial()"><i class="bi bi-chevron-left"></i>
+                            <div class="arrow left-arrow"><i class="bi bi-chevron-left"></i>
                             </div>
                             <div class="testimonial-quote meh" id="quote">
                                 <h3 id="quote-heading">{{ $testimonials[0]->title }}</h3>
                                 <p id="quote-text">"{!! nl2br(e($testimonials[0]->review)) !!}"</p>
                             </div>
-                            <div class="arrow right-arrow" onclick="nextTestimonial()"><i
+                            <div class="arrow right-arrow"><i
                                     class="bi bi-chevron-right"></i></div>
                         </div>
 
                         <div class="testimonial-carousel">
                             <div class="carousel-logo prev-logos" id="prev-logos"></div>
                             <div class="carousel-logo current" id="current-logo">
-                                <img src="{{ asset($testimonials[0]->image) }}" id="profile-img" alt="User">
+                                <img src="{{ $testimonials[0]->image ?? asset('assets/images/gallery/demo_video.jpg') }}" id="profile-img" alt="">
                                 <div class="profile-name" id="profile-name">{{ $testimonials[0]->name }}</div>
                                 <div class="profile-rating" id="profile-rating">
                                     {!! str_repeat('<i class="bi bi-star-fill"></i>', $testimonials[0]->rating) !!}
@@ -1084,75 +1084,91 @@
     </main>
 @endsection
 @push('scripts')
+    <style>
+        #testimonial-section .fade-transition {
+    transition: opacity 0.5s ease;
+    opacity: 1;
+}
+
+#testimonial-section .fade-out {
+    opacity: 0;
+}
+
+    </style>
+@endpush
+@push('scripts')
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const testimonials = @json($testimonials);
-            let index = 0;
+    const testimonials = @json($testimonials);
+    let index = 0;
 
-            function showTestimonial(i) {
-                if (!testimonials[i]) return;
+    function showTestimonial(i) {
+        if (!testimonials[i]) return;
 
-                const defaultImage = 'public/assets/images/gallery/demo_video.jpg';
-                const testimonial = testimonials[i];
-                const imageUrl = testimonial.image ? '/storage/' + testimonial.image : defaultImage;
+        const defaultImage = 'public/assets/images/gallery/demo_video.jpg';
+        const testimonial = testimonials[i];
+        const imageUrl = testimonial.image || defaultImage;
 
-                document.getElementById("quote-heading").textContent = testimonial.title || '';
-                document.getElementById("quote-text").textContent = testimonial.review || '';
-                document.getElementById("profile-name").textContent = testimonial.name || '';
-                document.getElementById("profile-img").src = imageUrl;
+        document.getElementById("quote-heading").textContent = testimonial.title || '';
+        document.getElementById("quote-text").textContent = testimonial.review || '';
+        document.getElementById("profile-name").textContent = testimonial.name || '';
+        document.getElementById("profile-img").src = imageUrl;
 
-                const ratingContainer = document.getElementById("profile-rating");
-                const stars = [];
-                for (let r = 1; r <= 5; r++) {
-                    stars.push(r <= testimonial.rating ? '<i class="bi bi-star-fill"></i>' :
-                        '<i class="bi bi-star"></i>');
-                }
-                ratingContainer.innerHTML = stars.join("");
+        const ratingContainer = document.getElementById("profile-rating");
+        const stars = [];
+        for (let r = 1; r <= 5; r++) {
+            stars.push(r <= testimonial.rating ? '<i class="bi bi-star-fill"></i>' :
+                '<i class="bi bi-star"></i>');
+        }
+        ratingContainer.innerHTML = stars.join("");
 
-                const prevLogosContainer = document.getElementById("prev-logos");
-                prevLogosContainer.innerHTML = "";
-                for (let j = 1; j <= 2; j++) {
-                    const prevIndex = (i - j + testimonials.length) % testimonials.length;
-                    const prevImageUrl = testimonials[prevIndex]?.image ? '/storage/' + testimonials[prevIndex]
-                        .image : defaultImage;
-                    const logo = document.createElement("img");
-                    logo.src = prevImageUrl;
-                    prevLogosContainer.appendChild(logo);
-                }
+        const prevLogosContainer = document.getElementById("prev-logos");
+        prevLogosContainer.innerHTML = "";
+        for (let j = 1; j <= 2; j++) {
+            const prevIndex = (i - j + testimonials.length) % testimonials.length;
+            const prevImageUrl = testimonials[prevIndex]?.image || defaultImage;
+            const logo = document.createElement("img");
+            logo.src = prevImageUrl;
+            prevLogosContainer.appendChild(logo);
+        }
 
-                const nextLogosContainer = document.getElementById("next-logos");
-                nextLogosContainer.innerHTML = "";
-                for (let k = 1; k <= 2; k++) {
-                    const nextIndex = (i + k) % testimonials.length;
-                    const nextImageUrl = testimonials[nextIndex]?.image ? '/storage/' + testimonials[nextIndex]
-                        .image : defaultImage;
-                    const logo = document.createElement("img");
-                    logo.src = nextImageUrl;
-                    nextLogosContainer.appendChild(logo);
-                }
-            }
+        const nextLogosContainer = document.getElementById("next-logos");
+        nextLogosContainer.innerHTML = "";
+        for (let k = 1; k <= 2; k++) {
+            const nextIndex = (i + k) % testimonials.length;
+            const nextImageUrl = testimonials[nextIndex]?.image || defaultImage;
+            const logo = document.createElement("img");
+            logo.src = nextImageUrl;
+            nextLogosContainer.appendChild(logo);
+        }
+    }
 
-            function nextTestimonial() {
-                index = (index + 1) % testimonials.length;
-                showTestimonial(index);
-            }
+    function nextTestimonial() {
+        index = (index + 1) % testimonials.length;
+        showTestimonial(index);
+    }
 
-            function prevTestimonial() {
-                index = (index - 1 + testimonials.length) % testimonials.length;
-                showTestimonial(index);
-            }
+    function prevTestimonial() {
+        index = (index - 1 + testimonials.length) % testimonials.length;
+        showTestimonial(index);
+    }
 
-            showTestimonial(index);
+    // Attach event listeners here:
+    document.querySelector('.right-arrow').addEventListener('click', nextTestimonial);
+    document.querySelector('.left-arrow').addEventListener('click', prevTestimonial);
 
-            let autoSlide = setInterval(nextTestimonial, 5000);
+    showTestimonial(index);
 
-            const section = document.getElementById("testimonial-section");
-            if (section) {
-                section.addEventListener("mouseenter", () => clearInterval(autoSlide));
-                section.addEventListener("mouseleave", () => {
-                    autoSlide = setInterval(nextTestimonial, 5000);
-                });
-            }
+    let autoSlide = setInterval(nextTestimonial, 5000);
+
+    const section = document.getElementById("testimonial-section");
+    if (section) {
+        section.addEventListener("mouseenter", () => clearInterval(autoSlide));
+        section.addEventListener("mouseleave", () => {
+            autoSlide = setInterval(nextTestimonial, 5000);
         });
+    }
+});
+
     </script>
 @endpush

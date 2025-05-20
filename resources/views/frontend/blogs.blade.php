@@ -13,9 +13,10 @@
                         <div class="col-lg-4 col-md-6">
                             <div class="card-auction-video h-100 blog-card">
                                 <div class="video-thumbnail-wrapper">
-                                    <img class="blog-image"
-                                        src="{{ $blog->image ? asset('storage/' . $blog->image) : asset('assets/images/gallery/demo_video.jpg') }}"
-                                        alt="">
+                                    <img class="blog-image" 
+                                        src="{{ $blog->image ?? asset('assets/images/gallery/demo_video.jpg') }}" id="profile-img" 
+                                        alt="User">
+
                                 </div>
                                 <div class="content-video-blog">
                                     <div class="auction-date-video">

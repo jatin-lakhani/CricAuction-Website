@@ -149,7 +149,7 @@
 </script>
 
 {{-- Testimonials section script --}}
-<script>
+{{-- <script>
     const testimonials = @json($testimonials);
     let currentIndex = 0;
 
@@ -186,7 +186,7 @@
 
     // Optional: Auto-play carousel
     setInterval(nextTestimonial, 5000);
-</script>
+</script> --}}
 
 
 {{-- carousel home today section js --}}

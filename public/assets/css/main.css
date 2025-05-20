@@ -1471,6 +1471,10 @@ section {
     position: relative;
 }
 
+.carousel-logo img {
+    transition: opacity 0.3s ease;
+}
+
 .arrows {
     display: flex;
     justify-content: center;

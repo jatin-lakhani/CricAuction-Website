@@ -36,6 +36,7 @@
                                                         </div>
                                                         <div class="team-detail">
                                                             <h2>{{ $auction->auction_name }}</h2>
+                                                            
                                                             <div class="row">
                                                                 <div class="col-6">
                                                                     <div class="team-subcontent">
