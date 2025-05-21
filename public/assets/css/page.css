@@ -675,7 +675,7 @@ html, body {
 }
 #appMockupSlider .mockup-block {
     display: none;
-    animation: fadeIn 5s ease-in-out;
+    animation: fadeIn 4s ease-in-out;
 }
 
 #appMockupSlider .mockup-block.active {
