@@ -1084,6 +1084,30 @@
     }
 }
 
+@media (max-width: 992px) {
+     .getapp {
+        height: auto;
+        flex-direction: column;
+    }
+
+    .left-side,
+    .getapp .right-side {
+        height: auto;
+        padding: 20px;
+    }
+
+    .right-side .app-mockup img {
+        max-height: 60vh;
+        width: 100%;
+    }
+    .getapp .left-side {
+        padding: 20px;
+        align-items: center;
+        text-align: center;
+    }
+
+}
+
 @media (max-width:912px) {
     .pricing .pricing-details .card .circle h2 {
         font-size: 23px
@@ -1374,21 +1398,6 @@
         font-size: 15px;
     }
 
-    /* .video-tab + .video-tab {
-        margin-left: -12px;
-    } */
-}
-
-@media screen and (max-width:768px) {
-    [data-aos-delay] {
-        transition-delay: 0 !important
-    }
-    .getapp .left-side {
-        padding: 20px;
-        align-items: center;
-        text-align: center;
-    }
-
     .getapp .getlogo {
         max-width: 450px;
     }
@@ -1402,10 +1411,6 @@
         max-width: 250px;
     }
 
-    .right-side .app-mockup {
-        max-width: 280px;
-    }
-
     .getapp .getlinks img,
     .getapp .getrating img {
         max-width: 140px;
@@ -1417,6 +1422,12 @@
         justify-content: space-between;
         padding: 10px 0;
         width: -webkit-fill-available;
+    }
+}
+
+@media screen and (max-width:768px) {
+    [data-aos-delay] {
+        transition-delay: 0 !important
     }
 }
 
@@ -1461,7 +1472,12 @@
         padding: 0 3rem
     }
 }
-
+@media (max-width: 576px) {
+    .getapp .getlinks img,
+    .getapp .getrating img {
+        max-width: 130px;
+    }
+}
 @media (max-width:480px) {
     .header .logo img {
         max-height: 35px

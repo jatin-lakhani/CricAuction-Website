@@ -67,7 +67,7 @@
 </head>
 
 <body class="index-page">
-    <div id="getapp" class="getapp">
+    <section id="getapp" class="getapp p-0">
         <div class="row m-0">
             <div class="col-lg-7 col-md-12" style="margin: auto">
                 <div class="left-side">
@@ -162,7 +162,7 @@
                 </div>        
             </div>
         </div>
-    </div>
+    </section>
     
 </body>
 <script>

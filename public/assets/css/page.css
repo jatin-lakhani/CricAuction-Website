@@ -549,7 +549,16 @@ button:disabled i {
 
 
 /* ---------- Get APP ---------- */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 .getapp {
+    height: 100vh; /* Make entire section take full viewport height */
+    display: flex;
+    align-items: stretch; /* Ensure columns stretch full height */
     background-image:
         url('../images/getapp/left-top.png'),
         url('../images/getapp/right-bottom.png'),
@@ -560,6 +569,16 @@ button:disabled i {
     background-size:200px auto,200px auto,cover,cover;            
 }
 
+.getapp .row {
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+.left-side,
+.getapp .right-side {
+    height: 100%;
+}
 .left-side {
     padding: 40px 40px;
     display: flex;
@@ -651,8 +670,7 @@ button:disabled i {
 
 .right-side .app-mockup img {
     width: 100%;
-    height: auto;
-    max-height: 75vh; /* prevents it from being too tall on large screens */
+    height: 75vh;
     object-fit: contain;
 }
 #appMockupSlider .mockup-block {
@@ -668,7 +686,4 @@ button:disabled i {
     from { opacity: 0; }
     to { opacity: 1; }
 }
-
-
-
 
