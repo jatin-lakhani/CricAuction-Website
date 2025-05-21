@@ -580,7 +580,7 @@ html, body {
     height: 100%;
 }
 .left-side {
-    padding: 40px 40px;
+    padding: 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -675,7 +675,7 @@ html, body {
 }
 #appMockupSlider .mockup-block {
     display: none;
-    animation: fadeIn 1s ease-in-out;
+    animation: fadeIn 5s ease-in-out;
 }
 
 #appMockupSlider .mockup-block.active {

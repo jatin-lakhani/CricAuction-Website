@@ -180,7 +180,7 @@
         showNextBlock();
 
         // Change every 3 seconds
-        setInterval(showNextBlock, 3000);
+        setInterval(showNextBlock, 4000);
     });
 </script>
 

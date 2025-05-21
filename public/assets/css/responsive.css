@@ -227,6 +227,9 @@
     .footer .footer-links ul a {
         line-height: 28px;
     }
+    .left-side{
+        padding: 60px;
+    }
 }
 
 @media (max-width:1366px) {
@@ -349,6 +352,9 @@
         font-size: 26px;
         line-height: 28px;
     }
+    .left-side{
+        padding: 40px;
+    }
 }
 
 @media (max-width:1280px) {
@@ -463,6 +469,7 @@
         padding: 5px 0;
         margin-top: 5px
     }
+
 }
 
 @media (max-width:1200px) {
