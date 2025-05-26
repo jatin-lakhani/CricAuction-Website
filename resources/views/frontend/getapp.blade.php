@@ -179,8 +179,7 @@
         // Initial display
         showNextBlock();
 
-        // Change every 3 seconds
-        setInterval(showNextBlock, 4000);
+        setInterval(showNextBlock, 5000);
     });
 </script>
 
