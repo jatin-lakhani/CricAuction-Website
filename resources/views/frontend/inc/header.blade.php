@@ -68,7 +68,7 @@
     <header id="header" class="header align-items-center fixed-top">
         <div class="position-relative align-items-center heading-top">
             <ul>
-                <span>"Welcome to Cricauction—start bidding on exclusive cricket memorabilia now!"</span>
+                <span>Welcome to CricAuction - Cricket Player Auction App for Tournaments where Teams Born!</span>
                 <div class="head-top">
                     <a href="https://www.instagram.com/cricauction.official" target="_blank"><img
                             src="{{ asset('assets/images/footer/instagram.png') }}" alt="Instagram"></a>

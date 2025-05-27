@@ -81,9 +81,8 @@ class AuctionController extends Controller
             })
             ->when($search, function ($query) use ($search) {
                 $query->where(function ($subQuery) use ($search) {
-                    $subQuery->where('creator_id', 'LIKE', "%" . $search . "%")
+                    $subQuery->where('auction_name', 'LIKE', "%" . $search . "%")
                         ->orWhereRaw("REPLACE(REPLACE(creator_phone, ' ', ''), '+', '') LIKE ?", ["%" . preg_replace('/[\s+]/', '', $search) . "%"])
-                        ->orWhere('auction_name', 'LIKE', "%" . $search . "%")
                         ->orWhere('auction_code', 'LIKE', "%" . $search . "%");
                 });
             })
@@ -125,6 +124,7 @@ class AuctionController extends Controller
             'auction_code' => 'required',
             'bidSlaps' => 'array',
             'categories' => 'nullable|array',
+            'form_customize' => 'nullable|array',
             // 'categories.*.name' => ['required', 'string', 'distinct'],
             'bidSlaps.*.upto_amount' => 'required|numeric',
             'bidSlaps.*.increment_value' => 'required|numeric',
@@ -182,6 +182,9 @@ class AuctionController extends Controller
             ]);
         }
         $data = $request->all();
+        if ($request->has('form_customize') && is_array($request->form_customize)) {
+            $data['form_customize'] = $request->form_customize;
+        }
         // if ($request->hasfile('auction_image')) {
         //     $file = $request->file('auction_image');
         //     $filePath = FileUploadHelper::uploadFile($file, 'upload/auction_image');

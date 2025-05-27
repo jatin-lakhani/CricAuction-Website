@@ -49,22 +49,47 @@ class Homecontroller extends Controller
     {
         $today = Carbon::today();
 
-        $today_auctions = Auction::whereDate('auction_date', $today)
-            ->orderBy('auction_date', 'asc')
+        $today_auctions = Auction::with(['players', 'teams'])
+            ->whereDate('auction_date', $today)
             ->get();
 
-        return view('frontend.auctionlist.today', compact('today_auctions'));
-    }
+        $sorted = $today_auctions->sort(function ($a, $b) {
+            $playerDiff = $b->players->count() - $a->players->count();
+            if ($playerDiff === 0) {
+                return $b->teams->count() - $a->teams->count();
+            }
+            return $playerDiff;
+        })->values();
 
+        return view('frontend.auctionlist.today', [
+            'today_auctions' => $sorted
+        ]);
+    }
     public function auctionlist_upcoming()
     {
-        $upcoming_auctions = Auction::where('auction_date', '>', now())
+        $upcoming_auctions = Auction::with(['players', 'teams'])
+            ->where('auction_date', '>', now())
             ->orderBy('auction_date', 'asc')
             ->get();
 
-        return view('frontend.auctionlist.upcoming', compact('upcoming_auctions'));
-    }
+        $sorted = $upcoming_auctions->sort(function ($a, $b) {
+            $dateDiff = Carbon::parse($a->auction_date)->timestamp - Carbon::parse($b->auction_date)->timestamp;
 
+            if ($dateDiff === 0) {
+                $playerDiff = $b->players->count() - $a->players->count();
+                if ($playerDiff === 0) {
+                    return $b->teams->count() - $a->teams->count();
+                }
+                return $playerDiff;
+            }
+
+            return $dateDiff;
+        })->values();
+
+        return view('frontend.auctionlist.upcoming', [
+            'upcoming_auctions' => $sorted
+        ]);
+    }
 
     public function video_gallery()
     {

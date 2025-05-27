@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.cricauction.cricket.playerauction",
+    "sha256_cert_fingerprints": [
+      "BF:D9:44:0A:41:46:8C:B5:AE:86:D6:46:BA:59:E5:B4:5F:9F:B2:9C:7D:4A:FA:AA:43:FF:AC:F3:4F:DE:D1:0B"
+    ]
+  }
+}]
