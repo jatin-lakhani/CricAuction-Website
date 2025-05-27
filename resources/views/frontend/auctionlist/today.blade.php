@@ -22,7 +22,7 @@
                                 <div class="row custom-changes">
                                     @foreach ($chunk as $auction)
                                         <div class="col-lg-6 col-md-12">
-                                            <a href="https://cricauction.live/auctions/#/find-auction/?auctionCode={{ $auction->auction_code }}"
+                                            <a href="https://cricauction.live/auctions/#/liveview/?auctionCode={{ $auction->auction_code }}"
                                                 class="text-decoration-none" target="_blank">
                                                 <div class="card card-list-player">
                                                     <div class="team-content">

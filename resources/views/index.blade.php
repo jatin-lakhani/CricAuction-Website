@@ -54,7 +54,7 @@
                         <div class="row auction-carousel">
                             @foreach ($auctions as $auction)
                                 <div class="col-lg-4 col-md-6">
-                                    <a href="https://cricauction.live/auctions/#/find-auction/?auctionCode={{ $auction->auction_code }}"
+                                    <a href="https://cricauction.live/auctions/#/liveview/?auctionCode={{ $auction->auction_code }}"
                                         class="text-decoration-none" target="_blank">
                                         <div class="auction-card">
                                             <div class="today-content">
@@ -518,7 +518,7 @@
                 <div class="row upcoming-auction" data-aos="fade-up" data-aos-delay="200">
                     @foreach ($upcoming_auctions as $upcoming_auction)
                         <div class="col-lg-6 col-md-12">
-                            <a href="https://cricauction.live/auctions/#/find-auction/?auctionCode={{ $upcoming_auction->auction_code }}"
+                            <a href="https://cricauction.live/auctions/#/liveview/?auctionCode={{ $upcoming_auction->auction_code }}"
                                 class="text-decoration-none" target="_blank">
                                 <div class="auction-card-upcoming">
                                     <div class="upcoming-content">
