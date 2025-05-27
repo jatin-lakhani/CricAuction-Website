@@ -79,9 +79,14 @@
                         Download our free and easy-to-use<br>cricket auction app.
                     </div>
                     <div class="getlinks">
-                        <img src="{{ asset('assets/images/getapp/gplay.png') }}" alt="gplay">
-                        <img src="{{ asset('assets/images/getapp/appstore.png') }}" alt="appstore">
+                        <a href="https://play.google.com/store/apps/details?id=com.cricauction.cricket.playerauction&hl=en_IN" target="_blank">
+                            <img src="{{ asset('assets/images/getapp/gplay.png') }}" alt="gplay">
+                        </a>
+                        <a href="https://apps.apple.com/us/app/cricauction-cricket-auction/id6504701315" target="_blank">
+                            <img src="{{ asset('assets/images/getapp/appstore.png') }}" alt="appstore">
+                        </a>
                     </div>
+
                     <div class="getrating">
                         <img src="{{ asset('assets/images/getapp/rate.png') }}" alt="gplay">
                         <img src="{{ asset('assets/images/getapp/rate1.png') }}" alt="appstore">
