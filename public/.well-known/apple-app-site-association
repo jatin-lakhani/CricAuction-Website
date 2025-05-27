@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "8M2H2RZV5C.com.cricauction.cricket.playerauction",
+        "paths": ["*"]
+      }
+    ]
+  }
+}

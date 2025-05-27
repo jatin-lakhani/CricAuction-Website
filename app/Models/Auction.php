@@ -28,7 +28,8 @@ class Auction extends Model
         'creator_phone',
         'creator_email',
         'payment_qr',
-        'status'
+        'status',
+        'form_customize',
     ];
 
     protected $casts = [
@@ -37,6 +38,7 @@ class Auction extends Model
         'bid_increase_by' => 'double',
         'player_per_team' => 'double',
         'player_registration' => 'boolean',
+        'form_customize' => 'array',
     ];
 
     protected $appends = ['auction_image_url'];
