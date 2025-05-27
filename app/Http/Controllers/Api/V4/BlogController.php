@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api\V4;
 use App\Models\Blog;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
+
 
 class BlogController extends Controller
 {
@@ -18,55 +20,35 @@ class BlogController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'id' => 'nullable|exists:blogs,id',
             'title' => 'required|string|max:255',
             'short_description' => 'required|string|max:500',
             'long_description' => 'required|string',
             'category' => 'nullable|string|max:255',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp',
+            'image' => 'nullable|url',
         ]);
 
-        $imagePath = null;
-
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('blogs', 'public');
+        if ($validator->fails()) {
+            return apiValidationError($validator->messages(), 422);
         }
-        
 
-        if (!$request->id) {
-            $blog = Blog::create([
-                'title' => $request->title,
-                'short_description' => $request->short_description,
-                'long_description' => $request->long_description,
-                'category' => $request->category,
-                'image' => $imagePath,
-            ]);
-            $message = 'Blog created successfully';
-        } else {
-            $blog = Blog::findOrFail($request->id);
-
-
-            if ($request->hasFile('image')) {
-                $blog->image = $imagePath;
+        try {
+            if ($request->has('id') && !empty($request->input('id'))) {
+                $testimonial = Blog::find($request->id);
+                if (!$testimonial) {
+                    return apiFalseResponse('Blog not found');
+                }
+                $testimonial->update($request->all());
+                return apiResponse('Blog updated successfully', $testimonial);
             }
-
-            $blog->update([
-                'title' => $request->title,
-                'short_description' => $request->short_description,
-                'long_description' => $request->long_description,
-                'category' => $request->category,
-                'image' => $blog->image,
-            ]);
-            $message = 'Blog updated successfully';
+            $testimonial = Blog::create($request->all());
+            return apiResponse('Blog created successfully', $testimonial);
+        } catch (\Exception $e) {
+            logError($e);
+            return apiErrorResponse($e->getMessage());
         }
-
-        return response()->json([
-            'message' => $message,
-            'data' => $blog,
-        ]);
     }
-
 
     public function show($id)
     {

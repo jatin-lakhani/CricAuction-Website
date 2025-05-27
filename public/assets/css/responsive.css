@@ -71,6 +71,10 @@
         padding: 0
     }
 
+    .player-today .container {
+        padding: 0 15px;
+    }
+
     .auctions .auctions-details .card-body {
         bottom: 25px;
         left: 25px
@@ -215,6 +219,17 @@
         width: 100%;
         height: 60%;
     }
+
+    .footer .footer-links ul i {
+        font-size: 22px;
+    }
+
+    .footer .footer-links ul a {
+        line-height: 28px;
+    }
+    .left-side{
+        padding: 60px;
+    }
 }
 
 @media (max-width:1366px) {
@@ -327,6 +342,18 @@
 
     .pricing .pricing-details .card .circle {
         padding-top: 60px;
+    }
+
+    .team-detail {
+        gap: 0px;
+    }
+
+    .team-detail h2 {
+        font-size: 26px;
+        line-height: 28px;
+    }
+    .left-side{
+        padding: 40px;
     }
 }
 
@@ -442,6 +469,7 @@
         padding: 5px 0;
         margin-top: 5px
     }
+
 }
 
 @media (max-width:1200px) {
@@ -1027,6 +1055,64 @@
     .sec-bgimg img {
         width: 130px;
     }
+
+    .heading-top {
+        display: flex;
+        justify-content: center;
+    }
+
+    .heading-top ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        flex-direction: column;
+    }
+
+    .head-top a img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .footer .footer-links ul i {
+        font-size: 17px;
+    }
+     .getapp .getlogo {
+        max-width: 450px;
+    }
+    .getapp .section-details{
+        font-size: 29px;
+    }
+    .getapp .section-para {
+        font-size: 18px;;
+    }
+    .left-side{
+        gap: 15px;
+    }
+}
+
+@media (max-width: 992px) {
+     .getapp {
+        height: auto;
+        flex-direction: column;
+    }
+
+    .left-side,
+    .getapp .right-side {
+        height: auto;
+        padding: 20px;
+    }
+
+    .right-side .app-mockup img {
+        max-height: 60vh;
+        width: 100%;
+    }
+    .getapp .left-side {
+        padding: 20px;
+        align-items: center;
+        text-align: center;
+    }
+
 }
 
 @media (max-width:912px) {
@@ -1319,9 +1405,31 @@
         font-size: 15px;
     }
 
-    /* .video-tab + .video-tab {
-        margin-left: -12px;
-    } */
+    .getapp .getlogo {
+        max-width: 450px;
+    }
+
+    .right-side .auction-title,
+    .right-side .auction-subtitle {
+        font-size: 24px;
+    }
+
+    .right-side .app-mockup img {
+        max-width: 250px;
+    }
+
+    .getapp .getlinks img,
+    .getapp .getrating img {
+        max-width: 140px;
+    }
+    .getapp .getlinks, .getapp .getrating {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-between;
+        padding: 10px 0;
+        width: -webkit-fill-available;
+    }
 }
 
 @media screen and (max-width:768px) {
@@ -1371,7 +1479,12 @@
         padding: 0 3rem
     }
 }
-
+@media (max-width: 576px) {
+    .getapp .getlinks img,
+    .getapp .getrating img {
+        max-width: 130px;
+    }
+}
 @media (max-width:480px) {
     .header .logo img {
         max-height: 35px
@@ -1593,6 +1706,19 @@
     .auction-date-upcoming {
         font-size: 16px;
     }
+
+    .head-top {
+        gap: 7px;
+    }
+
+    .head-top a img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .footer .footer-links ul a {
+        line-height: 20px;
+    }
 }
 
 @media (max-width:450px) {
@@ -1602,10 +1728,6 @@
 
     .heading-bottom {
         padding: 10px 12px
-    }
-
-    .heading-top ul li {
-        display: none
     }
 
     .heading-top ul {
@@ -1745,6 +1867,15 @@
     .testimonial-carousel-wrapper .arrow {
         padding: 10px;
     }
+    .getapp .getlogo {
+        max-width: 385px;
+    }
+    .getapp .section-details {
+        font-size: 19px;
+    }
+    .getapp .section-para {
+        font-size: 15px;
+    }
 }
 
 @media (max-width:375px) {
@@ -1760,6 +1891,18 @@
 
     .number-app {
         font-size: 13px;
+    }
+    .getapp .getlogo {
+        max-width: 300px;
+    }
+    .getapp .section-details {
+        font-size: 15px;
+    }
+    .getapp .section-para {
+        font-size: 13px;
+    }
+    .getapp .getlinks img, .getapp .getrating img {
+        max-width: 115px;
     }
 }
 

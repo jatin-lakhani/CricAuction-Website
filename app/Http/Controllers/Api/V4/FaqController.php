@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V4;
 use App\Http\Controllers\Controller;
 use App\Models\Faq;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class FaqController extends Controller
 {
@@ -27,53 +28,40 @@ class FaqController extends Controller
         ]);
     }
 
+
+
     public function store(Request $request)
-{
-    $request->validate([
-        'id' => 'nullable|exists:faqs,id',
-        'question' => 'required|string|max:255',
-        'answer' => 'required|string',
-        'status' => 'in:active,inactive',
-        'order' => 'nullable|integer',
-    ]);
-
-    $order = $request->order ?? 1;
-
-    // If it's a create (no ID), shift existing order if conflict exists
-    if (!$request->id) {
-        Faq::where('order', '>=', $order)->increment('order');
-        $faq = Faq::create([
-            'question' => $request->question,
-            'answer' => $request->answer,
-            'status' => $request->status ?? 'active',
-            'order' => $order,
+    {
+        $validator = Validator::make($request->all(), [
+            'id' => 'nullable|exists:faqs,id',
+            'question' => 'required|string|max:255',
+            'answer' => 'required|string',
+            'status' => 'in:active,inactive',
+            'order' => 'nullable|integer',
         ]);
-        $message = 'FAQ created successfully';
-    } else {
-        // For update, optionally shift order if changed
-        $faq = Faq::findOrFail($request->id);
 
-        if ($faq->order != $order) {
-            // Avoid order conflict: shift others if needed
-            Faq::where('order', '>=', $order)->where('id', '!=', $faq->id)->increment('order');
+        if ($validator->fails()) {
+            return apiValidationError($validator->messages(), 422);
         }
 
-        $faq->update([
-            'question' => $request->question,
-            'answer' => $request->answer,
-            'status' => $request->status ?? 'active',
-            'order' => $order,
-        ]);
-        $message = 'FAQ updated successfully';
+        try {
+            if ($request->has('id') && !empty($request->input('id'))) {
+                $testimonial = Faq::find($request->id);
+                if (!$testimonial) {
+                    return apiFalseResponse('FAQ not found');
+                }
+                $testimonial->update($request->all());
+                return apiResponse('FAQ updated successfully', $testimonial);
+            }
+            $testimonial = Faq::create($request->all());
+            return apiResponse('FAQ created successfully', $testimonial);
+        } catch (\Exception $e) {
+            logError($e);
+            return apiErrorResponse($e->getMessage());
+        }
     }
 
-    return response()->json([
-        'message' => $message,
-        'data' => $faq,
-    ]);
-}
-
-
+   
     public function destroy($id)
     {
         Faq::findOrFail($id)->delete();

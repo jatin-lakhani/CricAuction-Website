@@ -60,36 +60,6 @@
     margin-left: 35px;
 }
 
-@media (max-width:768px) {
-    .data-content .inter-heading {
-        font-size: 1.25rem;
-    }
-
-    .data-content .sub-heading {
-        font-size: 1.5rem;
-    }
-}
-
-@media (max-width:425px) {
-    .data-content .inter-heading {
-        font-size: 1.2rem;
-    }
-
-    .data-content .sub-heading {
-        font-size: 1.25rem;
-    }
-
-    .data-content p {
-        font-size: 15px;
-    }
-
-    .privacy-heading img {
-        width: 35px;
-        height: 35px;
-    }
-}
-
-
 /* auction list page css */
 .team-row {
     display: none;
@@ -113,8 +83,10 @@ button:disabled i {
     row-gap: 25px;
 }
 
-.player-today .container {
-    padding: 50px 0;
+.auction-btns {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .player-today {
@@ -123,6 +95,15 @@ button:disabled i {
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
+}
+
+.player-today,
+.blog-sec {
+    padding: 100px 0 50px 0;
+}
+
+.player-today .container {
+    padding: 0 5rem;
 }
 
 .player-today h1 {
@@ -148,7 +129,6 @@ button:disabled i {
 
 .team-content {
     display: flex;
-    align-items: start;
     padding: 15px;
     gap: 20px;
 }
@@ -176,7 +156,7 @@ button:disabled i {
     gap: 10px;
     font-family: var(--nav-font);
     font-weight: 600;
-    font-size: 17px;
+    font-size: 18px;
     line-height: 36px;
     letter-spacing: 0px;
     text-transform: capitalize;
@@ -524,6 +504,186 @@ button:disabled i {
     /* chevron-down becomes up */
 }
 
-.privacy-sec .container{
-    padding-top: 40px;
+.privacy-sec {
+    padding-top: 80px;
 }
+
+.card-img-top1 {
+    background: none !important;
+    border: none !important;
+    border-radius: 10px !important;
+    box-shadow: -4px -4px 10px 0px #A9777733;
+    height: 240px;
+    width: 100%;
+    object-fit: cover;
+}
+
+@media (max-width:768px) {
+    .data-content .inter-heading {
+        font-size: 1.25rem;
+    }
+
+    .data-content .sub-heading {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width:425px) {
+    .data-content .inter-heading {
+        font-size: 1.2rem;
+    }
+
+    .data-content .sub-heading {
+        font-size: 1.25rem;
+    }
+
+    .data-content p {
+        font-size: 15px;
+    }
+
+    .privacy-heading img {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+
+/* ---------- Get APP ---------- */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.getapp {
+    height: 100vh; /* Make entire section take full viewport height */
+    display: flex;
+    align-items: stretch; /* Ensure columns stretch full height */
+    background-image:
+        url('../images/getapp/left-top.png'),
+        url('../images/getapp/right-bottom.png'),
+        url('../images/getapp/getappbg1.png'),
+        url('../images/getapp/getappbg.png');   
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+    background-position:top left,bottom right,center center,center center;    
+    background-size:200px auto,200px auto,cover,cover;            
+}
+
+.getapp .row {
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+.left-side,
+.getapp .right-side {
+    height: 100%;
+}
+.left-side {
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    min-height: 100%;
+}
+
+.getapp .getlogo {
+    max-width: 500px;
+    height: auto;
+}
+
+.getapp .section-details {
+    font-family: var(--nav-font);
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: #FAD15F;
+}
+
+.getapp .section-para {
+    font-family: var(--heading-font);
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 1.4;
+    color: #FFFFFF;
+}
+
+.getapp .getlinks,
+.getapp .getrating {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.getapp .getlinks img,
+.getapp .getrating img {
+    max-width: 160px;
+    height: auto;
+}
+
+.getapp .getrating {
+    gap: 30px;
+}
+
+.getapp .right-side {
+    background-image: url('../images/getapp/right.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0px;
+    text-align: center;
+}
+
+.right-side .auction-title {
+    font-family: var(--nav-font);
+    font-weight: 700;
+    font-size: 32px;
+    color: #272626;
+    text-shadow: 2px 2px 4px #00000026;
+    margin-bottom: 10px;
+}
+
+.right-side .auction-subtitle {
+    font-family: var(--nav-font);
+    font-weight: 600;
+    font-size: 20px;
+    color: #686868;
+    margin-bottom: 20px;
+    line-height: normal;
+}
+
+.right-side .app-mockup {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-side .app-mockup img {
+    width: 100%;
+    height: 75vh;
+    object-fit: contain;
+}
+#appMockupSlider .mockup-block {
+    display: none;
+    animation: fadeIn 3s ease-in-out;
+}
+
+#appMockupSlider .mockup-block.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+

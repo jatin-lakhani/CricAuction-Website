@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V4;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class TestmonialController extends Controller
 {
@@ -18,57 +19,37 @@ class TestmonialController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'id' => 'nullable|exists:testimonials,id',
             'name' => 'required|string',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp',
+            'image' => 'nullable|url',
             'rating' => 'required|integer|min:1|max:5',
             'title' => 'required|string',
             'review' => 'required|string',
             'status' => 'required|in:Active,Inactive',
         ]);
 
-        $imagePath = null;
-
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('testimonials', 'public');
+        if ($validator->fails()) {
+            return apiValidationError($validator->messages(), 422);
         }
 
-        if (!$request->id) {
-            $testimonial = Testimonial::create([
-                'name' => $request->name,
-                'image' => $imagePath,
-                'rating' => $request->rating,
-                'title' => $request->title,
-                'review' => $request->review,
-                'status' => $request->status,
-            ]);
-            $message = 'Testimonial created successfully';
-        }else {
-            $testimonial = Testimonial::findOrFail($request->id);
-
-
-            if ($request->hasFile('image')) {
-                $testimonial->image = $imagePath;
+        try {
+            if ($request->has('id') && !empty($request->input('id'))) {
+                $testimonial = Testimonial::find($request->id);
+                if (!$testimonial) {
+                    return apiFalseResponse('Testimonial not found');
+                }
+                $testimonial->update($request->all());
+                return apiResponse('Testimonial updated successfully', $testimonial);
             }
-
-            $testimonial->update([
-                'name' => $request->name,
-                'rating' => $request->rating,
-                'title' => $request->title,
-                'review' => $request->review,
-                'status' => $request->status,
-                'image' => $testimonial->image,
-            ]);
-            $message = 'Testimonial updated successfully';
+            $testimonial = Testimonial::create($request->all());
+            return apiResponse('Testimonial created successfully', $testimonial);
+        } catch (\Exception $e) {
+            logError($e);
+            return apiErrorResponse($e->getMessage());
         }
-
-        return response()->json([
-            'message' => $message,
-            'data' => $testimonial,
-        ]);
     }
-  
+
     public function show($id)
     {
         return response()->json([
@@ -76,7 +57,7 @@ class TestmonialController extends Controller
             'data' => Testimonial::findOrFail($id),
         ]);
     }
-    
+
 
     public function destroy($id)
     {

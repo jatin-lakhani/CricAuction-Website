@@ -9,7 +9,7 @@
                 {!! nl2br(e($blog->title)) !!}
             </div>
             <div class="image-read">
-                <img src="{{ $blog->image ? asset('storage/' . $blog->image) : asset('assets/images/gallery/demo_video.jpg') }}" alt="">
+                <img src="{{ $blog->image ?? asset('assets/images/gallery/demo_video.jpg') }}" id="profile-img" alt="">
             </div>
             <div class="read-date">
                 <p>{{ \Carbon\Carbon::parse($blog->created_at)->format('F d, Y') }} By Admin</p>

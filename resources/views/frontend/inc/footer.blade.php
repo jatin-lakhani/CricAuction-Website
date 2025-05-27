@@ -20,11 +20,20 @@
                 <strong class="h4">Quick Links</strong>
                 <nav id="navmenu" style="cursor: pointer;">
                     <ul>
-                        <li><a href="{{ route('welcome', ['section' => 'hero']) }}" class="active">Home</a></li>
-                        <li><a href="{{ route('welcome', ['section' => 'auctions']) }}">Auctions</a></li>
-                        <li><a href="{{ route('welcome', ['section' => 'features']) }}">Features</a></li>
-                        <li><a href="{{ route('welcome', ['section' => 'help']) }}">Help</a></li>
-                        <li><a href="{{ route('welcome', ['section' => 'pricing']) }}">Pricing</a></li>
+                        <li><a href="{{ route('welcome') }}" class="active">Home</a></li>
+                        <li><a href="{{ route('auctionlist.today') }}"
+                                class="{{ request()->routeIs('auctionlist.today') ? 'active' : '' }}">Today's
+                                Auctions</a></li>
+                        <li><a href="{{ route('auctionlist.upcoming') }}"
+                                class="{{ request()->routeIs('auctionlist.upcoming') ? 'active' : '' }}">Upcoming
+                                Auctions</a></li>
+                        <li><a href="{{ route('video_gallery') }}"
+                                class="{{ request()->routeIs('video_gallery') ? 'active' : '' }}">Video Gallery</a>
+                        </li>
+                        <li><a href="{{ route('blogs') }}"
+                                class="{{ request()->routeIs('blogs') ? 'active' : '' }}">Blogs</a></li>
+                        <li><a href="{{ route('faq') }}"
+                                class="{{ request()->routeIs('faq') ? 'active' : '' }}">Faqs</a></li>
                     </ul>
                 </nav>
             </div>
@@ -47,8 +56,10 @@
                 <ul class="con">
                     <li><a href="mailto:info@argonitservices.com"><i class="bi bi-envelope"
                                 style="color: #ffffff;"></i>info@argonitservices.com</a></li>
-                    <li><a href="tel:+917698767767"><i class="bi bi-telephone" style="color: #ffffff;"></i>+91 76 98 767
-                            767 </a></li>
+                    <li><i class="bi bi-telephone" style="color: #ffffff;"></i>
+                        <div><a href="tel:+917698767767">+91 76 98 767
+                                767 </a> <a href="tel:+919978779471">+91 99 78 779 471</a></div>
+                    </li>
 
                     <li class="social-links">
                         <a href="https://www.facebook.com/profile.php?id=61571234099766" target="_blank"><img
@@ -137,92 +148,46 @@
     });
 </script>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const cards = document.querySelectorAll('.mobile-features .card');
-        const carousel = document.querySelector('#carouselExample');
-        const carouselInner = document.querySelector('.carousel-inner');
-        const activeCardContainer = document.querySelector('#active-card-container');
+{{-- Testimonials section script --}}
+{{-- <script>
+    const testimonials = @json($testimonials);
+    let currentIndex = 0;
 
-        // Function to activate the card and update the active card container
-        function activateCard(index) {
-            cards.forEach((card) => card.classList.remove('active'));
-            const targetCard = Array.from(cards).find((card) => parseInt(card.getAttribute('data-target'),
-                10) === index);
+    function updateTestimonial(index) {
+        const quoteHeading = document.getElementById('quote-heading');
+        const quoteText = document.getElementById('quote-text');
+        const profileImg = document.getElementById('profile-img');
+        const profileName = document.getElementById('profile-name');
+        const profileRating = document.getElementById('profile-rating');
 
-            if (targetCard) {
-                targetCard.classList.add('active');
-                updateActiveCardContent(targetCard);
-            }
-        }
+        if (testimonials.length === 0) return;
 
-        // Function to update the active card content in the container
-        function updateActiveCardContent(card) {
-            const title = card.querySelector('.card-title').innerHTML;
-            const text = card.querySelector('.card-text').innerHTML;
-            const image = card.querySelector('img').outerHTML;
+        const testimonial = testimonials[index];
 
-            activeCardContainer.innerHTML = `
-            <div class="card active">
-                <div class="features-mobile">
-                    <div class="fm-num">${card.querySelector('.fm-num').innerHTML}</div>
-                    <div class="card-body fm-main">
-                        <h5 class="card-title text-left">${title}</h5>
-                        <p class="card-text">${text}</p>
-                    </div>
-                </div>
-            </div>
-        `;
-        }
+        quoteHeading.textContent = testimonial.title;
+        quoteText.innerHTML = `"${testimonial.review.replace(/\n/g, '<br>')}"`;
+        profileImg.src = `{{ asset('') }}` + testimonial.image;
+        profileName.textContent = testimonial.name;
 
-        // Handle card hover to change carousel slide and active card
-        cards.forEach((card) => {
-            card.addEventListener('mouseenter', function() {
-                // Remove the active class from all cards
-                cards.forEach((c) => c.classList.remove('active'));
+        const filledStars = '<i class="bi bi-star-fill"></i>'.repeat(testimonial.rating);
+        const emptyStars = '<i class="bi bi-star"></i>'.repeat(5 - testimonial.rating);
+        profileRating.innerHTML = filledStars + emptyStars;
+    }
 
-                // Add the active class to the hovered card
-                this.classList.add('active');
+    function nextTestimonial() {
+        currentIndex = (currentIndex + 1) % testimonials.length;
+        updateTestimonial(currentIndex);
+    }
 
-                // Get the target index for the carousel
-                const targetIndex = parseInt(this.getAttribute('data-target'), 10);
-                const carouselInstance = bootstrap.Carousel.getOrCreateInstance(carousel);
-                carouselInstance.to(targetIndex);
-            });
-        });
+    function prevTestimonial() {
+        currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+        updateTestimonial(currentIndex);
+    }
 
-        // Update active card when the carousel slide changes
-        carousel.addEventListener('slide.bs.carousel', function(event) {
-            activateCard(event.to);
-        });
+    // Optional: Auto-play carousel
+    setInterval(nextTestimonial, 5000);
+</script> --}}
 
-        // Handle "Previous" and "Next" buttons to sync active card with slide
-        const prevBtn = document.querySelector('.carousel-control-prev');
-        const nextBtn = document.querySelector('.carousel-control-next');
-
-        if (prevBtn && nextBtn) {
-            prevBtn.addEventListener('click', function() {
-                const activeIndex = [...carouselInner.children].findIndex((item) =>
-                    item.classList.contains('active')
-                );
-                const newIndex = (activeIndex - 1 + carouselInner.children.length) % carouselInner
-                    .children.length;
-                activateCard(newIndex);
-            });
-
-            nextBtn.addEventListener('click', function() {
-                const activeIndex = [...carouselInner.children].findIndex((item) =>
-                    item.classList.contains('active')
-                );
-                const newIndex = (activeIndex + 1) % carouselInner.children.length;
-                activateCard(newIndex);
-            });
-        }
-
-        // Initialize the active card content on load
-        activateCard(0);
-    });
-</script>
 
 {{-- carousel home today section js --}}
 <script>
@@ -251,7 +216,6 @@
     });
 </script>
 
-
 {{-- count up number section js --}}
 <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -260,28 +224,27 @@
         const animateCount = (counter) => {
             const target = +counter.getAttribute('data-count');
             let count = 0;
-            const increment = 300; // You can change this to 1, 10, 500 etc.
+            const increment = Math.ceil(target / 100); // Smooth increment
 
             const updateCount = () => {
                 count += increment;
 
                 if (count < target) {
                     counter.innerText = count;
-                    setTimeout(updateCount, 20); // Delay in milliseconds
+                    setTimeout(updateCount, 20);
                 } else {
-                    counter.innerText = target; // Final value, no commas
+                    counter.innerText = target + '+'; // Add + when done
                 }
             };
 
             updateCount();
         };
 
-        // Run animation when element enters the viewport
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     animateCount(entry.target);
-                    observer.unobserve(entry.target); // run once
+                    observer.unobserve(entry.target);
                 }
             });
         }, {
@@ -291,7 +254,6 @@
         counters.forEach(counter => observer.observe(counter));
     });
 </script>
-
 
 <script>
     var swiper = new Swiper(".mySwiper", {

@@ -8,13 +8,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="title" content="CricAuction | Online Cricket Auction Platform for Teams & Tournaments" />
-    <meta name="description" content="Create and manage your own cricket auctions online with CricAuction. Real-time bidding, team creation, and live score updates make it perfect for local tournaments and leagues." />
+    <meta name="description"
+        content="Create and manage your own cricket auctions online with CricAuction. Real-time bidding, team creation, and live score updates make it perfect for local tournaments and leagues." />
 
     <meta property="og:title" content="CricAuction | Online Cricket Auction Platform for Teams & Tournaments" />
-    <meta property="og:description" content="Create and manage your own cricket auctions online with CricAuction. Real-time bidding, team creation, and live score updates make it perfect for local tournaments and leagues." />
+    <meta property="og:description"
+        content="Create and manage your own cricket auctions online with CricAuction. Real-time bidding, team creation, and live score updates make it perfect for local tournaments and leagues." />
     <meta property="og:image" content="{{ asset('assets/images/logo.png') }}" />
 
-    <meta name="keywords" content="player auction app, cricket auction software, cricket auction app, auction games cricket, cricket auction games, Online Cricket Auction, cricket auction software, online auction website" />
+    <meta name="keywords"
+        content="player auction app, cricket auction software, cricket auction app, auction games cricket, cricket auction games, Online Cricket Auction, cricket auction software, online auction website" />
 
     <!-- Google Search Console -->
     <meta name="google-site-verification" content="Pq2WJ-ByyE3hahiI_3CVgi7m-K4DZbKypi7CYfOyBc0" />
@@ -47,17 +50,35 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HN6VXBN3BD"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-HN6VXBN3BD'); </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HN6VXBN3BD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-HN6VXBN3BD');
+    </script>
 </head>
 
 
 <body class="index-page">
 
     <header id="header" class="header align-items-center fixed-top">
-        <div class="position-relative  align-items-center heading-top">
+        <div class="position-relative align-items-center heading-top">
             <ul>
                 <span>"Welcome to Cricauction—start bidding on exclusive cricket memorabilia now!"</span>
-                <li><a href="tel:+917698767767"><i class="bi bi-telephone"></i>+91 76 98 767 767</a></li>
+                <div class="head-top">
+                    <a href="https://www.instagram.com/cricauction.official" target="_blank"><img
+                            src="{{ asset('assets/images/footer/instagram.png') }}" alt="Instagram"></a>
+                    <a href="https://www.youtube.com/@CricAuction-o9q" target="_blank"><img
+                            src="{{ asset('assets/images/footer/Youtube.png') }}" alt="Youtube"></a>
+                    <li>
+                        <a href="tel:+917698767767"><i class="bi bi-telephone"></i>+91 76 98 767 767 /</a><a
+                            href="tel:+919978779471"> +91 99 78 779 471</a>
+                    </li>
+                </div>
             </ul>
         </div>
         <div class="position-relative d-flex align-items-center heading-bottom justify-content-between">
@@ -69,11 +90,18 @@
 
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li><a href="{{ route('welcome')}}" class="{{ request()->routeIs('welcome') ? 'active' : '' }}">Home</a></li>
-                    <li><a href="{{ route('auctionlist.today')}}" class="{{ request()->routeIs('auctionlist.today') ? 'active' : '' }}">Today's Auctions</a></li>
-                    <li><a href="{{ route('auctionlist.upcoming')}}" class="{{ request()->routeIs('auctionlist.upcoming') ? 'active' : '' }}">Upcoming Auctions</a></li>
-                    <li><a href="{{ route('video_gallery')}}" class="{{ request()->routeIs('video_gallery') ? 'active' : '' }}">Video Gallery</a></li>
-                    <li><a href="{{ route('blogs')}}" class="{{ request()->routeIs('blogs') ? 'active' : '' }}">Blogs</a></li>
+                    <li><a href="{{ route('welcome') }}"
+                            class="{{ request()->routeIs('welcome') ? 'active' : '' }}">Home</a></li>
+                    <li><a href="{{ route('auctionlist.today') }}"
+                            class="{{ request()->routeIs('auctionlist.today') ? 'active' : '' }}">Today's Auctions</a>
+                    </li>
+                    <li><a href="{{ route('auctionlist.upcoming') }}"
+                            class="{{ request()->routeIs('auctionlist.upcoming') ? 'active' : '' }}">Upcoming
+                            Auctions</a></li>
+                    <li><a href="{{ route('video_gallery') }}"
+                            class="{{ request()->routeIs('video_gallery') ? 'active' : '' }}">Video Gallery</a></li>
+                    <li><a href="{{ route('blogs') }}"
+                            class="{{ request()->routeIs('blogs') ? 'active' : '' }}">Blogs</a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
