@@ -11,7 +11,7 @@ class FaqController extends Controller
 {
     public function index()
     {
-        return response()->json([
+        return apiResponse()->json([
             'message' => 'Faq Detail List Retrieved Successfully',
             'data' => Faq::orderBy('order')->get(),
         ]);
@@ -22,7 +22,7 @@ class FaqController extends Controller
         $faq = Faq::findOrFail($id);
         $message = 'Faq details retrieved successfully';
 
-        return response()->json([
+        return apiResponse()->json([
             'message' => $message,
             'data' => $faq,
         ]);
@@ -65,6 +65,6 @@ class FaqController extends Controller
     public function destroy($id)
     {
         Faq::findOrFail($id)->delete();
-        return response()->json(['message' => 'FAQ deleted successfully']);
+        return apiResponse()->json(['message' => 'FAQ deleted successfully']);
     }
 }
