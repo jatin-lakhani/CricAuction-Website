@@ -11,10 +11,7 @@ class TestmonialController extends Controller
 {
     public function index()
     {
-        return apiResponse()->json([
-            'message' => 'Testimonial Detail List Retrieved Successfully',
-            'data' => Testimonial::all(),
-        ]);
+        return apiResponse('Testimonial Detail List Retrieved Successfully', Testimonial::all() );
     }
 
     public function store(Request $request)
@@ -52,16 +49,14 @@ class TestmonialController extends Controller
 
     public function show($id)
     {
-        return apiResponse()->json([
-            'message' => 'Testimonial Detail Retrieved Successfully',
-            'data' => Testimonial::findOrFail($id),
-        ]);
+        $testimonial = Testimonial::findOrFail($id);
+        return apiResponse('Testimonial Detail Retrieved Successfully', $testimonial);
     }
 
 
     public function destroy($id)
     {
         Testimonial::findOrFail($id)->delete();
-        return apiResponse()->json(['message' => 'Testimonial deleted']);
+        return apiResponse('Testimonial deleted successfully', 200);
     }
 }

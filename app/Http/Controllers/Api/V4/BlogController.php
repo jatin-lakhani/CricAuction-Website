@@ -12,10 +12,8 @@ class BlogController extends Controller
 {
     public function index()
     {
-        return apiResponse()->json([
-            'message' => 'Blog Detail List Retrieved Successfully',
-            'data' => Blog::all(),
-        ]);
+        $blog = Blog::all();
+        return apiResponse('Blog Detail List Retrieved Successfully', $blog);
     }
 
     public function store(Request $request)
@@ -53,19 +51,14 @@ class BlogController extends Controller
     public function show($id)
     {
         $blog = Blog::findOrFail($id);
-        $message = ' Blog retrieved successfully';
-
-        return apiResponse()->json([
-            'message' => $message,
-            'data' => $blog,
-        ]);
+        return apiResponse('Blog retrieved successfully', $blog);
     }
 
     public function destroy($id)
     {
 
         Blog::findOrFail($id)->delete();
-        return apiResponse()->json(['message' => 'Blog deleted successfully','success' => true]);
+        return apiResponse('Blog deleted successfully', 200);
 
     }
 }
