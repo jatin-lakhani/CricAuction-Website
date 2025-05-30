@@ -11,10 +11,7 @@ class VideoGalleryController extends Controller
 {
     public function index()
     {
-        return apiResponse()->json([
-            'message' => 'Video List Detail Retrieved Successfully',
-            'data' => VideoGallery::all(),
-        ]);
+        return apiResponse('Video List Retrieved Successfully', VideoGallery::all());
     }
 
 
@@ -109,19 +106,12 @@ class VideoGalleryController extends Controller
     {
 
         $video = VideoGallery::findOrFail($id);
-        $message = 'Video Gallery retrieved successfully';
-
-        return apiResponse()->json([
-            'message' => $message,
-            'data' => $video,
-        ]);
+        return apiResponse('Video Gallery details retrieved successfully', ($video));
     }
-
-  
 
     public function destroy($id)
     {
         VideoGallery::findOrFail($id)->delete();
-        return apiResponse()->json(['message' => 'Video deleted']);
+        return apiResponse('Video deleted successfully',200);
     }
 }
