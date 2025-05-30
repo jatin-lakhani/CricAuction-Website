@@ -12,7 +12,7 @@ class BlogController extends Controller
 {
     public function index()
     {
-        return response()->json([
+        return apiResponse()->json([
             'message' => 'Blog Detail List Retrieved Successfully',
             'data' => Blog::all(),
         ]);
@@ -55,7 +55,7 @@ class BlogController extends Controller
         $blog = Blog::findOrFail($id);
         $message = ' Blog retrieved successfully';
 
-        return response()->json([
+        return apiResponse()->json([
             'message' => $message,
             'data' => $blog,
         ]);
@@ -65,7 +65,7 @@ class BlogController extends Controller
     {
 
         Blog::findOrFail($id)->delete();
-        return response()->json(['message' => 'Blog deleted successfully','success' => true]);
+        return apiResponse()->json(['message' => 'Blog deleted successfully','success' => true]);
 
     }
 }
