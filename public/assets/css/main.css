@@ -1570,3 +1570,7 @@ div#current-logo {
     width: 36px;
     height: 36px;
 }
+
+.row{
+    margin: 0px !important;
+}
