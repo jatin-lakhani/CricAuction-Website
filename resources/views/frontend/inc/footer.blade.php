@@ -62,11 +62,11 @@
                     </li>
 
                     <li class="social-links">
-                        <a href="https://www.facebook.com/profile.php?id=61571234099766" target="_blank"><img
+                        <a href="https://www.facebook.com/people/CricAuction/61577288155516/" target="_blank"><img
                                 src="{{ asset('assets/images/footer/facebook.png') }}" alt="Facebook"></a>
                         <a href="https://www.instagram.com/cricauction.official" target="_blank"><img
                                 src="{{ asset('assets/images/footer/instagram.png') }}" alt="Instagram"></a>
-                        <a href="https://www.youtube.com/@CricAuction-o9q" target="_blank"><img
+                        <a href="https://www.youtube.com/@CricAuction1" target="_blank"><img
                                 src="{{ asset('assets/images/footer/Youtube.png') }}" alt="YouTube"></a>
                         <a href="https://www.linkedin.com/company/cricauction" target="_blank"><img
                                 src="{{ asset('assets/images/footer/linkedin.png') }}" alt="LinkedIn"></a>

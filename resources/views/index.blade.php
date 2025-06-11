@@ -727,29 +727,29 @@
                     <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
                         <div class="card text-center py-4 mt-3">
                             <h5 class="auction-number count-up" data-count="{{ $stats['total_auctions'] }}">0</h5>
-                            <p class="auct-head">TOTAL AUCTIONS</p>
+                            <p class="auct-head">AUCTIONS</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="150">
                         <div class="card text-center py-4 mt-3">
                             <h5 class="auction-number count-up" data-count="{{ $stats['total_users'] }}">0</h5>
-                            <p class="auct-head">TOTAL USERS</p>
+                            <p class="auct-head">ORGANISERS</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
                         <div class="card text-center py-4 mt-3">
                             <h5 class="auction-number count-up" data-count="{{ $stats['total_teams'] }}">0</h5>
-                            <p class="auct-head">TOTAL TEAMS</p>
+                            <p class="auct-head">TEAMS</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="250">
                         <div class="card text-center py-4 mt-3">
                             <h5 class="auction-number count-up" data-count="{{ $stats['total_players'] }}">0</h5>
-                            <p class="auct-head">TOTAL PLAYERS</p>
+                            <p class="auct-head">PLAYERS</p>
                         </div>
                     </div>
                 </div>
-                <div class="number-app" data-aos="fade-up" data-aos-delay="100">
+                <div class="number-app mt-2" data-aos="fade-up" data-aos-delay="100">
                     <div class="app-head">👉 Join the Global Cricket Network!</div>
                     <a class="app-button" href="{{route('getapp')}}">GET APP</a>
                 </div>

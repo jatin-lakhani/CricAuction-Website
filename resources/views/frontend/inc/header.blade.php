@@ -72,7 +72,7 @@
                 <div class="head-top">
                     <a href="https://www.instagram.com/cricauction.official" target="_blank"><img
                             src="{{ asset('assets/images/footer/instagram.png') }}" alt="Instagram"></a>
-                    <a href="https://www.youtube.com/@CricAuction-o9q" target="_blank"><img
+                    <a href="https://www.youtube.com/@CricAuction1" target="_blank"><img
                             src="{{ asset('assets/images/footer/Youtube.png') }}" alt="Youtube"></a>
                     <li>
                         <a href="tel:+917698767767"><i class="bi bi-telephone"></i>+91 76 98 767 767 /</a><a
