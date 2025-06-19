@@ -9,6 +9,7 @@ use App\Http\Resources\V4\TeamResource;
 use App\Models\Auction;
 use App\Models\Player;
 use App\Models\Team;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -308,22 +309,42 @@ class PlayerController extends Controller
         if ($validator->fails()) {
             return apiValidationError($validator->messages());
         }
+
+        DB::beginTransaction();
         try {
-            $teamIds = Player::whereIn('id', $request->input('player_ids', []))
-                ->pluck('team_id')
-                ->unique();
+            $playerIds = $request->input('player_ids', []);
 
-            // Delete the players
-            Player::whereIn('id', $request->input('player_ids', []))->delete();
+            // Get affected team IDs before deletion
+            $teamIds = Player::whereIn('id', $playerIds)->pluck('team_id')->unique();
 
-            // Update teamUsedPoint to 0 for affected teams
-            Team::whereIn('id', $teamIds)->update(['teamUsedPoint' => 0]);
+            // Delete players
+            Player::whereIn('id', $playerIds)->delete();
+
+            // Update each affected team
+            $teams = Team::whereIn('id', $teamIds)->with('auction')->get();
+
+            foreach ($teams as $team) {
+                // Recalculate numberOfPlayer and teamUsedPoint based on active players only
+                $team->numberOfPlayer = $team->players()->where('playerStatus', 1)->count();
+                $team->teamUsedPoint = $team->players()->where('playerStatus', 1)->sum('sold_value');
+
+                // Recalculate maxBid if auction exists
+                if ($team->auction) {
+                    $team->maxBid = $team->getMaxBid($team->auction);
+                }
+
+                $team->save();
+            }
+
+            DB::commit();
             return apiResponse('Player deleted successfully');
         } catch (\Exception $e) {
+            DB::rollBack();
             logError($e);
             return apiErrorResponse($e->getMessage());
         }
     }
+
 
     // public function playerBulkStore(Request $request)
     // {
