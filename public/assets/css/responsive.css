@@ -1320,9 +1320,9 @@
         font-size: 30px;
     }
 
-    .image-read img {
+    /* .image-read img {
         height: 500px;
-    }
+    } */
 
     .read-date {
         font-size: 30px;
@@ -1585,9 +1585,9 @@
         height: 100%;
     }
 
-    .image-read img {
+    /* .image-read img {
         height: 400px;
-    }
+    } */
 
     .blog-heading {
         font-size: 34px;
