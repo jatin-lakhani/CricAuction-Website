@@ -305,6 +305,7 @@ button:disabled i {
 .blog-card {
     border: 1.5px solid #C9C9C9;
     border-radius: 15px;
+    position: relative;
 }
 
 .blog-card:hover {
@@ -318,6 +319,7 @@ button:disabled i {
 
 .content-video-blog {
     padding: 15px;
+    padding-bottom: 50px;
 }
 
 .blog-image {
@@ -329,12 +331,13 @@ button:disabled i {
 
 .blog-read {
     background: linear-gradient(180deg, #ED3A40 0%, #EF555A 15.48%, #D44247 47.12%, #B72328 86.86%, #952125 111.36%);
-    position: relative;
+    position: absolute;
     display: flex;
-    float: right;
     padding: 6px;
     margin-bottom: 15px;
     border-radius: 4px;
+    bottom: 0;
+    right: 20px;
 }
 
 .blog-read a {
@@ -344,6 +347,11 @@ button:disabled i {
     font-weight: 700;
     font-size: 13px;
     text-transform: capitalize;
+}
+
+.blog-link {
+    text-decoration: none;
+    color: inherit;
 }
 
 /* blog read more page css */

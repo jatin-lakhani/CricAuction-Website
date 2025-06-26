@@ -11,26 +11,28 @@
                 <div class="row g-4">
                     @foreach ($blogs as $blog)
                         <div class="col-lg-4 col-md-6">
-                            <div class="card-auction-video h-100 blog-card">
-                                <div class="video-thumbnail-wrapper">
-                                    <img class="blog-image" 
-                                        src="{{ $blog->image ?? asset('assets/images/gallery/demo_video.jpg') }}" id="profile-img" 
-                                        alt="User">
-
-                                </div>
-                                <div class="content-video-blog">
-                                    <div class="auction-date-video">
-                                        <img src="{{ asset('assets/images/blog/calender.png') }}" class="calender"
-                                            alt="icon">
-                                        <p>{{ \Carbon\Carbon::parse($blog->created_at)->format('d-m-Y') }}</p>
+                            <a href="{{ route('blog_read', $blog->id) }}" class="blog-link">
+                                <div class="card-auction-video h-100 blog-card">
+                                    <div class="video-thumbnail-wrapper">
+                                        <img class="blog-image"
+                                            src="{{ $blog->image ?? asset('assets/images/gallery/demo_video.jpg') }}"
+                                            id="profile-img" alt="User">
                                     </div>
-                                    <h5 class="gallery-title">{{ $blog->title }}</h5>
-                                    <div class="blog-read">
-                                        <a href="{{ route('blog_read', $blog->id) }}">Read More <i
-                                                class="bi bi-chevron-right"></i></a>
+                                    <div class="content-video-blog">
+                                        <div class="auction-date-video">
+                                            <img src="{{ asset('assets/images/blog/calender.png') }}" class="calender"
+                                                alt="icon">
+                                            <p>{{ \Carbon\Carbon::parse($blog->created_at)->format('d-m-Y') }}</p>
+                                        </div>
+                                        <h5 class="gallery-title">{{ $blog->title }}</h5>
+                                        <div class="blog-read">
+                                            <a href="{{ route('blog_read', $blog->id) }}">
+                                                Read More <i class="bi bi-chevron-right"></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     @endforeach
                 </div>
