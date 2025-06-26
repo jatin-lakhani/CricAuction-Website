@@ -31,7 +31,7 @@ class FaqController extends Controller
             'id' => 'nullable|exists:faqs,id',
             'question' => 'required|string|max:255',
             'answer' => 'required|string',
-            'status' => 'in:active,inactive',
+            'status' => 'in:Active,Inactive',
             'order' => 'nullable|integer',
         ]);
 
@@ -56,7 +56,7 @@ class FaqController extends Controller
         }
     }
 
-   
+
     public function destroy($id)
     {
         $faq = Faq::findOrFail($id)->delete();
