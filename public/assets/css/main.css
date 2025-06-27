@@ -968,7 +968,7 @@ section {
 
 .pricing .pricing-details .card .circle img {
     width: 42%;
-    height: 42%
+    height: 100% !important;
 }
 
 .pricing .pricing-details .card .circle h2 {
