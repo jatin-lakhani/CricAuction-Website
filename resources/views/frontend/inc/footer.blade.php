@@ -33,7 +33,7 @@
                         <li><a href="{{ route('blogs') }}"
                                 class="{{ request()->routeIs('blogs') ? 'active' : '' }}">Blogs</a></li>
                         <li><a href="{{ route('faq') }}"
-                                class="{{ request()->routeIs('faq') ? 'active' : '' }}">Faqs</a></li>
+                                class="{{ request()->routeIs('faq') ? 'active' : '' }}">FAQs</a></li>
                     </ul>
                 </nav>
             </div>

@@ -327,6 +327,8 @@ button:disabled i {
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
     height: 235px;
+    object-fit: cover;
+    background-position: center, center;
 }
 
 .blog-read {
@@ -492,12 +494,12 @@ button:disabled i {
     display: none;
     margin: 10px 0px 0px;
     transition: all 0.3s ease;
-    font-family: var(--heading-font);
+    /* font-family: var(--heading-font);
     font-weight: 400;
     font-size: 20px;
     line-height: 131%;
     text-transform: capitalize;
-    color: #414141;
+    color: #414141; */
 }
 
 .faq-answer p {
