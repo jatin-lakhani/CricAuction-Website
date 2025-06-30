@@ -12,6 +12,14 @@
         margin-top: 69px;
     }
 }
+@media (max-width:1919px) {
+    .pricing .price{
+        padding: 0 2rem;
+    }
+    .pricing .pricing-details .card .circle{
+        margin-top: 64px;
+    }
+}
 
 @media (max-width:1440px) {
     .hero .hero-title .h1 {
