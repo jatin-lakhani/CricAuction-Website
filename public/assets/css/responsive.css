@@ -8,6 +8,9 @@
     .container-xxl {
         max-width: 1550px !important
     }
+    .pricing .pricing-details .card .circle{
+        margin-top: 69px;
+    }
 }
 
 @media (max-width:1440px) {
@@ -232,6 +235,9 @@
     .up-team h3{
         font-size: 26px;
     }
+    .pricing .pricing-details .card .circle{
+        margin-top: 62px;
+    }
 
 }
 
@@ -369,6 +375,9 @@
     .up-team h3{
         font-size: 19px;
     }
+    .pricing .pricing-details .card .circle{
+        margin-top: 50px;
+    }
 
 }
 
@@ -483,6 +492,9 @@
         font-size: 15px;
         padding: 5px 0;
         margin-top: 5px
+    }
+    .pricing .pricing-details .card .circle{
+        margin-top: 50px;
     }
 
 }
@@ -837,6 +849,9 @@
     .auction-date-video {
         font-size: 16px;
     }
+    .pricing .pricing-details .card .circle{
+        margin-top: 52px;
+    }
 
 }
 
@@ -1134,6 +1149,10 @@
         align-items: center;
         text-align: center;
     }
+    .pricing .pricing-details .card .circle{
+        margin-top: 68px;
+    }
+
 
 }
 
@@ -1165,6 +1184,9 @@
 
     .arrow.left-arrow {
         margin-left: 0px;
+    }
+    .pricing .pricing-details .card .circle{
+        margin-top: 65px;
     }
 }
 
@@ -1241,10 +1263,10 @@
     .pricing .price {
         padding: 0 1rem
     }
-/* 
+
     .pricing .pricing-details .card .circle {
-        padding-top: 60px
-    } */
+        margin-top: 56px
+    }
 
     .pricing .pricing-details .btn-secondary {
         font-size: 14px;
