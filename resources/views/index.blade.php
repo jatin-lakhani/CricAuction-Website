@@ -881,8 +881,13 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-4 price" data-aos="fade-up" data-aos-delay="100">
                             <div class="card">
-                                <img src="{{ asset('assets/images/pricing/pricing-1.png') }}"
-                                    class="card-img-top pricing-img" alt="Pricing 1">
+                                <div class="up-team">
+                                    <img src="{{ asset('assets/images/pricing/Rectangle.png') }}"
+                                        class="price-img-top pricing-img" alt="Pricing 5">
+                                    <h3 class="position-absolute w-100 text-white">
+                                        Up to <span style="color: #FFCD00;">4</span> Teams
+                                    </h3>
+                                </div>
                                 <div class="circle">
                                     <img src="{{ asset('assets/images/pricing/p.png') }}" alt="price 1">
                                     <h2 style="color: #CD394D;">Free <i class="bi bi-stars"></i></h2>
@@ -892,8 +897,13 @@
                         </div>
                         <div class="col-lg-4 col-md-4 price" data-aos="fade-up" data-aos-delay="200">
                             <div class="card">
-                                <img src="{{ asset('assets/images/pricing/pricing-2.png') }}"
-                                    class="card-img-top pricing-img" alt="Pricing 2">
+                                <div class="up-team">
+                                    <img src="{{ asset('assets/images/pricing/Rectangle.png') }}"
+                                        class="price-img-top pricing-img" alt="Pricing 5">
+                                    <h3 class="position-absolute w-100 text-white">
+                                        Up to <span style="color: #FFCD00;">8</span> Teams
+                                    </h3>
+                                </div>
                                 <div class="circle">
                                     <img src="{{ asset('assets/images/pricing/p.png') }}" alt="price 2">
                                     <h2><span>Rs</span></br>1999/-</h2>
@@ -901,12 +911,17 @@
                                 <a href="" class="btn btn-secondary">Get Started</a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 price" data-aos="fade-up" data-aos-delay="300">
+                         <div class="col-lg-4 col-md-4 price" data-aos="fade-up" data-aos-delay="200">
                             <div class="card">
-                                <img src="{{ asset('assets/images/pricing/pricing-3.png') }}"
-                                    class="card-img-top pricing-img" alt="Pricing 3">
+                                <div class="up-team">
+                                    <img src="{{ asset('assets/images/pricing/Rectangle.png') }}"
+                                        class="price-img-top pricing-img" alt="Pricing 5">
+                                    <h3 class="position-absolute w-100 text-white">
+                                        Up to <span style="color: #FFCD00;">12</span> Teams
+                                    </h3>
+                                </div>
                                 <div class="circle">
-                                    <img src="{{ asset('assets/images/pricing/p.png') }}" alt="price 3">
+                                    <img src="{{ asset('assets/images/pricing/p.png') }}" alt="price 2">
                                     <h2><span>Rs</span></br>2999/-</h2>
                                 </div>
                                 <a href="" class="btn btn-secondary">Get Started</a>
@@ -914,8 +929,13 @@
                         </div>
                         <div class="col-lg-4 col-md-4 price" data-aos="fade-up" data-aos-delay="400">
                             <div class="card">
-                                <img src="{{ asset('assets/images/pricing/pricing-4.png') }}"
-                                    class="card-img-top pricing-img" alt="Pricing 4">
+                                <div class="up-team">
+                                    <img src="{{ asset('assets/images/pricing/Rectangle.png') }}"
+                                        class="price-img-top pricing-img" alt="Pricing 5">
+                                    <h3 class="position-absolute w-100 text-white">
+                                        Up to <span style="color: #FFCD00;">16</span> Teams
+                                    </h3>
+                                </div>
                                 <div class="circle">
                                     <img src="{{ asset('assets/images/pricing/p.png') }}" alt="price 4">
                                     <h2><span>Rs</span></br>3999/-</h2>
@@ -925,8 +945,13 @@
                         </div>
                         <div class="col-lg-4 col-md-4 price" data-aos="fade-up" data-aos-delay="500">
                             <div class="card">
-                                <img src="{{ asset('assets/images/pricing/pricing-5.png') }}"
-                                    class="card-img-top pricing-img" alt="Pricing 5">
+                                <div class="up-team">
+                                    <img src="{{ asset('assets/images/pricing/Rectangle.png') }}"
+                                        class="price-img-top pricing-img" alt="Pricing 5">
+                                    <h3 class="position-absolute w-100 text-white">
+                                        Up to <span style="color: #FFCD00;">20</span> Teams
+                                    </h3>
+                                </div>
                                 <div class="circle">
                                     <img src="{{ asset('assets/images/pricing/p.png') }}" alt="price 5">
                                     <h2><span>Rs</span></br>4999/-</h2>
@@ -934,12 +959,17 @@
                                 <a href="" class="btn btn-secondary">Get Started</a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 price" data-aos="fade-up" data-aos-delay="600">
+                         <div class="col-lg-4 col-md-4 price" data-aos="fade-up" data-aos-delay="200">
                             <div class="card">
-                                <img src="{{ asset('assets/images/pricing/pricing-6.png') }}"
-                                    class="card-img-top pricing-img" alt="Pricing 6">
+                                <div class="up-team">
+                                    <img src="{{ asset('assets/images/pricing/Rectangle.png') }}"
+                                        class="price-img-top pricing-img" alt="Pricing 5">
+                                    <h3 class="position-absolute w-100 text-white">
+                                        Up to <span style="color: #FFCD00;">30</span> Teams
+                                    </h3>
+                                </div>
                                 <div class="circle">
-                                    <img src="{{ asset('assets/images/pricing/p.png') }}" alt="price 6">
+                                    <img src="{{ asset('assets/images/pricing/p.png') }}" alt="price 2">
                                     <h2><span>Rs</span></br>5999/-</h2>
                                 </div>
                                 <a href="" class="btn btn-secondary">Get Started</a>
