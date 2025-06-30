@@ -943,7 +943,7 @@ section {
 
 .pricing .price {
     margin-bottom: 1.5rem;
-    padding: 0 4rem
+    padding: 0 3rem
 }
 
 .pricing .pricing-details .card {
@@ -963,11 +963,11 @@ section {
     align-items: center;
     justify-content: center;
     position: relative;
-    padding-top: 115px
+    padding-top: 95px;
 }
 
 .pricing .pricing-details .card .circle img {
-    width: 60%;
+    width: 55%;
     height: 100% !important;
 }
 
